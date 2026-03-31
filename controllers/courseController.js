@@ -34,3 +34,21 @@ export const createCourse = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+
+// @desc    Delete a course
+// @route   DELETE /api/courses/:id
+// @access  Private/Admin
+export const deleteCourse = async (req, res) => {
+  try {
+    const course = await Course.findById(req.params.id);
+
+    if (course) {
+      await Course.deleteOne({ _id: course._id });
+      res.json({ message: "Course removed" });
+    } else {
+      res.status(404).json({ message: "Course not found" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
