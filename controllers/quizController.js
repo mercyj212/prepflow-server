@@ -170,7 +170,7 @@ export const generateQuestions = async (req, res) => {
     }
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
     const prompt = `You are an expert curriculum designer. Based on the following source material, generate exactly ${count || 100} multiple-choice questions. 
 It is extremely important that you attempt to generate as close to 100 questions as possible if the text allows.
