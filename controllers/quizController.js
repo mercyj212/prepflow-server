@@ -1,6 +1,15 @@
 import Quiz from "../models/Quiz.js";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
+const shuffleArray = (array) => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
 // @desc    Get all quizzes
 // @route   GET /api/quizzes
 // @access  Public/Private based on requirements
@@ -21,7 +30,10 @@ export const getQuizById = async (req, res) => {
     const quiz = await Quiz.findById(req.params.id).select("-questions.options.isCorrect");
 
     if (quiz) {
-      res.json(quiz);
+      // Create a shallow copy to modify questions without affecting DB
+      const quizObj = quiz.toObject();
+      quizObj.questions = shuffleArray(quizObj.questions).slice(0, 60);
+      res.json(quizObj);
     } else {
       res.status(404).json({ message: "Quiz not found" });
     }
@@ -55,7 +67,9 @@ export const getStudyQuizByIdPublic = async (req, res) => {
     const quiz = await Quiz.findById(req.params.id);
 
     if (quiz) {
-      res.json(quiz);
+      const quizObj = quiz.toObject();
+      quizObj.questions = shuffleArray(quizObj.questions).slice(0, 60);
+      res.json(quizObj);
     } else {
       res.status(404).json({ message: "Quiz not found" });
     }
@@ -158,7 +172,8 @@ export const generateQuestions = async (req, res) => {
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
-    const prompt = `You are an expert curriculum designer. Based on the following source material, generate exactly ${count} multiple-choice questions. 
+    const prompt = `You are an expert curriculum designer. Based on the following source material, generate exactly ${count || 100} multiple-choice questions. 
+It is extremely important that you attempt to generate as close to 100 questions as possible if the text allows.
 For each question, provide 4 options, a boolean flag 'isCorrect' (only exactly 1 option should be true), and an 'explanation' string explaining why the answer is correct based on the text.
 
 Output MUST be a valid JSON array of objects, strictly following this schema:
