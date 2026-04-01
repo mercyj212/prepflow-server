@@ -10,6 +10,7 @@ const optionSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
     default: false,
+    select: true,
   },
 });
 

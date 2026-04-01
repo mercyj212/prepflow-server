@@ -15,24 +15,41 @@ const shuffleArray = (array) => {
 // @access  Public/Private based on requirements
 export const getQuizzes = async (req, res) => {
   try {
-    const quizzes = await Quiz.find({ isActive: true }).select("-questions.options.isCorrect");
+    const quizzes = await Quiz.find({ isActive: true });
     res.json(quizzes);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-// @desc    Get single quiz (No answers)
+// @desc    Get single quiz (Includes answers for feedback)
 // @route   GET /api/quizzes/:id
 // @access  Private
 export const getQuizById = async (req, res) => {
   try {
-    const quiz = await Quiz.findById(req.params.id).select("-questions.options.isCorrect");
+    // Force inclusion of isCorrect field in query
+    const quiz = await Quiz.findById(req.params.id);
 
     if (quiz) {
-      // Create a shallow copy to modify questions without affecting DB
+      // Use the raw MongoDB data to ensure we don't lose fields during toObject() default transforms
       const quizObj = quiz.toObject();
-      quizObj.questions = shuffleArray(quizObj.questions).slice(0, 60);
+      
+      // Reshuffle and slice, but manually verify isCorrect is present
+      const randomQuestions = shuffleArray(quizObj.questions).slice(0, 60);
+
+      quizObj.questions = randomQuestions.map(q => {
+        return {
+          ...q,
+          options: q.options.map(o => {
+            return {
+              text: o.text,
+              _id: o._id,
+              isCorrect: !!o.isCorrect // Explicitly cast and include
+            };
+          })
+        };
+      });
+      
       res.json(quizObj);
     } else {
       res.status(404).json({ message: "Quiz not found" });

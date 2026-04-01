@@ -38,7 +38,7 @@ export const createSubmission = async (req, res) => {
       student: req.user._id,
       quiz: quizId,
       score,
-      totalQuestions: quiz.questions.length,
+      totalQuestions: req.body.totalQuestions || quiz.questions.length,
       timeTaken,
       answers: processedAnswers,
     });
