@@ -40,7 +40,7 @@ export const getQuizById = async (req, res) => {
       quizObj.questions = randomQuestions.map(q => {
         return {
           ...q,
-          options: q.options.map(o => {
+          options: shuffleArray(q.options).map(o => {
             return {
               text: o.text,
               _id: o._id,
@@ -85,7 +85,14 @@ export const getStudyQuizByIdPublic = async (req, res) => {
 
     if (quiz) {
       const quizObj = quiz.toObject();
-      quizObj.questions = shuffleArray(quizObj.questions).slice(0, 60);
+      const randomQuestions = shuffleArray(quizObj.questions).slice(0, 60);
+      
+      quizObj.questions = randomQuestions.map(q => {
+        return {
+          ...q,
+          options: shuffleArray(q.options)
+        };
+      });
       res.json(quizObj);
     } else {
       res.status(404).json({ message: "Quiz not found" });
