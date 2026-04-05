@@ -89,3 +89,30 @@ export const sendScholarEmail = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+// @desc    Send a global email blast to EVERY scholar
+export const sendScholarBlast = async (req, res) => {
+    try {
+        const { subject, message } = req.body;
+        const students = await Student.find({ role: 'student' });
+
+        if (students.length === 0) {
+            return res.status(404).json({ message: "No scholars found to broadcast to." });
+        }
+
+        // 🚀 Dispatching across the grid (Parallel Execution)
+        const dispatchPromises = students.map(scholar => 
+            sendEmail({
+                email: scholar.email,
+                subject: subject || "Global Alert: PrepUp CBT",
+                message: message,
+            }).catch(err => console.error(`[BLAST DELAY]: Failed for ${scholar.email}: ${err.message}`))
+        );
+
+        await Promise.all(dispatchPromises);
+
+        res.json({ message: `Global Broadcast successfully launched to ${students.length} scholars! 🚀` });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};

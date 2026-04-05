@@ -42,6 +42,15 @@ const studentSchema = new mongoose.Schema(
       type: String,
       default: "Unknown",
     },
+    // 🛡️ SECURITY NODES
+    isVerified: {
+      type: Boolean,
+      default: false,
+    },
+    verificationToken: String,
+    verificationTokenExpire: Date,
+    resetPasswordToken: String,
+    resetPasswordExpire: Date,
   },
   {
     timestamps: true,

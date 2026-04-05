@@ -1,15 +1,20 @@
 import express from "express";
-import {
-  registerStudent,
-  loginStudent,
-  getStudentProfile,
+import { 
+  registerStudent, 
+  loginStudent, 
+  verifyEmail, 
+  forgotPassword, 
+  resetPassword 
 } from "../controllers/authController.js";
-import { protect } from "../utils/authMiddleware.js";
 
 const router = express.Router();
 
 router.post("/register", registerStudent);
 router.post("/login", loginStudent);
-router.get("/profile", protect, getStudentProfile);
+
+// 🛡️ SECURITY & IDENTITY ROUTES
+router.get("/verify-email/:token", verifyEmail);
+router.post("/forgot-password", forgotPassword);
+router.put("/reset-password/:token", resetPassword);
 
 export default router;
