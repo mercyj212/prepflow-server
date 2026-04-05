@@ -29,3 +29,12 @@ export const createStudentAccess = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+export const getAllStudentsCount = async (req, res) => {
+    try {
+        const count = await Student.countDocuments({ role: 'student' });
+        res.json({ count });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
