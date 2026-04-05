@@ -10,6 +10,7 @@ import authRoutes from './routes/authRoutes.js';
 import quizRoutes from './routes/quizRoutes.js';
 import submissionRoutes from './routes/submissionRoutes.js';
 import courseRoutes from './routes/courseRoutes.js';
+import chatRoutes from './routes/chatRoutes.js';
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/quizzes', quizRoutes);
 app.use('/api/submissions', submissionRoutes);
 app.use('/api/courses', courseRoutes);
+app.use('/api/chat', chatRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'Backend is working🚀' });
