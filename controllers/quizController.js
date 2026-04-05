@@ -209,13 +209,14 @@ export const generateQuestions = async (req, res) => {
     let { material, count } = req.body;
     count = parseInt(count) || 10;
     
-    // If we have a file, extract text or prepare multimodal content
+    // If we have files, extract text or prepare multimodal content
     let finalPromptParts = [];
     let materialDescription = "";
 
-    if (req.file) {
-      const isPdf = req.file.mimetype === "application/pdf";
-      const fileUrl = req.file.path; // Cloudinary URL
+    const uploadedFiles = req.files || [];
+    for (const file of uploadedFiles) {
+      const isPdf = file.mimetype === "application/pdf";
+      const fileUrl = file.path; // Cloudinary URL
 
       if (isPdf) {
         // Option 1: Extract text from PDF using pdf-parse
@@ -224,10 +225,10 @@ export const generateQuestions = async (req, res) => {
           const buffer = await response.arrayBuffer();
           const parser = new PDFParse({ data: Buffer.from(buffer) });
           const result = await parser.getText();
-          materialDescription = result.text;
+          materialDescription += `\n\n[FILE: ${file.originalname}]\n${result.text}`;
         } catch (pdfErr) {
           console.error("PDF Parse Error:", pdfErr);
-          return res.status(500).json({ message: "Failed to read PDF content" });
+          // Continue to next file instead of failing entire request
         }
       } else {
         // Option 2: Image - Send directly to Gemini as inline data
@@ -238,12 +239,11 @@ export const generateQuestions = async (req, res) => {
           finalPromptParts.push({
             inlineData: {
               data: base64Data,
-              mimeType: req.file.mimetype
+              mimeType: file.mimetype
             }
           });
         } catch (imgErr) {
           console.error("Image Fetch Error:", imgErr);
-          return res.status(500).json({ message: "Failed to process image material" });
         }
       }
     }
