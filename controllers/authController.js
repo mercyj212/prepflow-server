@@ -43,7 +43,7 @@ export const registerStudent = async (req, res) => {
     });
 
     if (student) {
-      // 📧 DISPATCH OTP EMAIL
+      let mailDiagnostic = "success";
       try {
         await sendEmail({
           email: student.email,
@@ -55,7 +55,8 @@ export const registerStudent = async (req, res) => {
           }
         });
       } catch (emailErr) {
-        console.error('[COMMUNICATION DELAY]: OTP node pending dispatch.');
+        console.error('[COMMUNICATION DELAY]:', emailErr.message);
+        mailDiagnostic = emailErr.message || "Silent Communication Failure";
       }
 
       res.status(201).json({
@@ -64,7 +65,8 @@ export const registerStudent = async (req, res) => {
         email: student.email,
         role: student.role,
         isVerified: student.isVerified,
-        message: 'Registration successful. Check email to activate account.'
+        message: 'Registration successful. Check email to activate account.',
+        serverDiagnostic: mailDiagnostic
       });
     } else {
       res.status(400).json({ message: "Invalid student data" });
@@ -93,6 +95,8 @@ export const loginStudent = async (req, res) => {
           verificationTokenExpire: Date.now() + 10 * 60 * 1000, // 10 minutes
         });
 
+        let mailDiagnostic = "success";
+        
         try {
           await sendEmail({
             email: student.email,
@@ -101,13 +105,15 @@ export const loginStudent = async (req, res) => {
             context: { name: student.fullName, otp: otp }
           });
         } catch (emailErr) {
-          console.error('[COMMUNICATION DELAY]: OTP resend pending dispatch.');
+          console.error('[COMMUNICATION DELAY]:', emailErr.message);
+          mailDiagnostic = emailErr.message || "Silent Communication Failure";
         }
 
         return res.status(403).json({ 
           message: "Identity not verified. A fresh OTP has been sent to your inbox.",
           requiresVerification: true,
-          email: student.email
+          email: student.email,
+          serverDiagnostic: mailDiagnostic
         });
       }
 
