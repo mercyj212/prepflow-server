@@ -1,5 +1,13 @@
 import mongoose from "mongoose";
 
+const materialSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  url: { type: String, required: true },
+  type: { type: String, enum: ["image", "pdf", "other"], default: "other" },
+  publicId: { type: String }, // cloudinary public_id for deletion
+  uploadedAt: { type: Date, default: Date.now },
+});
+
 const courseSchema = new mongoose.Schema(
     {
         title: {
@@ -14,6 +22,7 @@ const courseSchema = new mongoose.Schema(
             default: "",
             trim: true,
         },
+        materials: [materialSchema],
     },
     { timestamps: true }
 );
