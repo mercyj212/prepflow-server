@@ -3,11 +3,17 @@ import fs from 'fs';
 import path from 'path';
 import handlebars from 'handlebars';
 
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const sendEmail = async (options) => {
     // 1. CREATE TRANSPORT (Using environment variables for security)
     const transporter = nodemailer.createTransport({
         host: process.env.EMAIL_HOST || 'smtp.gmail.com',
-        port: process.env.EMAIL_PORT || 587,
+        port: parseInt(process.env.EMAIL_PORT) || 587,
+        secure: parseInt(process.env.EMAIL_PORT) === 465, // True for 465, false for 587
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
@@ -18,7 +24,8 @@ const sendEmail = async (options) => {
     let htmlContent = options.html;
     if (options.template) {
         try {
-            const templatePath = path.join(process.cwd(), 'templates', `${options.template}.hbs`);
+            // Bulletproof path resolution for Render containers
+            const templatePath = path.join(__dirname, '..', 'templates', `${options.template}.hbs`);
             const templateSource = fs.readFileSync(templatePath, 'utf8');
             const compiledTemplate = handlebars.compile(templateSource);
             htmlContent = compiledTemplate(options.context || {});
