@@ -14,6 +14,9 @@ const sendEmail = async (options) => {
         host: process.env.EMAIL_HOST || 'smtp.gmail.com',
         port: parseInt(process.env.EMAIL_PORT) || 587,
         secure: parseInt(process.env.EMAIL_PORT) === 465, // True for 465, false for 587
+        connectionTimeout: 10000, // 10 seconds max connection time
+        greetingTimeout: 10000, 
+        socketTimeout: 15000, 
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
