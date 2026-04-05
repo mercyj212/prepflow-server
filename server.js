@@ -37,7 +37,8 @@ const limiter = rateLimit({
 app.use('/api/', limiter);
 
 const allowedOrigins = [
-  'https://prepup-cbt.onrender.com', // Your Live App
+  'https://prepupcbt.vercel.app',    // Your Vercel Live App
+  'https://prepup-cbt.onrender.com', // Your Render Live App
   'http://localhost:5173',
   'http://127.0.0.1:5173',
   'http://localhost:3000'
