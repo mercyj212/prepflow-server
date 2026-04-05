@@ -83,9 +83,32 @@ export const loginStudent = async (req, res) => {
     const student = await Student.findOne({ email });
 
     if (student && (await student.comparePassword(password))) {
-      // 🛡️ IDENTITY CHECK: BLOCK UNVERIFIED
+      // 🛡️ IDENTITY CHECK: BLOCK AND RE-VERIFY UNVERIFIED SCHOLARS
       if (!student.isVerified) {
-        return res.status(401).json({ message: "Identity not verified. Please check your inbox 🛡️" });
+        const otp = Math.floor(100000 + Math.random() * 900000).toString();
+        const otpHash = crypto.createHash('sha256').update(otp).digest('hex');
+
+        await Student.findByIdAndUpdate(student._id, {
+          verificationToken: otpHash,
+          verificationTokenExpire: Date.now() + 10 * 60 * 1000, // 10 minutes
+        });
+
+        try {
+          await sendEmail({
+            email: student.email,
+            subject: 'Action Required: Identity OTP Node 🛡️',
+            template: 'verifyEmail',
+            context: { name: student.fullName, otp: otp }
+          });
+        } catch (emailErr) {
+          console.error('[COMMUNICATION DELAY]: OTP resend pending dispatch.');
+        }
+
+        return res.status(403).json({ 
+          message: "Identity not verified. A fresh OTP has been sent to your inbox.",
+          requiresVerification: true,
+          email: student.email
+        });
       }
 
       // 🛰️ ACTIVITY TRACKER: High-Res Timing & Device Intelligence
