@@ -4,7 +4,7 @@ import sendEmail from "../utils/emailService.js";
 import crypto from 'crypto';
 
 const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
+  return jwt.sign({ id: id.toString() }, process.env.JWT_SECRET, {
     expiresIn: "30d",
   });
 };
@@ -89,21 +89,21 @@ export const loginStudent = async (req, res) => {
       }
 
       // 🛰️ ACTIVITY TRACKER: High-Res Timing & Device Intelligence
-      student.lastLogin = Date.now();
-      const userAgent = req.headers['user-agent'] || 'Unknown-Client';
+      let deviceInfo = 'Standard Web-Client';
+      const userAgent = req.headers['user-agent'] || '';
       
-      try {
-        if (/android/i.test(userAgent)) student.deviceInfo = 'Android Device';
-        else if (/iphone|ipad|ipod/i.test(userAgent)) student.deviceInfo = 'iOS Device';
-        else if (/windows/i.test(userAgent)) student.deviceInfo = 'Windows PC';
-        else if (/macintosh/i.test(userAgent)) student.deviceInfo = 'Apple Mac';
-        else if (/linux/i.test(userAgent)) student.deviceInfo = 'Linux PC';
-        else student.deviceInfo = 'Standard Web-Client';
-      } catch (e) {
-        student.deviceInfo = 'Verified Client';
-      }
-      
-      await student.save();
+      if (/android/i.test(userAgent)) deviceInfo = 'Android Device';
+      else if (/iphone|ipad|ipod/i.test(userAgent)) deviceInfo = 'iOS Device';
+      else if (/windows/i.test(userAgent)) deviceInfo = 'Windows PC';
+      else if (/macintosh/i.test(userAgent)) deviceInfo = 'Apple Mac';
+      else if (/linux/i.test(userAgent)) deviceInfo = 'Linux PC';
+
+      await Student.findByIdAndUpdate(student._id, {
+        $set: { 
+          lastLogin: Date.now(),
+          deviceInfo: deviceInfo
+        }
+      });
 
       res.json({
         _id: student._id,
@@ -117,6 +117,7 @@ export const loginStudent = async (req, res) => {
       res.status(401).json({ message: "Invalid credentials" });
     }
   } catch (error) {
+    console.error('[AUTH ERROR][LOGIN]:', error);
     res.status(500).json({ message: error.message });
   }
 };
