@@ -15,40 +15,47 @@ export const registerStudent = async (req, res) => {
   const { fullName, email, password, phone } = req.body;
 
   try {
+    // 🛡️ SECURITY SENTINEL: ENFORCE HIGH-ENTROPY PASSWORDS
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordRegex.test(password)) {
+      return res.status(400).json({ 
+        message: "Institutional Security Required: Password must be 8+ chars, with Uppercase, Number, and Special Symbol (@$!%*?&)." 
+      });
+    }
+
     const studentExists = await Student.findOne({ email });
 
     if (studentExists) {
       return res.status(400).json({ message: "Student already exists" });
     }
 
-    // 🛡️ GENERATE SECURE VERIFICATION TOKEN
-    const vToken = crypto.randomBytes(32).toString('hex');
-    const vTokenHash = crypto.createHash('sha256').update(vToken).digest('hex');
+    // 🛡️ GENERATE 6-DIGIT OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const otpHash = crypto.createHash('sha256').update(otp).digest('hex');
 
     const student = await Student.create({
       fullName,
       email,
       password,
       phone,
-      verificationToken: vTokenHash,
-      verificationTokenExpire: Date.now() + 24 * 60 * 60 * 1000, // 24 hours
+      verificationToken: otpHash,
+      verificationTokenExpire: Date.now() + 10 * 60 * 1000, // 10 minutes (Urgent)
     });
 
     if (student) {
-      // 📧 DISPATCH VERIFICATION EMAIL
+      // 📧 DISPATCH OTP EMAIL
       try {
-        const vUrl = `${process.env.FRONTEND_URL || 'http://localhost:5173'}/verify-email/${vToken}`;
         await sendEmail({
           email: student.email,
-          subject: 'Action Required: Verify Your Identity 🛡️',
+          subject: 'Action Required: Identity OTP Node 🛡️',
           template: 'verifyEmail',
           context: {
             name: student.fullName,
-            verificationUrl: vUrl
+            otp: otp
           }
         });
       } catch (emailErr) {
-        console.error('[COMMUNICATION DELAY]: Identity badge pending dispatch.');
+        console.error('[COMMUNICATION DELAY]: OTP node pending dispatch.');
       }
 
       res.status(201).json({
@@ -114,7 +121,36 @@ export const loginStudent = async (req, res) => {
   }
 };
 
-// @desc    Verify email address
+// @desc    Verify OTP
+// @route   POST /api/auth/verify-otp
+export const verifyOTP = async (req, res) => {
+  const { email, otp } = req.body;
+
+  try {
+    const otpHash = crypto.createHash('sha256').update(otp).digest('hex');
+
+    const student = await Student.findOne({
+      email,
+      verificationToken: otpHash,
+      verificationTokenExpire: { $gt: Date.now() }
+    });
+
+    if (!student) {
+      return res.status(400).json({ message: "Invalid or expired OTP code 🛡️" });
+    }
+
+    student.isVerified = true;
+    student.verificationToken = undefined;
+    student.verificationTokenExpire = undefined;
+    await student.save();
+
+    res.json({ message: "Identity verified! Account activated.", token: generateToken(student._id) });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Verify email address (Legacy support if needed, but we use OTP now)
 // @route   GET /api/auth/verify-email/:token
 export const verifyEmail = async (req, res) => {
   try {

@@ -2,6 +2,7 @@ import express from "express";
 import { 
   registerStudent, 
   loginStudent, 
+  verifyOTP,
   verifyEmail, 
   forgotPassword, 
   resetPassword 
@@ -11,6 +12,7 @@ const router = express.Router();
 
 router.post("/register", registerStudent);
 router.post("/login", loginStudent);
+router.post("/verify-otp", verifyOTP);
 
 // 🛡️ SECURITY & IDENTITY ROUTES
 router.get("/verify-email/:token", verifyEmail);
