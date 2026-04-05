@@ -327,8 +327,20 @@ Directly return the JSON array. Do not include markdown code blocks or any other
       }
     }
 
+    // Shuffle options to ensure balanced distribution of correct answers (not biased towards A or D)
+    const shuffledQuestions = (questions || []).map(q => {
+      if (q.options && q.options.length > 0) {
+        // Simple Fisher-Yates shuffle algorithm
+        for (let i = q.options.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [q.options[i], q.options[j]] = [q.options[j], q.options[i]];
+        }
+      }
+      return q;
+    });
+
     // Append to existing
-    quiz.questions.push(...questions);
+    quiz.questions.push(...shuffledQuestions);
     const updatedQuiz = await quiz.save();
 
     res.status(201).json({ message: "Questions generated successfully", updatedQuiz });
