@@ -262,7 +262,7 @@ export const generateQuestions = async (req, res) => {
     }
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    // Use gemini-1.5-flash which is widely available and fast
+    // Use gemini-2.5-flash as the primary generation model
     const modelName = "gemini-2.5-flash"; 
     const model = genAI.getGenerativeModel({ model: modelName });
 
