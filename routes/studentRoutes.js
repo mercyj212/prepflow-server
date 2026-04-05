@@ -1,10 +1,13 @@
 import express from "express";
-import { createStudentAccess, getAllStudentsCount } from "../controllers/studentController.js";
-import { protect, admin } from "../middleware/authMiddleware.js"; // Standard protect/admin check
+import { createStudentAccess, getAllStudentsCount, getAllStudents, deleteStudent, sendScholarEmail } from "../controllers/studentController.js";
+import { protect, admin } from "../utils/authMiddleware.js"; // Fixed path
 
 const router = express.Router();
 
 router.post("/create-access", createStudentAccess);
 router.get("/count", protect, admin, getAllStudentsCount);
+router.get("/", protect, admin, getAllStudents);
+router.delete("/:id", protect, admin, deleteStudent);
+router.post("/email", protect, admin, sendScholarEmail);
 
 export default router;

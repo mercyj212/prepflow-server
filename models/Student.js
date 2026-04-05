@@ -34,6 +34,14 @@ const studentSchema = new mongoose.Schema(
       enum: ["active", "revoked"],
       default: "active",
     },
+    lastLogin: {
+      type: Date,
+      default: Date.now,
+    },
+    deviceInfo: {
+      type: String,
+      default: "Unknown",
+    },
   },
   {
     timestamps: true,

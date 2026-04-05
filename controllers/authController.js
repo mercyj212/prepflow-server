@@ -7,8 +7,11 @@ const generateToken = (id) => {
   });
 };
 
+import sendEmail from "../utils/emailService.js";
+
 // @desc    Register a new student
 // @route   POST /api/auth/register
+// @access  Public
 export const registerStudent = async (req, res) => {
   const { fullName, email, password, phone } = req.body;
 
@@ -27,6 +30,21 @@ export const registerStudent = async (req, res) => {
     });
 
     if (student) {
+      // 📧 DISPATCH WELCOME EMAIL (Non-blocking)
+      try {
+        await sendEmail({
+          email: student.email,
+          subject: 'Welcome to PrepUp CBT! 🚀',
+          template: 'welcomeEmail',
+          context: {
+            name: student.fullName,
+            loginUrl: `${process.env.FRONTEND_URL || 'http://localhost:5173'}/login`
+          }
+        });
+      } catch (emailErr) {
+        console.error('[COMMUNICATION DELAY]: Welcome kit dispatch pending.');
+      }
+
       res.status(201).json({
         _id: student._id,
         fullName: student.fullName,
@@ -51,6 +69,17 @@ export const loginStudent = async (req, res) => {
     const student = await Student.findOne({ email });
 
     if (student && (await student.comparePassword(password))) {
+      student.lastLogin = Date.now();
+      
+      // Robust device capture with fallback
+      try {
+        student.deviceInfo = req.headers['user-agent'] || 'Unknown Browser';
+        await student.save();
+      } catch (saveError) {
+        console.error('[DATABASE ERROR]: Failed to save scholar activity:', saveError.message);
+        // We still let them log in even if activity tracking fails
+      }
+      
       res.json({
         _id: student._id,
         fullName: student.fullName,
