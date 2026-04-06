@@ -19,8 +19,11 @@ import hpp from 'hpp';
 
 const app = express();
 
-// 1. SECURITY HEADERS
-app.use(helmet());
+// 1. SECURITY HEADERS (Configured for Google Identity Hub compatibility)
+app.use(helmet({
+  crossOriginOpenerPolicy: { policy: "same-origin-allow-popups" },
+  crossOriginEmbedderPolicy: false,
+}));
 
 // 2. DATA SANITIZATION (Safe implementation for Express 5)
 // app.use(mongoSanitize()); // Temporarily disabled for compatibility check

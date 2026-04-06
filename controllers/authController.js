@@ -4,8 +4,6 @@ import sendEmail from "../utils/emailService.js";
 import crypto from 'crypto';
 import { OAuth2Client } from 'google-auth-library';
 
-const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
-
 const generateToken = (id) => {
   return jwt.sign({ id: id.toString() }, process.env.JWT_SECRET, {
     expiresIn: "30d",
@@ -379,9 +377,20 @@ export const googleLogin = async (req, res) => {
   const { idToken } = req.body;
 
   try {
-    const ticket = await client.verifyIdToken({
+    if (!idToken) {
+      return res.status(400).json({ message: "Missing Google Security Token." });
+    }
+
+    const clientId = process.env.GOOGLE_CLIENT_ID;
+    if (!clientId) {
+      console.error('[AUTH ERROR][GOOGLE HUB]: Server-side GOOGLE_CLIENT_ID missing.');
+      return res.status(500).json({ message: "External identity hub configuration error." });
+    }
+
+    const authClient = new OAuth2Client(clientId);
+    const ticket = await authClient.verifyIdToken({
       idToken,
-      audience: process.env.GOOGLE_CLIENT_ID,
+      audience: clientId,
     });
 
     const payload = ticket.getPayload();
