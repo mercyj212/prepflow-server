@@ -20,6 +20,7 @@ router.route("/").get(getQuizzes).post(protect, admin, createQuiz);
 router.route("/:id/study").get(protect, getStudyQuizById);
 router.route("/:id/study/public").get(getStudyQuizByIdPublic);
 router.route("/:id/questions").post(protect, admin, addQuestion);
+router.route("/:id/batch-questions").post(protect, admin, addBatchQuestions);
 router.route("/:id/generate").post(protect, admin, upload.array("files", 10), generateQuestions);
 router
   .route("/:id")

@@ -1,6 +1,6 @@
 import Quiz from "../models/Quiz.js";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { PDFParse } from "pdf-parse";
+import pdf from "pdf-parse";
 
 const shuffleArray = (array) => {
   const shuffled = [...array];
@@ -137,7 +137,26 @@ export const addQuestion = async (req, res) => {
   }
 };
 
-// @desc    Update a quiz
+// @desc    Add multiple questions to a quiz
+// @route   POST /api/quizzes/:id/batch-questions
+// @access  Private/Admin
+export const addBatchQuestions = async (req, res) => {
+  try {
+    const quiz = await Quiz.findById(req.params.id);
+    if (quiz) {
+      const { questions } = req.body;
+      if (!Array.isArray(questions)) return res.status(400).json({ message: "Questions must be an array" });
+      
+      quiz.questions.push(...questions);
+      const updatedQuiz = await quiz.save();
+      res.status(201).json(updatedQuiz);
+    } else {
+      res.status(404).json({ message: "Quiz not found" });
+    }
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
 // @route   PUT /api/quizzes/:id
 // @access  Private/Admin
 export const updateQuiz = async (req, res) => {
@@ -223,9 +242,8 @@ export const generateQuestions = async (req, res) => {
         try {
           const response = await fetch(fileUrl);
           const buffer = await response.arrayBuffer();
-          const parser = new PDFParse({ data: Buffer.from(buffer) });
-          const result = await parser.getText();
-          materialDescription += `\n\n[FILE: ${file.originalname}]\n${result.text}`;
+          const data = await pdf(Buffer.from(buffer));
+          materialDescription += `\n\n[FILE: ${file.originalname}]\n${data.text}`;
         } catch (pdfErr) {
           console.error("PDF Parse Error:", pdfErr);
           // Continue to next file instead of failing entire request
@@ -262,8 +280,8 @@ export const generateQuestions = async (req, res) => {
     }
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    // Use gemini-2.5-flash as the primary generation model
-    const modelName = "gemini-2.5-flash"; 
+    // Use gemini-1.5-flash as the primary generation model
+    const modelName = "gemini-1.5-flash"; 
     const model = genAI.getGenerativeModel({ model: modelName });
 
     const instructions = `You are an expert curriculum designer and university lecturer specializing in high-stakes Computer Based Testing (CBT).
