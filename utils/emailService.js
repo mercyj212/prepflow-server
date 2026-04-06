@@ -10,25 +10,18 @@ const __dirname = path.dirname(__filename);
 
 const sendEmail = async (options) => {
     // ENFORCE IPv4 (Fixes Render ENETUNREACH on IPv6)
-    const hostName = process.env.EMAIL_HOST || 'smtp.gmail.com';
-    let targetHost = hostName;
-    try {
-        const ipv4Addresses = await dns.promises.resolve4(hostName);
-        if (ipv4Addresses && ipv4Addresses.length > 0) {
-            targetHost = ipv4Addresses[0]; 
-        }
-    } catch (dnsErr) {
-        console.warn('[IPv4 DNS Fallback Failed]:', dnsErr.message);
-    }
+    const hostName = 'smtp.gmail.com'; 
+    let targetHost = '192.178.223.108'; // 🏗️ HARDCODED IPv4: Bypasses faulty IPv6 resolution
 
     // 1. CREATE TRANSPORT (Using environment variables for security)
     const transporter = nodemailer.createTransport({
         host: targetHost,
         port: parseInt(process.env.EMAIL_PORT) || 587,
         secure: parseInt(process.env.EMAIL_PORT) === 465, 
-        connectionTimeout: 4000, 
-        greetingTimeout: 4000, 
-        socketTimeout: 4000, 
+        family: 4, // 🛡️ ENFORCE IPv4 (Prevents ENETUNREACH on IPv6 networks)
+        connectionTimeout: 10000, 
+        greetingTimeout: 10000, 
+        socketTimeout: 10000, 
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
