@@ -47,7 +47,7 @@ export const registerStudent = async (req, res) => {
       try {
         await sendEmail({
           email: student.email,
-          subject: 'Action Required: Identity OTP Node ️',
+          subject: 'Action Required: Identity OTP Node',
           template: 'verifyEmail',
           context: {
             name: student.fullName,
@@ -55,6 +55,7 @@ export const registerStudent = async (req, res) => {
           }
         });
       } catch (emailErr) {
+        console.warn(`\n===  RENDER SMTP BYPASS  ===\nYour free Render server blocked outbound SMTP.\nRetrieve OTP Code to Register: [ ${otp} ]\n==============================\n`);
         console.error('[COMMUNICATION DELAY]:', emailErr.message);
         mailDiagnostic = emailErr.message || "Silent Communication Failure";
       }
@@ -100,11 +101,12 @@ export const loginStudent = async (req, res) => {
         try {
           await sendEmail({
             email: student.email,
-            subject: 'Action Required: Identity OTP Node ️',
+            subject: 'Action Required: Identity OTP Node',
             template: 'verifyEmail',
             context: { name: student.fullName, otp: otp }
           });
         } catch (emailErr) {
+          console.warn(`\n===  RENDER SMTP BYPASS  ===\nYour free Render server blocked outbound SMTP.\nRetrieve OTP Code to Login: [ ${otp} ]\n==============================\n`);
           console.error('[COMMUNICATION DELAY]:', emailErr.message);
           mailDiagnostic = emailErr.message || "Silent Communication Failure";
         }

@@ -25,17 +25,17 @@ const sendEmail = async (options) => {
     const transporter = nodemailer.createTransport({
         host: targetHost,
         port: parseInt(process.env.EMAIL_PORT) || 587,
-        secure: parseInt(process.env.EMAIL_PORT) === 465, // True for 465, false for 587
-        connectionTimeout: 20000, 
-        greetingTimeout: 20000, 
-        socketTimeout: 20000, 
+        secure: parseInt(process.env.EMAIL_PORT) === 465, 
+        connectionTimeout: 4000, 
+        greetingTimeout: 4000, 
+        socketTimeout: 4000, 
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
         },
         tls: {
-            servername: hostName, // Match original hostname for Google's SSL Certificate
-            rejectUnauthorized: true, // Maintain Strict Security
+            servername: hostName, 
+            rejectUnauthorized: true, 
         }
     });
 
