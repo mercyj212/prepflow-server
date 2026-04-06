@@ -10,8 +10,14 @@ const generateToken = (id) => {
   });
 };
 
-// @desc    Register a new student
-// @route   POST /api/auth/register
+/**
+ * @public @async
+ * @method registerStudent
+ * @description Ingests scholar profile data, validates password entropy, 
+ * generates higher-order hash for OTP, and dispatches verification briefing.
+ * @param {Express.Request} req - Request object containing scholar credentials.
+ * @param {Express.Response} res - Response object returning scholar metadata.
+ */
 export const registerStudent = async (req, res) => {
   const { fullName, email, password, phone } = req.body;
 

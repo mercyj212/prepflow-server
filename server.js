@@ -26,10 +26,10 @@ app.use(helmet({
 }));
 
 // 2. DATA SANITIZATION (Safe implementation for Express 5)
-// app.use(mongoSanitize()); // Temporarily disabled for compatibility check
+app.use(mongoSanitize()); 
 
 // 3. PARAMETER POLLUTION PROTECTION
-// app.use(hpp()); // Temporarily disabled for compatibility check
+app.use(hpp()); 
 
 // 4. RATE LIMITING
 const limiter = rateLimit({
