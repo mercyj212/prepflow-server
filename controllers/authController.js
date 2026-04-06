@@ -39,7 +39,7 @@ export const registerStudent = async (req, res) => {
       password,
       phone,
       verificationToken: otpHash,
-      verificationTokenExpire: Date.now() + 10 * 60 * 1000, // 10 minutes (Urgent)
+      verificationTokenExpire: Date.now() + 60 * 60 * 1000, // 60 minutes
     });
 
     if (student) {
@@ -93,7 +93,7 @@ export const loginStudent = async (req, res) => {
 
         await Student.findByIdAndUpdate(student._id, {
           verificationToken: otpHash,
-          verificationTokenExpire: Date.now() + 10 * 60 * 1000, // 10 minutes
+          verificationTokenExpire: Date.now() + 60 * 60 * 1000, // 60 minutes
         });
 
         let mailDiagnostic = "success";
@@ -159,7 +159,11 @@ export const verifyOTP = async (req, res) => {
   const { email, otp } = req.body;
 
   try {
-    const otpHash = crypto.createHash('sha256').update(otp).digest('hex');
+    if (!email || !otp) {
+      return res.status(400).json({ message: 'Email and OTP are required.' });
+    }
+
+    const otpHash = crypto.createHash('sha256').update(otp.toString()).digest('hex');
 
     const student = await Student.findOne({
       email,
@@ -168,7 +172,7 @@ export const verifyOTP = async (req, res) => {
     });
 
     if (!student) {
-      return res.status(400).json({ message: "Invalid or expired OTP code ️" });
+      return res.status(400).json({ message: 'Invalid or expired OTP. Please request a new one.' });
     }
 
     student.isVerified = true;
@@ -176,8 +180,9 @@ export const verifyOTP = async (req, res) => {
     student.verificationTokenExpire = undefined;
     await student.save();
 
-    res.json({ message: "Identity verified! Account activated.", token: generateToken(student._id) });
+    res.json({ message: 'Identity verified! Account activated.', token: generateToken(student._id) });
   } catch (error) {
+    console.error('[AUTH ERROR][VERIFY OTP]:', error.message, error.stack);
     res.status(500).json({ message: error.message });
   }
 };
