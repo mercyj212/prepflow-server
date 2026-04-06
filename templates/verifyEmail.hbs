@@ -2,31 +2,31 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f4f4f5; margin: 0; padding: 40px; }
-        .card { max-width: 600px; background: white; border-radius: 24px; padding: 40px; margin: auto; border: 1px solid #e4e4e7; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-        .logo { font-size: 24px; font-weight: 900; color: #18181b; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; text-align: center; }
-        h1 { color: #18181b; font-size: 22px; font-weight: 800; margin-bottom: 12px; }
-        p { color: #52525b; line-height: 1.6; font-size: 16px; }
-        .otp-container { background: #f8fafc; border: 2px dashed #e2e8f0; border-radius: 16px; padding: 24px; margin-top: 32px; text-align: center; }
-        .otp-code { font-family: 'Courier New', monospace; font-size: 48px; font-weight: 900; color: #6366f1; letter-spacing: 12px; margin: 0; }
-        .footer { margin-top: 40px; text-align: center; font-size: 12px; color: #a1a1aa; text-transform: uppercase; letter-spacing: 1px; }
-        .warning { font-size: 13px; color: #f43f5e; margin-top: 24px; font-weight: 600; text-align: center; }
-    </style>
 </head>
-<body>
-    <div class="card">
-        <div class="logo">PrepUp CBT</div>
-        <h1>Identity OTP Node</h1>
-        <p>Hello {{name}},</p>
-        <p>Your scholar profile has been initialized in our secure registry. To complete your activation, please use the following One-Time Password (OTP) in the verification terminal.</p>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f9fafb; margin: 0; padding: 40px;">
+    <div style="max-width: 500px; background: #ffffff; border-radius: 16px; padding: 32px; margin: auto; border: 1px solid #e5e7eb; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
         
-        <div class="otp-container">
-            <h2 class="otp-code">{{otp}}</h2>
+        <h2 style="color: #111827; font-size: 20px; font-weight: 700; margin-bottom: 16px;">Confirm your account</h2>
+        
+        <p style="color: #4b5563; line-height: 1.5; font-size: 16px;">
+            Hi {{name}},<br><br>
+            Welcome to the PrepUp CBT community! To finish setting up your profile, please use the following verification code:
+        </p>
+        
+        <div style="background: #f3f4f6; border-radius: 12px; padding: 24px; margin-top: 24px; margin-bottom: 24px; text-align: center;">
+            <h1 style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 36px; font-weight: 800; color: #4f46e5; letter-spacing: 8px; margin: 0;">{{otp}}</h1>
         </div>
 
-        <p class="warning">Note: This security code intelligently expires in 10 minutes.</p>
-        <div class="footer">PrepUp CBT • Global Identity Engine • © 2026</div>
+        <p style="color: #6b7280; font-size: 14px; line-height: 1.5;">
+            This security code expires in 10 minutes. If you didn't request this, you can safely ignore this email.
+        </p>
+
+        <hr style="border: 0; border-top: 1px solid #f3f4f6; margin: 32px 0;">
+
+        <div style="text-align: center;">
+            <p style="font-size: 12px; color: #9ca3af; margin: 0;">PrepUp CBT • Global Education Community</p>
+            <p style="font-size: 11px; color: #d1d5db; margin-top: 4px;">© 2026 PrepUp. All rights reserved.</p>
+        </div>
     </div>
 </body>
 </html>
