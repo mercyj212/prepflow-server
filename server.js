@@ -49,12 +49,10 @@ app.use(helmet({
 }));
 
 // 2. DATA SANITIZATION 
-app.use(mongoSanitize()); 
+// app.use(mongoSanitize()); // Incompatible with Express 5 (Cannot set property query of #<IncomingMessage>)
 
 // 3. PARAMETER POLLUTION PROTECTION
-app.use(hpp()); 
-
-// 4. RATE LIMITING
+// app.use(hpp()); // Incompatible with Express 5
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, 
   max: 100, 
