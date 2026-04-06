@@ -2,25 +2,41 @@ import nodemailer from 'nodemailer';
 import fs from 'fs';
 import path from 'path';
 import handlebars from 'handlebars';
-
 import { fileURLToPath } from 'url';
+import dns from 'dns';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const sendEmail = async (options) => {
+    // ENFORCE IPv4 (Fixes Render ENETUNREACH on IPv6)
+    const hostName = process.env.EMAIL_HOST || 'smtp.gmail.com';
+    let targetHost = hostName;
+    try {
+        const ipv4Addresses = await dns.promises.resolve4(hostName);
+        if (ipv4Addresses && ipv4Addresses.length > 0) {
+            targetHost = ipv4Addresses[0]; 
+        }
+    } catch (dnsErr) {
+        console.warn('[IPv4 DNS Fallback Failed]:', dnsErr.message);
+    }
+
     // 1. CREATE TRANSPORT (Using environment variables for security)
     const transporter = nodemailer.createTransport({
-        host: process.env.EMAIL_HOST || 'smtp.gmail.com',
+        host: targetHost,
         port: parseInt(process.env.EMAIL_PORT) || 587,
         secure: parseInt(process.env.EMAIL_PORT) === 465, // True for 465, false for 587
-        connectionTimeout: 10000, // 10 seconds max connection time
-        greetingTimeout: 10000, 
-        socketTimeout: 15000, 
+        connectionTimeout: 20000, 
+        greetingTimeout: 20000, 
+        socketTimeout: 20000, 
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
         },
+        tls: {
+            servername: hostName, // Match original hostname for Google's SSL Certificate
+            rejectUnauthorized: true, // Maintain Strict Security
+        }
     });
 
     // 2. TEMPLATE COMPILATION (If provided)
