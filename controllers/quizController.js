@@ -1,6 +1,6 @@
 import Quiz from "../models/Quiz.js";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import pdf from "pdf-parse";
+import pdf from "pdf-parse/lib/pdf-parse.js";
 
 const shuffleArray = (array) => {
   const shuffled = [...array];
