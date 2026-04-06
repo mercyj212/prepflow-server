@@ -280,8 +280,8 @@ export const generateQuestions = async (req, res) => {
     }
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    // Use gemini-1.5-flash as the primary generation model
-    const modelName = "gemini-1.5-flash"; 
+    // Use gemini-2.5-flash as the primary generation model
+    const modelName = "gemini-2.5-flash"; 
     const model = genAI.getGenerativeModel({ model: modelName });
 
     const instructions = `You are an expert curriculum designer and university lecturer specializing in high-stakes Computer Based Testing (CBT).
