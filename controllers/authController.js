@@ -15,7 +15,7 @@ export const registerStudent = async (req, res) => {
   const { fullName, email, password, phone } = req.body;
 
   try {
-    // 🛡️ SECURITY SENTINEL: ENFORCE HIGH-ENTROPY PASSWORDS
+    // ️ SECURITY SENTINEL: ENFORCE HIGH-ENTROPY PASSWORDS
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if (!passwordRegex.test(password)) {
       return res.status(400).json({ 
@@ -29,7 +29,7 @@ export const registerStudent = async (req, res) => {
       return res.status(400).json({ message: "Student already exists" });
     }
 
-    // 🛡️ GENERATE 6-DIGIT OTP
+    // ️ GENERATE 6-DIGIT OTP
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     const otpHash = crypto.createHash('sha256').update(otp).digest('hex');
 
@@ -47,7 +47,7 @@ export const registerStudent = async (req, res) => {
       try {
         await sendEmail({
           email: student.email,
-          subject: 'Action Required: Identity OTP Node 🛡️',
+          subject: 'Action Required: Identity OTP Node ️',
           template: 'verifyEmail',
           context: {
             name: student.fullName,
@@ -85,7 +85,7 @@ export const loginStudent = async (req, res) => {
     const student = await Student.findOne({ email });
 
     if (student && (await student.comparePassword(password))) {
-      // 🛡️ IDENTITY CHECK: BLOCK AND RE-VERIFY UNVERIFIED SCHOLARS
+      // ️ IDENTITY CHECK: BLOCK AND RE-VERIFY UNVERIFIED SCHOLARS
       if (!student.isVerified) {
         const otp = Math.floor(100000 + Math.random() * 900000).toString();
         const otpHash = crypto.createHash('sha256').update(otp).digest('hex');
@@ -100,7 +100,7 @@ export const loginStudent = async (req, res) => {
         try {
           await sendEmail({
             email: student.email,
-            subject: 'Action Required: Identity OTP Node 🛡️',
+            subject: 'Action Required: Identity OTP Node ️',
             template: 'verifyEmail',
             context: { name: student.fullName, otp: otp }
           });
@@ -117,7 +117,7 @@ export const loginStudent = async (req, res) => {
         });
       }
 
-      // 🛰️ ACTIVITY TRACKER: High-Res Timing & Device Intelligence
+      // ️ ACTIVITY TRACKER: High-Res Timing & Device Intelligence
       let deviceInfo = 'Standard Web-Client';
       const userAgent = req.headers['user-agent'] || '';
       
@@ -166,7 +166,7 @@ export const verifyOTP = async (req, res) => {
     });
 
     if (!student) {
-      return res.status(400).json({ message: "Invalid or expired OTP code 🛡️" });
+      return res.status(400).json({ message: "Invalid or expired OTP code ️" });
     }
 
     student.isVerified = true;
@@ -200,7 +200,7 @@ export const verifyEmail = async (req, res) => {
     student.verificationTokenExpire = undefined;
     await student.save();
 
-    res.json({ message: "Identity verified! Account activated 🛡️" });
+    res.json({ message: "Identity verified! Account activated ️" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -227,7 +227,7 @@ export const forgotPassword = async (req, res) => {
       const resetUrl = `${process.env.FRONTEND_URL || 'http://localhost:5173'}/reset-password/${rToken}`;
       await sendEmail({
         email: student.email,
-        subject: 'Security Alert: Recovery Beacon Dispatched 🛠️',
+        subject: 'Security Alert: Recovery Beacon Dispatched ️',
         template: 'resetPassword',
         context: { resetUrl }
       });
