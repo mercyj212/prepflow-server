@@ -23,7 +23,7 @@ export const createStudentAccess = async (req, res) => {
         });
 
         res.status(201).json({
-            message: "Access created",
+            message: "Access granted",
             link: `http://localhost:5173/access/${token}`,
             student,
         });
@@ -59,10 +59,10 @@ export const deleteStudent = async (req, res) => {
     try {
         const student = await Student.findById(req.params.id);
         if (!student) {
-            return res.status(404).json({ message: "Scholar not found" });
+            return res.status(404).json({ message: "Student record not found" });
         }
         await Student.findByIdAndDelete(req.params.id);
-        res.json({ message: "Scholar removed successfully" });
+        res.json({ message: "Student account removed successfully" });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -75,16 +75,16 @@ export const sendScholarEmail = async (req, res) => {
         const student = await Student.findById(id);
 
         if (!student) {
-            return res.status(404).json({ message: "Scholar not found" });
+            return res.status(404).json({ message: "Student record not found" });
         }
 
         await sendEmail({
             email: student.email,
-            subject: subject || "Update from PrepUp CBT",
+            subject: subject || "Update from PrepUp",
             message: message,
         });
 
-        res.json({ message: `Message successfully dispatched to ${student.fullName}` });
+        res.json({ message: `Email successfully sent to ${student.fullName}` });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -97,21 +97,21 @@ export const sendScholarBlast = async (req, res) => {
         const students = await Student.find({ role: 'student' });
 
         if (students.length === 0) {
-            return res.status(404).json({ message: "No scholars found to broadcast to." });
+            return res.status(404).json({ message: "No registered students found for broadcast." });
         }
 
         // 🚀 Dispatching across the grid (Parallel Execution)
         const dispatchPromises = students.map(scholar => 
             sendEmail({
                 email: scholar.email,
-                subject: subject || "Global Alert: PrepUp CBT",
+                subject: subject || "Global Announcement: PrepUp",
                 message: message,
             }).catch(err => console.error(`[BLAST DELAY]: Failed for ${scholar.email}: ${err.message}`))
         );
 
         await Promise.all(dispatchPromises);
 
-        res.json({ message: `Global Broadcast successfully launched to ${students.length} scholars! 🚀` });
+        res.json({ message: `Broadcast successfully sent to ${students.length} students!` });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

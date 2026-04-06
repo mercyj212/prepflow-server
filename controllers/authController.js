@@ -22,7 +22,7 @@ export const registerStudent = async (req, res) => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if (!passwordRegex.test(password)) {
       return res.status(400).json({ 
-        message: "Institutional Security Required: Password must be 8+ chars, with Uppercase, Number, and Special Symbol (@$!%*?&)." 
+        message: "Security Requirement: Your password must be at least 8 characters long and include an uppercase letter, a number, and a special symbol (@$!%*?&)." 
       });
     }
 
@@ -69,7 +69,7 @@ export const registerStudent = async (req, res) => {
         email: student.email,
         role: student.role,
         isVerified: student.isVerified,
-        message: 'Registration successful. Check email to activate account.',
+        message: 'Registration successful. Please check your email to verify your account.',
         serverDiagnostic: mailDiagnostic
       });
     } else {
@@ -115,7 +115,7 @@ export const loginStudent = async (req, res) => {
         }
 
         return res.status(403).json({ 
-          message: "Identity not verified. A fresh OTP has been sent to your inbox.",
+          message: "Account not verified. A new verification code has been sent to your email.",
           requiresVerification: true,
           email: student.email,
           serverDiagnostic: mailDiagnostic
@@ -209,7 +209,7 @@ export const verifyOTP = async (req, res) => {
       email: student.email,
       role: student.role,
       isVerified: true,
-      message: 'Identity verified! Account activated.',
+      message: 'Email verified! Your account is now active.',
       token: generateToken(student._id),
       serverDiagnostic: mailDiagnostic
     });
@@ -241,7 +241,7 @@ export const verifyEmail = async (req, res) => {
       return res.status(400).json({ message: "Verification link invalid or expired." });
     }
 
-    res.json({ message: "Identity verified! Account activated ️" });
+    res.json({ message: "Verification successful! Your account is active." });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -254,7 +254,7 @@ export const forgotPassword = async (req, res) => {
     const student = await Student.findOne({ email: req.body.email });
 
     if (!student) {
-      return res.status(404).json({ message: "Scholar profile not found." });
+      return res.status(404).json({ message: "No account found with this email address." });
     }
 
     const rToken = crypto.randomBytes(32).toString('hex');
@@ -277,7 +277,7 @@ export const forgotPassword = async (req, res) => {
         context: { resetUrl }
       });
       res.json({ 
-        message: "Security beacon sent! Check your inbox.",
+        message: "Password reset link sent! Please check your email.",
         serverDiagnostic: "success"
       });
     } catch (emailErr) {
@@ -285,7 +285,7 @@ export const forgotPassword = async (req, res) => {
         $unset: { resetPasswordToken: 1, resetPasswordExpire: 1 }
       });
       res.status(500).json({ 
-        message: "Recovery dispatch failed.",
+        message: "Failed to send recovery email. Please try again.",
         serverDiagnostic: emailErr.message || "Generic Dispatch Error"
       });
     }
