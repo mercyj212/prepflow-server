@@ -66,9 +66,9 @@ const studentSchema = new mongoose.Schema(
 );
 
 // Encrypt password before saving
-studentSchema.pre("save", async function (next) {
+studentSchema.pre("save", async function () {
   if (!this.isModified("password") || !this.password) {
-    return next();
+    return;
   }
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
