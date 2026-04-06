@@ -19,9 +19,9 @@ const sendEmail = async (options) => {
         port: parseInt(process.env.EMAIL_PORT) || 587,
         secure: parseInt(process.env.EMAIL_PORT) === 465, 
         family: 4, // 🛡️ ENFORCE IPv4 (Prevents ENETUNREACH on IPv6 networks)
-        connectionTimeout: 10000, 
-        greetingTimeout: 10000, 
-        socketTimeout: 10000, 
+        connectionTimeout: 30000, 
+        greetingTimeout: 30000, 
+        socketTimeout: 30000, 
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,

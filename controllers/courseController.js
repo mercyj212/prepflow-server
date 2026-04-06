@@ -1,4 +1,6 @@
 import Course from "../models/Course.js";
+import Student from "../models/Student.js";
+import sendEmail from "../utils/emailService.js";
 import { cloudinary } from "../config/cloudinary.js";
 
 // @desc    Get all courses
@@ -26,9 +28,55 @@ export const createCourse = async (req, res) => {
 
     const course = new Course({ title, description });
     const createdCourse = await course.save();
+
+    // 📧 AUTO-NOTIFY ENGINE: If the admin opted-in, trigger the broadcast
+    if (req.body.notifyStudents) {
+      // Fire-and-forget broadcast to keep the UI responsive
+      handleAutoBroadcast(createdCourse.title);
+    }
+
     res.status(201).json(createdCourse);
   } catch (error) {
     res.status(400).json({ message: error.message });
+  }
+};
+
+/**
+ * 🛰️ STABILIZED BACKGROUND BROADCAST
+ * Sequentially notifies all students about the new curriculum asset.
+ */
+const handleAutoBroadcast = async (courseTitle) => {
+  try {
+    const students = await Student.find({ role: 'student' });
+    if (!students || students.length === 0) return;
+
+    const subject = `New Curriculum: ${courseTitle} is now available! 🎓`;
+    const loginUrl = `${process.env.FRONTEND_URL || 'https://prepupcbt.vercel.app'}/login`;
+
+    console.log(`[AUTO-BROADCAST]: Starting for ${students.length} students...`);
+
+    for (const student of students) {
+      try {
+        await sendEmail({
+          email: student.email,
+          subject: subject,
+          template: 'courseUpdate',
+          context: { 
+            name: student.fullName,
+            courseTitle: courseTitle,
+            loginUrl: loginUrl
+          }
+        });
+        // 🛡️ SLOW-DRIP: Small delay to respect SMTP rate limits
+        await new Promise(r => setTimeout(r, 1000));
+      } catch (err) {
+          console.error(`[AUTO-BROADCAST][FAILED]: ${student.email} - ${err.message}`);
+          await new Promise(r => setTimeout(r, 2000));
+      }
+    }
+    console.log(`[AUTO-BROADCAST]: Successfully completed for "${courseTitle}".`);
+  } catch (err) {
+    console.error('[AUTO-BROADCAST][CRITICAL ERROR]:', err);
   }
 };
 

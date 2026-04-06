@@ -28,22 +28,25 @@ const broadcastUpdate = async () => {
         }
 
         const subject = "New Courses Added: Expand Your Knowledge on PrepUp! 🎓";
-        const message = `Hello,\n\nWe're excited to announce that new courses and study materials have been successfully uploaded to PrepUp!\n\nYou can now access these fresh curriculum assets in your student dashboard to enhance your academic preparation. Log in now to explore the latest content.\n\nHappy Studying!\n\nBest regards,\nThe PrepUp Team`;
+        const loginUrl = `${process.env.FRONTEND_URL || 'https://prepupcbt.vercel.app'}/login`;
 
         for (const student of students) {
             try {
                 await sendEmail({
                     email: student.email,
                     subject: subject,
-                    message: message,
-                    context: { name: student.fullName }
+                    template: 'courseUpdate',
+                    context: { 
+                        name: student.fullName,
+                        courseTitle: 'General Curriculum Update', // Focus of the resend
+                        loginUrl: loginUrl
+                    }
                 });
                 console.log(`[SUCCESS]: ${student.email}`);
-                // 🛡️ SLOW-DRIP: Small delay to respect SMTP rate limits
-                await new Promise(r => setTimeout(r, 800));
+                // 🛡️ SLOW-DRIP: Final stability delay
+                await new Promise(r => setTimeout(r, 2000));
             } catch (err) {
                 console.error(`[FAILED]: ${student.email} - ${err.message}`);
-                // Wait a bit longer on failure before next attempt
                 await new Promise(r => setTimeout(r, 2000));
             }
         }
