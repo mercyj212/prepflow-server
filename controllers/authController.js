@@ -165,22 +165,51 @@ export const verifyOTP = async (req, res) => {
 
     const otpHash = crypto.createHash('sha256').update(otp.toString()).digest('hex');
 
-    const student = await Student.findOne({
-      email,
-      verificationToken: otpHash,
-      verificationTokenExpire: { $gt: Date.now() }
-    });
+    // Use findOneAndUpdate to bypass the pre-save password rehashing hook
+    const student = await Student.findOneAndUpdate(
+      {
+        email,
+        verificationToken: otpHash,
+        verificationTokenExpire: { $gt: Date.now() }
+      },
+      {
+        $set: { isVerified: true },
+        $unset: { verificationToken: 1, verificationTokenExpire: 1 }
+      },
+      { new: true }
+    );
 
     if (!student) {
       return res.status(400).json({ message: 'Invalid or expired OTP. Please request a new one.' });
     }
 
-    student.isVerified = true;
-    student.verificationToken = undefined;
-    student.verificationTokenExpire = undefined;
-    await student.save();
+    let mailDiagnostic = "success";
+    try {
+      const loginUrl = `${process.env.FRONTEND_URL || 'https://prepupcbt.vercel.app'}/login`;
+      await sendEmail({
+        email: student.email,
+        subject: 'Welcome to PrepUp CBT! 🎓',
+        template: 'welcomeEmail',
+        context: {
+          name: student.fullName,
+          loginUrl: loginUrl
+        }
+      });
+    } catch (welcomeErr) {
+      console.warn('[WELCOME EMAIL SKIP]:', welcomeErr.message);
+      mailDiagnostic = welcomeErr.message || "Silent Communication Failure";
+    }
 
-    res.json({ message: 'Identity verified! Account activated.', token: generateToken(student._id) });
+    res.json({
+      _id: student._id,
+      fullName: student.fullName,
+      email: student.email,
+      role: student.role,
+      isVerified: true,
+      message: 'Identity verified! Account activated.',
+      token: generateToken(student._id),
+      serverDiagnostic: mailDiagnostic
+    });
   } catch (error) {
     console.error('[AUTH ERROR][VERIFY OTP]:', error.message, error.stack);
     res.status(500).json({ message: error.message });
@@ -193,19 +222,21 @@ export const verifyEmail = async (req, res) => {
   try {
     const vTokenHash = crypto.createHash('sha256').update(req.params.token).digest('hex');
 
-    const student = await Student.findOne({
-      verificationToken: vTokenHash,
-      verificationTokenExpire: { $gt: Date.now() }
-    });
+    const student = await Student.findOneAndUpdate(
+      {
+        verificationToken: vTokenHash,
+        verificationTokenExpire: { $gt: Date.now() }
+      },
+      {
+        $set: { isVerified: true },
+        $unset: { verificationToken: 1, verificationTokenExpire: 1 }
+      },
+      { new: true }
+    );
 
     if (!student) {
       return res.status(400).json({ message: "Verification link invalid or expired." });
     }
-
-    student.isVerified = true;
-    student.verificationToken = undefined;
-    student.verificationTokenExpire = undefined;
-    await student.save();
 
     res.json({ message: "Identity verified! Account activated ️" });
   } catch (error) {
@@ -226,24 +257,34 @@ export const forgotPassword = async (req, res) => {
     const rToken = crypto.randomBytes(32).toString('hex');
     const rTokenHash = crypto.createHash('sha256').update(rToken).digest('hex');
 
-    student.resetPasswordToken = rTokenHash;
-    student.resetPasswordExpire = Date.now() + 60 * 60 * 1000; // 1 hour
-    await student.save();
+    // Use findByIdAndUpdate to avoid triggering the pre-save password hook
+    await Student.findByIdAndUpdate(student._id, {
+      $set: {
+        resetPasswordToken: rTokenHash,
+        resetPasswordExpire: Date.now() + 60 * 60 * 1000 // 1 hour
+      }
+    });
 
     try {
-      const resetUrl = `${process.env.FRONTEND_URL || 'http://localhost:5173'}/reset-password/${rToken}`;
+      const resetUrl = `${process.env.FRONTEND_URL || 'https://prepupcbt.vercel.app'}/reset-password/${rToken}`;
       await sendEmail({
         email: student.email,
         subject: 'Security Alert: Recovery Beacon Dispatched ️',
         template: 'resetPassword',
         context: { resetUrl }
       });
-      res.json({ message: "Security beacon sent! Check your inbox." });
+      res.json({ 
+        message: "Security beacon sent! Check your inbox.",
+        serverDiagnostic: "success"
+      });
     } catch (emailErr) {
-      student.resetPasswordToken = undefined;
-      student.resetPasswordExpire = undefined;
-      await student.save();
-      res.status(500).json({ message: "Recovery dispatch failed." });
+      await Student.findByIdAndUpdate(student._id, {
+        $unset: { resetPasswordToken: 1, resetPasswordExpire: 1 }
+      });
+      res.status(500).json({ 
+        message: "Recovery dispatch failed.",
+        serverDiagnostic: emailErr.message || "Generic Dispatch Error"
+      });
     }
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -272,6 +313,59 @@ export const resetPassword = async (req, res) => {
 
     res.json({ message: "Identity credentials updated! You can now log in." });
   } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Resend OTP for unverified users
+// @route   POST /api/auth/resend-otp
+export const resendOTP = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    if (!email) {
+      return res.status(400).json({ message: 'Email is required.' });
+    }
+
+    const student = await Student.findOne({ email });
+
+    if (!student) {
+      return res.status(404).json({ message: 'No account found with that email.' });
+    }
+
+    if (student.isVerified) {
+      return res.status(400).json({ message: 'Account is already verified.' });
+    }
+
+    // Generate a fresh 6-digit OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const otpHash = crypto.createHash('sha256').update(otp).digest('hex');
+
+    await Student.findByIdAndUpdate(student._id, {
+      verificationToken: otpHash,
+      verificationTokenExpire: Date.now() + 60 * 60 * 1000, // 60 minutes
+    });
+
+    let mailDiagnostic = 'success';
+    try {
+      await sendEmail({
+        email: student.email,
+        subject: 'Action Required: Fresh Identity OTP',
+        template: 'verifyEmail',
+        context: { name: student.fullName, otp: otp }
+      });
+    } catch (emailErr) {
+      console.warn(`\n===  RENDER SMTP BYPASS  ===\nOTP Code for ${student.email}: [ ${otp} ]\n==============================\n`);
+      console.error('[RESEND OTP DISPATCH ERROR]:', emailErr.message);
+      mailDiagnostic = emailErr.message || 'Silent Communication Failure';
+    }
+
+    res.json({
+      message: 'A fresh OTP has been sent to your inbox.',
+      serverDiagnostic: mailDiagnostic
+    });
+  } catch (error) {
+    console.error('[AUTH ERROR][RESEND OTP]:', error.message);
     res.status(500).json({ message: error.message });
   }
 };

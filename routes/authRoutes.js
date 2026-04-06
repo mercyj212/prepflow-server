@@ -3,6 +3,7 @@ import {
   registerStudent, 
   loginStudent, 
   verifyOTP,
+  resendOTP,
   verifyEmail, 
   forgotPassword, 
   resetPassword 
@@ -13,6 +14,7 @@ const router = express.Router();
 router.post("/register", registerStudent);
 router.post("/login", loginStudent);
 router.post("/verify-otp", verifyOTP);
+router.post("/resend-otp", resendOTP);
 
 // 🛡️ SECURITY & IDENTITY ROUTES
 router.get("/verify-email/:token", verifyEmail);
