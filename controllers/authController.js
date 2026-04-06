@@ -92,7 +92,8 @@ export const loginStudent = async (req, res) => {
   try {
     const student = await Student.findOne({ email });
 
-    if (student && (await student.comparePassword(password))) {
+    // Handle case where account might exist but doesn't have a password (like Google logins)
+    if (student && student.password && (await student.comparePassword(password))) {
       // ️ IDENTITY CHECK: BLOCK AND RE-VERIFY UNVERIFIED SCHOLARS
       if (!student.isVerified) {
         const otp = Math.floor(100000 + Math.random() * 900000).toString();
