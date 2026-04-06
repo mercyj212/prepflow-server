@@ -19,29 +19,10 @@ import hpp from 'hpp';
 
 const app = express();
 
-// 1. SECURITY HEADERS (Configured for Google Identity Hub compatibility)
-app.use(helmet({
-  crossOriginOpenerPolicy: { policy: "same-origin-allow-popups" },
-  crossOriginEmbedderPolicy: false,
-}));
-
-// 2. DATA SANITIZATION (Safe implementation for Express 5)
-app.use(mongoSanitize()); 
-
-// 3. PARAMETER POLLUTION PROTECTION
-app.use(hpp()); 
-
-// 4. RATE LIMITING
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, 
-  max: 100, 
-  message: { message: "Too many requests from this IP, please try again after 15 minutes" }
-});
-app.use('/api/', limiter);
-
 const allowedOrigins = [
-  'https://prepupcbt.vercel.app',    // Your Vercel Live App
-  'https://prepup-cbt.onrender.com', // Your Render Live App
+  'https://prepupcbt.vercel.app',    
+  'https://prepup-cbt.onrender.com', 
+  'https://prepflow-server.onrender.com',
   'http://localhost:5173',
   'http://127.0.0.1:5173',
   'http://localhost:3000'
@@ -60,6 +41,26 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
+
+// 1. SECURITY HEADERS 
+app.use(helmet({
+  crossOriginOpenerPolicy: { policy: "same-origin-allow-popups" },
+  crossOriginEmbedderPolicy: false,
+}));
+
+// 2. DATA SANITIZATION 
+app.use(mongoSanitize()); 
+
+// 3. PARAMETER POLLUTION PROTECTION
+app.use(hpp()); 
+
+// 4. RATE LIMITING
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, 
+  max: 100, 
+  message: { message: "Too many requests from this IP, please try again after 15 minutes" }
+});
+app.use('/api/', limiter);
 
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
