@@ -82,6 +82,20 @@ app.use('/api/submissions', submissionRoutes);
 app.use('/api/courses', courseRoutes);
 app.use('/api/chat', chatRoutes);
 
+import mongoose from 'mongoose';
+
+app.get('/api/health', (req, res) => {
+  res.json({ 
+    status: 'System Functional', 
+    database: mongoose.connection.readyState === 1 ? 'Operational' : 'Establishing...',
+    environment: {
+      db: process.env.MONGODB_URI ? 'Locked' : 'Missing',
+      auth: process.env.JWT_SECRET ? 'Locked' : 'Missing',
+      ai: process.env.GEMINI_API_KEY ? 'Locked' : 'Missing'
+    }
+  });
+});
+
 app.get('/', (req, res) => {
   res.json({ message: 'Backend is working🚀' });
 });
