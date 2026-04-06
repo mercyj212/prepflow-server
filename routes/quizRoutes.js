@@ -10,6 +10,7 @@ import {
   addQuestion,
   generateQuestions,
   renameQuiz,
+  addBatchQuestions,
 } from "../controllers/quizController.js";
 import { protect, admin } from "../utils/authMiddleware.js";
 import { upload } from "../config/cloudinary.js";
