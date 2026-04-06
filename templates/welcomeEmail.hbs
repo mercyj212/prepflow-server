@@ -2,26 +2,40 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f4f4f5; margin: 0; padding: 40px; }
-        .card { max-width: 600px; background: white; border-radius: 24px; padding: 40px; margin: auto; border: 1px solid #e4e4e7; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-        .logo { font-size: 24px; font-weight: 900; color: #18181b; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; text-align: center; }
-        h1 { color: #18181b; font-size: 28px; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.02em; }
-        p { color: #52525b; line-height: 1.7; font-size: 18px; margin-bottom: 24px; }
-        .btn { display: block; background: #6366f1; color: white !important; text-decoration: none; padding: 18px 36px; border-radius: 14px; text-align: center; font-weight: 700; margin-top: 32px; font-size: 16px; transition: all 0.3s ease; }
-        .footer { margin-top: 40px; text-align: center; font-size: 12px; color: #a1a1aa; text-transform: uppercase; letter-spacing: 1px; }
-        .support { border-top: 1px solid #e4e4e7; margin-top: 40px; padding-top: 24px; text-align: center; font-size: 13px; color: #71717a; font-weight: 500; line-height: 1.5; }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #FAFAFA; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+        .wrapper { padding: 40px 20px; }
+        .container { max-width: 600px; background: #FFFFFF; border-radius: 32px; padding: 56px; margin: auto; border: 1px solid #F1F1F1; box-shadow: 0 40px 80px -20px rgba(0,0,0,0.04); }
+        .brand { text-align: center; margin-bottom: 48px; }
+        .brand-logo { display: inline-block; padding: 12px 24px; background: #000000; color: #FFFFFF !important; border-radius: 16px; font-weight: 900; font-size: 14px; text-transform: uppercase; letter-spacing: 3px; text-decoration: none; }
+        .tag { display: inline-block; padding: 6px 14px; background: #E7F9F3; color: #10B981; border-radius: 12px; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 24px; }
+        h1 { color: #111111; font-size: 32px; font-weight: 900; margin-bottom: 24px; letter-spacing: -0.04em; line-height: 1.1; }
+        p { color: #444444; line-height: 1.8; font-size: 16px; margin-bottom: 40px; font-weight: 400; }
+        .btn { display: block; background: linear-gradient(135deg, #4F46E5 0%, #3B82F6 100%); color: #FFFFFF !important; text-decoration: none; padding: 24px 40px; border-radius: 20px; text-align: center; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 20px 40px -10px rgba(79,70,229,0.25); }
+        .footer { margin-top: 56px; text-align: center; border-top: 1px solid #F3F4F6; padding-top: 40px; }
+        .footer-text { font-size: 11px; color: #999999; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 12px; }
+        .support { font-size: 12px; color: #666666; line-height: 1.6; font-weight: 500; }
+        .support a { color: #111111; font-weight: 700; text-decoration: none; }
     </style>
 </head>
 <body>
-    <div class="card">
-        <div class="logo">PrepUp CBT</div>
-        <h1>Welcome to PrepUp, {{name}}!</h1>
-        <p>Your account is now fully verified. You have full access to our high-fidelity CBT exams, intelligent study tools, and real-time performance analytics.</p>
-        <p>Please log in to your dashboard to begin your academic preparation.</p>
-        <a href="{{loginUrl}}" class="btn">Access Your Dashboard</a>
-        <div class="footer">PrepUp CBT • Digital Platform • © 2026</div>
-        <div class="support">If you encounter any challenges or have questions regarding the platform, please contact our Help Center at mercyjay510@gmail.com.</div>
+    <div class="wrapper">
+        <div class="container">
+            <div class="brand">
+                <a href="#" class="brand-logo">PrepUp</a>
+            </div>
+            <div class="tag">Onboarding Sequence: Complete</div>
+            <h1>Verified Scholar Arrival: {{name}}.</h1>
+            <p>Your authentication protocol is now finalized. You have full recursive access to our high-fidelity CBT infrastructure, AI-driven curriculum architects, and tactical study workspaces.</p>
+            
+            <a href="{{loginUrl}}" class="btn">Enter Strategy Room</a>
+            
+            <div class="footer">
+                <div class="footer-text">PREPUP CBT • MISSION CONTROL • © 2026</div>
+                <div class="support">Encountered an obstacle? Reach our tactical support at <a href="mailto:mercyjay510@gmail.com">mercyjay510@gmail.com</a></div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
