@@ -49,10 +49,10 @@ const sendEmail = async (options) => {
     // 4. SECURE DISPATCH
     try {
         await transporter.sendMail(mailOptions);
-        console.log(`[EMAIL DISPATCHED]: Target -> ${options.email} `);
+        console.log(`[EMAIL DISPATCHED]: Target -> ${options.email}`);
     } catch (err) {
         console.error('[DISPATCH ERROR]: Target ->', options.email, err.message);
-        throw new Error('Critical communication failure.');
+        throw new Error(err.message);
     }
 };
 
