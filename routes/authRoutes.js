@@ -6,7 +6,8 @@ import {
   resendOTP,
   verifyEmail, 
   forgotPassword, 
-  resetPassword 
+  resetPassword,
+  googleLogin
 } from "../controllers/authController.js";
 
 const router = express.Router();
@@ -15,6 +16,7 @@ router.post("/register", registerStudent);
 router.post("/login", loginStudent);
 router.post("/verify-otp", verifyOTP);
 router.post("/resend-otp", resendOTP);
+router.post("/google", googleLogin);
 
 // 🛡️ SECURITY & IDENTITY ROUTES
 router.get("/verify-email/:token", verifyEmail);

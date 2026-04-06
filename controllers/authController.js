@@ -2,6 +2,9 @@ import Student from "../models/Student.js";
 import jwt from "jsonwebtoken";
 import sendEmail from "../utils/emailService.js";
 import crypto from 'crypto';
+import { OAuth2Client } from 'google-auth-library';
+
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 const generateToken = (id) => {
   return jwt.sign({ id: id.toString() }, process.env.JWT_SECRET, {
@@ -367,5 +370,72 @@ export const resendOTP = async (req, res) => {
   } catch (error) {
     console.error('[AUTH ERROR][RESEND OTP]:', error.message);
     res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Google Identity Hub Login
+// @route   POST /api/auth/google
+export const googleLogin = async (req, res) => {
+  const { idToken } = req.body;
+
+  try {
+    const ticket = await client.verifyIdToken({
+      idToken,
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+
+    const payload = ticket.getPayload();
+    const { sub: googleId, email, name, picture } = payload;
+
+    let student = await Student.findOne({ email });
+
+    if (student) {
+      // ️ LEGACY ACCOUNT UPGRADE: Link Google Profile if not present
+      if (!student.googleId) {
+        student.googleId = googleId;
+      }
+      student.profilePicture = picture || student.profilePicture;
+      student.isVerified = true; // Google accounts are implicitly verified
+      await student.save();
+    } else {
+      // ️ NEW SCHOLAR: Automatic Enrollment via Google
+      student = await Student.create({
+        fullName: name,
+        email,
+        googleId,
+        profilePicture: picture,
+        isVerified: true
+      });
+    }
+
+    // ️ ACTIVITY TRACKER: High-Res Timing & Device Intelligence
+    let deviceInfo = 'Standard Web-Client';
+    const userAgent = req.headers['user-agent'] || '';
+    if (/android/i.test(userAgent)) deviceInfo = 'Android Device';
+    else if (/iphone|ipad|ipod/i.test(userAgent)) deviceInfo = 'iOS Device';
+    else if (/windows/i.test(userAgent)) deviceInfo = 'Windows PC';
+    else if (/macintosh/i.test(userAgent)) deviceInfo = 'Apple Mac';
+    else if (/linux/i.test(userAgent)) deviceInfo = 'Linux PC';
+
+    student.lastLogin = Date.now();
+    student.deviceInfo = deviceInfo;
+    await student.save();
+
+    res.json({
+      _id: student._id,
+      fullName: student.fullName,
+      email: student.email,
+      role: student.role,
+      isVerified: student.isVerified,
+      profilePicture: student.profilePicture,
+      token: generateToken(student._id),
+    });
+
+  } catch (error) {
+    console.error('[AUTH ERROR][GOOGLE HUB]:', error);
+    res.status(401).json({ 
+      message: "Identity verification failed via Google Hub. Access denied.",
+      debug: error.message 
+    });
   }
 };
