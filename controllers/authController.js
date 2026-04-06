@@ -47,7 +47,7 @@ export const registerStudent = async (req, res) => {
       try {
         await sendEmail({
           email: student.email,
-          subject: 'Action Required: Identity OTP Node',
+          subject: 'Confirm your PrepUp account',
           template: 'verifyEmail',
           context: {
             name: student.fullName,
@@ -101,7 +101,7 @@ export const loginStudent = async (req, res) => {
         try {
           await sendEmail({
             email: student.email,
-            subject: 'Action Required: Identity OTP Node',
+            subject: 'Your PrepUp verification code',
             template: 'verifyEmail',
             context: { name: student.fullName, otp: otp }
           });
@@ -188,7 +188,7 @@ export const verifyOTP = async (req, res) => {
       const loginUrl = `${process.env.FRONTEND_URL || 'https://prepupcbt.vercel.app'}/login`;
       await sendEmail({
         email: student.email,
-        subject: 'Welcome to PrepUp CBT! 🎓',
+        subject: 'Welcome to the PrepUp CBT Community 🎓',
         template: 'welcomeEmail',
         context: {
           name: student.fullName,
@@ -269,7 +269,7 @@ export const forgotPassword = async (req, res) => {
       const resetUrl = `${process.env.FRONTEND_URL || 'https://prepupcbt.vercel.app'}/reset-password/${rToken}`;
       await sendEmail({
         email: student.email,
-        subject: 'Security Alert: Recovery Beacon Dispatched ️',
+        subject: 'Reset your PrepUp password',
         template: 'resetPassword',
         context: { resetUrl }
       });
@@ -350,7 +350,7 @@ export const resendOTP = async (req, res) => {
     try {
       await sendEmail({
         email: student.email,
-        subject: 'Action Required: Fresh Identity OTP',
+        subject: 'Your new verification code',
         template: 'verifyEmail',
         context: { name: student.fullName, otp: otp }
       });

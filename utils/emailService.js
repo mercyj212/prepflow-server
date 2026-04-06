@@ -53,13 +53,17 @@ const sendEmail = async (options) => {
         }
     }
 
-    // 3. DEFINE THE PAYLOAD
+    // 3. DEFINE THE PAYLOAD (Softened for Spam Filters)
     const mailOptions = {
-        from: `PrepUp CBT <${process.env.EMAIL_USER}>`,
+        from: `"PrepUp Team" <${process.env.EMAIL_USER}>`, 
         to: options.email,
         subject: options.subject,
-        text: options.message || 'New notification from PrepUp CBT',
+        text: options.message || `Hi ${options.context?.name || 'there'}, your verification code is: ${options.context?.otp}. Welcome to PrepUp!`, 
         html: htmlContent || `<div style="font-family: sans-serif; color: #1a1a1a;">${options.message}</div>`,
+        headers: {
+            'X-Entity-Ref-ID': Date.now().toString(), // Prevents email threading issues
+            'List-Unsubscribe': `<mailto:${process.env.EMAIL_USER}?subject=unsubscribe>` // Makes email look legitimate
+        }
     };
 
     // 4. SECURE DISPATCH
