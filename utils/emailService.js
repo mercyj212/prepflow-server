@@ -9,25 +9,21 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const sendEmail = async (options) => {
-    // ENFORCE IPv4 (Fixes Render ENETUNREACH on IPv6)
-    const hostName = 'smtp.gmail.com'; 
-    let targetHost = '192.178.223.108'; // 🏗️ HARDCODED IPv4: Bypasses faulty IPv6 resolution
-
-    // 1. CREATE TRANSPORT (Using environment variables for security)
+    // Bulletproof Transport Configuration (Optimized for Render & Cloud Nodes)
     const transporter = nodemailer.createTransport({
-        host: targetHost,
-        port: parseInt(process.env.EMAIL_PORT) || 587,
-        secure: parseInt(process.env.EMAIL_PORT) === 465, 
-        family: 4, // 🛡️ ENFORCE IPv4 (Prevents ENETUNREACH on IPv6 networks)
-        connectionTimeout: 30000, 
-        greetingTimeout: 30000, 
-        socketTimeout: 30000, 
+        host: 'smtp.gmail.com',
+        port: parseInt(process.env.EMAIL_PORT) || 465,
+        secure: (parseInt(process.env.EMAIL_PORT) || 465) === 465, 
+        family: 4, // 🛡️ ENFORCE IPv4: Prevents Render ENETUNREACH errors on IPv6 networks
+        connectionTimeout: 15000, 
+        greetingTimeout: 15000, 
+        socketTimeout: 15000, 
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
         },
         tls: {
-            servername: hostName, 
+            servername: 'smtp.gmail.com', 
             rejectUnauthorized: true, 
         }
     });
