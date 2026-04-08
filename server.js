@@ -19,7 +19,8 @@ import hpp from 'hpp';
 
 const app = express();
 
-const allowedOrigins = new Set([
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
   'https://prepupcbt.vercel.app',
   'https://www.prepupcbt.vercel.app',
   'https://prepup-cbt.onrender.com',
@@ -27,7 +28,7 @@ const allowedOrigins = new Set([
   'http://localhost:5173',
   'http://127.0.0.1:5173',
   'http://localhost:3000'
-]);
+].filter(Boolean).map(origin => origin.replace(/\/$/, ''));
 
 const corsOptions = {
   origin(origin, callback) {
@@ -35,14 +36,16 @@ const corsOptions = {
     if (!origin) return callback(null, true);
 
     const normalized = origin.replace(/\/$/, '');
-    const isAllowed =
-      allowedOrigins.has(normalized) ||
+    const isAllowed = 
+      allowedOrigins.includes(normalized) || 
       normalized.endsWith('.vercel.app');
 
-    if (isAllowed) return callback(null, true);
+    if (isAllowed) {
+      return callback(null, true);
+    }
 
-    console.error(`[SECURITY ALERT]: Blocked CORS request from: ${origin}`);
-    return callback(new Error('Not allowed by CORS policy'));
+    console.warn(`[CORS REJECTED]: Blocked request from origin: ${origin}`);
+    return callback(null, false);
   },
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'Origin', 'X-Requested-With'],
@@ -51,7 +54,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.options(/.*/, cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 // 1. SECURITY HEADERS 
 app.use(helmet({
