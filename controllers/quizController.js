@@ -282,83 +282,60 @@ export const generateQuestions = async (req, res) => {
     }
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    // Use gemini-2.5-flash as the primary generation model
-    const modelName = "gemini-2.5-flash"; 
-    const model = genAI.getGenerativeModel({ model: modelName });
+    // Use gemini-1.5-flash as it has excellent JSON support
+    const model = genAI.getGenerativeModel({ 
+      model: "gemini-1.5-flash",
+      generationConfig: {
+        responseMimeType: "application/json",
+        responseSchema: {
+          type: "array",
+          items: {
+            type: "object",
+            properties: {
+              text: { type: "string" },
+              options: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    text: { type: "string" },
+                    isCorrect: { type: "boolean" }
+                  },
+                  required: ["text", "isCorrect"]
+                }
+              },
+              explanation: { type: "string" }
+            },
+            required: ["text", "options", "explanation"]
+          }
+        }
+      }
+    });
 
-    const instructions = `You are an expert curriculum designer and university lecturer specializing in high-stakes Computer Based Testing (CBT).
+    const instructions = `You are an expert CBT curriculum designer. Generate exactly ${count} MCQs based on the source material. 
+Focus on:
+1. Analytical and scenario-based questions.
+2. For calculation questions, use different numbers than the source text.
+3. Distractors must be plausible.
+4. Explanations must show the step-by-step reasoning or formula.`;
 
-Your task is to generate exactly ${count} multiple-choice questions based on the provided source material.
-
-CRITICAL PEDAGOGICAL REQUIREMENTS:
-1. ORIGINALITY: Never copy exact examples or sentences from the source material. Instead, extract the underlying concepts and create NEW scenarios.
-2. QUANTITATIVE ANALYSIS (Maths, Statistics, Finance, etc.):
-   - If the material involves formulas or calculations, generate NEW problems that require the student to perform actual calculations.
-   - Use your own numerical values. Do not reuse the numbers from the text examples.
-   - Distractors (incorrect options) MUST be plausible; they should represent common calculation pitfalls (e.g., wrong sign, misapplied formula, decimal errors).
-3. VARIETY: Mix conceptual questions (why things work) with computational questions (how to calculate result).
-4. CBT STYLE: Questions should be clear, unambiguous, and suitable for a professional examination system.
-5. EXPLANATION: For calculative questions, the 'explanation' field MUST show the step-by-step derivation or the formula used.
-
-Output MUST be a valid JSON array of objects, strictly following this schema:
-[
-  {
-    "text": "The question text?",
-    "options": [
-      { "text": "Option 1", "isCorrect": true },
-      { "text": "Option 2", "isCorrect": false },
-      { "text": "Option 3", "isCorrect": false },
-      { "text": "Option 4", "isCorrect": false }
-    ],
-    "explanation": "Step-by-step reasoning or calculation..."
-  }
-]
-
-Directly return the JSON array. Do not include markdown code blocks or any other text before or after the JSON.`;
-
-    const promptText = materialDescription ? `${instructions}\n\nSource Material Content:\n${materialDescription}` : instructions;
+    const promptText = materialDescription ? `${instructions}\n\nSource Material:\n${materialDescription}` : instructions;
     finalPromptParts.unshift(promptText);
 
     const result = await model.generateContent(finalPromptParts);
     const apiResponse = await result.response;
-    let generatedText = apiResponse.text().trim();
-    
-    // 🛡️ SANITIZE RESPONSE: Handle bad control characters (newlines/tabs inside strings)
-    const sanitizeJson = (str) => {
-      // Remove markdowns
-      let cleaned = str.replace(/```json/g, '').replace(/```/g, '').trim();
-      
-      // Escape raw control characters (ASCII 0-31) that are not already escaped
-      // This specifically targets the "Bad control character in string literal" error
-      return cleaned.replace(/[\x00-\x1F\x7F-\x9F]/g, (match) => {
-        const escapes = { '\n': '\\n', '\t': '\\t', '\r': '\\r' };
-        return escapes[match] || ''; 
-      });
-    };
-
     let questions;
+    
     try {
-      const cleanedText = sanitizeJson(generatedText);
-      questions = JSON.parse(cleanedText);
+      questions = JSON.parse(apiResponse.text().trim());
     } catch (parseErr) {
-      console.warn("Primary JSON parse failed, attempting regex recovery...");
-      // Regex fallback to find the array [ ... ]
-      const jsonMatch = generatedText.match(/\[\s*\{.*\}\s*\]/s);
-      if (jsonMatch) {
-         try {
-           questions = JSON.parse(sanitizeJson(jsonMatch[0]));
-         } catch (regexErr) {
-           throw new Error(`AI response parsing failed: ${regexErr.message}. Raw text was: ${generatedText.substring(0, 100)}...`);
-         }
-      } else {
-         throw new Error("Could not extract valid JSON array from AI response.");
-      }
+      console.error("Strict JSON parse failed:", parseErr, "Raw text:", apiResponse.text());
+      throw new Error("The AI provided an incompatible data format. Please refine the source material.");
     }
 
-    // Shuffle options to ensure balanced distribution of correct answers (not biased towards A or D)
+    // Shuffle options
     const shuffledQuestions = (questions || []).map(q => {
       if (q.options && q.options.length > 0) {
-        // Simple Fisher-Yates shuffle algorithm
         for (let i = q.options.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
           [q.options[i], q.options[j]] = [q.options[j], q.options[i]];
@@ -373,7 +350,7 @@ Directly return the JSON array. Do not include markdown code blocks or any other
 
     res.status(201).json({ message: "Questions generated successfully", updatedQuiz });
   } catch (error) {
-    console.error("Gemini Generation Error:", error);
-    res.status(500).json({ message: "Failed to generate AI questions. Check server logs or Gemini API key.", error: error.message });
+    console.error("Gemini Generation Error:", error.message);
+    res.status(500).json({ message: "Failed to generate AI questions.", error: error.message });
   }
 };
