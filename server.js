@@ -19,14 +19,25 @@ import hpp from 'hpp';
 
 const app = express();
 
-// 👇 DEBUGGING: GLOBAL REQUEST LOGGER (Put this at the very top)
-app.use((req, res, next) => {
-  console.log(`[INCOMING] ${req.method} ${req.url} - Origin: ${req.headers.origin}`);
-  next();
-});
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  'https://prepupcbt.vercel.app',
+  'https://www.prepupcbt.vercel.app',
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+  'http://localhost:3000'
+].filter(Boolean).map(origin => origin.replace(/\/$/, ''));
 
 const corsOptions = {
-  origin: true, // ⚠️ REFLECTIVE ORIGIN: Accepts any origin and reflects it back
+  origin(origin, callback) {
+    if (!origin) return callback(null, true);
+    const normalized = origin.replace(/\/$/, '');
+    if (allowedOrigins.includes(normalized) || normalized.endsWith('.vercel.app')) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'Origin', 'X-Requested-With'],
   credentials: true,
