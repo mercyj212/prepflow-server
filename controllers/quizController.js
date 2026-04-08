@@ -323,27 +323,35 @@ Directly return the JSON array. Do not include markdown code blocks or any other
     const apiResponse = await result.response;
     let generatedText = apiResponse.text().trim();
     
-    // Clean up potential markdown formatting
-    if (generatedText.startsWith('```json')) {
-      generatedText = generatedText.substring(7);
-    } else if (generatedText.startsWith('```')) {
-      generatedText = generatedText.substring(3);
-    }
-    if (generatedText.endsWith('```')) {
-      generatedText = generatedText.substring(0, generatedText.length - 3);
-    }
-    
+    // 🛡️ SANITIZE RESPONSE: Handle bad control characters (newlines/tabs inside strings)
+    const sanitizeJson = (str) => {
+      // Remove markdowns
+      let cleaned = str.replace(/```json/g, '').replace(/```/g, '').trim();
+      
+      // Escape raw control characters (ASCII 0-31) that are not already escaped
+      // This specifically targets the "Bad control character in string literal" error
+      return cleaned.replace(/[\x00-\x1F\x7F-\x9F]/g, (match) => {
+        const escapes = { '\n': '\\n', '\t': '\\t', '\r': '\\r' };
+        return escapes[match] || ''; 
+      });
+    };
+
     let questions;
     try {
-      questions = JSON.parse(generatedText.trim());
+      const cleanedText = sanitizeJson(generatedText);
+      questions = JSON.parse(cleanedText);
     } catch (parseErr) {
-      console.error("JSON Parse Error:", parseErr, "Text:", generatedText);
-      // Fallback clean-up
-      const jsonMatch = generatedText.match(/\[.*\]/s);
+      console.warn("Primary JSON parse failed, attempting regex recovery...");
+      // Regex fallback to find the array [ ... ]
+      const jsonMatch = generatedText.match(/\[\s*\{.*\}\s*\]/s);
       if (jsonMatch) {
-         questions = JSON.parse(jsonMatch[0]);
+         try {
+           questions = JSON.parse(sanitizeJson(jsonMatch[0]));
+         } catch (regexErr) {
+           throw new Error(`AI response parsing failed: ${regexErr.message}. Raw text was: ${generatedText.substring(0, 100)}...`);
+         }
       } else {
-         throw new Error("Could not parse AI response as JSON");
+         throw new Error("Could not extract valid JSON array from AI response.");
       }
     }
 

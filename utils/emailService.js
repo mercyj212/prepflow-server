@@ -9,22 +9,23 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const sendEmail = async (options) => {
-    // Bulletproof Transport Configuration (Optimized for Render & Cloud Nodes)
+    // Persistent Transport Configuration (Optimized for Render/Vercel Cloud Nodes)
     const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
-        port: parseInt(process.env.EMAIL_PORT) || 465,
-        secure: (parseInt(process.env.EMAIL_PORT) || 465) === 465, 
+        port: 587,
+        secure: false, // Use STARTTLS
         family: 4, // 🛡️ ENFORCE IPv4: Prevents Render ENETUNREACH errors on IPv6 networks
-        connectionTimeout: 15000, 
-        greetingTimeout: 15000, 
-        socketTimeout: 15000, 
+        connectionTimeout: 20000, // 20s
+        greetingTimeout: 20000, 
+        socketTimeout: 20000, 
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
         },
         tls: {
             servername: 'smtp.gmail.com', 
-            rejectUnauthorized: true, 
+            rejectUnauthorized: true,
+            minVersion: 'TLSv1.2'
         }
     });
 
