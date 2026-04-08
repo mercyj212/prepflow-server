@@ -34,7 +34,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // Using '*' here is acceptable for preflight in most Express setups, but middleware covers it too
+app.options(/.*/, cors(corsOptions));
 
 // 1. SECURITY HEADERS 
 app.use(helmet({
