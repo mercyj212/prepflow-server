@@ -263,7 +263,7 @@ export const generateQuestions = async (req, res) => {
             }
           });
         } catch (imgErr) {
-          console.error("Image Fetch Error:", imgErr);
+          console.error("Image                            Fetch Error:", imgErr);
         }
       }
     }
