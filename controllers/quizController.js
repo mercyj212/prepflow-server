@@ -18,7 +18,7 @@ const shuffleArray = (array) => {
 // @access  Public/Private based on requirements
 export const getQuizzes = async (req, res) => {
   try {
-    const quizzes = await Quiz.find({ isActive: true });
+    const quizzes = await Quiz.find({ isActive: true }).populate("course", "title");
     res.json(quizzes);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -31,7 +31,7 @@ export const getQuizzes = async (req, res) => {
 export const getQuizById = async (req, res) => {
   try {
     // Force inclusion of isCorrect field in query
-    const quiz = await Quiz.findById(req.params.id);
+    const quiz = await Quiz.findById(req.params.id).populate("course", "title");
 
     if (quiz) {
       // Use the raw MongoDB data to ensure we don't lose fields during toObject() default transforms
@@ -67,7 +67,7 @@ export const getQuizById = async (req, res) => {
 // @access  Private
 export const getStudyQuizById = async (req, res) => {
   try {
-    const quiz = await Quiz.findById(req.params.id);
+    const quiz = await Quiz.findById(req.params.id).populate("course", "title");
 
     if (quiz) {
       res.json(quiz);
@@ -84,7 +84,7 @@ export const getStudyQuizById = async (req, res) => {
 // @access  Public
 export const getStudyQuizByIdPublic = async (req, res) => {
   try {
-    const quiz = await Quiz.findById(req.params.id);
+    const quiz = await Quiz.findById(req.params.id).populate("course", "title");
 
     if (quiz) {
       const quizObj = quiz.toObject();
