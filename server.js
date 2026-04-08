@@ -11,6 +11,7 @@ import quizRoutes from './routes/quizRoutes.js';
 import submissionRoutes from './routes/submissionRoutes.js';
 import courseRoutes from './routes/courseRoutes.js';
 import chatRoutes from './routes/chatRoutes.js';
+import mongoose from 'mongoose';
 
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
@@ -84,8 +85,6 @@ app.use('/api/quizzes', quizRoutes);
 app.use('/api/submissions', submissionRoutes);
 app.use('/api/courses', courseRoutes);
 app.use('/api/chat', chatRoutes);
-
-import mongoose from 'mongoose';
 
 app.get('/api/health', (req, res) => {
   res.json({ 
