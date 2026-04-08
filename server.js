@@ -19,34 +19,14 @@ import hpp from 'hpp';
 
 const app = express();
 
-const allowedOrigins = [
-  process.env.FRONTEND_URL,
-  'https://prepupcbt.vercel.app',
-  'https://www.prepupcbt.vercel.app',
-  'https://prepup-cbt.onrender.com',
-  'https://prepflow-server.onrender.com',
-  'http://localhost:5173',
-  'http://127.0.0.1:5173',
-  'http://localhost:3000'
-].filter(Boolean).map(origin => origin.replace(/\/$/, ''));
+// 👇 DEBUGGING: GLOBAL REQUEST LOGGER (Put this at the very top)
+app.use((req, res, next) => {
+  console.log(`[INCOMING] ${req.method} ${req.url} - Origin: ${req.headers.origin}`);
+  next();
+});
 
 const corsOptions = {
-  origin(origin, callback) {
-    // Allow server-to-server/no-origin tools and local requests.
-    if (!origin) return callback(null, true);
-
-    const normalized = origin.replace(/\/$/, '');
-    const isAllowed = 
-      allowedOrigins.includes(normalized) || 
-      normalized.endsWith('.vercel.app');
-
-    if (isAllowed) {
-      return callback(null, true);
-    }
-
-    console.warn(`[CORS REJECTED]: Blocked request from origin: ${origin}`);
-    return callback(null, false);
-  },
+  origin: true, // ⚠️ REFLECTIVE ORIGIN: Accepts any origin and reflects it back
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'Origin', 'X-Requested-With'],
   credentials: true,
@@ -54,7 +34,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.options(/.*/, cors(corsOptions));
+app.options('*', cors(corsOptions)); // Using '*' here is acceptable for preflight in most Express setups, but middleware covers it too
 
 // 1. SECURITY HEADERS 
 app.use(helmet({
