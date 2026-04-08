@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #FAFAFA; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+        .wrapper { padding: 40px 20px; }
+        .container { max-width: 600px; background: #FFFFFF; border-radius: 32px; padding: 56px; margin: auto; border: 1px solid #F1F1F1; box-shadow: 0 40px 80px -20px rgba(0,0,0,0.04); }
+        .brand { text-align: center; margin-bottom: 48px; }
+        .brand-logo { display: inline-block; padding: 12px 24px; background: #000000; color: #FFFFFF !important; border-radius: 16px; font-weight: 900; font-size: 14px; text-transform: uppercase; letter-spacing: 3px; text-decoration: none; }
+        .tag { display: inline-block; padding: 6px 14px; background: #EEF2FF; color: #4F46E5; border-radius: 12px; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 24px; }
+        h1 { color: #111111; font-size: 36px; font-weight: 900; margin-bottom: 24px; letter-spacing: -0.05em; line-height: 1.05; }
+        .content { color: #333333; line-height: 1.8; font-size: 18px; margin-bottom: 40px; font-weight: 400; }
+        .accent { background: #F8FAFC; border-left: 5px solid #4F46E5; padding: 28px; margin-bottom: 40px; border-radius: 0 24px 24px 0; }
+        .accent p { margin: 0; font-weight: 900; font-size: 20px; color: #111111; letter-spacing: -0.02em; text-transform: uppercase; }
+        .btn { display: block; background: #000000; color: #FFFFFF !important; text-decoration: none; padding: 26px 44px; border-radius: 24px; text-align: center; font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.2); }
+        .help-section { margin-top: 48px; background: #F9FAFB; border-radius: 20px; padding: 24px; text-align: center; }
+        .help-section p { margin: 0; font-size: 13px; color: #666666; font-weight: 500; }
+        .help-link { color: #4F46E5; font-weight: 800; text-decoration: none; margin-left: 8px; }
+        .footer { margin-top: 56px; text-align: center; border-top: 1px solid #F3F4F6; padding-top: 40px; }
+        .footer-text { font-size: 11px; color: #999999; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 12px; }
+        .support { font-size: 12px; color: #666666; font-weight: 500; }
+        .support a { color: #111111; font-weight: 700; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="brand">
+                <a href="#" class="brand-logo">PrepUp</a>
+            </div>
+            
+            <div class="tag">Curriculum Expansion Uplink</div>
+            
+            <h1>Mission Ready: {{packageName}}.</h1>
+            
+            <div class="content">
+                Hello Scholar, <br/><br/>
+                We have successfully architected and deployed a major curriculum update to your learning environment. The highly-anticipated package is now live and ready for execution.
+            </div>
+            
+            <div class="accent">
+                <p>{{packageName}}</p>
+            </div>
+
+            <div class="content">
+                Access these new assessment modules immediately to reinforce your strategic preparation and solidify your path to academic excellence.
+            </div>
+            
+            <a href="{{loginUrl}}" class="btn">Initialize Study Sequence →</a>
+
+            <div class="help-section">
+                <p>New to this subject? Visit our <a href="{{helpUrl}}" class="help-link">Digital Help Center</a></p>
+            </div>
+            
+            <div class="footer">
+                <div class="footer-text">PREPUP CBT • ENGINEERED FOR LEADERSHIP • © 2026</div>
+                <div class="support">Encountered a friction point? <a href="mailto:mercyjay510@gmail.com">Contact Tactical Support</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

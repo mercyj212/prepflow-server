@@ -12,9 +12,9 @@ const sendEmail = async (options) => {
     // Persistent Transport Configuration (Optimized for Render/Vercel Cloud Nodes)
     const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
-        port: 587,
-        secure: false, // Use STARTTLS
-        family: 4, // 🛡️ ENFORCE IPv4: Prevents Render ENETUNREACH errors on IPv6 networks
+        port: 465,
+        secure: true, // Use SSL
+        family: 4, 
         connectionTimeout: 20000, // 20s
         greetingTimeout: 20000, 
         socketTimeout: 20000, 
