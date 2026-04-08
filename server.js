@@ -92,7 +92,7 @@ app.get('/', (req, res) => {
   res.json({ message: 'Backend is working🚀' });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 10000; // Render expects 10000 by default
 
 // Global error handler
 app.use((err, req, res, next) => {
