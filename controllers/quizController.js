@@ -30,14 +30,10 @@ export const getQuizzes = async (req, res) => {
 // @access  Private
 export const getQuizById = async (req, res) => {
   try {
-    // Force inclusion of isCorrect field in query
     const quiz = await Quiz.findById(req.params.id).populate("course", "title");
 
     if (quiz) {
-      // Use the raw MongoDB data to ensure we don't lose fields during toObject() default transforms
       const quizObj = quiz.toObject();
-      
-      // Reshuffle and slice, but manually verify isCorrect is present
       const randomQuestions = shuffleArray(quizObj.questions).slice(0, 60);
 
       quizObj.questions = randomQuestions.map(q => {
@@ -46,8 +42,7 @@ export const getQuizById = async (req, res) => {
           options: shuffleArray(q.options).map(o => {
             return {
               text: o.text,
-              _id: o._id,
-              isCorrect: !!o.isCorrect // Explicitly cast and include
+              _id: o._id
             };
           })
         };

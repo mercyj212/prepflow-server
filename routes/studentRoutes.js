@@ -4,7 +4,7 @@ import { protect, admin } from "../utils/authMiddleware.js"; // Fixed path
 
 const router = express.Router();
 
-router.post("/create-access", createStudentAccess);
+router.post("/create-access", protect, admin, createStudentAccess);
 router.get("/count", protect, admin, getAllStudentsCount);
 router.get("/", protect, admin, getAllStudents);
 router.delete("/:id", protect, admin, deleteStudent);
