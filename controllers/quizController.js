@@ -39,12 +39,11 @@ export const getQuizById = async (req, res) => {
       quizObj.questions = randomQuestions.map(q => {
         return {
           ...q,
-          options: shuffleArray(q.options).map(o => {
-            return {
-              text: o.text,
-              _id: o._id
-            };
-          })
+          options: shuffleArray(q.options).map(o => ({
+            _id: o._id,
+            text: o.text,
+            isCorrect: Boolean(o.isCorrect)
+          }))
         };
       });
       
