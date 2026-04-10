@@ -1,6 +1,5 @@
 import Quiz from "../models/Quiz.js";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import fetch from "node-fetch";
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const pdf = require('pdf-parse');
