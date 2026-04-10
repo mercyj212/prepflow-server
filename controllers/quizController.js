@@ -1,10 +1,12 @@
 import Quiz from "../models/Quiz.js";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import fetch from "node-fetch";
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const pdf = require('pdf-parse');
 
 const shuffleArray = (array) => {
+  if (!array || !Array.isArray(array)) return [];
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -12,10 +14,6 @@ const shuffleArray = (array) => {
   }
   return shuffled;
 };
-
-// @desc    Get all quizzes
-// @route   GET /api/quizzes
-// @access  Public/Private based on requirements
 export const getQuizzes = async (req, res) => {
   try {
     const quizzes = await Quiz.find({ isActive: true }).populate("course", "title");
