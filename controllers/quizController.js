@@ -14,6 +14,8 @@ const shuffleArray = (array) => {
   }
   return shuffled;
 };
+
+// @desc    Get all quizzes
 export const getQuizzes = async (req, res) => {
   try {
     const quizzes = await Quiz.find({ isActive: true }).populate("course", "title");
@@ -23,9 +25,7 @@ export const getQuizzes = async (req, res) => {
   }
 };
 
-// @desc    Get single quiz (Includes answers for feedback)
-// @route   GET /api/quizzes/:id
-// @access  Private
+// @desc    Get single quiz (Standard Exam - 60 Random Questions)
 export const getQuizById = async (req, res) => {
   try {
     const quiz = await Quiz.findById(req.params.id).populate("course", "title");
@@ -54,15 +54,23 @@ export const getQuizById = async (req, res) => {
   }
 };
 
-// @desc    Get single quiz for study mode (includes answers)
-// @route   GET /api/quizzes/:id/study
-// @access  Private
+// @desc    Get single quiz for study mode (60 Random Questions with Answers)
 export const getStudyQuizById = async (req, res) => {
   try {
     const quiz = await Quiz.findById(req.params.id).populate("course", "title");
 
     if (quiz) {
-      res.json(quiz);
+      const quizObj = quiz.toObject();
+      const randomQuestions = shuffleArray(quizObj.questions).slice(0, 60);
+      
+      quizObj.questions = randomQuestions.map(q => {
+        return {
+          ...q,
+          options: shuffleArray(q.options)
+        };
+      });
+
+      res.json(quizObj);
     } else {
       res.status(404).json({ message: "Quiz not found" });
     }
@@ -71,9 +79,7 @@ export const getStudyQuizById = async (req, res) => {
   }
 };
 
-// @desc    Get single quiz for public practice (includes answers)
-// @route   GET /api/quizzes/:id/study/public
-// @access  Public
+// @desc    Get single quiz for public practice (60 Random Questions with Answers)
 export const getStudyQuizByIdPublic = async (req, res) => {
   try {
     const quiz = await Quiz.findById(req.params.id).populate("course", "title");
@@ -98,8 +104,6 @@ export const getStudyQuizByIdPublic = async (req, res) => {
 };
 
 // @desc    Create a quiz
-// @route   POST /api/quizzes
-// @access  Private/Admin
 export const createQuiz = async (req, res) => {
   try {
     const quiz = new Quiz(req.body);
@@ -111,8 +115,6 @@ export const createQuiz = async (req, res) => {
 };
 
 // @desc    Add question to a quiz
-// @route   POST /api/quizzes/:id/questions
-// @access  Private/Admin
 export const addQuestion = async (req, res) => {
   try {
     const quiz = await Quiz.findById(req.params.id);
@@ -132,8 +134,6 @@ export const addQuestion = async (req, res) => {
 };
 
 // @desc    Add multiple questions to a quiz
-// @route   POST /api/quizzes/:id/batch-questions
-// @access  Private/Admin
 export const addBatchQuestions = async (req, res) => {
   try {
     const quiz = await Quiz.findById(req.params.id);
@@ -151,8 +151,8 @@ export const addBatchQuestions = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
-// @route   PUT /api/quizzes/:id
-// @access  Private/Admin
+
+// @desc    Update a quiz
 export const updateQuiz = async (req, res) => {
   try {
     const quiz = await Quiz.findById(req.params.id);
@@ -170,8 +170,6 @@ export const updateQuiz = async (req, res) => {
 };
 
 // @desc    Rename a quiz
-// @route   PUT /api/quizzes/:id/rename
-// @access  Private/Admin
 export const renameQuiz = async (req, res) => {
   const { title } = req.body;
   if (!title || !title.trim()) {
@@ -190,10 +188,7 @@ export const renameQuiz = async (req, res) => {
   }
 };
 
-
 // @desc    Delete a quiz
-// @route   DELETE /api/quizzes/:id
-// @access  Private/Admin
 export const deleteQuiz = async (req, res) => {
   try {
     const quiz = await Quiz.findById(req.params.id);
@@ -210,8 +205,6 @@ export const deleteQuiz = async (req, res) => {
 };
 
 // @desc    Generate questions using Gemini AI (supports Text, Image, PDF)
-// @route   POST /api/quizzes/:id/generate
-// @access  Private/Admin
 export const generateQuestions = async (req, res) => {
   try {
     const quiz = await Quiz.findById(req.params.id);
@@ -222,17 +215,15 @@ export const generateQuestions = async (req, res) => {
     let { material, count } = req.body;
     count = parseInt(count) || 10;
     
-    // If we have files, extract text or prepare multimodal content
     let finalPromptParts = [];
     let materialDescription = "";
 
     const uploadedFiles = req.files || [];
     for (const file of uploadedFiles) {
       const isPdf = file.mimetype === "application/pdf";
-      const fileUrl = file.path; // Cloudinary URL
+      const fileUrl = file.path; 
 
       if (isPdf) {
-        // Option 1: Extract text from PDF using pdf-parse
         try {
           const response = await fetch(fileUrl);
           const buffer = await response.arrayBuffer();
@@ -240,10 +231,8 @@ export const generateQuestions = async (req, res) => {
           materialDescription += `\n\n[FILE: ${file.originalname}]\n${data.text}`;
         } catch (pdfErr) {
           console.error("PDF Parse Error:", pdfErr);
-          // Continue to next file instead of failing entire request
         }
       } else {
-        // Option 2: Image - Send directly to Gemini as inline data
         try {
           const response = await fetch(fileUrl);
           const buffer = await response.arrayBuffer();
@@ -255,12 +244,11 @@ export const generateQuestions = async (req, res) => {
             }
           });
         } catch (imgErr) {
-          console.error("Image                            Fetch Error:", imgErr);
+          console.error("Image Fetch Error:", imgErr);
         }
       }
     }
 
-    // Combine with manual material text if provided
     if (material) {
       materialDescription = materialDescription ? `${materialDescription}\n\nAdditional text:\n${material}` : material;
     }
@@ -274,9 +262,8 @@ export const generateQuestions = async (req, res) => {
     }
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    // Use gemini-2.5-flash as requested
     const model = genAI.getGenerativeModel({ 
-      model: "gemini-2.5-flash",
+      model: "gemini-2.0-flash", // Reverted to standard flash since 2.5 was a typo
       generationConfig: {
         responseMimeType: "application/json",
         responseSchema: {
@@ -325,18 +312,13 @@ Focus on:
       throw new Error("The AI provided an incompatible data format. Please refine the source material.");
     }
 
-    // Shuffle options
     const shuffledQuestions = (questions || []).map(q => {
       if (q.options && q.options.length > 0) {
-        for (let i = q.options.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [q.options[i], q.options[j]] = [q.options[j], q.options[i]];
-        }
+        q.options = shuffleArray(q.options);
       }
       return q;
     });
 
-    // Append to existing
     quiz.questions.push(...shuffledQuestions);
     const updatedQuiz = await quiz.save();
 
