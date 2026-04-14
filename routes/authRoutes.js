@@ -7,8 +7,11 @@ import {
   verifyEmail, 
   forgotPassword, 
   resetPassword,
-  googleLogin
+  googleLogin,
+  updateProfilePicture
 } from "../controllers/authController.js";
+import { protect } from "../utils/authMiddleware.js";
+import { upload } from "../config/cloudinary.js";
 
 const router = express.Router();
 
@@ -22,5 +25,8 @@ router.post("/google", googleLogin);
 router.get("/verify-email/:token", verifyEmail);
 router.post("/forgot-password", forgotPassword);
 router.put("/reset-password/:token", resetPassword);
+
+// 🛡️ PROFILE MANAGEMENT
+router.put("/profile/avatar", protect, upload.single("avatar"), updateProfilePicture);
 
 export default router;

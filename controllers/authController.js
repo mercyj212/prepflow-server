@@ -455,3 +455,38 @@ export const googleLogin = async (req, res) => {
     });
   }
 };
+
+// @desc    Update User Profile Avatar
+// @route   PUT /api/auth/profile/avatar
+// @access  Private (Protect Middleware + Upload Middleware)
+export const updateProfilePicture = async (req, res) => {
+  try {
+    const student = await Student.findById(req.user._id);
+
+    if (!student) {
+      return res.status(404).json({ message: "Student account not found." });
+    }
+
+    if (!req.file || !req.file.path) {
+      return res.status(400).json({ message: "No image file provided." });
+    }
+
+    // Assign Cloudinary URL directly to the student record
+    student.profilePicture = req.file.path;
+    await student.save();
+
+    res.json({
+      _id: student._id,
+      fullName: student.fullName,
+      email: student.email,
+      role: student.role,
+      isVerified: student.isVerified,
+      profilePicture: student.profilePicture,
+      token: generateToken(student._id),
+      message: "Avatar updated securely.",
+    });
+  } catch (error) {
+    console.error('[AUTH ERROR][AVATAR UPDATE]:', error);
+    res.status(500).json({ message: "Failed to update profile picture. Ensure the image is valid." });
+  }
+};
