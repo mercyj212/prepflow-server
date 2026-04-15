@@ -22,9 +22,25 @@ const courseSchema = new mongoose.Schema(
             default: "",
             trim: true,
         },
+        // ── Hierarchy Fields ──────────────────────────────────
+        department: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Department",
+            default: null,
+        },
+        level: {
+            type: String,
+            enum: ["100L", "200L", "300L", "400L", "500L", "ND1", "ND2", "HND1", "HND2", null],
+            default: null,
+        },
+        path: {
+            type: String,
+            enum: ["university", "polytechnic", "entrance", null],
+            default: null,
+        },
         materials: [materialSchema],
     },
     { timestamps: true }
 );
 
-export default mongoose.model("Course", courseSchema);
+export default mongoose.model("Course", courseSchema);

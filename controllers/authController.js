@@ -4,9 +4,38 @@ import sendEmail from "../utils/emailService.js";
 import crypto from 'crypto';
 import { OAuth2Client } from 'google-auth-library';
 
-const generateToken = (id) => {
+const generateAccessToken = (id) => {
   return jwt.sign({ id: id.toString() }, process.env.JWT_SECRET, {
-    expiresIn: "30d",
+    expiresIn: "15m", // Short-lived access
+  });
+};
+
+const generateRefreshToken = (id) => {
+  return jwt.sign({ id: id.toString() }, process.env.JWT_SECRET, {
+    expiresIn: "30d", // Long-lived refresh
+  });
+};
+
+const sendTokenResponse = (student, statusCode, res, message = null) => {
+  const accessToken = generateAccessToken(student._id);
+  const refreshToken = generateRefreshToken(student._id);
+
+  const options = {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    maxAge: 30 * 24 * 60 * 60 * 1000 // 30 days
+  };
+
+  res.status(statusCode).cookie('refreshToken', refreshToken, options).json({
+    _id: student._id,
+    fullName: student.fullName,
+    email: student.email,
+    role: student.role,
+    isVerified: student.isVerified,
+    profilePicture: student.profilePicture,
+    message,
+    token: accessToken,
   });
 };
 
@@ -144,14 +173,8 @@ export const loginStudent = async (req, res) => {
         }
       });
 
-      res.json({
-        _id: student._id,
-        fullName: student.fullName,
-        email: student.email,
-        role: student.role,
-        isVerified: student.isVerified,
-        token: generateToken(student._id),
-      });
+      // Let sendTokenResponse handle the response
+      sendTokenResponse(student, 200, res);
     } else {
       res.status(401).json({ message: "Invalid credentials" });
     }
@@ -208,14 +231,31 @@ export const verifyOTP = async (req, res) => {
       mailDiagnostic = welcomeErr.message || "Silent Communication Failure";
     }
 
-    res.json({
+    // Let sendTokenResponse handle the response
+    const resData = {
       _id: student._id,
       fullName: student.fullName,
       email: student.email,
       role: student.role,
       isVerified: true,
+      profilePicture: student.profilePicture
+    };
+    
+    // Set cookie and send response
+    const accessToken = generateAccessToken(student._id);
+    const refreshToken = generateRefreshToken(student._id);
+
+    const options = {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      maxAge: 30 * 24 * 60 * 60 * 1000 // 30 days
+    };
+
+    res.status(200).cookie('refreshToken', refreshToken, options).json({
+      ...resData,
       message: 'Email verified! Your account is now active.',
-      token: generateToken(student._id),
+      token: accessToken,
       serverDiagnostic: mailDiagnostic
     });
   } catch (error) {
@@ -437,15 +477,7 @@ export const googleLogin = async (req, res) => {
     student.deviceInfo = deviceInfo;
     await student.save();
 
-    res.json({
-      _id: student._id,
-      fullName: student.fullName,
-      email: student.email,
-      role: student.role,
-      isVerified: student.isVerified,
-      profilePicture: student.profilePicture,
-      token: generateToken(student._id),
-    });
+    sendTokenResponse(student, 200, res);
 
   } catch (error) {
     console.error('[AUTH ERROR][GOOGLE HUB]:', error);
@@ -475,18 +507,42 @@ export const updateProfilePicture = async (req, res) => {
     student.profilePicture = req.file.path;
     await student.save();
 
-    res.json({
-      _id: student._id,
-      fullName: student.fullName,
-      email: student.email,
-      role: student.role,
-      isVerified: student.isVerified,
-      profilePicture: student.profilePicture,
-      token: generateToken(student._id),
-      message: "Avatar updated securely.",
-    });
+    sendTokenResponse(student, 200, res, "Avatar updated securely.");
   } catch (error) {
     console.error('[AUTH ERROR][AVATAR UPDATE]:', error);
     res.status(500).json({ message: "Failed to update profile picture. Ensure the image is valid." });
   }
+};
+
+// @desc    Refresh session token
+// @route   GET /api/auth/refresh
+export const refreshSession = async (req, res) => {
+  const refreshToken = req.cookies.refreshToken;
+
+  if (!refreshToken) {
+    return res.status(401).json({ message: "Not authenticated. No refresh token found." });
+  }
+
+  try {
+    const decoded = jwt.verify(refreshToken, process.env.JWT_SECRET);
+    const student = await Student.findById(decoded.id).select('-password');
+
+    if (!student) {
+      return res.status(401).json({ message: "Invalid token. User not found." });
+    }
+
+    sendTokenResponse(student, 200, res);
+  } catch (error) {
+    res.status(401).json({ message: "Refresh token expired or invalid." });
+  }
+};
+
+// @desc    Logout user and clear cookie
+// @route   POST /api/auth/logout
+export const logoutUser = (req, res) => {
+  res.cookie('refreshToken', 'none', {
+    expires: new Date(Date.now() + 10 * 1000),
+    httpOnly: true,
+  });
+  res.status(200).json({ success: true, message: 'Logged out successfully' });
 };

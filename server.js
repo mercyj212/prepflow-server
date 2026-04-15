@@ -11,14 +11,18 @@ import quizRoutes from './routes/quizRoutes.js';
 import submissionRoutes from './routes/submissionRoutes.js';
 import courseRoutes from './routes/courseRoutes.js';
 import chatRoutes from './routes/chatRoutes.js';
+import facultyRoutes from './routes/facultyRoutes.js';
+import departmentRoutes from './routes/departmentRoutes.js';
 import mongoose from 'mongoose';
 
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import mongoSanitize from 'express-mongo-sanitize';
 import hpp from 'hpp';
+import cookieParser from 'cookie-parser';
 
 const app = express();
+app.use(cookieParser());
 
 const allowedOrigins = [
   process.env.FRONTEND_URL,
@@ -84,6 +88,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/quizzes', quizRoutes);
 app.use('/api/submissions', submissionRoutes);
 app.use('/api/courses', courseRoutes);
+app.use('/api/faculties', facultyRoutes);
+app.use('/api/departments', departmentRoutes);
 app.use('/api/chat', chatRoutes);
 
 app.get('/api/health', (req, res) => {

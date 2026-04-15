@@ -8,7 +8,9 @@ import {
   forgotPassword, 
   resetPassword,
   googleLogin,
-  updateProfilePicture
+  updateProfilePicture,
+  refreshSession,
+  logoutUser
 } from "../controllers/authController.js";
 import { protect } from "../utils/authMiddleware.js";
 import { upload } from "../config/cloudinary.js";
@@ -20,6 +22,8 @@ router.post("/login", loginStudent);
 router.post("/verify-otp", verifyOTP);
 router.post("/resend-otp", resendOTP);
 router.post("/google", googleLogin);
+router.get("/refresh", refreshSession);
+router.post("/logout", logoutUser);
 
 // 🛡️ SECURITY & IDENTITY ROUTES
 router.get("/verify-email/:token", verifyEmail);

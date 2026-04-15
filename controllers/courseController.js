@@ -3,12 +3,16 @@ import Student from "../models/Student.js";
 import sendEmail from "../utils/emailService.js";
 import { cloudinary } from "../config/cloudinary.js";
 
-// @desc    Get all courses
-// @route   GET /api/courses
+// @desc    Get all courses (optionally filter by department, level)
+// @route   GET /api/courses?department=&level=
 // @access  Public
 export const getCourses = async (req, res) => {
   try {
-    const courses = await Course.find();
+    const filter = {};
+    if (req.query.department) filter.department = req.query.department;
+    if (req.query.level) filter.level = req.query.level;
+    if (req.query.path) filter.path = req.query.path;
+    const courses = await Course.find(filter).populate("department", "name faculty").sort({ title: 1 });
     res.json(courses);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -19,14 +23,14 @@ export const getCourses = async (req, res) => {
 // @route   POST /api/courses
 // @access  Private/Admin
 export const createCourse = async (req, res) => {
-  const { title, description } = req.body;
+  const { title, description, department, level, path } = req.body;
   try {
     const courseExists = await Course.findOne({ title: title.toUpperCase() });
     if (courseExists) {
       return res.status(400).json({ message: "Course already exists" });
     }
 
-    const course = new Course({ title, description });
+    const course = new Course({ title, description, department: department || null, level: level || null, path: path || null });
     const createdCourse = await course.save();
 
     // 📧 AUTO-NOTIFY ENGINE: If the admin opted-in, trigger the broadcast
