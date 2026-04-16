@@ -1,4 +1,28 @@
 import 'dotenv/config';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// 📝 PERSISTENT LOG CAPTURING
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const logFile = path.join(__dirname, 'server_log.txt');
+const logStream = fs.createWriteStream(logFile, { flags: 'a' });
+
+const originalStdoutWrite = process.stdout.write.bind(process.stdout);
+const originalStderrWrite = process.stderr.write.bind(process.stderr);
+
+process.stdout.write = (chunk) => {
+  logStream.write(`[${new Date().toLocaleTimeString()}] ${chunk}`);
+  return originalStdoutWrite(chunk);
+};
+
+process.stderr.write = (chunk) => {
+  logStream.write(`[ERROR][${new Date().toLocaleTimeString()}] ${chunk}`);
+  return originalStderrWrite(chunk);
+};
+
+console.log('--- SERVER RESTARTED - LOGGER ACTIVE ---');
+
 import express from 'express';
 import cors from 'cors';
 import connectDB from './config/db.js';
@@ -24,6 +48,12 @@ import cookieParser from 'cookie-parser';
 const app = express();
 app.use(cookieParser());
 
+// 👉 MOVE LOGGER TO TOP TO CATCH EVERYTHING
+app.use((req, res, next) => {
+  console.log(`[${new Date().toLocaleTimeString()}] ${req.method} ${req.url} from ${req.headers.origin || 'unknown'}`);
+  next();
+});
+
 const allowedOrigins = [
   process.env.FRONTEND_URL,
   'https://prepupcbt.vercel.app',
@@ -35,11 +65,19 @@ const allowedOrigins = [
 
 const corsOptions = {
   origin(origin, callback) {
-    if (!origin) return callback(null, true);
+    if (!origin) {
+      console.log('[CORS]: No origin provided (likely server-to-server or direct)');
+      return callback(null, true);
+    }
     const normalized = origin.replace(/\/$/, '');
-    if (allowedOrigins.includes(normalized) || normalized.endsWith('.vercel.app')) {
+    const isAllowed = allowedOrigins.includes(normalized) || normalized.endsWith('.vercel.app');
+    
+    console.log(`[CORS]: Request from ${origin} - ${isAllowed ? 'ALLOWED' : 'DENIED'}`);
+    
+    if (isAllowed) {
       callback(null, true);
     } else {
+      console.error(`[CORS][ERROR]: Blocked unauthorized origin: ${origin}`);
       callback(new Error('Not allowed by CORS'));
     }
   },
@@ -65,7 +103,7 @@ app.use(helmet({
 // app.use(hpp()); // Incompatible with Express 5
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, 
-  max: 100, 
+  max: 2000, // Further increased to avoid polling limits
   message: { message: "Too many requests from this IP, please try again after 15 minutes" }
 });
 app.use('/api/', limiter);
@@ -113,12 +151,13 @@ const PORT = process.env.PORT || 10000; // Render expects 10000 by default
 // Global error handler
 app.use((err, req, res, next) => {
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
-  console.error(`[SERVER ERROR] ${req.method} ${req.url}:`, err.stack);
+  console.error(`[CRITICAL SERVER ERROR] ${req.method} ${req.url}:`, err.message);
+  console.error(err.stack);
   
   res.status(statusCode).json({ 
-    message: err.message, 
-    stack: process.env.NODE_ENV === 'production' ? null : err.stack,
-    error: err.name
+    message: "A critical backend error occurred. Please check the server logs.",
+    debug: err.message,
+    stack: process.env.NODE_ENV === 'production' ? null : err.stack
   });
 });
 

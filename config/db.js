@@ -1,13 +1,43 @@
 import mongoose from "mongoose";
 
+let retryCount = 0;
+const MAX_RETRIES = 5;
+
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI);
+    const conn = await mongoose.connect(process.env.MONGODB_URI, {
+      serverSelectionTimeoutMS: 10000,
+      socketTimeoutMS: 45000,
+      heartbeatFrequencyMS: 10000,
+    });
+    retryCount = 0; // Reset on success
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
-    console.error(`MongoDB connection failed: ${error.message}`);
-    // process.exit(1); 
+    retryCount++;
+    console.error(`MongoDB connection failed (attempt ${retryCount}): ${error.message}`);
+    if (retryCount < MAX_RETRIES) {
+      const delay = Math.min(retryCount * 3000, 15000); // Max 15 seconds between retries
+      console.log(`Retrying connection in ${delay / 1000}s...`);
+      setTimeout(connectDB, delay);
+    } else {
+      console.error('Max retries reached. Please check MongoDB Atlas status.');
+    }
   }
 };
 
-export default connectDB;
+// Auto-reconnect on disconnect events
+mongoose.connection.on('disconnected', () => {
+  console.error('[DB]: MongoDB disconnected! Attempting reconnect...');
+  retryCount = 0; // Reset for fresh reconnect cycle
+  setTimeout(connectDB, 2000);
+});
+
+mongoose.connection.on('error', (err) => {
+  console.error('[DB]: MongoDB connection error:', err.message);
+});
+
+mongoose.connection.on('connected', () => {
+  console.log('[DB]: MongoDB connection restored.');
+});
+
+export default connectDB;

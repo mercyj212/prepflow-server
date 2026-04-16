@@ -3,10 +3,11 @@ import jwt from "jsonwebtoken";
 import sendEmail from "../utils/emailService.js";
 import crypto from 'crypto';
 import { OAuth2Client } from 'google-auth-library';
+import mongoose from 'mongoose';
 
 const generateAccessToken = (id) => {
   return jwt.sign({ id: id.toString() }, process.env.JWT_SECRET, {
-    expiresIn: "15m", // Short-lived access
+    expiresIn: "2h", // Extended for longer study sessions
   });
 };
 
@@ -111,20 +112,39 @@ export const registerStudent = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-};
-
-// @desc    Login student
+};// @desc    Login student
 // @route   POST /api/auth/login
 export const loginStudent = async (req, res) => {
-  const { email, password } = req.body;
+  let { email, password } = req.body;
 
   try {
+    console.log(`\n[AUTH STEP 1]: Login attempt for ${email}`);
+    
+    // Type Safety First
+    email = String(email || '').toLowerCase().trim();
+    password = String(password || '');
+
+    if (!email || !password) {
+      return res.status(400).json({ message: "Email and password are required" });
+    }
+
+    console.log(`[AUTH STEP 2]: Querying database...`);
     const student = await Student.findOne({ email });
 
+    if (!student) {
+      console.log(`[AUTH STEP 2b]: No student found with email ${email}`);
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
+    console.log(`[AUTH STEP 3]: Comparing password...`);
     // Handle case where account might exist but doesn't have a password (like Google logins)
-    if (student && student.password && (await student.comparePassword(password))) {
-      // ️ IDENTITY CHECK: BLOCK AND RE-VERIFY UNVERIFIED SCHOLARS
+    const isMatch = student.password ? (await student.comparePassword(password)) : false;
+
+    if (student && isMatch) {
+      console.log(`[AUTH STEP 4]: Authentication successful. Checking verification...`);
+      // 🛡️ IDENTITY CHECK: BLOCK AND RE-VERIFY UNVERIFIED SCHOLARS
       if (!student.isVerified) {
+        console.log(`[AUTH STEP 4b]: User not verified. Generating OTP...`);
         const otp = Math.floor(100000 + Math.random() * 900000).toString();
         const otpHash = crypto.createHash('sha256').update(otp).digest('hex');
 
@@ -156,7 +176,8 @@ export const loginStudent = async (req, res) => {
         });
       }
 
-      // ️ ACTIVITY TRACKER: High-Res Timing & Device Intelligence
+      // 🛡️ ACTIVITY TRACKER: High-Res Timing & Device Intelligence
+      console.log(`[AUTH STEP 5]: Updating activity tracker...`);
       let deviceInfo = 'Standard Web-Client';
       const userAgent = req.headers['user-agent'] || '';
       
@@ -166,21 +187,30 @@ export const loginStudent = async (req, res) => {
       else if (/macintosh/i.test(userAgent)) deviceInfo = 'Apple Mac';
       else if (/linux/i.test(userAgent)) deviceInfo = 'Linux PC';
 
-      await Student.findByIdAndUpdate(student._id, {
-        $set: { 
-          lastLogin: Date.now(),
-          deviceInfo: deviceInfo
-        }
-      });
+      try {
+        await Student.findByIdAndUpdate(student._id, {
+          $set: { 
+            lastLogin: Date.now(),
+            deviceInfo: deviceInfo
+          }
+        });
+      } catch (updateError) {
+        console.warn(`[AUTH WARN]: Failed to update lastLogin, continuing...`);
+      }
 
       // Let sendTokenResponse handle the response
+      console.log(`[AUTH STEP 6]: Sending token response...`);
       sendTokenResponse(student, 200, res);
     } else {
+      console.log(`[AUTH STEP 3b]: Password mismatch or missing.`);
       res.status(401).json({ message: "Invalid credentials" });
     }
   } catch (error) {
-    console.error('[AUTH ERROR][LOGIN]:', error);
-    res.status(500).json({ message: error.message });
+    console.error(error.stack);
+    res.status(500).json({ 
+      message: "Identity verification failed on the server. Reach out to support if this persists.",
+      debug: error.message 
+    });
   }
 };
 
@@ -545,4 +575,24 @@ export const logoutUser = (req, res) => {
     httpOnly: true,
   });
   res.status(200).json({ success: true, message: 'Logged out successfully' });
+};
+
+// @desc    Get Auth System Status (Diagnostic)
+// @route   GET /api/auth/health
+export const getAuthStatus = async (req, res) => {
+  try {
+    const dbStatus = mongoose.connection.readyState === 1 ? 'Operational' : 'Disconnected';
+    const jwtConfig = process.env.JWT_SECRET ? 'Configured' : 'Missing';
+    const emailConfig = process.env.EMAIL_USER ? 'Configured' : 'Missing';
+
+    res.json({
+      status: 'Diagnostic Report',
+      database: dbStatus,
+      jwt: jwtConfig,
+      email: emailConfig,
+      timestamp: new Date().toISOString()
+    });
+  } catch (error) {
+    res.status(500).json({ status: 'Diagnostic Error', message: error.message });
+  }
 };

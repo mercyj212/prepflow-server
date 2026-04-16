@@ -76,6 +76,7 @@ studentSchema.pre("save", async function () {
 
 // Compare password
 studentSchema.methods.comparePassword = async function (enteredPassword) {
+  if (!this.password) return false;
   return await bcrypt.compare(enteredPassword, this.password);
 };
 

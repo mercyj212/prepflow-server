@@ -179,3 +179,58 @@ export const getSubmissions = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// @desc    Get the latest submission for a specific quiz by the logged-in student
+// @route   GET /api/submissions/quiz/:quizId
+// @access  Private
+export const getLatestSubmissionForQuiz = async (req, res) => {
+  try {
+    const submission = await Submission.findOne({
+      student: req.user._id,
+      quiz: req.params.quizId,
+    })
+      .populate({
+        path: 'quiz',
+        select: 'title questions',
+        populate: {
+          path: 'questions',
+          select: 'text options explanation',
+        },
+      })
+      .sort({ createdAt: -1 });
+
+    if (!submission) {
+      return res.status(404).json({ message: 'No submission found for this quiz.' });
+    }
+
+    // Build a rich per-question result breakdown
+    const quiz = submission.quiz;
+    const questionResults = submission.answers.map((ans) => {
+      const question = quiz?.questions?.find(q => q._id.toString() === ans.questionId.toString());
+      const selectedOption = question?.options?.find(o => o._id.toString() === ans.selectedOptionId?.toString());
+      const correctOption = question?.options?.find(o => o.isCorrect);
+
+      return {
+        questionText: question?.text || 'Question not found',
+        yourAnswer: selectedOption?.text || 'No answer selected',
+        correctAnswer: correctOption?.text || 'N/A',
+        isCorrect: ans.isCorrect,
+        explanation: question?.explanation || null,
+      };
+    });
+
+    res.json({
+      _id: submission._id,
+      quizTitle: quiz?.title || 'Quiz',
+      score: submission.score,
+      totalQuestions: submission.totalQuestions,
+      timeTaken: submission.timeTaken,
+      createdAt: submission.createdAt,
+      questionResults,
+    });
+  } catch (error) {
+    console.error('[GET_LATEST_SUBMISSION]:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+

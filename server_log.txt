@@ -1,0 +1,1352 @@
+[9:06:32 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[9:06:32 AM] Server is running on port 10000
+[9:06:32 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[ERROR][9:06:32 AM] MongoDB connection failed: queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[9:06:39 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[9:06:39 AM] Server is running on port 10000
+[9:06:39 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[9:06:41 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[9:08:33 AM] [9:08:33 AM] POST /api/auth/login
+[9:08:33 AM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[9:08:33 AM] [AUTH STEP 2]: Querying database...
+[9:08:34 AM] [AUTH STEP 3]: Comparing password...
+[9:08:34 AM] [AUTH STEP 4]: Authentication successful. Checking verification...
+[9:08:34 AM] [AUTH STEP 5]: Updating activity tracker...
+[9:08:34 AM] [AUTH STEP 6]: Sending token response...
+[9:08:36 AM] [9:08:36 AM] GET /api/quizzes
+[9:08:36 AM] [9:08:36 AM] GET /api/submissions/my-submissions
+[9:08:46 AM] [9:08:46 AM] GET /api/quizzes
+[9:08:52 AM] [9:08:52 AM] GET /api/quizzes/69cc7189039db582ef09124d/study
+[9:08:59 AM] [9:08:59 AM] GET /api/chat/conversations
+[9:09:05 AM] [9:09:05 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:09:15 AM] [9:09:15 AM] GET /api/chat/conversations
+[9:09:31 AM] [9:09:31 AM] GET /api/chat/conversations
+[9:09:45 AM] [9:09:45 AM] GET /api/chat/conversations
+[9:10:01 AM] [9:10:01 AM] GET /api/chat/conversations
+[9:10:15 AM] [9:10:15 AM] GET /api/chat/conversations
+[9:10:31 AM] [9:10:31 AM] GET /api/chat/conversations
+[9:10:45 AM] [9:10:45 AM] GET /api/chat/conversations
+[9:11:01 AM] [9:11:01 AM] GET /api/chat/conversations
+[9:11:16 AM] [9:11:16 AM] GET /api/chat/conversations
+[9:11:32 AM] [9:11:32 AM] GET /api/chat/conversations
+[9:11:44 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[9:11:44 AM] Server is running on port 10000
+[9:11:44 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[9:11:45 AM] MongoDB Connected: ac-gy8st3b-shard-00-01.vjeopgu.mongodb.net
+[9:11:47 AM] [9:11:47 AM] GET /api/chat/conversations
+[9:12:01 AM] [9:12:01 AM] GET /api/chat/conversations
+[9:12:10 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[9:12:10 AM] Server is running on port 10000
+[9:12:10 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[9:12:12 AM] MongoDB Connected: ac-gy8st3b-shard-00-01.vjeopgu.mongodb.net
+[9:12:24 AM] [9:12:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:12:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:12:25 AM] [9:12:25 AM] GET /api/chat/conversations from http://localhost:5173
+[9:12:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:12:25 AM] [9:12:25 AM] GET /api/chat/conversations
+[9:13:24 AM] [9:13:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:13:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:13:24 AM] [9:13:24 AM] GET /api/chat/conversations from http://localhost:5173
+[9:13:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:13:24 AM] [9:13:24 AM] GET /api/chat/conversations
+[9:14:24 AM] [9:14:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:14:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:14:25 AM] [9:14:25 AM] GET /api/chat/conversations from http://localhost:5173
+[9:14:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:14:25 AM] [9:14:25 AM] GET /api/chat/conversations
+[9:14:33 AM] [9:14:33 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:14:33 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:14:33 AM] [9:14:33 AM] GET /api/chat/conversations from http://localhost:5173
+[9:14:33 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:14:33 AM] [9:14:33 AM] GET /api/chat/conversations
+[9:14:45 AM] [9:14:45 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:14:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:14:46 AM] [9:14:46 AM] GET /api/chat/conversations from http://localhost:5173
+[9:14:46 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:14:46 AM] [9:14:46 AM] GET /api/chat/conversations
+[9:14:58 AM] [9:14:58 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:14:58 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:14:58 AM] [9:14:58 AM] GET /api/chat/conversations from http://localhost:5173
+[9:14:58 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:14:58 AM] [9:14:58 AM] GET /api/chat/conversations
+[9:15:02 AM] [9:15:02 AM] OPTIONS /api/chat/69e076025a31bd8e5069f5b6 from http://localhost:5173
+[9:15:02 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:15:02 AM] [9:15:02 AM] GET /api/chat/69e076025a31bd8e5069f5b6 from http://localhost:5173
+[9:15:02 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:15:02 AM] [9:15:02 AM] GET /api/chat/69e076025a31bd8e5069f5b6
+[9:15:05 AM] [9:15:05 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:15:05 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:15:05 AM] [9:15:05 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:15:05 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:15:05 AM] [9:15:05 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:15:15 AM] [9:15:15 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:15:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:15:15 AM] [9:15:15 AM] GET /api/chat/conversations from http://localhost:5173
+[9:15:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:15:15 AM] [9:15:15 AM] GET /api/chat/conversations
+[9:15:29 AM] [9:15:29 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:15:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:15:29 AM] [9:15:29 AM] GET /api/chat/conversations from http://localhost:5173
+[9:15:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:15:29 AM] [9:15:29 AM] GET /api/chat/conversations
+[9:15:45 AM] [9:15:45 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:15:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:15:45 AM] [9:15:45 AM] GET /api/chat/conversations from http://localhost:5173
+[9:15:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:15:45 AM] [9:15:45 AM] GET /api/chat/conversations
+[9:15:58 AM] [9:15:58 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:15:58 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:15:59 AM] [9:15:59 AM] GET /api/chat/conversations from http://localhost:5173
+[9:15:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:15:59 AM] [9:15:59 AM] GET /api/chat/conversations
+[9:16:13 AM] [9:16:13 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:16:13 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:16:13 AM] [9:16:13 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:16:13 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:16:13 AM] [9:16:13 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:16:15 AM] [9:16:15 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:16:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:16:15 AM] [9:16:15 AM] GET /api/chat/conversations from http://localhost:5173
+[9:16:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:16:15 AM] [9:16:15 AM] GET /api/chat/conversations
+[9:16:30 AM] [9:16:30 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:16:30 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:16:30 AM] [9:16:30 AM] GET /api/chat/conversations from http://localhost:5173
+[9:16:30 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:16:30 AM] [9:16:30 AM] GET /api/chat/conversations
+[9:16:45 AM] [9:16:45 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:16:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:16:46 AM] [9:16:46 AM] GET /api/chat/conversations from http://localhost:5173
+[9:16:46 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:16:46 AM] [9:16:46 AM] GET /api/chat/conversations
+[9:17:00 AM] [9:17:00 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:17:00 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:17:00 AM] [9:17:00 AM] GET /api/chat/conversations from http://localhost:5173
+[9:17:00 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:17:00 AM] [9:17:00 AM] GET /api/chat/conversations
+[9:17:15 AM] [9:17:15 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:17:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:17:16 AM] [9:17:16 AM] GET /api/chat/conversations from http://localhost:5173
+[9:17:16 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:17:16 AM] [9:17:16 AM] GET /api/chat/conversations
+[9:17:30 AM] [9:17:30 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:17:30 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:17:30 AM] [9:17:30 AM] GET /api/chat/conversations from http://localhost:5173
+[9:17:30 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:17:30 AM] [9:17:30 AM] GET /api/chat/conversations
+[9:17:45 AM] [9:17:45 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:17:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:17:46 AM] [9:17:46 AM] GET /api/chat/conversations from http://localhost:5173
+[9:17:46 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:17:46 AM] [9:17:46 AM] GET /api/chat/conversations
+[9:18:00 AM] [9:18:00 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:18:00 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:18:00 AM] [9:18:00 AM] GET /api/chat/conversations from http://localhost:5173
+[9:18:00 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:18:00 AM] [9:18:00 AM] GET /api/chat/conversations
+[9:18:15 AM] [9:18:15 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:18:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:18:16 AM] [9:18:16 AM] GET /api/chat/conversations from http://localhost:5173
+[9:18:16 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:18:16 AM] [9:18:16 AM] GET /api/chat/conversations
+[9:18:30 AM] [9:18:30 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:18:30 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:18:30 AM] [9:18:30 AM] GET /api/chat/conversations from http://localhost:5173
+[9:18:30 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:18:30 AM] [9:18:30 AM] GET /api/chat/conversations
+[9:19:24 AM] [9:19:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:19:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:19:25 AM] [9:19:25 AM] GET /api/chat/conversations from http://localhost:5173
+[9:19:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:19:25 AM] [9:19:25 AM] GET /api/chat/conversations
+[9:20:24 AM] [9:20:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:20:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:20:24 AM] [9:20:24 AM] GET /api/chat/conversations from http://localhost:5173
+[9:20:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:20:24 AM] [9:20:24 AM] GET /api/chat/conversations
+[9:20:43 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[9:20:43 AM] Server is running on port 10000
+[9:20:43 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[9:20:45 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[9:21:24 AM] [9:21:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:21:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:21:25 AM] [9:21:25 AM] GET /api/chat/conversations from http://localhost:5173
+[9:21:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:21:25 AM] [9:21:25 AM] GET /api/chat/conversations
+[9:21:25 AM] [AUTO-ENROLL]: Student jaymercy510@gmail.com has 0 courses. Providing demo set.
+[9:22:24 AM] [9:22:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:22:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:22:24 AM] [9:22:24 AM] GET /api/chat/conversations from http://localhost:5173
+[9:22:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:22:24 AM] [9:22:24 AM] GET /api/chat/conversations
+[9:23:24 AM] [9:23:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:23:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:23:25 AM] [9:23:25 AM] GET /api/chat/conversations from http://localhost:5173
+[9:23:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:23:25 AM] [9:23:25 AM] GET /api/chat/conversations
+[9:24:24 AM] [9:24:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:24:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:24:24 AM] [9:24:24 AM] GET /api/chat/conversations from http://localhost:5173
+[9:24:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:24:24 AM] [9:24:24 AM] GET /api/chat/conversations
+[ERROR][9:24:24 AM] TokenExpiredError: jwt expired
+    at C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\jsonwebtoken\verify.js:101:10)
+    at protect (file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/utils/authMiddleware.js:14:27)
+    at Layer.handleRequest (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\index.js:295:15 {
+  expiredAt: 2026-04-16T08:23:34.000Z
+}
+[9:24:24 AM] [9:24:24 AM] GET /api/auth/refresh from http://localhost:5173
+[9:24:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:24:24 AM] [9:24:24 AM] GET /api/auth/refresh
+[9:24:24 AM] [9:24:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:24:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:24:24 AM] [9:24:24 AM] GET /api/chat/conversations from http://localhost:5173
+[9:24:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:24:24 AM] [9:24:24 AM] GET /api/chat/conversations
+[9:24:33 AM] [9:24:33 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:24:33 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:24:34 AM] [9:24:34 AM] GET /api/chat/conversations from http://localhost:5173
+[9:24:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:24:34 AM] [9:24:34 AM] GET /api/chat/conversations
+[9:24:41 AM] [9:24:41 AM] OPTIONS /api/chat/69e076025a31bd8e5069f5b6 from http://localhost:5173
+[9:24:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:24:41 AM] [9:24:41 AM] GET /api/chat/69e076025a31bd8e5069f5b6 from http://localhost:5173
+[9:24:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:24:41 AM] [9:24:41 AM] GET /api/chat/69e076025a31bd8e5069f5b6
+[9:24:52 AM] [9:24:52 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:24:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:24:52 AM] [9:24:52 AM] GET /api/chat/conversations from http://localhost:5173
+[9:24:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:24:52 AM] [9:24:52 AM] GET /api/chat/conversations
+[9:25:07 AM] [9:25:07 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:25:07 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:25:07 AM] [9:25:07 AM] GET /api/chat/conversations from http://localhost:5173
+[9:25:07 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:25:07 AM] [9:25:07 AM] GET /api/chat/conversations
+[9:25:22 AM] [9:25:22 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:25:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:25:22 AM] [9:25:22 AM] GET /api/chat/conversations from http://localhost:5173
+[9:25:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:25:22 AM] [9:25:22 AM] GET /api/chat/conversations
+[9:25:37 AM] [9:25:37 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:25:37 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:25:37 AM] [9:25:37 AM] GET /api/chat/conversations from http://localhost:5173
+[9:25:37 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:25:37 AM] [9:25:37 AM] GET /api/chat/conversations
+[9:25:52 AM] [9:25:52 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:25:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:25:52 AM] [9:25:52 AM] GET /api/chat/conversations from http://localhost:5173
+[9:25:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:25:52 AM] [9:25:52 AM] GET /api/chat/conversations
+[9:26:07 AM] [9:26:07 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:26:07 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:26:07 AM] [9:26:07 AM] GET /api/chat/conversations from http://localhost:5173
+[9:26:07 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:26:07 AM] [9:26:07 AM] GET /api/chat/conversations
+[9:26:24 AM] [9:26:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:26:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:26:24 AM] [9:26:24 AM] GET /api/chat/conversations from http://localhost:5173
+[9:26:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:26:24 AM] [9:26:24 AM] GET /api/chat/conversations
+[9:27:24 AM] [9:27:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:27:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:27:24 AM] [9:27:24 AM] GET /api/chat/conversations from http://localhost:5173
+[9:27:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:27:24 AM] [9:27:24 AM] GET /api/chat/conversations
+[9:28:24 AM] [9:28:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:28:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:28:24 AM] [9:28:24 AM] GET /api/chat/conversations from http://localhost:5173
+[9:28:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:28:24 AM] [9:28:24 AM] GET /api/chat/conversations
+[9:28:54 AM] [9:28:54 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:28:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:28:55 AM] [9:28:55 AM] GET /api/chat/conversations from http://localhost:5173
+[9:28:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:28:55 AM] [9:28:55 AM] GET /api/chat/conversations
+[9:28:56 AM] [9:28:56 AM] GET /api/chat/conversations from http://localhost:5173
+[9:28:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:28:56 AM] [9:28:56 AM] GET /api/chat/conversations
+[9:29:12 AM] [9:29:12 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:29:12 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:29:12 AM] [9:29:12 AM] GET /api/chat/conversations from http://localhost:5173
+[9:29:12 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:29:12 AM] [9:29:12 AM] GET /api/chat/conversations
+[9:29:15 AM] [9:29:15 AM] GET /api/chat/conversations from http://localhost:5173
+[9:29:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:29:15 AM] [9:29:15 AM] GET /api/chat/conversations
+[9:29:27 AM] [9:29:27 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:29:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:29:27 AM] [9:29:27 AM] GET /api/chat/conversations from http://localhost:5173
+[9:29:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:29:27 AM] [9:29:27 AM] GET /api/chat/conversations
+[9:29:29 AM] [9:29:29 AM] GET /api/chat/conversations from http://localhost:5173
+[9:29:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:29:29 AM] [9:29:29 AM] GET /api/chat/conversations
+[9:29:42 AM] [9:29:42 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:29:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:29:42 AM] [9:29:42 AM] GET /api/chat/conversations from http://localhost:5173
+[9:29:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:29:42 AM] [9:29:42 AM] GET /api/chat/conversations
+[9:29:44 AM] [9:29:44 AM] GET /api/chat/conversations from http://localhost:5173
+[9:29:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:29:44 AM] [9:29:44 AM] GET /api/chat/conversations
+[9:29:57 AM] [9:29:57 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:29:57 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:29:57 AM] [9:29:57 AM] GET /api/chat/conversations from http://localhost:5173
+[9:29:57 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:29:57 AM] [9:29:57 AM] GET /api/chat/conversations
+[9:29:59 AM] [9:29:59 AM] GET /api/chat/conversations from http://localhost:5173
+[9:29:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:29:59 AM] [9:29:59 AM] GET /api/chat/conversations
+[9:30:12 AM] [9:30:12 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:30:12 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:12 AM] [9:30:12 AM] GET /api/chat/conversations from http://localhost:5173
+[9:30:12 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:12 AM] [9:30:12 AM] GET /api/chat/conversations
+[9:30:14 AM] [9:30:14 AM] GET /api/chat/conversations from http://localhost:5173
+[9:30:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:14 AM] [9:30:14 AM] GET /api/chat/conversations
+[9:30:27 AM] [9:30:27 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:30:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:27 AM] [9:30:27 AM] GET /api/chat/conversations from http://localhost:5173
+[9:30:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:27 AM] [9:30:27 AM] GET /api/chat/conversations
+[9:30:30 AM] [9:30:30 AM] GET /api/chat/conversations from http://localhost:5173
+[9:30:30 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:30 AM] [9:30:30 AM] GET /api/chat/conversations
+[9:30:39 AM] [9:30:39 AM] OPTIONS /api/chat/69e076025a31bd8e5069f5b6 from http://localhost:5173
+[9:30:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:39 AM] [9:30:39 AM] OPTIONS /api/chat/69e076025a31bd8e5069f5b6 from http://localhost:5173
+[9:30:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:39 AM] [9:30:39 AM] GET /api/chat/69e076025a31bd8e5069f5b6 from http://localhost:5173
+[9:30:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:39 AM] [9:30:39 AM] GET /api/chat/69e076025a31bd8e5069f5b6
+[9:30:40 AM] [9:30:40 AM] GET /api/chat/69e076025a31bd8e5069f5b6 from http://localhost:5173
+[9:30:40 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:40 AM] [9:30:40 AM] GET /api/chat/69e076025a31bd8e5069f5b6
+[9:30:41 AM] [9:30:41 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:30:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:41 AM] [9:30:41 AM] GET /api/chat/conversations from http://localhost:5173
+[9:30:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:41 AM] [9:30:41 AM] GET /api/chat/conversations
+[9:30:43 AM] [9:30:43 AM] POST /api/chat/69e076025a31bd8e5069f5b6 from http://localhost:5173
+[9:30:43 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:43 AM] [9:30:43 AM] POST /api/chat/69e076025a31bd8e5069f5b6
+[9:30:44 AM] [9:30:44 AM] GET /api/chat/conversations from http://localhost:5173
+[9:30:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:44 AM] [9:30:44 AM] GET /api/chat/conversations
+[9:30:44 AM] [9:30:44 AM] GET /api/chat/69e076025a31bd8e5069f5b6 from http://localhost:5173
+[9:30:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:44 AM] [9:30:44 AM] GET /api/chat/69e076025a31bd8e5069f5b6
+[9:30:48 AM] [9:30:48 AM] OPTIONS /api/chat/69e076025a31bd8e5069f5b6 from http://localhost:5173
+[9:30:48 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:48 AM] [9:30:48 AM] GET /api/chat/69e076025a31bd8e5069f5b6 from http://localhost:5173
+[9:30:48 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:48 AM] [9:30:48 AM] GET /api/chat/69e076025a31bd8e5069f5b6
+[9:30:53 AM] [9:30:53 AM] OPTIONS /api/chat/69e076025a31bd8e5069f5b6 from http://localhost:5173
+[9:30:53 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:53 AM] [9:30:53 AM] GET /api/chat/69e076025a31bd8e5069f5b6 from http://localhost:5173
+[9:30:53 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:53 AM] [9:30:53 AM] GET /api/chat/69e076025a31bd8e5069f5b6
+[9:30:56 AM] [9:30:56 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:30:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:56 AM] [9:30:56 AM] GET /api/chat/conversations from http://localhost:5173
+[9:30:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:56 AM] [9:30:56 AM] GET /api/chat/conversations
+[9:30:59 AM] [9:30:59 AM] GET /api/chat/69e076025a31bd8e5069f5b6 from http://localhost:5173
+[9:30:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:59 AM] [9:30:59 AM] GET /api/chat/69e076025a31bd8e5069f5b6
+[9:30:59 AM] [9:30:59 AM] GET /api/chat/conversations from http://localhost:5173
+[9:30:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:30:59 AM] [9:30:59 AM] GET /api/chat/conversations
+[9:31:03 AM] [9:31:03 AM] OPTIONS /api/chat/69e076025a31bd8e5069f5b6 from http://localhost:5173
+[9:31:03 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:03 AM] [9:31:03 AM] GET /api/chat/69e076025a31bd8e5069f5b6 from http://localhost:5173
+[9:31:03 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:03 AM] [9:31:03 AM] GET /api/chat/69e076025a31bd8e5069f5b6
+[9:31:07 AM] [9:31:07 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:07 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:07 AM] [9:31:07 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:07 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:07 AM] [9:31:07 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:31:08 AM] [9:31:08 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:08 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:08 AM] [9:31:08 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:31:11 AM] [9:31:11 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:31:11 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:11 AM] [9:31:11 AM] GET /api/chat/conversations from http://localhost:5173
+[9:31:11 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:11 AM] [9:31:11 AM] GET /api/chat/conversations
+[9:31:13 AM] [9:31:13 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:13 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:14 AM] [9:31:14 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:14 AM] [9:31:14 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:31:14 AM] [9:31:14 AM] GET /api/chat/conversations from http://localhost:5173
+[9:31:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:14 AM] [9:31:14 AM] GET /api/chat/conversations
+[9:31:18 AM] [9:31:18 AM] POST /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:18 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:18 AM] [9:31:18 AM] POST /api/chat/69e076045a31bd8e5069f5c5
+[ERROR][9:31:21 AM] [AI_REPLY_FAILED]: GoogleGenerativeAIFetchError: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 33.635142343s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count","quotaId":"GenerateContentInputTokensPerModelPerMinute-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"33s"}]
+    at handleResponseNotOk (file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/node_modules/@google/generative-ai/dist/index.mjs:432:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/node_modules/@google/generative-ai/dist/index.mjs:401:9)
+    at async generateContent (file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/node_modules/@google/generative-ai/dist/index.mjs:865:22)
+    at async ChatSession.sendMessage (file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/node_modules/@google/generative-ai/dist/index.mjs:1208:9)
+    at async file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/routes/chatRoutes.js:158:24 {
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    { '@type': 'type.googleapis.com/google.rpc.Help', links: [Array] },
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [Array]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '33s'
+    }
+  ]
+}
+[9:31:24 AM] [9:31:24 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:24 AM] [9:31:24 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:24 AM] [9:31:24 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:31:26 AM] [9:31:26 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:31:26 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:26 AM] [9:31:26 AM] GET /api/chat/conversations from http://localhost:5173
+[9:31:26 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:26 AM] [9:31:26 AM] GET /api/chat/conversations
+[9:31:28 AM] [9:31:28 AM] GET /api/chat/conversations from http://localhost:5173
+[9:31:28 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:28 AM] [9:31:28 AM] GET /api/chat/conversations
+[9:31:29 AM] [9:31:29 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:29 AM] [9:31:29 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:31:33 AM] [9:31:33 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:33 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:33 AM] [9:31:33 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:33 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:33 AM] [9:31:33 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:31:39 AM] [9:31:39 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:39 AM] [9:31:39 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:39 AM] [9:31:39 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:31:42 AM] [9:31:42 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:31:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:42 AM] [9:31:42 AM] GET /api/chat/conversations from http://localhost:5173
+[9:31:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:42 AM] [9:31:42 AM] GET /api/chat/conversations
+[9:31:44 AM] [9:31:44 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:44 AM] [9:31:44 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:31:44 AM] [9:31:44 AM] GET /api/chat/conversations from http://localhost:5173
+[9:31:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:44 AM] [9:31:44 AM] GET /api/chat/conversations
+[9:31:49 AM] [9:31:49 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:49 AM] [9:31:49 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:49 AM] [9:31:49 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:31:53 AM] [9:31:53 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:53 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:53 AM] [9:31:53 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:53 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:53 AM] [9:31:53 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:31:56 AM] [9:31:56 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:31:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:56 AM] [9:31:56 AM] GET /api/chat/conversations from http://localhost:5173
+[9:31:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:56 AM] [9:31:56 AM] GET /api/chat/conversations
+[9:31:58 AM] [9:31:58 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:31:58 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:58 AM] [9:31:58 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:58 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:59 AM] [9:31:59 AM] GET /api/chat/conversations from http://localhost:5173
+[9:31:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:59 AM] [9:31:59 AM] GET /api/chat/conversations
+[9:31:59 AM] [9:31:59 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:31:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:31:59 AM] [9:31:59 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:32:03 AM] [9:32:03 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:03 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:03 AM] [9:32:03 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:03 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:03 AM] [9:32:03 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:32:09 AM] [9:32:09 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:09 AM] [9:32:09 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:09 AM] [9:32:09 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:32:12 AM] [9:32:12 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:32:12 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:12 AM] [9:32:12 AM] GET /api/chat/conversations from http://localhost:5173
+[9:32:12 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:12 AM] [9:32:12 AM] GET /api/chat/conversations
+[9:32:14 AM] [9:32:14 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:32:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:14 AM] [9:32:14 AM] GET /api/chat/conversations from http://localhost:5173
+[9:32:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:14 AM] [9:32:14 AM] GET /api/chat/conversations
+[9:32:14 AM] [9:32:14 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:14 AM] [9:32:14 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:14 AM] [9:32:14 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:32:19 AM] [9:32:19 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:19 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:19 AM] [9:32:19 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:19 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:19 AM] [9:32:19 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:32:24 AM] [9:32:24 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:24 AM] [9:32:24 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:24 AM] [9:32:24 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:32:27 AM] [9:32:27 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:32:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:27 AM] [9:32:27 AM] GET /api/chat/conversations from http://localhost:5173
+[9:32:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:27 AM] [9:32:27 AM] GET /api/chat/conversations
+[9:32:29 AM] [9:32:29 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:32:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:29 AM] [9:32:29 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:29 AM] [9:32:29 AM] GET /api/chat/conversations from http://localhost:5173
+[9:32:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:29 AM] [9:32:29 AM] GET /api/chat/conversations
+[9:32:29 AM] [9:32:29 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:29 AM] [9:32:29 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:32:34 AM] [9:32:34 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:34 AM] [9:32:34 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:34 AM] [9:32:34 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:32:39 AM] [9:32:39 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:39 AM] [9:32:39 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:39 AM] [9:32:39 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:32:42 AM] [9:32:42 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:32:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:42 AM] [9:32:42 AM] GET /api/chat/conversations from http://localhost:5173
+[9:32:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:42 AM] [9:32:42 AM] GET /api/chat/conversations
+[9:32:44 AM] [9:32:44 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:32:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:44 AM] [9:32:44 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:44 AM] [9:32:44 AM] GET /api/chat/conversations from http://localhost:5173
+[9:32:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:44 AM] [9:32:44 AM] GET /api/chat/conversations
+[9:32:44 AM] [9:32:44 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:44 AM] [9:32:44 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:32:49 AM] [9:32:49 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:49 AM] [9:32:49 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:49 AM] [9:32:49 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:32:54 AM] [9:32:54 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:54 AM] [9:32:54 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:54 AM] [9:32:54 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:32:57 AM] [9:32:57 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:32:57 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:57 AM] [9:32:57 AM] GET /api/chat/conversations from http://localhost:5173
+[9:32:57 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:57 AM] [9:32:57 AM] GET /api/chat/conversations
+[9:32:59 AM] [9:32:59 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:32:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:59 AM] [9:32:59 AM] GET /api/chat/conversations from http://localhost:5173
+[9:32:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:59 AM] [9:32:59 AM] GET /api/chat/conversations
+[9:32:59 AM] [9:32:59 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:59 AM] [9:32:59 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:32:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:32:59 AM] [9:32:59 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:33:04 AM] [9:33:04 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:33:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:33:04 AM] [9:33:04 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:33:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:33:04 AM] [9:33:04 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:33:24 AM] [9:33:24 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:33:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:33:24 AM] [9:33:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:33:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:33:24 AM] [9:33:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:33:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:33:25 AM] [9:33:25 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:33:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:33:25 AM] [9:33:25 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:33:25 AM] [9:33:25 AM] GET /api/chat/conversations from http://localhost:5173
+[9:33:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:33:25 AM] [9:33:25 AM] GET /api/chat/conversations
+[9:33:25 AM] [9:33:25 AM] GET /api/chat/conversations from http://localhost:5173
+[9:33:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:33:25 AM] [9:33:25 AM] GET /api/chat/conversations
+[9:34:24 AM] [9:34:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:34:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:24 AM] [9:34:24 AM] GET /api/chat/conversations from http://localhost:5173
+[9:34:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:24 AM] [9:34:24 AM] GET /api/chat/conversations
+[9:34:24 AM] [9:34:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:34:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:24 AM] [9:34:24 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:34:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:24 AM] [9:34:24 AM] GET /api/chat/conversations from http://localhost:5173
+[9:34:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:24 AM] [9:34:24 AM] GET /api/chat/conversations
+[9:34:25 AM] [9:34:25 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:34:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:25 AM] [9:34:25 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:34:46 AM] [9:34:46 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:34:46 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:46 AM] [9:34:46 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:34:46 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:46 AM] [9:34:46 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:34:46 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:47 AM] [9:34:47 AM] GET /api/chat/conversations from http://localhost:5173
+[9:34:47 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:47 AM] [9:34:47 AM] GET /api/chat/conversations
+[9:34:47 AM] [9:34:47 AM] GET /api/chat/conversations from http://localhost:5173
+[9:34:47 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:47 AM] [9:34:47 AM] GET /api/chat/conversations
+[9:34:47 AM] [9:34:47 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:34:47 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:47 AM] [9:34:47 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:34:53 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[9:34:53 AM] Server is running on port 10000
+[9:34:53 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[9:34:54 AM] [9:34:54 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:34:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:54 AM] [9:34:54 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:34:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:54 AM] [9:34:54 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:34:55 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[9:34:57 AM] [9:34:57 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:34:57 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:57 AM] [9:34:57 AM] GET /api/chat/conversations from http://localhost:5173
+[9:34:57 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:57 AM] [9:34:57 AM] GET /api/chat/conversations
+[9:34:59 AM] [9:34:59 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:34:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:59 AM] [9:34:59 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:34:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:59 AM] [9:34:59 AM] GET /api/chat/conversations from http://localhost:5173
+[9:34:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:59 AM] [9:34:59 AM] GET /api/chat/conversations
+[9:34:59 AM] [9:34:59 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:34:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:59 AM] [9:34:59 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:35:04 AM] [9:35:04 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:04 AM] [9:35:04 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:04 AM] [9:35:04 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:35:09 AM] [9:35:09 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:09 AM] [9:35:09 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:09 AM] [9:35:09 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:35:12 AM] [9:35:12 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:35:12 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:12 AM] [9:35:12 AM] GET /api/chat/conversations from http://localhost:5173
+[9:35:12 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:12 AM] [9:35:12 AM] GET /api/chat/conversations
+[9:35:14 AM] [9:35:14 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:35:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:14 AM] [9:35:14 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:14 AM] [9:35:14 AM] GET /api/chat/conversations from http://localhost:5173
+[9:35:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:14 AM] [9:35:14 AM] GET /api/chat/conversations
+[9:35:14 AM] [9:35:14 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:14 AM] [9:35:14 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:35:19 AM] [9:35:19 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:19 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:19 AM] [9:35:19 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:19 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:19 AM] [9:35:19 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:35:24 AM] [9:35:24 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:24 AM] [9:35:24 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:24 AM] [9:35:24 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:35:27 AM] [9:35:27 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:35:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:27 AM] [9:35:27 AM] GET /api/chat/conversations from http://localhost:5173
+[9:35:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:27 AM] [9:35:27 AM] GET /api/chat/conversations
+[9:35:29 AM] [9:35:29 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:35:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:29 AM] [9:35:29 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:29 AM] [9:35:29 AM] GET /api/chat/conversations from http://localhost:5173
+[9:35:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:29 AM] [9:35:29 AM] GET /api/chat/conversations
+[9:35:29 AM] [9:35:29 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:29 AM] [9:35:29 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:35:34 AM] [9:35:34 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:34 AM] [9:35:34 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:34 AM] [9:35:34 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:35:39 AM] [9:35:39 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:39 AM] [9:35:39 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:39 AM] [9:35:39 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:35:42 AM] [9:35:42 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:35:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:42 AM] [9:35:42 AM] GET /api/chat/conversations from http://localhost:5173
+[9:35:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:42 AM] [9:35:42 AM] GET /api/chat/conversations
+[9:35:44 AM] [9:35:44 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:35:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:44 AM] [9:35:44 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:44 AM] [9:35:44 AM] GET /api/chat/conversations from http://localhost:5173
+[9:35:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:44 AM] [9:35:44 AM] GET /api/chat/conversations
+[9:35:44 AM] [9:35:44 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:44 AM] [9:35:44 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:35:49 AM] [9:35:49 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:49 AM] [9:35:49 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:49 AM] [9:35:49 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:35:54 AM] [9:35:54 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:54 AM] [9:35:54 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:35:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:35:54 AM] [9:35:54 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:36:17 AM] [9:36:17 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:36:17 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:17 AM] [9:36:17 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:36:17 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:17 AM] [9:36:17 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:36:17 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:18 AM] [9:36:18 AM] GET /api/chat/conversations from http://localhost:5173
+[9:36:18 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:18 AM] [9:36:18 AM] GET /api/chat/conversations
+[9:36:18 AM] [9:36:18 AM] GET /api/chat/conversations from http://localhost:5173
+[9:36:18 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:18 AM] [9:36:18 AM] GET /api/chat/conversations
+[9:36:18 AM] [9:36:18 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:36:18 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:18 AM] [9:36:18 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:36:18 AM] [9:36:18 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:36:18 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:18 AM] [9:36:18 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:36:18 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:18 AM] [9:36:18 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:36:23 AM] [9:36:23 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:36:23 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:23 AM] [9:36:23 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[9:36:23 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:23 AM] [9:36:23 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[9:36:26 AM] [9:36:26 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:36:26 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:26 AM] [9:36:26 AM] GET /api/chat/conversations from http://localhost:5173
+[9:36:26 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:26 AM] [9:36:26 AM] GET /api/chat/conversations
+[9:36:27 AM] [9:36:27 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:36:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:27 AM] [9:36:27 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:36:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:27 AM] [9:36:27 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:36:28 AM] [9:36:28 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:36:28 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:28 AM] [9:36:28 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:36:28 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:28 AM] [9:36:28 AM] GET /api/chat/conversations from http://localhost:5173
+[9:36:28 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:28 AM] [9:36:28 AM] GET /api/chat/conversations
+[9:36:28 AM] [9:36:28 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:36:28 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:28 AM] [9:36:28 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:36:33 AM] [9:36:33 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:36:33 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:33 AM] [9:36:33 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:36:33 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:33 AM] [9:36:33 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:36:35 AM] [9:36:35 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:36:35 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:35 AM] [9:36:35 AM] POST /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:36:35 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:35 AM] [9:36:35 AM] POST /api/chat/69e09c08014e7c0ff83fe7a0
+[9:36:38 AM] [9:36:38 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:36:38 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:38 AM] [9:36:38 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:36:38 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:38 AM] [9:36:38 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:36:41 AM] [9:36:41 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:36:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:41 AM] [9:36:41 AM] GET /api/chat/conversations from http://localhost:5173
+[9:36:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:41 AM] [9:36:41 AM] GET /api/chat/conversations
+[9:36:44 AM] [9:36:44 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:36:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:44 AM] [9:36:44 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:36:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:44 AM] [9:36:44 AM] GET /api/chat/conversations from http://localhost:5173
+[9:36:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:44 AM] [9:36:44 AM] GET /api/chat/conversations
+[9:36:44 AM] [9:36:44 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:36:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:44 AM] [9:36:44 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:36:49 AM] [9:36:49 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:36:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:49 AM] [9:36:49 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:36:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:49 AM] [9:36:49 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:36:54 AM] [9:36:54 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:36:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:54 AM] [9:36:54 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:36:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:54 AM] [9:36:54 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:36:57 AM] [9:36:57 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:36:57 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:57 AM] [9:36:57 AM] GET /api/chat/conversations from http://localhost:5173
+[9:36:57 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:57 AM] [9:36:57 AM] GET /api/chat/conversations
+[9:36:59 AM] [9:36:59 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:36:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:59 AM] [9:36:59 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:36:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:59 AM] [9:36:59 AM] GET /api/chat/conversations from http://localhost:5173
+[9:36:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:59 AM] [9:36:59 AM] GET /api/chat/conversations
+[9:36:59 AM] [9:36:59 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:36:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:36:59 AM] [9:36:59 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:37:04 AM] [9:37:04 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:37:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:04 AM] [9:37:04 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:37:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:04 AM] [9:37:04 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:37:09 AM] [9:37:09 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:37:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:09 AM] [9:37:09 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:37:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:09 AM] [9:37:09 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:37:12 AM] [9:37:12 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:37:12 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:12 AM] [9:37:12 AM] GET /api/chat/conversations from http://localhost:5173
+[9:37:12 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:12 AM] [9:37:12 AM] GET /api/chat/conversations
+[9:37:14 AM] [9:37:14 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:37:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:14 AM] [9:37:14 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:37:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:14 AM] [9:37:14 AM] GET /api/chat/conversations from http://localhost:5173
+[9:37:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:14 AM] [9:37:14 AM] GET /api/chat/conversations
+[9:37:14 AM] [9:37:14 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:37:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:14 AM] [9:37:14 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:37:19 AM] [9:37:19 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:37:19 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:19 AM] [9:37:19 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:37:19 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:19 AM] [9:37:19 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:37:24 AM] [9:37:24 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:37:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:24 AM] [9:37:24 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:37:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:24 AM] [9:37:24 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:37:26 AM] [9:37:26 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:37:26 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:26 AM] [9:37:26 AM] GET /api/chat/conversations from http://localhost:5173
+[9:37:26 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:26 AM] [9:37:26 AM] GET /api/chat/conversations
+[9:37:41 AM] [9:37:41 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:37:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:41 AM] [9:37:41 AM] GET /api/chat/conversations from http://localhost:5173
+[9:37:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:41 AM] [9:37:41 AM] GET /api/chat/conversations
+[9:37:49 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[9:37:49 AM] Server is running on port 10000
+[9:37:49 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[ERROR][9:37:50 AM] MongoDB connection failed: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:37:57 AM] [9:37:57 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:37:57 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:57 AM] [9:37:57 AM] GET /api/chat/conversations from http://localhost:5173
+[9:37:57 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:57 AM] [9:37:57 AM] GET /api/chat/conversations
+[ERROR][9:38:07 AM] MongooseError: Operation `students.findOne()` buffering timed out after 10000ms
+    at Timeout._onTimeout (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:131:25)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[9:38:07 AM] [9:38:07 AM] GET /api/auth/refresh from http://localhost:5173
+[9:38:07 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:38:07 AM] [9:38:07 AM] GET /api/auth/refresh
+[9:38:11 AM] [9:38:11 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:38:11 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:38:11 AM] [9:38:11 AM] GET /api/chat/conversations from http://localhost:5173
+[9:38:11 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:38:11 AM] [9:38:11 AM] GET /api/chat/conversations
+[ERROR][9:38:21 AM] MongooseError: Operation `students.findOne()` buffering timed out after 10000ms
+    at Timeout._onTimeout (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:131:25)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[9:38:32 AM] [9:38:32 AM] OPTIONS /api/auth/login from http://localhost:5173
+[9:38:32 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:38:32 AM] [9:38:32 AM] POST /api/auth/login from http://localhost:5173
+[9:38:32 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:38:32 AM] [9:38:32 AM] POST /api/auth/login
+[9:38:32 AM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[9:38:32 AM] [AUTH STEP 2]: Querying database...
+[ERROR][9:38:42 AM] MongooseError: Operation `students.findOne()` buffering timed out after 10000ms
+    at Timeout._onTimeout (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:131:25)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[9:40:03 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[9:40:03 AM] Server is running on port 10000
+[9:40:03 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[ERROR][9:40:04 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:40:04 AM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:40:04 AM] Retrying connection in 3s...
+[ERROR][9:40:04 AM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[ERROR][9:40:06 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:40:06 AM] MongoDB connection failed (attempt 1): queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[9:40:06 AM] Retrying connection in 3s...
+[ERROR][9:40:06 AM] [DB]: MongoDB connection error: queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[9:40:08 AM] MongoDB Connected: undefined
+[9:40:09 AM] MongoDB Connected: undefined
+[9:40:10 AM] [DB]: MongoDB connection restored.
+[9:40:10 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[9:41:52 AM] [9:41:52 AM] OPTIONS /api/auth/login from http://localhost:5173
+[9:41:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:41:52 AM] [9:41:52 AM] POST /api/auth/login from http://localhost:5173
+[9:41:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:41:52 AM] [9:41:52 AM] POST /api/auth/login
+[9:41:52 AM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[9:41:52 AM] [AUTH STEP 2]: Querying database...
+[9:41:52 AM] [AUTH STEP 3]: Comparing password...
+[9:41:52 AM] [AUTH STEP 4]: Authentication successful. Checking verification...
+[9:41:52 AM] [AUTH STEP 5]: Updating activity tracker...
+[9:41:53 AM] [AUTH STEP 6]: Sending token response...
+[9:41:54 AM] [9:41:54 AM] OPTIONS /api/quizzes from http://localhost:5173
+[9:41:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:41:54 AM] [9:41:54 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[9:41:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:41:54 AM] [9:41:54 AM] GET /api/quizzes from http://localhost:5173
+[9:41:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:41:54 AM] [9:41:54 AM] GET /api/quizzes
+[9:41:54 AM] [9:41:54 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[9:41:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:41:54 AM] [9:41:54 AM] GET /api/submissions/my-submissions
+[9:42:01 AM] [9:42:01 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:42:01 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:42:01 AM] [9:42:01 AM] GET /api/chat/conversations from http://localhost:5173
+[9:42:01 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:42:01 AM] [9:42:01 AM] GET /api/chat/conversations
+[9:45:12 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[9:45:12 AM] Server is running on port 10000
+[9:45:12 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[ERROR][9:45:14 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:45:14 AM] MongoDB connection failed (attempt 1): queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[9:45:14 AM] Retrying connection in 3s...
+[ERROR][9:45:14 AM] [DB]: MongoDB connection error: queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[9:45:17 AM] MongoDB Connected: undefined
+[9:45:18 AM] [DB]: MongoDB connection restored.
+[9:45:18 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[9:58:41 AM] [9:58:41 AM] OPTIONS /api/submissions/progress from http://localhost:5173
+[9:58:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:58:42 AM] [9:58:42 AM] GET /api/submissions/progress from http://localhost:5173
+[9:58:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:58:42 AM] [9:58:42 AM] GET /api/submissions/progress
+[ERROR][9:58:42 AM] TokenExpiredError: jwt expired
+    at C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\jsonwebtoken\verify.js:101:10)
+    at protect (file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/utils/authMiddleware.js:14:27)
+    at Layer.handleRequest (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\index.js:295:15 {
+  expiredAt: 2026-04-16T08:56:53.000Z
+}
+[9:58:42 AM] [9:58:42 AM] GET /api/auth/refresh from http://localhost:5173
+[9:58:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:58:42 AM] [9:58:42 AM] GET /api/auth/refresh
+[9:58:42 AM] [9:58:42 AM] GET /api/submissions/progress from http://localhost:5173
+[9:58:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:58:42 AM] [9:58:42 AM] GET /api/submissions/progress
+[10:00:07 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[10:00:07 AM] Server is running on port 10000
+[10:00:07 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[ERROR][10:00:07 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][10:00:07 AM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[10:00:07 AM] Retrying connection in 3s...
+[ERROR][10:00:07 AM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[10:00:10 AM] MongoDB Connected: undefined
+[10:00:11 AM] [DB]: MongoDB connection restored.
+[10:00:11 AM] MongoDB Connected: ac-gy8st3b-shard-00-01.vjeopgu.mongodb.net
+[10:00:35 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[10:00:35 AM] Server is running on port 10000
+[10:00:35 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[10:00:36 AM] [DB]: MongoDB connection restored.
+[10:00:36 AM] MongoDB Connected: ac-gy8st3b-shard-00-01.vjeopgu.mongodb.net
+[10:01:08 AM] [10:01:08 AM] OPTIONS /api/notifications from http://localhost:5173
+[10:01:08 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:01:08 AM] [10:01:08 AM] GET /api/notifications from http://localhost:5173
+[10:01:08 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:01:08 AM] [10:01:08 AM] GET /api/notifications
+[10:04:55 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[10:04:55 AM] Server is running on port 10000
+[10:04:55 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[10:04:56 AM] [DB]: MongoDB connection restored.
+[10:04:56 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[10:06:31 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[10:06:31 AM] Server is running on port 10000
+[10:06:31 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[10:06:32 AM] [DB]: MongoDB connection restored.
+[10:06:32 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[10:06:41 AM] [10:06:41 AM] OPTIONS /api/notifications from http://localhost:5173
+[10:06:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:06:41 AM] [10:06:41 AM] GET /api/notifications from http://localhost:5173
+[10:06:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:06:41 AM] [10:06:41 AM] GET /api/notifications
+[10:09:44 AM] [10:09:44 AM] OPTIONS /api/quizzes/69d0b8beb9b902a8446124b8/study from http://localhost:5173
+[10:09:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:09:44 AM] [10:09:44 AM] GET /api/quizzes/69d0b8beb9b902a8446124b8/study from http://localhost:5173
+[10:09:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:09:44 AM] [10:09:44 AM] GET /api/quizzes/69d0b8beb9b902a8446124b8/study
+[10:09:51 AM] [10:09:51 AM] OPTIONS /api/notifications from http://localhost:5173
+[10:09:51 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:09:51 AM] [10:09:51 AM] GET /api/notifications from http://localhost:5173
+[10:09:51 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:09:51 AM] [10:09:51 AM] GET /api/notifications
+[10:09:58 AM] [10:09:58 AM] OPTIONS /api/submissions/quiz/69cc7189039db582ef09124d from http://localhost:5173
+[10:09:58 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:09:58 AM] [10:09:58 AM] GET /api/submissions/quiz/69cc7189039db582ef09124d from http://localhost:5173
+[10:09:58 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:09:58 AM] [10:09:58 AM] GET /api/submissions/quiz/69cc7189039db582ef09124d
+[10:10:07 AM] [10:10:07 AM] OPTIONS /api/notifications from http://localhost:5173
+[10:10:07 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:10:07 AM] [10:10:07 AM] GET /api/notifications from http://localhost:5173
+[10:10:07 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:10:07 AM] [10:10:07 AM] GET /api/notifications
+[10:10:13 AM] [10:10:13 AM] OPTIONS /api/submissions/quiz/69cc7189039db582ef09124d from http://localhost:5173
+[10:10:13 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:10:13 AM] [10:10:13 AM] GET /api/submissions/quiz/69cc7189039db582ef09124d from http://localhost:5173
+[10:10:13 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:10:13 AM] [10:10:13 AM] GET /api/submissions/quiz/69cc7189039db582ef09124d
+[10:10:22 AM] [10:10:22 AM] OPTIONS /api/submissions/progress from http://localhost:5173
+[10:10:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:10:23 AM] [10:10:23 AM] GET /api/submissions/progress from http://localhost:5173
+[10:10:23 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:10:23 AM] [10:10:23 AM] GET /api/submissions/progress
+[10:10:25 AM] [10:10:25 AM] OPTIONS /api/notifications from http://localhost:5173
+[10:10:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:10:25 AM] [10:10:25 AM] GET /api/notifications from http://localhost:5173
+[10:10:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:10:25 AM] [10:10:25 AM] GET /api/notifications
+[10:13:52 AM] [10:13:52 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[10:13:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:13:52 AM] [10:13:52 AM] GET /api/chat/conversations from http://localhost:5173
+[10:13:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:13:52 AM] [10:13:52 AM] GET /api/chat/conversations
+[ERROR][10:13:52 AM] TokenExpiredError: jwt expired
+    at C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\jsonwebtoken\verify.js:101:10)
+    at protect (file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/utils/authMiddleware.js:14:27)
+    at Layer.handleRequest (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\index.js:295:15 {
+  expiredAt: 2026-04-16T09:13:42.000Z
+}
+[10:13:52 AM] [10:13:52 AM] GET /api/auth/refresh from http://localhost:5173
+[10:13:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:13:52 AM] [10:13:52 AM] GET /api/auth/refresh
+[10:13:52 AM] [10:13:52 AM] GET /api/chat/conversations from http://localhost:5173
+[10:13:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:13:52 AM] [10:13:52 AM] GET /api/chat/conversations
+[10:14:09 AM] [10:14:09 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[10:14:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:09 AM] [10:14:09 AM] GET /api/chat/conversations from http://localhost:5173
+[10:14:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:09 AM] [10:14:09 AM] GET /api/chat/conversations
+[10:14:18 AM] [10:14:18 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[10:14:18 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:19 AM] [10:14:19 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[10:14:19 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:19 AM] [10:14:19 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[10:14:19 AM] [10:14:19 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[10:14:19 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:19 AM] [10:14:19 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[10:14:20 AM] [10:14:20 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe79d from http://localhost:5173
+[10:14:20 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:20 AM] [10:14:20 AM] GET /api/chat/69e09c08014e7c0ff83fe79d from http://localhost:5173
+[10:14:20 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:20 AM] [10:14:20 AM] GET /api/chat/69e09c08014e7c0ff83fe79d
+[10:14:24 AM] [10:14:24 AM] POST /api/chat/69e09c08014e7c0ff83fe79d from http://localhost:5173
+[10:14:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:24 AM] [10:14:24 AM] POST /api/chat/69e09c08014e7c0ff83fe79d
+[10:14:24 AM] [10:14:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[10:14:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:24 AM] [10:14:24 AM] GET /api/chat/69e09c08014e7c0ff83fe79d from http://localhost:5173
+[10:14:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:24 AM] [10:14:24 AM] GET /api/chat/69e09c08014e7c0ff83fe79d
+[10:14:24 AM] [10:14:24 AM] GET /api/chat/conversations from http://localhost:5173
+[10:14:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:24 AM] [10:14:24 AM] GET /api/chat/conversations
+[10:14:29 AM] [10:14:29 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe79d from http://localhost:5173
+[10:14:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:29 AM] [10:14:29 AM] GET /api/chat/69e09c08014e7c0ff83fe79d from http://localhost:5173
+[10:14:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:29 AM] [10:14:29 AM] GET /api/chat/69e09c08014e7c0ff83fe79d
+[10:14:33 AM] [10:14:33 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[10:14:33 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:33 AM] [10:14:33 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[10:14:33 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:33 AM] [10:14:33 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[10:14:34 AM] [10:14:34 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[10:14:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:34 AM] [10:14:34 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[10:14:38 AM] [10:14:38 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[10:14:38 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:38 AM] [10:14:38 AM] POST /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[10:14:38 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:38 AM] [10:14:38 AM] POST /api/chat/69e09c08014e7c0ff83fe7a0
+[10:14:39 AM] [10:14:39 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[10:14:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:39 AM] [10:14:39 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[10:14:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:39 AM] [10:14:39 AM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[10:14:39 AM] [10:14:39 AM] GET /api/chat/conversations from http://localhost:5173
+[10:14:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:39 AM] [10:14:39 AM] GET /api/chat/conversations
+[10:14:43 AM] [10:14:43 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:14:43 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:43 AM] [10:14:43 AM] GET /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:14:43 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:43 AM] [10:14:43 AM] GET /api/chat/69e09c08014e7c0ff83fe797
+[10:14:44 AM] [10:14:44 AM] GET /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:14:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:44 AM] [10:14:44 AM] GET /api/chat/69e09c08014e7c0ff83fe797
+[10:14:44 AM] [10:14:44 AM] GET /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:14:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:44 AM] [10:14:44 AM] GET /api/chat/69e09c08014e7c0ff83fe797
+[10:14:49 AM] [10:14:49 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:14:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:49 AM] [10:14:49 AM] GET /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:14:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:49 AM] [10:14:49 AM] GET /api/chat/69e09c08014e7c0ff83fe797
+[10:14:54 AM] [10:14:54 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[10:14:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:54 AM] [10:14:54 AM] GET /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:14:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:54 AM] [10:14:54 AM] GET /api/chat/69e09c08014e7c0ff83fe797
+[10:14:54 AM] [10:14:54 AM] GET /api/chat/conversations from http://localhost:5173
+[10:14:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:54 AM] [10:14:54 AM] GET /api/chat/conversations
+[10:14:59 AM] [10:14:59 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:14:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:59 AM] [10:14:59 AM] GET /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:14:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:14:59 AM] [10:14:59 AM] GET /api/chat/69e09c08014e7c0ff83fe797
+[10:15:04 AM] [10:15:04 AM] GET /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:15:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:04 AM] [10:15:04 AM] GET /api/chat/69e09c08014e7c0ff83fe797
+[10:15:09 AM] [10:15:09 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[10:15:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:09 AM] [10:15:09 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:15:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:09 AM] [10:15:09 AM] GET /api/chat/conversations from http://localhost:5173
+[10:15:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:09 AM] [10:15:09 AM] GET /api/chat/conversations
+[10:15:09 AM] [10:15:09 AM] GET /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:15:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:09 AM] [10:15:09 AM] GET /api/chat/69e09c08014e7c0ff83fe797
+[10:15:14 AM] [10:15:14 AM] GET /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:15:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:14 AM] [10:15:14 AM] GET /api/chat/69e09c08014e7c0ff83fe797
+[10:15:19 AM] [10:15:19 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:15:19 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:19 AM] [10:15:19 AM] GET /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:15:19 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:19 AM] [10:15:19 AM] GET /api/chat/69e09c08014e7c0ff83fe797
+[10:15:24 AM] [10:15:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[10:15:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:24 AM] [10:15:24 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:15:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:24 AM] [10:15:24 AM] GET /api/chat/conversations from http://localhost:5173
+[10:15:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:24 AM] [10:15:24 AM] GET /api/chat/conversations
+[10:15:24 AM] [10:15:24 AM] GET /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:15:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:24 AM] [10:15:24 AM] GET /api/chat/69e09c08014e7c0ff83fe797
+[10:15:29 AM] [10:15:29 AM] GET /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:15:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:29 AM] [10:15:29 AM] GET /api/chat/69e09c08014e7c0ff83fe797
+[10:15:34 AM] [10:15:34 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:15:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:34 AM] [10:15:34 AM] GET /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:15:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:34 AM] [10:15:34 AM] GET /api/chat/69e09c08014e7c0ff83fe797
+[10:15:39 AM] [10:15:39 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[10:15:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:39 AM] [10:15:39 AM] GET /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:15:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:39 AM] [10:15:39 AM] GET /api/chat/69e09c08014e7c0ff83fe797
+[10:15:39 AM] [10:15:39 AM] GET /api/chat/conversations from http://localhost:5173
+[10:15:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:39 AM] [10:15:39 AM] GET /api/chat/conversations
+[10:15:44 AM] [10:15:44 AM] OPTIONS /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:15:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:44 AM] [10:15:44 AM] GET /api/chat/69e09c08014e7c0ff83fe797 from http://localhost:5173
+[10:15:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:44 AM] [10:15:44 AM] GET /api/chat/69e09c08014e7c0ff83fe797
+[10:15:45 AM] [10:15:45 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:15:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:45 AM] [10:15:45 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:15:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:45 AM] [10:15:45 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[10:15:49 AM] [10:15:49 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:15:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:49 AM] [10:15:49 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[10:15:54 AM] [10:15:54 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[10:15:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:54 AM] [10:15:54 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:15:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:54 AM] [10:15:54 AM] GET /api/chat/conversations from http://localhost:5173
+[10:15:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:54 AM] [10:15:54 AM] GET /api/chat/conversations
+[10:15:55 AM] [10:15:55 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:15:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:55 AM] [10:15:55 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[10:15:55 AM] [10:15:55 AM] POST /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:15:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:55 AM] [10:15:55 AM] POST /api/chat/69e076045a31bd8e5069f5c5
+[ERROR][10:15:56 AM] [AI_REPLY_FAILED]: GoogleGenerativeAIError: [GoogleGenerativeAI Error]: First content should be with role 'user', got model
+    at validateChatHistory (file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/node_modules/@google/generative-ai/dist/index.mjs:1050:19)
+    at new ChatSession (file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/node_modules/@google/generative-ai/dist/index.mjs:1147:13)
+    at GenerativeModel.startChat (file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/node_modules/@google/generative-ai/dist/index.mjs:1399:16)
+    at file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/routes/chatRoutes.js:162:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[10:15:59 AM] [10:15:59 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:15:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:15:59 AM] [10:15:59 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[10:16:04 AM] [10:16:04 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:16:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:04 AM] [10:16:04 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:16:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:04 AM] [10:16:04 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[10:16:09 AM] [10:16:09 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[10:16:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:09 AM] [10:16:09 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:16:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:09 AM] [10:16:09 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[10:16:09 AM] [10:16:09 AM] GET /api/chat/conversations from http://localhost:5173
+[10:16:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:09 AM] [10:16:09 AM] GET /api/chat/conversations
+[10:16:14 AM] [10:16:14 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:16:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:14 AM] [10:16:14 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:16:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:14 AM] [10:16:14 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[10:16:19 AM] [10:16:19 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:16:19 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:19 AM] [10:16:19 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[10:16:24 AM] [10:16:24 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[10:16:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:24 AM] [10:16:24 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:16:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:24 AM] [10:16:24 AM] GET /api/chat/conversations from http://localhost:5173
+[10:16:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:24 AM] [10:16:24 AM] GET /api/chat/conversations
+[10:16:25 AM] [10:16:25 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:16:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:25 AM] [10:16:25 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[10:16:29 AM] [10:16:29 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:16:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:29 AM] [10:16:29 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[10:16:34 AM] [10:16:34 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:16:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:34 AM] [10:16:34 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:16:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:34 AM] [10:16:34 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[10:16:39 AM] [10:16:39 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[10:16:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:39 AM] [10:16:39 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:16:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:39 AM] [10:16:39 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[10:16:39 AM] [10:16:39 AM] GET /api/chat/conversations from http://localhost:5173
+[10:16:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:39 AM] [10:16:39 AM] GET /api/chat/conversations
+[10:16:44 AM] [10:16:44 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:16:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:44 AM] [10:16:44 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:16:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:44 AM] [10:16:44 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[10:16:49 AM] [10:16:49 AM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:16:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:49 AM] [10:16:49 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:16:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:49 AM] [10:16:49 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[10:16:54 AM] [10:16:54 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[10:16:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:54 AM] [10:16:54 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[10:16:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:54 AM] [10:16:54 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[10:16:54 AM] [10:16:54 AM] GET /api/chat/conversations from http://localhost:5173
+[10:16:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:16:54 AM] [10:16:54 AM] GET /api/chat/conversations
+[10:17:57 AM] [10:17:57 AM] OPTIONS /api/notifications from http://localhost:5173
+[10:17:57 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:17:57 AM] [10:17:57 AM] GET /api/notifications from http://localhost:5173
+[10:17:57 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:17:57 AM] [10:17:57 AM] GET /api/notifications
+[10:19:25 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[10:19:25 AM] Server is running on port 10000
+[10:19:25 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[ERROR][10:19:25 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][10:19:25 AM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[10:19:25 AM] Retrying connection in 3s...
+[ERROR][10:19:25 AM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[ERROR][10:19:27 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][10:19:27 AM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[10:19:27 AM] Retrying connection in 3s...
+[ERROR][10:19:27 AM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[ERROR][10:19:28 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][10:19:28 AM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[10:19:28 AM] Retrying connection in 3s...
+[ERROR][10:19:28 AM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[10:19:30 AM] MongoDB Connected: undefined
+[10:19:30 AM] MongoDB Connected: undefined
+[10:19:31 AM] [DB]: MongoDB connection restored.
+[10:19:31 AM] MongoDB Connected: ac-gy8st3b-shard-00-01.vjeopgu.mongodb.net
+[10:19:31 AM] MongoDB Connected: ac-gy8st3b-shard-00-01.vjeopgu.mongodb.net

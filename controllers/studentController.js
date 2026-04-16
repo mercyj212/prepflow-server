@@ -116,3 +116,26 @@ export const sendScholarBlast = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+// @desc    Search students by name or email
+export const searchStudents = async (req, res) => {
+    try {
+        const { q } = req.query;
+        if (!q) return res.json([]);
+
+        const students = await Student.find({
+            $or: [
+                { fullName: { $regex: q, $options: 'i' } },
+                { email: { $regex: q, $options: 'i' } }
+            ],
+            _id: { $ne: req.user._id }, // Don't find self
+            role: 'student'
+        })
+        .select('fullName email profilePicture')
+        .limit(10);
+
+        res.json(students);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
