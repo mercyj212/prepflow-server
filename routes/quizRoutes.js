@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  getPublicStats,
   getQuizzes,
   getQuizById,
   getStudyQuizById,
@@ -17,6 +18,7 @@ import { upload } from "../config/cloudinary.js";
 
 const router = express.Router();
 
+router.route("/stats").get(getPublicStats);
 router.route("/").get(getQuizzes).post(protect, admin, createQuiz);
 router.route("/:id/study").get(protect, getStudyQuizById);
 router.route("/:id/study/public").get(getStudyQuizByIdPublic);

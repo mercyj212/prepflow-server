@@ -1542,3 +1542,185 @@ Please retry in 33.635142343s. [{"@type":"type.googleapis.com/google.rpc.Help","
 [1:36:47 PM] [1:36:47 PM] POST /api/auth/logout from http://localhost:5173
 [1:36:47 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
 [1:36:47 PM] [1:36:47 PM] POST /api/auth/logout
+[3:24:15 PM] [3:24:15 PM] OPTIONS /api/auth/login from http://localhost:5173
+[3:24:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:24:15 PM] [3:24:15 PM] POST /api/auth/login from http://localhost:5173
+[3:24:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:24:15 PM] [3:24:15 PM] POST /api/auth/login
+[3:24:15 PM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[3:24:15 PM] [AUTH STEP 2]: Querying database...
+[3:24:16 PM] [AUTH STEP 3]: Comparing password...
+[3:24:16 PM] [AUTH STEP 4]: Authentication successful. Checking verification...
+[3:24:16 PM] [AUTH STEP 5]: Updating activity tracker...
+[3:24:16 PM] [AUTH STEP 6]: Sending token response...
+[3:24:18 PM] [3:24:18 PM] OPTIONS /api/quizzes from http://localhost:5173
+[3:24:18 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:24:18 PM] [3:24:18 PM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[3:24:18 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:24:18 PM] [3:24:18 PM] GET /api/quizzes from http://localhost:5173
+[3:24:18 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:24:18 PM] [3:24:18 PM] GET /api/quizzes
+[3:24:18 PM] [3:24:18 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[3:24:18 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:24:18 PM] [3:24:18 PM] GET /api/submissions/my-submissions
+[3:24:39 PM] [3:24:39 PM] OPTIONS /api/quizzes from http://localhost:5173
+[3:24:39 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:24:39 PM] [3:24:39 PM] GET /api/quizzes from http://localhost:5173
+[3:24:39 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:24:39 PM] [3:24:39 PM] GET /api/quizzes
+[3:24:46 PM] [3:24:46 PM] OPTIONS /api/chat/conversations from http://localhost:5173
+[3:24:46 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:24:46 PM] [3:24:46 PM] GET /api/chat/conversations from http://localhost:5173
+[3:24:46 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:24:46 PM] [3:24:46 PM] GET /api/chat/conversations
+[3:25:32 PM] [3:25:32 PM] OPTIONS /api/chat/conversations from http://localhost:5173
+[3:25:32 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:25:33 PM] [3:25:33 PM] GET /api/chat/conversations from http://localhost:5173
+[3:25:33 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:25:33 PM] [3:25:33 PM] GET /api/chat/conversations
+[3:25:52 PM] [3:25:52 PM] OPTIONS /api/submissions/progress from http://localhost:5173
+[3:25:52 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:25:52 PM] [3:25:52 PM] GET /api/submissions/progress from http://localhost:5173
+[3:25:52 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:25:52 PM] [3:25:52 PM] GET /api/submissions/progress
+[3:27:30 PM] [3:27:30 PM] OPTIONS /api/quizzes from http://localhost:5173
+[3:27:30 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:27:30 PM] [3:27:30 PM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[3:27:30 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:27:30 PM] [3:27:30 PM] GET /api/quizzes from http://localhost:5173
+[3:27:30 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:27:30 PM] [3:27:30 PM] GET /api/quizzes
+[3:27:30 PM] [3:27:30 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[3:27:30 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:27:30 PM] [3:27:30 PM] GET /api/submissions/my-submissions
+[3:27:40 PM] [3:27:40 PM] OPTIONS /api/auth/logout from http://localhost:5173
+[3:27:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:27:40 PM] [3:27:40 PM] POST /api/auth/logout from http://localhost:5173
+[3:27:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:27:40 PM] [3:27:40 PM] POST /api/auth/logout
+[3:40:48 PM] [3:40:48 PM] OPTIONS /api/auth/login from http://localhost:5173
+[3:40:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:40:49 PM] [3:40:49 PM] POST /api/auth/login from http://localhost:5173
+[3:40:49 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:40:49 PM] [3:40:49 PM] POST /api/auth/login
+[3:40:49 PM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[3:40:49 PM] [AUTH STEP 2]: Querying database...
+[3:40:49 PM] [AUTH STEP 3]: Comparing password...
+[3:40:49 PM] [AUTH STEP 4]: Authentication successful. Checking verification...
+[3:40:49 PM] [AUTH STEP 5]: Updating activity tracker...
+[3:40:49 PM] [AUTH STEP 6]: Sending token response...
+[3:40:51 PM] [3:40:51 PM] OPTIONS /api/quizzes from http://localhost:5173
+[3:40:51 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:40:51 PM] [3:40:51 PM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[3:40:51 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:40:51 PM] [3:40:51 PM] GET /api/quizzes from http://localhost:5173
+[3:40:51 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:40:51 PM] [3:40:51 PM] GET /api/quizzes
+[3:40:51 PM] [3:40:51 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[3:40:51 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:40:51 PM] [3:40:51 PM] GET /api/submissions/my-submissions
+[3:42:09 PM] [3:42:09 PM] OPTIONS /api/auth/logout from http://localhost:5173
+[3:42:09 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:42:09 PM] [3:42:09 PM] POST /api/auth/logout from http://localhost:5173
+[3:42:09 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:42:09 PM] [3:42:09 PM] POST /api/auth/logout
+[5:20:44 PM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[5:20:44 PM] Server is running on port 10000
+[5:20:44 PM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[5:20:51 PM] [DB]: MongoDB connection restored.
+[5:20:51 PM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[5:27:09 PM] [5:27:09 PM] GET /api/quizzes/stats from http://localhost:5173
+[5:27:09 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[5:27:09 PM] [5:27:09 PM] GET /api/quizzes/stats
+[5:32:40 PM] [5:32:40 PM] GET /api/quizzes/stats from http://localhost:5173
+[5:32:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[5:32:40 PM] [5:32:40 PM] GET /api/quizzes/stats
+[5:35:48 PM] [5:35:48 PM] GET /api/quizzes/stats from http://localhost:5173
+[5:35:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[5:35:48 PM] [5:35:48 PM] GET /api/quizzes/stats
+[5:42:09 PM] [5:42:09 PM] GET /api/quizzes/stats from http://localhost:5173
+[5:42:09 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[5:42:09 PM] [5:42:09 PM] GET /api/quizzes/stats
+[5:44:45 PM] [5:44:45 PM] GET /api/quizzes/stats from http://localhost:5173
+[5:44:45 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[5:44:45 PM] [5:44:45 PM] GET /api/quizzes/stats
+[5:44:59 PM] [5:44:59 PM] GET /api/quizzes/stats from http://localhost:5173
+[5:44:59 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[5:44:59 PM] [5:44:59 PM] GET /api/quizzes/stats
+[5:45:38 PM] [5:45:38 PM] GET /api/quizzes/stats from http://localhost:5173
+[5:45:38 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[5:45:38 PM] [5:45:38 PM] GET /api/quizzes/stats
+[5:56:28 PM] [5:56:28 PM] GET /api/quizzes/stats from http://localhost:5173
+[5:56:28 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[5:56:28 PM] [5:56:28 PM] GET /api/quizzes/stats
+[5:59:38 PM] [5:59:38 PM] GET /api/quizzes/stats from http://localhost:5173
+[5:59:38 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[5:59:38 PM] [5:59:38 PM] GET /api/quizzes/stats
+[5:59:40 PM] [5:59:40 PM] GET /api/quizzes/stats from http://localhost:5173
+[5:59:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[5:59:40 PM] [5:59:40 PM] GET /api/quizzes/stats
+[5:59:58 PM] [5:59:58 PM] GET /api/quizzes/stats from http://localhost:5173
+[5:59:58 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[5:59:58 PM] [5:59:58 PM] GET /api/quizzes/stats
+[6:00:35 PM] [6:00:35 PM] GET /api/quizzes/stats from http://localhost:5173
+[6:00:35 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[6:00:35 PM] [6:00:35 PM] GET /api/quizzes/stats
+[6:02:40 PM] [6:02:40 PM] GET /api/quizzes/stats from http://localhost:5173
+[6:02:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[6:02:40 PM] [6:02:40 PM] GET /api/quizzes/stats
+[7:31:36 PM] [7:31:36 PM] GET /api/quizzes/stats from http://localhost:5173
+[7:31:36 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:31:36 PM] [7:31:36 PM] GET /api/quizzes/stats
+[ERROR][7:34:48 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[7:35:00 PM] [DB]: MongoDB connection restored.
+[7:35:00 PM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][7:35:09 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[7:35:09 PM] [DB]: MongoDB connection restored.
+[ERROR][7:35:09 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[7:35:11 PM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[7:35:15 PM] [DB]: MongoDB connection restored.
+[7:35:15 PM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][7:35:19 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[7:35:19 PM] [DB]: MongoDB connection restored.
+[7:35:21 PM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[7:36:11 PM] [7:36:11 PM] GET /api/quizzes/stats from http://localhost:5173
+[7:36:11 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:36:11 PM] [7:36:11 PM] GET /api/quizzes/stats
+[7:39:15 PM] [7:39:15 PM] GET /api/quizzes/stats from http://localhost:5173
+[7:39:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:39:15 PM] [7:39:15 PM] GET /api/quizzes/stats
+[7:44:23 PM] [7:44:23 PM] GET /api/quizzes/stats from http://localhost:5173
+[7:44:23 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:44:23 PM] [7:44:23 PM] GET /api/quizzes/stats
+[7:44:37 PM] [7:44:37 PM] GET /api/quizzes/stats from http://localhost:5173
+[7:44:37 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:44:37 PM] [7:44:37 PM] GET /api/quizzes/stats
+[7:45:40 PM] [7:45:40 PM] GET /api/quizzes/stats from http://localhost:5173
+[7:45:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:45:40 PM] [7:45:40 PM] GET /api/quizzes/stats
+[7:45:58 PM] [7:45:58 PM] GET /api/quizzes/stats from http://localhost:5173
+[7:45:58 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:45:58 PM] [7:45:58 PM] GET /api/quizzes/stats
+[7:51:13 PM] [7:51:13 PM] GET /api/quizzes/stats from http://localhost:5173
+[7:51:13 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:51:13 PM] [7:51:13 PM] GET /api/quizzes/stats
+[7:51:22 PM] [7:51:22 PM] GET /api/quizzes/stats from http://localhost:5173
+[7:51:22 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:51:22 PM] [7:51:22 PM] GET /api/quizzes/stats
+[7:52:54 PM] [7:52:54 PM] GET /api/quizzes/stats from http://localhost:5173
+[7:52:54 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:52:54 PM] [7:52:54 PM] GET /api/quizzes/stats
+[7:53:04 PM] [7:53:04 PM] GET /api/quizzes/stats from http://localhost:5173
+[7:53:04 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:53:04 PM] [7:53:04 PM] GET /api/quizzes/stats
+[7:54:43 PM] [7:54:43 PM] GET /api/quizzes/stats from http://localhost:5173
+[7:54:43 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:54:43 PM] [7:54:43 PM] GET /api/quizzes/stats
+[7:56:06 PM] [7:56:06 PM] GET /api/quizzes/stats from http://localhost:5173
+[7:56:06 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:56:06 PM] [7:56:06 PM] GET /api/quizzes/stats
+[7:57:07 PM] [7:57:07 PM] GET /api/quizzes/stats from http://localhost:5173
+[7:57:07 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:57:07 PM] [7:57:07 PM] GET /api/quizzes/stats
