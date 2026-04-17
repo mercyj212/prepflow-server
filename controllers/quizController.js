@@ -289,13 +289,13 @@ export const generateQuestions = async (req, res) => {
       return res.status(400).json({ message: "Source material (text or file) is required" });
     }
 
-    if (!process.env.GEMINI_API_KEY) {
+    if (!process.env.GOOGLE_API_KEY) {
       return res.status(500).json({ message: "Gemini API key is missing in server environment." });
     }
 
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
     const model = genAI.getGenerativeModel({ 
-      model: "gemini-2.0-flash", // Reverted to standard flash since 2.5 was a typo
+      model: "gemini-2.5-flash",
       generationConfig: {
         responseMimeType: "application/json",
         responseSchema: {

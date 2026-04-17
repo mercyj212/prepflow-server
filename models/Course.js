@@ -30,7 +30,7 @@ const courseSchema = new mongoose.Schema(
         },
         level: {
             type: String,
-            enum: ["100L", "200L", "300L", "400L", "500L", "ND1", "ND2", "HND1", "HND2", null],
+            enum: ["100L", "200L", "300L", "400L", "500L", "ND1", "ND2", "HND1", "HND2", "JAMB", "WAEC", "NECO", "POST-UTME", null],
             default: null,
         },
         path: {

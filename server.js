@@ -137,7 +137,7 @@ app.get('/api/health', (req, res) => {
     environment: {
       db: process.env.MONGODB_URI ? 'Locked' : 'Missing',
       auth: process.env.JWT_SECRET ? 'Locked' : 'Missing',
-      ai: process.env.GEMINI_API_KEY ? 'Locked' : 'Missing'
+      ai: process.env.GOOGLE_API_KEY ? 'Locked' : 'Missing'
     }
   });
 });

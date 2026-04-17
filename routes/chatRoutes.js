@@ -6,7 +6,7 @@ import { protect } from '../utils/authMiddleware.js';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const router = express.Router();
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || 'MISSING_API_KEY');
+const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY || 'MISSING_API_KEY');
 
 // 🔄 GET /api/chat/conversations - Fetch sidebar chats
 router.get('/conversations', protect, async (req, res) => {
@@ -135,14 +135,14 @@ router.post('/:conversationId', protect, async (req, res) => {
 
     // If it's the AI tutor, process AI reply
     if (convo.isAI) {
-      if (!process.env.GEMINI_API_KEY) {
-        throw new Error('GEMINI_API_KEY is missing from environment variables');
+      if (!process.env.GOOGLE_API_KEY) {
+        throw new Error('GOOGLE_API_KEY is missing from environment variables');
       }
 
       try {
         // Fetch minimal messages for context to avoid 429 token limits
         const model = genAI.getGenerativeModel({ 
-          model: 'gemini-2.0-flash',
+          model: 'gemini-2.5-flash',
           systemInstruction: 'You are the PrepUp AI Tutor. Be concise and helpful.'
         });
 
