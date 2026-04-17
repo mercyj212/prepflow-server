@@ -5,6 +5,7 @@ import {
   getSubmissions,
   getProgressMetrics,
   getLatestSubmissionForQuiz,
+  getSubmissionById,
 } from "../controllers/submissionController.js";
 import { protect, admin } from "../utils/authMiddleware.js";
 
@@ -14,5 +15,6 @@ router.route("/").post(protect, createSubmission).get(protect, admin, getSubmiss
 router.route("/progress").get(protect, getProgressMetrics);
 router.route("/my-submissions").get(protect, getMySubmissions);
 router.route("/quiz/:quizId").get(protect, getLatestSubmissionForQuiz);
+router.route("/:id").get(protect, getSubmissionById);
 
 export default router;

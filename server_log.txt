@@ -1724,3 +1724,570 @@ Please retry in 33.635142343s. [{"@type":"type.googleapis.com/google.rpc.Help","
 [7:57:07 PM] [7:57:07 PM] GET /api/quizzes/stats from http://localhost:5173
 [7:57:07 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
 [7:57:07 PM] [7:57:07 PM] GET /api/quizzes/stats
+[8:03:59 PM] [8:03:59 PM] GET /api/quizzes/stats from http://localhost:5173
+[8:03:59 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:03:59 PM] [8:03:59 PM] GET /api/quizzes/stats
+[8:06:03 PM] [8:06:03 PM] GET /api/quizzes/stats from http://localhost:5173
+[8:06:03 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:06:03 PM] [8:06:03 PM] GET /api/quizzes/stats
+[8:07:08 PM] [8:07:08 PM] GET /api/quizzes/stats from http://localhost:5173
+[8:07:08 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:07:08 PM] [8:07:08 PM] GET /api/quizzes/stats
+[8:10:22 PM] [8:10:22 PM] GET /api/quizzes/stats from http://localhost:5173
+[8:10:22 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:10:22 PM] [8:10:22 PM] GET /api/quizzes/stats
+[8:14:02 PM] [8:14:02 PM] GET /api/quizzes/stats from http://localhost:5173
+[8:14:02 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:14:02 PM] [8:14:02 PM] GET /api/quizzes/stats
+[8:15:00 PM] [8:15:00 PM] GET /api/quizzes/stats from http://localhost:5173
+[8:15:00 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:15:00 PM] [8:15:00 PM] GET /api/quizzes/stats
+[ERROR][8:23:08 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][8:23:10 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][8:23:10 PM] MongoDB connection failed (attempt 1): querySrv ECONNREFUSED _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[8:23:10 PM] Retrying connection in 3s...
+[ERROR][8:23:10 PM] [DB]: MongoDB connection error: querySrv ECONNREFUSED _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[ERROR][8:23:12 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][8:23:12 PM] MongoDB connection failed (attempt 1): querySrv ECONNREFUSED _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[8:23:12 PM] Retrying connection in 3s...
+[ERROR][8:23:12 PM] [DB]: MongoDB connection error: querySrv ECONNREFUSED _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[ERROR][8:23:13 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][8:23:13 PM] MongoDB connection failed (attempt 1): querySrv ECONNREFUSED _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[8:23:13 PM] Retrying connection in 3s...
+[ERROR][8:23:13 PM] [DB]: MongoDB connection error: querySrv ECONNREFUSED _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[ERROR][8:23:14 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][8:23:14 PM] MongoDB connection failed (attempt 1): querySrv ECONNREFUSED _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[8:23:14 PM] Retrying connection in 3s...
+[ERROR][8:23:14 PM] [DB]: MongoDB connection error: querySrv ECONNREFUSED _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[8:23:15 PM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[8:23:16 PM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[8:23:16 PM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[8:23:17 PM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[8:23:27 PM] [DB]: MongoDB connection restored.
+[8:23:27 PM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[8:47:09 PM] [8:47:09 PM] OPTIONS /api/auth/login from http://localhost:5173
+[8:47:09 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:47:09 PM] [8:47:09 PM] POST /api/auth/login from http://localhost:5173
+[8:47:09 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:47:09 PM] [8:47:09 PM] POST /api/auth/login
+[8:47:09 PM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[8:47:09 PM] [AUTH STEP 2]: Querying database...
+[8:47:09 PM] [AUTH STEP 3]: Comparing password...
+[8:47:10 PM] [AUTH STEP 4]: Authentication successful. Checking verification...
+[8:47:10 PM] [AUTH STEP 5]: Updating activity tracker...
+[8:47:10 PM] [AUTH STEP 6]: Sending token response...
+[8:47:12 PM] [8:47:12 PM] OPTIONS /api/quizzes from http://localhost:5173
+[8:47:12 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:47:12 PM] [8:47:12 PM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[8:47:12 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:47:12 PM] [8:47:12 PM] GET /api/quizzes from http://localhost:5173
+[8:47:12 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:47:12 PM] [8:47:12 PM] GET /api/quizzes
+[8:47:12 PM] [8:47:12 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[8:47:12 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:47:12 PM] [8:47:12 PM] GET /api/submissions/my-submissions
+[8:47:26 PM] [8:47:26 PM] OPTIONS /api/quizzes from http://localhost:5173
+[8:47:26 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:47:26 PM] [8:47:26 PM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[8:47:26 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:47:26 PM] [8:47:26 PM] GET /api/quizzes from http://localhost:5173
+[8:47:26 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:47:26 PM] [8:47:26 PM] GET /api/quizzes
+[8:47:26 PM] [8:47:26 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[8:47:26 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:47:26 PM] [8:47:26 PM] GET /api/submissions/my-submissions
+[8:47:32 PM] [8:47:32 PM] OPTIONS /api/auth/logout from http://localhost:5173
+[8:47:32 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:47:32 PM] [8:47:32 PM] POST /api/auth/logout from http://localhost:5173
+[8:47:32 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:47:32 PM] [8:47:32 PM] POST /api/auth/logout
+[8:49:41 PM] [8:49:41 PM] OPTIONS /api/auth/login from http://localhost:5173
+[8:49:41 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:49:41 PM] [8:49:41 PM] POST /api/auth/login from http://localhost:5173
+[8:49:41 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:49:41 PM] [8:49:41 PM] POST /api/auth/login
+[8:49:41 PM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[8:49:41 PM] [AUTH STEP 2]: Querying database...
+[8:49:42 PM] [AUTH STEP 3]: Comparing password...
+[8:49:42 PM] [AUTH STEP 4]: Authentication successful. Checking verification...
+[8:49:42 PM] [AUTH STEP 5]: Updating activity tracker...
+[8:49:43 PM] [AUTH STEP 6]: Sending token response...
+[8:49:44 PM] [8:49:44 PM] OPTIONS /api/quizzes from http://localhost:5173
+[8:49:44 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:49:44 PM] [8:49:44 PM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[8:49:44 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:49:44 PM] [8:49:44 PM] GET /api/quizzes from http://localhost:5173
+[8:49:44 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:49:44 PM] [8:49:44 PM] GET /api/quizzes
+[8:49:44 PM] [8:49:44 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[8:49:44 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:49:44 PM] [8:49:44 PM] GET /api/submissions/my-submissions
+[8:49:50 PM] [8:49:50 PM] OPTIONS /api/auth/logout from http://localhost:5173
+[8:49:50 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:49:50 PM] [8:49:50 PM] POST /api/auth/logout from http://localhost:5173
+[8:49:50 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:49:50 PM] [8:49:50 PM] POST /api/auth/logout
+[8:50:24 PM] [8:50:24 PM] OPTIONS /api/auth/login from http://localhost:5173
+[8:50:24 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:50:24 PM] [8:50:24 PM] POST /api/auth/login from http://localhost:5173
+[8:50:24 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:50:24 PM] [8:50:24 PM] POST /api/auth/login
+[8:50:24 PM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[8:50:24 PM] [AUTH STEP 2]: Querying database...
+[8:50:25 PM] [AUTH STEP 3]: Comparing password...
+[8:50:25 PM] [AUTH STEP 4]: Authentication successful. Checking verification...
+[8:50:25 PM] [AUTH STEP 5]: Updating activity tracker...
+[8:50:25 PM] [AUTH STEP 6]: Sending token response...
+[8:50:27 PM] [8:50:27 PM] OPTIONS /api/quizzes from http://localhost:5173
+[8:50:27 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:50:27 PM] [8:50:27 PM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[8:50:27 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:50:27 PM] [8:50:27 PM] GET /api/quizzes from http://localhost:5173
+[8:50:27 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:50:27 PM] [8:50:27 PM] GET /api/quizzes
+[8:50:27 PM] [8:50:27 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[8:50:27 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:50:27 PM] [8:50:27 PM] GET /api/submissions/my-submissions
+[8:51:30 PM] [8:51:30 PM] OPTIONS /api/chat/conversations from http://localhost:5173
+[8:51:30 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:51:31 PM] [8:51:31 PM] GET /api/chat/conversations from http://localhost:5173
+[8:51:31 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:51:31 PM] [8:51:31 PM] GET /api/chat/conversations
+[8:51:47 PM] [8:51:47 PM] OPTIONS /api/quizzes from http://localhost:5173
+[8:51:47 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:51:47 PM] [8:51:47 PM] GET /api/quizzes from http://localhost:5173
+[8:51:47 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:51:47 PM] [8:51:47 PM] GET /api/quizzes
+[8:51:53 PM] [8:51:53 PM] OPTIONS /api/quizzes/69cc7189039db582ef09124d/study from http://localhost:5173
+[8:51:53 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:51:53 PM] [8:51:53 PM] GET /api/quizzes/69cc7189039db582ef09124d/study from http://localhost:5173
+[8:51:53 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:51:53 PM] [8:51:53 PM] GET /api/quizzes/69cc7189039db582ef09124d/study
+[8:52:15 PM] [8:52:15 PM] OPTIONS /api/quizzes from http://localhost:5173
+[8:52:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:52:15 PM] [8:52:15 PM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[8:52:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:52:15 PM] [8:52:15 PM] GET /api/quizzes from http://localhost:5173
+[8:52:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:52:15 PM] [8:52:15 PM] GET /api/quizzes
+[8:52:15 PM] [8:52:15 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[8:52:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:52:15 PM] [8:52:15 PM] GET /api/submissions/my-submissions
+[ERROR][9:10:39 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:10:53 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:10:53 PM] MongoDB connection failed (attempt 1): Server selection timed out after 10000 ms
+[9:10:53 PM] Retrying connection in 3s...
+[ERROR][9:10:53 PM] [DB]: MongoDB connection error: Server selection timed out after 10000 ms
+[9:10:56 PM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[9:11:00 PM] [DB]: MongoDB connection restored.
+[9:11:00 PM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[9:34:03 PM] [9:34:03 PM] OPTIONS /api/quizzes from http://localhost:5173
+[9:34:03 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:03 PM] [9:34:03 PM] GET /api/quizzes from http://localhost:5173
+[9:34:03 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:03 PM] [9:34:03 PM] GET /api/quizzes
+[9:34:07 PM] [9:34:07 PM] OPTIONS /api/quizzes/69cc7189039db582ef09124d/study from http://localhost:5173
+[9:34:07 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:07 PM] [9:34:07 PM] GET /api/quizzes/69cc7189039db582ef09124d/study from http://localhost:5173
+[9:34:07 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:07 PM] [9:34:07 PM] GET /api/quizzes/69cc7189039db582ef09124d/study
+[9:34:39 PM] [9:34:39 PM] OPTIONS /api/quizzes/69cc7189039db582ef09124d/study from http://localhost:5173
+[9:34:39 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:39 PM] [9:34:39 PM] GET /api/quizzes/69cc7189039db582ef09124d/study from http://localhost:5173
+[9:34:39 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:34:39 PM] [9:34:39 PM] GET /api/quizzes/69cc7189039db582ef09124d/study
+[9:37:58 PM] [9:37:58 PM] OPTIONS /api/submissions from http://localhost:5173
+[9:37:58 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:58 PM] [9:37:58 PM] POST /api/submissions from http://localhost:5173
+[9:37:58 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:37:58 PM] [9:37:58 PM] POST /api/submissions
+[9:38:05 PM] [9:38:05 PM] OPTIONS /api/submissions/quiz/69cc7189039db582ef09124d from http://localhost:5173
+[9:38:05 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:38:05 PM] [9:38:05 PM] GET /api/submissions/quiz/69cc7189039db582ef09124d from http://localhost:5173
+[9:38:05 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:38:05 PM] [9:38:05 PM] GET /api/submissions/quiz/69cc7189039db582ef09124d
+[9:39:44 PM] [9:39:44 PM] OPTIONS /api/auth/logout from http://localhost:5173
+[9:39:44 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:39:44 PM] [9:39:44 PM] POST /api/auth/logout from http://localhost:5173
+[9:39:44 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:39:44 PM] [9:39:44 PM] POST /api/auth/logout
+[9:43:59 PM] [9:43:59 PM] OPTIONS /api/auth/login from http://localhost:5173
+[9:43:59 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:43:59 PM] [9:43:59 PM] POST /api/auth/login from http://localhost:5173
+[9:43:59 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:43:59 PM] [9:43:59 PM] POST /api/auth/login
+[9:43:59 PM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[9:43:59 PM] [AUTH STEP 2]: Querying database...
+[9:43:59 PM] [AUTH STEP 3]: Comparing password...
+[9:43:59 PM] [AUTH STEP 4]: Authentication successful. Checking verification...
+[9:43:59 PM] [AUTH STEP 5]: Updating activity tracker...
+[9:44:00 PM] [AUTH STEP 6]: Sending token response...
+[9:44:01 PM] [9:44:01 PM] OPTIONS /api/quizzes from http://localhost:5173
+[9:44:01 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:44:01 PM] [9:44:01 PM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[9:44:01 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:44:01 PM] [9:44:01 PM] GET /api/quizzes from http://localhost:5173
+[9:44:01 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:44:01 PM] [9:44:01 PM] GET /api/quizzes
+[9:44:01 PM] [9:44:01 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[9:44:01 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:44:01 PM] [9:44:01 PM] GET /api/submissions/my-submissions
+[9:44:42 PM] [9:44:42 PM] OPTIONS /api/faculties?path=university from http://localhost:5173
+[9:44:42 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:44:42 PM] [9:44:42 PM] GET /api/faculties?path=university from http://localhost:5173
+[9:44:42 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:44:42 PM] [9:44:42 PM] GET /api/faculties?path=university
+[9:44:46 PM] [9:44:46 PM] OPTIONS /api/quizzes from http://localhost:5173
+[9:44:46 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:44:46 PM] [9:44:46 PM] GET /api/quizzes from http://localhost:5173
+[9:44:46 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:44:46 PM] [9:44:46 PM] GET /api/quizzes
+[9:44:52 PM] [9:44:52 PM] OPTIONS /api/quizzes/69cc7189039db582ef09124d/study from http://localhost:5173
+[9:44:52 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:44:52 PM] [9:44:52 PM] GET /api/quizzes/69cc7189039db582ef09124d/study from http://localhost:5173
+[9:44:52 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:44:52 PM] [9:44:52 PM] GET /api/quizzes/69cc7189039db582ef09124d/study
+[9:45:04 PM] [9:45:04 PM] OPTIONS /api/quizzes/69cc7189039db582ef09124d/study from http://localhost:5173
+[9:45:04 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:04 PM] [9:45:04 PM] GET /api/quizzes/69cc7189039db582ef09124d/study from http://localhost:5173
+[9:45:04 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:04 PM] [9:45:04 PM] GET /api/quizzes/69cc7189039db582ef09124d/study
+[9:45:26 PM] [9:45:26 PM] OPTIONS /api/quizzes from http://localhost:5173
+[9:45:26 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:26 PM] [9:45:26 PM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[9:45:26 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:26 PM] [9:45:26 PM] GET /api/quizzes from http://localhost:5173
+[9:45:26 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:26 PM] [9:45:26 PM] GET /api/quizzes
+[9:45:26 PM] [9:45:26 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[9:45:26 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:26 PM] [9:45:26 PM] GET /api/submissions/my-submissions
+[9:45:29 PM] [9:45:29 PM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:45:29 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:29 PM] [9:45:29 PM] GET /api/chat/conversations from http://localhost:5173
+[9:45:29 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:29 PM] [9:45:29 PM] GET /api/chat/conversations
+[9:45:35 PM] [9:45:35 PM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:45:35 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:35 PM] [9:45:35 PM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:45:35 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:35 PM] [9:45:35 PM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:45:37 PM] [9:45:37 PM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:45:37 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:37 PM] [9:45:37 PM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:45:42 PM] [9:45:42 PM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:45:42 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:42 PM] [9:45:42 PM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:45:42 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:42 PM] [9:45:42 PM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:45:47 PM] [9:45:47 PM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:45:47 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:47 PM] [9:45:47 PM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:45:47 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:48 PM] [9:45:48 PM] GET /api/chat/conversations from http://localhost:5173
+[9:45:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:48 PM] [9:45:48 PM] GET /api/chat/conversations
+[9:45:48 PM] [9:45:48 PM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:45:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:48 PM] [9:45:48 PM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:45:52 PM] [9:45:52 PM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:45:52 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:52 PM] [9:45:52 PM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:45:56 PM] [9:45:56 PM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:45:56 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:56 PM] [9:45:56 PM] POST /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:45:56 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:56 PM] [9:45:56 PM] POST /api/chat/69e09c08014e7c0ff83fe7a0
+[9:45:58 PM] [9:45:58 PM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:45:58 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:45:58 PM] [9:45:58 PM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:46:03 PM] [9:46:03 PM] OPTIONS /api/chat/conversations from http://localhost:5173
+[9:46:03 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:46:03 PM] [9:46:03 PM] OPTIONS /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:46:03 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:46:03 PM] [9:46:03 PM] GET /api/chat/69e09c08014e7c0ff83fe7a0 from http://localhost:5173
+[9:46:03 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:46:03 PM] [9:46:03 PM] GET /api/chat/69e09c08014e7c0ff83fe7a0
+[9:46:03 PM] [9:46:03 PM] GET /api/chat/conversations from http://localhost:5173
+[9:46:03 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:46:03 PM] [9:46:03 PM] GET /api/chat/conversations
+[9:46:21 PM] [9:46:21 PM] OPTIONS /api/submissions/progress from http://localhost:5173
+[9:46:21 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:46:21 PM] [9:46:21 PM] GET /api/submissions/progress from http://localhost:5173
+[9:46:21 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:46:21 PM] [9:46:21 PM] GET /api/submissions/progress
+[9:46:43 PM] [9:46:43 PM] OPTIONS /api/auth/logout from http://localhost:5173
+[9:46:43 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:46:43 PM] [9:46:43 PM] OPTIONS /api/submissions/progress from http://localhost:5173
+[9:46:43 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:46:43 PM] [9:46:43 PM] POST /api/auth/logout from http://localhost:5173
+[9:46:43 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:46:43 PM] [9:46:43 PM] POST /api/auth/logout
+[9:46:43 PM] [9:46:43 PM] GET /api/submissions/progress from http://localhost:5173
+[9:46:43 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:46:43 PM] [9:46:43 PM] GET /api/submissions/progress
+[9:53:33 PM] [9:53:33 PM] OPTIONS /api/auth/login from http://localhost:5173
+[9:53:33 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:53:33 PM] [9:53:33 PM] POST /api/auth/login from http://localhost:5173
+[9:53:33 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:53:33 PM] [9:53:33 PM] POST /api/auth/login
+[9:53:33 PM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[9:53:33 PM] [AUTH STEP 2]: Querying database...
+[9:53:34 PM] [AUTH STEP 3]: Comparing password...
+[9:53:34 PM] [AUTH STEP 4]: Authentication successful. Checking verification...
+[9:53:34 PM] [AUTH STEP 5]: Updating activity tracker...
+[9:53:34 PM] [AUTH STEP 6]: Sending token response...
+[9:53:36 PM] [9:53:36 PM] OPTIONS /api/quizzes from http://localhost:5173
+[9:53:36 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:53:36 PM] [9:53:36 PM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[9:53:36 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:53:36 PM] [9:53:36 PM] GET /api/quizzes from http://localhost:5173
+[9:53:36 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:53:36 PM] [9:53:36 PM] GET /api/quizzes
+[9:53:36 PM] [9:53:36 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[9:53:36 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:53:36 PM] [9:53:36 PM] GET /api/submissions/my-submissions
+[9:54:00 PM] [9:54:00 PM] OPTIONS /api/quizzes from http://localhost:5173
+[9:54:00 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:54:00 PM] [9:54:00 PM] GET /api/quizzes from http://localhost:5173
+[9:54:00 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:54:00 PM] [9:54:00 PM] GET /api/quizzes
+[9:54:13 PM] [9:54:13 PM] OPTIONS /api/quizzes/69cc7189039db582ef09124d/study from http://localhost:5173
+[9:54:13 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:54:13 PM] [9:54:13 PM] GET /api/quizzes/69cc7189039db582ef09124d/study from http://localhost:5173
+[9:54:13 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:54:13 PM] [9:54:13 PM] GET /api/quizzes/69cc7189039db582ef09124d/study
+[8:25:48 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[8:25:48 AM] Server is running on port 10000
+[8:25:48 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[8:25:56 AM] [DB]: MongoDB connection restored.
+[8:25:56 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[8:26:07 AM] [8:26:07 AM] OPTIONS /api/quizzes from http://localhost:5173
+[8:26:07 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:26:07 AM] [8:26:07 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[8:26:07 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:26:07 AM] [8:26:07 AM] GET /api/quizzes from http://localhost:5173
+[8:26:07 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:26:07 AM] [8:26:07 AM] GET /api/quizzes
+[8:26:07 AM] [8:26:07 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[8:26:07 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:26:07 AM] [8:26:07 AM] GET /api/submissions/my-submissions
+[ERROR][8:26:07 AM] TokenExpiredError: jwt expired
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:190:21
+    at getSecret [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:97:14[90m)[39m
+    at module.exports [as verify] [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:101:10[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:14:27[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at Route.dispatch [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:117:3[90m)[39m
+    at handle [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:295:15 {
+  expiredAt: [35m2026-04-16T22:53:34.000Z[39m
+}
+[8:26:09 AM] [8:26:09 AM] GET /api/auth/refresh from http://localhost:5173
+[8:26:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:26:09 AM] [8:26:09 AM] GET /api/auth/refresh
+[8:26:09 AM] [8:26:09 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[8:26:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:26:09 AM] [8:26:09 AM] GET /api/submissions/my-submissions
+[9:03:52 AM] [9:03:52 AM] OPTIONS /api/quizzes from http://localhost:5173
+[9:03:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:03:52 AM] [9:03:52 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[9:03:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:03:52 AM] [9:03:52 AM] GET /api/quizzes from http://localhost:5173
+[9:03:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:03:52 AM] [9:03:52 AM] GET /api/quizzes
+[9:03:52 AM] [9:03:52 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[9:03:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:03:52 AM] [9:03:52 AM] GET /api/submissions/my-submissions
+[9:06:23 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[9:06:23 AM] Server is running on port 10000
+[9:06:23 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[9:06:29 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[9:06:30 AM] Server is running on port 10000
+[9:06:30 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[9:06:34 AM] [9:06:34 AM] OPTIONS /api/quizzes from http://localhost:5173
+[9:06:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:06:34 AM] [9:06:34 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[9:06:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:06:34 AM] [9:06:34 AM] GET /api/quizzes from http://localhost:5173
+[9:06:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:06:34 AM] [9:06:34 AM] GET /api/quizzes
+[9:06:34 AM] [9:06:34 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[9:06:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:06:34 AM] [9:06:34 AM] GET /api/submissions/my-submissions
+[9:06:40 AM] [DB]: MongoDB connection restored.
+[9:06:40 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:24:45 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[9:25:06 AM] [9:25:06 AM] OPTIONS /api/quizzes from http://localhost:5173
+[9:25:06 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:25:06 AM] [9:25:06 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[9:25:06 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:25:06 AM] [9:25:06 AM] GET /api/quizzes from http://localhost:5173
+[9:25:06 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:25:06 AM] [9:25:06 AM] GET /api/quizzes
+[9:25:06 AM] [9:25:06 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[9:25:06 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:25:06 AM] [9:25:06 AM] GET /api/submissions/my-submissions
+[9:25:31 AM] [9:25:31 AM] OPTIONS /api/auth/logout from http://localhost:5173
+[9:25:31 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:25:31 AM] [9:25:31 AM] POST /api/auth/logout from http://localhost:5173
+[9:25:31 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:25:31 AM] [9:25:31 AM] POST /api/auth/logout
+[ERROR][9:25:39 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:25:39 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:25:39 AM] Retrying connection in 3s...
+[ERROR][9:25:39 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:25:42 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[9:26:17 AM] [9:26:17 AM] GET /api/quizzes/stats from http://localhost:5173
+[9:26:17 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:26:17 AM] [9:26:17 AM] GET /api/quizzes/stats
+[ERROR][9:26:30 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:26:30 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:26:30 AM] Retrying connection in 3s...
+[ERROR][9:26:30 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:26:33 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[9:26:43 AM] [9:26:43 AM] GET /api/quizzes/stats from http://localhost:5173
+[9:26:43 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:26:43 AM] [9:26:43 AM] GET /api/quizzes/stats
+[ERROR][9:27:23 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:27:23 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:27:23 AM] Retrying connection in 3s...
+[ERROR][9:27:23 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:27:26 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:28:15 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:28:15 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:28:15 AM] Retrying connection in 3s...
+[ERROR][9:28:15 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:28:18 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:29:00 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:29:00 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:29:00 AM] Retrying connection in 3s...
+[ERROR][9:29:00 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:29:03 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:29:48 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:29:48 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:29:48 AM] Retrying connection in 3s...
+[ERROR][9:29:48 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:29:51 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:30:43 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:30:43 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:30:43 AM] Retrying connection in 3s...
+[ERROR][9:30:43 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:30:46 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:31:35 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:31:35 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:31:35 AM] Retrying connection in 3s...
+[ERROR][9:31:35 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:31:38 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:32:27 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:32:27 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:32:27 AM] Retrying connection in 3s...
+[ERROR][9:32:27 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:32:30 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:33:19 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:33:19 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:33:19 AM] Retrying connection in 3s...
+[ERROR][9:33:19 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:33:22 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:34:12 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:34:12 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:34:12 AM] Retrying connection in 3s...
+[ERROR][9:34:12 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:34:15 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:35:00 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:35:00 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:35:00 AM] Retrying connection in 3s...
+[ERROR][9:35:00 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:35:03 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:35:54 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:35:54 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:35:54 AM] Retrying connection in 3s...
+[ERROR][9:35:54 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:35:57 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:36:47 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:36:47 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:36:47 AM] Retrying connection in 3s...
+[ERROR][9:36:47 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:36:50 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:37:37 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:37:37 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:37:37 AM] Retrying connection in 3s...
+[ERROR][9:37:37 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:37:40 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:38:23 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:38:23 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:38:23 AM] Retrying connection in 3s...
+[ERROR][9:38:23 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:38:26 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:39:17 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:39:17 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:39:17 AM] Retrying connection in 3s...
+[ERROR][9:39:17 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:39:20 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[9:39:26 AM] [9:39:26 AM] GET /api/quizzes/stats from http://localhost:5173
+[9:39:26 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:39:26 AM] [9:39:26 AM] GET /api/quizzes/stats
+[ERROR][9:40:07 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:40:07 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:40:07 AM] Retrying connection in 3s...
+[ERROR][9:40:07 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:40:10 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:41:01 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:41:01 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:41:01 AM] Retrying connection in 3s...
+[ERROR][9:41:01 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:41:04 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[9:41:13 AM] [9:41:13 AM] OPTIONS /api/auth/login from http://localhost:5173
+[9:41:13 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:41:13 AM] [9:41:13 AM] POST /api/auth/login from http://localhost:5173
+[9:41:13 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:41:13 AM] [9:41:13 AM] POST /api/auth/login
+[9:41:13 AM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[9:41:13 AM] [AUTH STEP 2]: Querying database...
+[9:41:13 AM] [AUTH STEP 3]: Comparing password...
+[9:41:14 AM] [AUTH STEP 4]: Authentication successful. Checking verification...
+[9:41:14 AM] [AUTH STEP 5]: Updating activity tracker...
+[9:41:14 AM] [AUTH STEP 6]: Sending token response...
+[9:41:15 AM] [9:41:15 AM] OPTIONS /api/quizzes from http://localhost:5173
+[9:41:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:41:15 AM] [9:41:15 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[9:41:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:41:15 AM] [9:41:15 AM] GET /api/quizzes from http://localhost:5173
+[9:41:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:41:15 AM] [9:41:15 AM] GET /api/quizzes
+[9:41:15 AM] [9:41:15 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[9:41:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[9:41:15 AM] [9:41:15 AM] GET /api/submissions/my-submissions
+[ERROR][9:41:50 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:41:50 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:41:50 AM] Retrying connection in 3s...
+[ERROR][9:41:50 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:41:53 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:42:41 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:42:41 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:42:41 AM] Retrying connection in 3s...
+[ERROR][9:42:41 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:42:44 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:43:34 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:43:34 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:43:34 AM] Retrying connection in 3s...
+[ERROR][9:43:34 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:43:37 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:44:25 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:44:25 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:44:25 AM] Retrying connection in 3s...
+[ERROR][9:44:25 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:44:28 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][9:45:17 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][9:45:17 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:45:17 AM] Retrying connection in 3s...
+[ERROR][9:45:17 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[9:45:20 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net

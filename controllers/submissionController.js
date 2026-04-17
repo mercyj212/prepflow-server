@@ -234,3 +234,57 @@ export const getLatestSubmissionForQuiz = async (req, res) => {
   }
 };
 
+
+// @desc    Get submission by ID
+// @route   GET /api/submissions/:id
+// @access  Private
+export const getSubmissionById = async (req, res) => {
+  try {
+    const submission = await Submission.findById(req.params.id)
+      .populate({
+        path: 'quiz',
+        select: 'title questions',
+        populate: {
+          path: 'questions',
+          select: 'text options explanation',
+        },
+      });
+
+    if (!submission) {
+      return res.status(404).json({ message: 'Submission not found' });
+    }
+
+    // Ensure only the student who own the submission can see it
+    if (submission.student.toString() !== req.user._id.toString() && req.user.role !== 'admin') {
+      return res.status(401).json({ message: 'Unauthorized access to this session' });
+    }
+
+    const quiz = submission.quiz;
+    const questionResults = submission.answers.map((ans) => {
+      const question = quiz?.questions?.find(q => q._id.toString() === ans.questionId.toString());
+      const selectedOption = question?.options?.find(o => o._id.toString() === ans.selectedOptionId?.toString());
+      const correctOption = question?.options?.find(o => o.isCorrect);
+
+      return {
+        questionText: question?.text || 'Question not found',
+        yourAnswer: selectedOption?.text || 'No answer selected',
+        correctAnswer: correctOption?.text || 'N/A',
+        isCorrect: ans.isCorrect,
+        explanation: question?.explanation || null,
+      };
+    });
+
+    res.json({
+      _id: submission._id,
+      quizTitle: quiz?.title || 'Quiz',
+      score: submission.score,
+      totalQuestions: submission.totalQuestions,
+      timeTaken: submission.timeTaken,
+      createdAt: submission.createdAt,
+      questionResults,
+    });
+  } catch (error) {
+    console.error('[GET_SUBMISSION_BY_ID]:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
