@@ -4295,3 +4295,637 @@ Please retry in 33.635142343s. [{"@type":"type.googleapis.com/google.rpc.Help","
 [ERROR][12:02:51 PM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
 [12:02:51 PM] Retrying connection in 3s...
 [ERROR][12:02:51 PM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[ERROR][12:02:52 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][12:02:52 PM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[12:02:52 PM] Retrying connection in 3s...
+[ERROR][12:02:52 PM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[12:02:53 PM] MongoDB Connected: undefined
+[ERROR][12:02:53 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][12:02:53 PM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[12:02:53 PM] Retrying connection in 3s...
+[ERROR][12:02:53 PM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[ERROR][12:02:54 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][12:02:54 PM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[12:02:54 PM] Retrying connection in 3s...
+[ERROR][12:02:54 PM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[12:02:55 PM] MongoDB Connected: undefined
+[12:02:55 PM] MongoDB Connected: undefined
+[12:02:55 PM] [DB]: MongoDB connection restored.
+[12:02:55 PM] MongoDB Connected: ac-gy8st3b-shard-00-02.vjeopgu.mongodb.net
+[12:02:56 PM] MongoDB Connected: ac-gy8st3b-shard-00-02.vjeopgu.mongodb.net
+[12:02:56 PM] MongoDB Connected: ac-gy8st3b-shard-00-02.vjeopgu.mongodb.net
+[12:02:57 PM] MongoDB Connected: ac-gy8st3b-shard-00-02.vjeopgu.mongodb.net
+[12:06:13 PM] [12:06:13 PM] OPTIONS /api/faculties?path=polytechnic from http://localhost:5173
+[12:06:13 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:06:13 PM] [12:06:13 PM] GET /api/faculties?path=polytechnic from http://localhost:5173
+[12:06:13 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:06:13 PM] [12:06:13 PM] GET /api/faculties?path=polytechnic
+[12:07:16 PM] [12:07:16 PM] OPTIONS /api/departments?faculty=69e2093369627b3ea5252b12 from http://localhost:5173
+[12:07:16 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:16 PM] [12:07:16 PM] GET /api/departments?faculty=69e2093369627b3ea5252b12 from http://localhost:5173
+[12:07:16 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:16 PM] [12:07:16 PM] GET /api/departments?faculty=69e2093369627b3ea5252b12
+[12:07:25 PM] [12:07:25 PM] OPTIONS /api/courses from http://localhost:5173
+[12:07:25 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:25 PM] [12:07:25 PM] POST /api/courses from http://localhost:5173
+[12:07:25 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:25 PM] [12:07:25 PM] POST /api/courses
+[12:07:25 PM] [12:07:25 PM] OPTIONS /api/quizzes from http://localhost:5173
+[12:07:25 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:25 PM] [12:07:25 PM] OPTIONS /api/students/count from http://localhost:5173
+[12:07:25 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:25 PM] [12:07:25 PM] OPTIONS /api/students from http://localhost:5173
+[12:07:25 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:25 PM] [12:07:25 PM] GET /api/courses from http://localhost:5173
+[12:07:25 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:25 PM] [12:07:25 PM] GET /api/courses
+[12:07:26 PM] [12:07:26 PM] GET /api/quizzes from http://localhost:5173
+[12:07:26 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:26 PM] [12:07:26 PM] GET /api/quizzes
+[12:07:26 PM] [12:07:26 PM] GET /api/students/count from http://localhost:5173
+[12:07:26 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:26 PM] [12:07:26 PM] GET /api/students/count
+[12:07:26 PM] [12:07:26 PM] GET /api/students from http://localhost:5173
+[12:07:26 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:26 PM] [12:07:26 PM] GET /api/students
+[12:07:28 PM] [12:07:28 PM] OPTIONS /api/submissions from http://localhost:5173
+[12:07:28 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:28 PM] [12:07:28 PM] GET /api/submissions from http://localhost:5173
+[12:07:28 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:28 PM] [12:07:28 PM] GET /api/submissions
+[12:07:42 PM] [12:07:42 PM] OPTIONS /api/courses from http://localhost:5173
+[12:07:42 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:42 PM] [12:07:42 PM] OPTIONS /api/quizzes from http://localhost:5173
+[12:07:42 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:42 PM] [12:07:42 PM] OPTIONS /api/students/count from http://localhost:5173
+[12:07:42 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:42 PM] [12:07:42 PM] OPTIONS /api/students from http://localhost:5173
+[12:07:42 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:43 PM] [12:07:43 PM] GET /api/courses from http://localhost:5173
+[12:07:43 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:43 PM] [12:07:43 PM] GET /api/courses
+[12:07:43 PM] [12:07:43 PM] GET /api/quizzes from http://localhost:5173
+[12:07:43 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:43 PM] [12:07:43 PM] GET /api/quizzes
+[12:07:43 PM] [12:07:43 PM] GET /api/students/count from http://localhost:5173
+[12:07:43 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:43 PM] [12:07:43 PM] GET /api/students/count
+[12:07:43 PM] [12:07:43 PM] GET /api/students from http://localhost:5173
+[12:07:43 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:43 PM] [12:07:43 PM] GET /api/students
+[12:07:45 PM] [12:07:45 PM] OPTIONS /api/submissions from http://localhost:5173
+[12:07:45 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:45 PM] [12:07:45 PM] GET /api/submissions from http://localhost:5173
+[12:07:45 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:07:45 PM] [12:07:45 PM] GET /api/submissions
+[12:08:56 PM] [12:08:56 PM] OPTIONS /api/courses from http://localhost:5173
+[12:08:56 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:08:56 PM] [12:08:56 PM] OPTIONS /api/quizzes from http://localhost:5173
+[12:08:56 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:08:56 PM] [12:08:56 PM] OPTIONS /api/students/count from http://localhost:5173
+[12:08:56 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:08:56 PM] [12:08:56 PM] OPTIONS /api/students from http://localhost:5173
+[12:08:56 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:08:56 PM] [12:08:56 PM] GET /api/courses from http://localhost:5173
+[12:08:56 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:08:56 PM] [12:08:56 PM] GET /api/courses
+[12:08:56 PM] [12:08:56 PM] GET /api/quizzes from http://localhost:5173
+[12:08:56 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:08:56 PM] [12:08:56 PM] GET /api/quizzes
+[12:08:56 PM] [12:08:56 PM] GET /api/students/count from http://localhost:5173
+[12:08:56 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:08:56 PM] [12:08:56 PM] GET /api/students/count
+[12:08:56 PM] [12:08:56 PM] GET /api/students from http://localhost:5173
+[12:08:56 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:08:56 PM] [12:08:56 PM] GET /api/students
+[12:08:58 PM] [12:08:58 PM] OPTIONS /api/submissions from http://localhost:5173
+[12:08:58 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:08:58 PM] [12:08:58 PM] GET /api/submissions from http://localhost:5173
+[12:08:58 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:08:58 PM] [12:08:58 PM] GET /api/submissions
+[12:14:01 PM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[12:14:01 PM] Server is running on port 10000
+[12:14:01 PM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[12:14:01 PM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[12:14:01 PM] Server is running on port 10000
+[12:14:01 PM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[ERROR][12:14:01 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][12:14:01 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][12:14:01 PM] MongoDB connection failed (attempt 1): queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[12:14:01 PM] Retrying connection in 3s...
+[ERROR][12:14:01 PM] [DB]: MongoDB connection error: queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[ERROR][12:14:01 PM] MongoDB connection failed (attempt 1): queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[12:14:01 PM] Retrying connection in 3s...
+[ERROR][12:14:01 PM] [DB]: MongoDB connection error: queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[ERROR][12:14:04 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][12:14:04 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][12:14:04 PM] MongoDB connection failed (attempt 1): queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[12:14:04 PM] Retrying connection in 3s...
+[ERROR][12:14:04 PM] [DB]: MongoDB connection error: queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[ERROR][12:14:04 PM] MongoDB connection failed (attempt 1): queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[12:14:04 PM] Retrying connection in 3s...
+[ERROR][12:14:04 PM] [DB]: MongoDB connection error: queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[ERROR][12:14:04 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][12:14:04 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][12:14:04 PM] MongoDB connection failed (attempt 1): queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[12:14:04 PM] Retrying connection in 3s...
+[ERROR][12:14:04 PM] [DB]: MongoDB connection error: queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[ERROR][12:14:04 PM] MongoDB connection failed (attempt 1): queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[12:14:04 PM] Retrying connection in 3s...
+[ERROR][12:14:04 PM] [DB]: MongoDB connection error: queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[ERROR][12:14:06 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][12:14:06 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][12:14:06 PM] MongoDB connection failed (attempt 1): queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[12:14:06 PM] Retrying connection in 3s...
+[ERROR][12:14:06 PM] [DB]: MongoDB connection error: queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[ERROR][12:14:06 PM] MongoDB connection failed (attempt 1): queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[12:14:06 PM] Retrying connection in 3s...
+[ERROR][12:14:06 PM] [DB]: MongoDB connection error: queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[12:14:07 PM] MongoDB Connected: undefined
+[12:14:07 PM] MongoDB Connected: undefined
+[12:14:07 PM] MongoDB Connected: undefined
+[12:14:07 PM] MongoDB Connected: undefined
+[12:14:08 PM] MongoDB Connected: undefined
+[12:14:08 PM] MongoDB Connected: undefined
+[12:14:08 PM] [DB]: MongoDB connection restored.
+[12:14:08 PM] [DB]: MongoDB connection restored.
+[12:14:08 PM] MongoDB Connected: ac-gy8st3b-shard-00-01.vjeopgu.mongodb.net
+[12:14:08 PM] MongoDB Connected: ac-gy8st3b-shard-00-01.vjeopgu.mongodb.net
+[12:14:09 PM] MongoDB Connected: ac-gy8st3b-shard-00-01.vjeopgu.mongodb.net
+[12:14:09 PM] MongoDB Connected: ac-gy8st3b-shard-00-01.vjeopgu.mongodb.net
+[12:14:34 PM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[12:14:34 PM] Server is running on port 10000
+[12:14:34 PM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[12:14:34 PM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[12:14:34 PM] Server is running on port 10000
+[12:14:34 PM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[12:14:35 PM] [DB]: MongoDB connection restored.
+[12:14:35 PM] MongoDB Connected: ac-gy8st3b-shard-00-01.vjeopgu.mongodb.net
+[12:14:36 PM] [DB]: MongoDB connection restored.
+[12:14:36 PM] MongoDB Connected: ac-gy8st3b-shard-00-02.vjeopgu.mongodb.net
+[12:15:36 PM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[12:15:36 PM] Server is running on port 10000
+[12:15:36 PM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[ERROR][12:15:36 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][12:15:36 PM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[12:15:36 PM] Retrying connection in 3s...
+[ERROR][12:15:36 PM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[12:15:36 PM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[12:15:36 PM] Server is running on port 10000
+[12:15:36 PM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[ERROR][12:15:36 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][12:15:36 PM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[12:15:36 PM] Retrying connection in 3s...
+[ERROR][12:15:36 PM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[ERROR][12:15:38 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][12:15:38 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][12:15:38 PM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[12:15:38 PM] Retrying connection in 3s...
+[ERROR][12:15:38 PM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[ERROR][12:15:38 PM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[12:15:38 PM] Retrying connection in 3s...
+[ERROR][12:15:38 PM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[ERROR][12:15:39 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][12:15:39 PM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[12:15:39 PM] Retrying connection in 3s...
+[ERROR][12:15:39 PM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[12:15:40 PM] [DB]: MongoDB connection restored.
+[12:15:40 PM] MongoDB Connected: ac-gy8st3b-shard-00-02.vjeopgu.mongodb.net
+[12:15:40 PM] MongoDB Connected: ac-gy8st3b-shard-00-02.vjeopgu.mongodb.net
+[12:15:41 PM] MongoDB Connected: undefined
+[12:15:41 PM] MongoDB Connected: ac-gy8st3b-shard-00-02.vjeopgu.mongodb.net
+[12:15:41 PM] MongoDB Connected: undefined
+[12:15:42 PM] [DB]: MongoDB connection restored.
+[12:15:42 PM] MongoDB Connected: ac-gy8st3b-shard-00-02.vjeopgu.mongodb.net
+[12:15:42 PM] MongoDB Connected: ac-gy8st3b-shard-00-02.vjeopgu.mongodb.net
+[12:17:45 PM] [12:17:45 PM] OPTIONS /api/courses from http://localhost:5173
+[12:17:45 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:17:45 PM] [12:17:45 PM] OPTIONS /api/quizzes from http://localhost:5173
+[12:17:45 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:17:45 PM] [12:17:45 PM] OPTIONS /api/students/count from http://localhost:5173
+[12:17:45 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:17:45 PM] [12:17:45 PM] OPTIONS /api/students from http://localhost:5173
+[12:17:45 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:17:45 PM] [12:17:45 PM] GET /api/courses from http://localhost:5173
+[12:17:45 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:17:45 PM] [12:17:45 PM] GET /api/courses
+[12:17:46 PM] [12:17:46 PM] GET /api/quizzes from http://localhost:5173
+[12:17:46 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:17:46 PM] [12:17:46 PM] GET /api/quizzes
+[12:17:46 PM] [12:17:46 PM] GET /api/students/count from http://localhost:5173
+[12:17:46 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:17:46 PM] [12:17:46 PM] GET /api/students/count
+[12:17:46 PM] [12:17:46 PM] GET /api/students from http://localhost:5173
+[12:17:46 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:17:46 PM] [12:17:46 PM] GET /api/students
+[12:17:48 PM] [12:17:48 PM] OPTIONS /api/submissions from http://localhost:5173
+[12:17:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:17:48 PM] [12:17:48 PM] GET /api/submissions from http://localhost:5173
+[12:17:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:17:48 PM] [12:17:48 PM] GET /api/submissions
+[12:18:38 PM] [12:18:38 PM] OPTIONS /api/faculties from http://localhost:5173
+[12:18:38 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:18:38 PM] [12:18:38 PM] OPTIONS /api/departments from http://localhost:5173
+[12:18:38 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:18:38 PM] [12:18:38 PM] GET /api/faculties from http://localhost:5173
+[12:18:38 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:18:38 PM] [12:18:38 PM] GET /api/faculties
+[12:18:38 PM] [12:18:38 PM] GET /api/departments from http://localhost:5173
+[12:18:38 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:18:38 PM] [12:18:38 PM] GET /api/departments
+[12:18:38 PM] [12:18:38 PM] GET /api/faculties from http://localhost:5173
+[12:18:38 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:18:38 PM] [12:18:38 PM] GET /api/faculties
+[12:18:39 PM] [12:18:39 PM] GET /api/faculties from http://localhost:5173
+[12:18:39 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:18:39 PM] [12:18:39 PM] GET /api/faculties
+[12:19:08 PM] [12:19:08 PM] OPTIONS /api/departments?faculty=69e2093369627b3ea5252b12 from http://localhost:5173
+[12:19:08 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:19:08 PM] [12:19:08 PM] GET /api/departments?faculty=69e2093369627b3ea5252b12 from http://localhost:5173
+[12:19:08 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:19:08 PM] [12:19:08 PM] GET /api/departments?faculty=69e2093369627b3ea5252b12
+[12:22:15 PM] [12:22:15 PM] OPTIONS /api/faculties from http://localhost:5173
+[12:22:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:15 PM] [12:22:15 PM] OPTIONS /api/faculties from http://localhost:5173
+[12:22:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:15 PM] [12:22:15 PM] OPTIONS /api/departments from http://localhost:5173
+[12:22:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:15 PM] [12:22:15 PM] OPTIONS /api/faculties from http://localhost:5173
+[12:22:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:15 PM] [12:22:15 PM] OPTIONS /api/courses from http://localhost:5173
+[12:22:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:15 PM] [12:22:15 PM] OPTIONS /api/quizzes from http://localhost:5173
+[12:22:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:15 PM] [12:22:15 PM] OPTIONS /api/students/count from http://localhost:5173
+[12:22:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:15 PM] [12:22:15 PM] OPTIONS /api/students from http://localhost:5173
+[12:22:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:15 PM] [12:22:15 PM] GET /api/faculties from http://localhost:5173
+[12:22:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:15 PM] [12:22:15 PM] GET /api/faculties
+[12:22:15 PM] [12:22:15 PM] GET /api/departments from http://localhost:5173
+[12:22:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:15 PM] [12:22:15 PM] GET /api/departments
+[12:22:15 PM] [12:22:15 PM] GET /api/courses from http://localhost:5173
+[12:22:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:15 PM] [12:22:15 PM] GET /api/courses
+[12:22:15 PM] [12:22:15 PM] GET /api/quizzes from http://localhost:5173
+[12:22:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:15 PM] [12:22:15 PM] GET /api/quizzes
+[12:22:15 PM] [12:22:15 PM] GET /api/students/count from http://localhost:5173
+[12:22:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:15 PM] [12:22:15 PM] GET /api/students/count
+[12:22:15 PM] [12:22:15 PM] GET /api/students from http://localhost:5173
+[12:22:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:15 PM] [12:22:15 PM] GET /api/students
+[12:22:15 PM] [12:22:15 PM] GET /api/faculties from http://localhost:5173
+[12:22:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:15 PM] [12:22:15 PM] GET /api/faculties
+[12:22:15 PM] [12:22:15 PM] GET /api/faculties from http://localhost:5173
+[12:22:15 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:15 PM] [12:22:15 PM] GET /api/faculties
+[12:22:17 PM] [12:22:17 PM] OPTIONS /api/submissions from http://localhost:5173
+[12:22:17 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:17 PM] [12:22:17 PM] GET /api/submissions from http://localhost:5173
+[12:22:17 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:17 PM] [12:22:17 PM] GET /api/submissions
+[12:22:44 PM] [12:22:44 PM] OPTIONS /api/faculties from http://localhost:5173
+[12:22:44 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:44 PM] [12:22:44 PM] OPTIONS /api/faculties from http://localhost:5173
+[12:22:44 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:44 PM] [12:22:44 PM] OPTIONS /api/departments from http://localhost:5173
+[12:22:44 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:44 PM] [12:22:44 PM] OPTIONS /api/faculties from http://localhost:5173
+[12:22:44 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:44 PM] [12:22:44 PM] GET /api/faculties from http://localhost:5173
+[12:22:44 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:44 PM] [12:22:44 PM] GET /api/faculties
+[12:22:45 PM] [12:22:45 PM] GET /api/departments from http://localhost:5173
+[12:22:45 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:45 PM] [12:22:45 PM] GET /api/departments
+[12:22:45 PM] [12:22:45 PM] GET /api/faculties from http://localhost:5173
+[12:22:45 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:45 PM] [12:22:45 PM] GET /api/faculties
+[12:22:45 PM] [12:22:45 PM] GET /api/faculties from http://localhost:5173
+[12:22:45 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:22:45 PM] [12:22:45 PM] GET /api/faculties
+[12:24:51 PM] [12:24:51 PM] OPTIONS /api/faculties from http://localhost:5173
+[12:24:51 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:24:51 PM] [12:24:51 PM] OPTIONS /api/faculties from http://localhost:5173
+[12:24:51 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:24:51 PM] [12:24:51 PM] OPTIONS /api/faculties from http://localhost:5173
+[12:24:51 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:24:51 PM] [12:24:51 PM] OPTIONS /api/departments from http://localhost:5173
+[12:24:51 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:24:52 PM] [12:24:52 PM] GET /api/faculties from http://localhost:5173
+[12:24:52 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:24:52 PM] [12:24:52 PM] GET /api/faculties
+[12:24:52 PM] [12:24:52 PM] GET /api/departments from http://localhost:5173
+[12:24:52 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:24:52 PM] [12:24:52 PM] GET /api/departments
+[12:24:52 PM] [12:24:52 PM] GET /api/faculties from http://localhost:5173
+[12:24:52 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:24:52 PM] [12:24:52 PM] GET /api/faculties
+[12:24:52 PM] [12:24:52 PM] GET /api/faculties from http://localhost:5173
+[12:24:52 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:24:52 PM] [12:24:52 PM] GET /api/faculties
+[12:42:39 PM] [12:42:39 PM] OPTIONS /api/faculties from http://localhost:5173
+[12:42:39 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:42:39 PM] [12:42:39 PM] OPTIONS /api/departments from http://localhost:5173
+[12:42:39 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:42:39 PM] [12:42:39 PM] OPTIONS /api/faculties from http://localhost:5173
+[12:42:39 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:42:39 PM] [12:42:39 PM] GET /api/faculties from http://localhost:5173
+[12:42:39 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:42:39 PM] [12:42:39 PM] GET /api/faculties
+[12:42:39 PM] [12:42:39 PM] GET /api/departments from http://localhost:5173
+[12:42:39 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:42:39 PM] [12:42:39 PM] GET /api/departments
+[12:42:40 PM] [12:42:40 PM] GET /api/faculties from http://localhost:5173
+[12:42:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:42:40 PM] [12:42:40 PM] GET /api/faculties
+[12:55:04 PM] [12:55:04 PM] OPTIONS /api/quizzes from http://localhost:5173
+[12:55:04 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:55:04 PM] [12:55:04 PM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[12:55:04 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:55:04 PM] [12:55:04 PM] GET /api/quizzes from http://localhost:5173
+[12:55:04 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:55:04 PM] [12:55:04 PM] GET /api/quizzes
+[12:55:04 PM] [12:55:04 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[12:55:04 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:55:04 PM] [12:55:04 PM] GET /api/submissions/my-submissions
+[12:55:17 PM] [12:55:17 PM] OPTIONS /api/courses from http://localhost:5173
+[12:55:17 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:55:17 PM] [12:55:17 PM] OPTIONS /api/quizzes from http://localhost:5173
+[12:55:17 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:55:17 PM] [12:55:17 PM] OPTIONS /api/students/count from http://localhost:5173
+[12:55:17 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:55:17 PM] [12:55:17 PM] OPTIONS /api/students from http://localhost:5173
+[12:55:17 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:55:17 PM] [12:55:17 PM] GET /api/courses from http://localhost:5173
+[12:55:17 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:55:17 PM] [12:55:17 PM] GET /api/courses
+[12:55:18 PM] [12:55:18 PM] GET /api/quizzes from http://localhost:5173
+[12:55:18 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:55:18 PM] [12:55:18 PM] GET /api/quizzes
+[12:55:18 PM] [12:55:18 PM] GET /api/students/count from http://localhost:5173
+[12:55:18 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:55:18 PM] [12:55:18 PM] GET /api/students/count
+[12:55:18 PM] [12:55:18 PM] GET /api/students from http://localhost:5173
+[12:55:18 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:55:18 PM] [12:55:18 PM] GET /api/students
+[12:55:19 PM] [12:55:19 PM] OPTIONS /api/submissions from http://localhost:5173
+[12:55:19 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:55:19 PM] [12:55:19 PM] GET /api/submissions from http://localhost:5173
+[12:55:19 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:55:19 PM] [12:55:19 PM] GET /api/submissions
+[12:56:02 PM] [12:56:02 PM] OPTIONS /api/faculties from http://localhost:5173
+[12:56:02 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:02 PM] [12:56:02 PM] OPTIONS /api/faculties from http://localhost:5173
+[12:56:02 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:02 PM] [12:56:02 PM] OPTIONS /api/departments from http://localhost:5173
+[12:56:02 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:02 PM] [12:56:02 PM] GET /api/faculties from http://localhost:5173
+[12:56:02 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:02 PM] [12:56:02 PM] GET /api/faculties
+[12:56:02 PM] [12:56:02 PM] GET /api/departments from http://localhost:5173
+[12:56:02 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:02 PM] [12:56:02 PM] GET /api/departments
+[12:56:02 PM] [12:56:02 PM] GET /api/faculties from http://localhost:5173
+[12:56:02 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:02 PM] [12:56:02 PM] GET /api/faculties
+[12:56:16 PM] [12:56:16 PM] OPTIONS /api/courses from http://localhost:5173
+[12:56:16 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:16 PM] [12:56:16 PM] OPTIONS /api/quizzes from http://localhost:5173
+[12:56:16 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:16 PM] [12:56:16 PM] OPTIONS /api/students/count from http://localhost:5173
+[12:56:16 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:16 PM] [12:56:16 PM] OPTIONS /api/students from http://localhost:5173
+[12:56:16 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:16 PM] [12:56:16 PM] GET /api/courses from http://localhost:5173
+[12:56:16 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:16 PM] [12:56:16 PM] GET /api/courses
+[12:56:17 PM] [12:56:17 PM] GET /api/quizzes from http://localhost:5173
+[12:56:17 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:17 PM] [12:56:17 PM] GET /api/quizzes
+[12:56:17 PM] [12:56:17 PM] GET /api/students/count from http://localhost:5173
+[12:56:17 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:17 PM] [12:56:17 PM] GET /api/students/count
+[12:56:17 PM] [12:56:17 PM] GET /api/students from http://localhost:5173
+[12:56:17 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:17 PM] [12:56:17 PM] GET /api/students
+[12:56:18 PM] [12:56:18 PM] OPTIONS /api/submissions from http://localhost:5173
+[12:56:18 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:18 PM] [12:56:18 PM] GET /api/submissions from http://localhost:5173
+[12:56:18 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:18 PM] [12:56:18 PM] GET /api/submissions
+[12:56:29 PM] [12:56:29 PM] OPTIONS /api/courses from http://localhost:5173
+[12:56:29 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:29 PM] [12:56:29 PM] OPTIONS /api/quizzes from http://localhost:5173
+[12:56:29 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:29 PM] [12:56:29 PM] OPTIONS /api/students/count from http://localhost:5173
+[12:56:29 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:29 PM] [12:56:29 PM] OPTIONS /api/students from http://localhost:5173
+[12:56:29 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:29 PM] [12:56:29 PM] GET /api/courses from http://localhost:5173
+[12:56:29 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:29 PM] [12:56:29 PM] GET /api/courses
+[12:56:29 PM] [12:56:29 PM] GET /api/quizzes from http://localhost:5173
+[12:56:29 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:29 PM] [12:56:29 PM] GET /api/quizzes
+[12:56:30 PM] [12:56:30 PM] GET /api/students/count from http://localhost:5173
+[12:56:30 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:30 PM] [12:56:30 PM] GET /api/students/count
+[12:56:30 PM] [12:56:30 PM] GET /api/students from http://localhost:5173
+[12:56:30 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:30 PM] [12:56:30 PM] GET /api/students
+[12:56:31 PM] [12:56:31 PM] OPTIONS /api/submissions from http://localhost:5173
+[12:56:31 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:31 PM] [12:56:31 PM] GET /api/submissions from http://localhost:5173
+[12:56:31 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:31 PM] [12:56:31 PM] GET /api/submissions
+[1:36:32 PM] [1:36:32 PM] OPTIONS /api/courses from http://localhost:5173
+[1:36:32 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:32 PM] [1:36:32 PM] OPTIONS /api/quizzes from http://localhost:5173
+[1:36:32 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:32 PM] [1:36:32 PM] OPTIONS /api/students/count from http://localhost:5173
+[1:36:32 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:32 PM] [1:36:32 PM] OPTIONS /api/students from http://localhost:5173
+[1:36:32 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:33 PM] [1:36:33 PM] GET /api/courses from http://localhost:5173
+[1:36:33 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:33 PM] [1:36:33 PM] GET /api/courses
+[1:36:33 PM] [1:36:33 PM] GET /api/quizzes from http://localhost:5173
+[1:36:33 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:33 PM] [1:36:33 PM] GET /api/quizzes
+[1:36:33 PM] [1:36:33 PM] GET /api/students/count from http://localhost:5173
+[1:36:33 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:33 PM] [1:36:33 PM] GET /api/students/count
+[ERROR][1:36:33 PM] TokenExpiredError: jwt expired
+    at C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\jsonwebtoken\verify.js:101:10)
+    at protect (file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/utils/authMiddleware.js:14:27)
+    at Layer.handleRequest (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\index.js:295:15 {
+  expiredAt: 2026-04-17T12:01:14.000Z
+}
+[1:36:33 PM] [1:36:33 PM] GET /api/students from http://localhost:5173
+[1:36:33 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:33 PM] [1:36:33 PM] GET /api/students
+[ERROR][1:36:33 PM] TokenExpiredError: jwt expired
+    at C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\jsonwebtoken\verify.js:101:10)
+    at protect (file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/utils/authMiddleware.js:14:27)
+    at Layer.handleRequest (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\router\index.js:295:15 {
+  expiredAt: 2026-04-17T12:01:14.000Z
+}
+[1:36:33 PM] [1:36:33 PM] GET /api/auth/refresh from http://localhost:5173
+[1:36:33 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:33 PM] [1:36:33 PM] GET /api/auth/refresh
+[1:36:33 PM] [1:36:33 PM] GET /api/students from http://localhost:5173
+[1:36:33 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:33 PM] [1:36:33 PM] GET /api/students
+[1:36:33 PM] [1:36:33 PM] GET /api/students/count from http://localhost:5173
+[1:36:33 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:33 PM] [1:36:33 PM] GET /api/students/count
+[1:36:34 PM] [1:36:34 PM] OPTIONS /api/submissions from http://localhost:5173
+[1:36:34 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:34 PM] [1:36:34 PM] GET /api/submissions from http://localhost:5173
+[1:36:34 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:34 PM] [1:36:34 PM] GET /api/submissions
+[1:36:48 PM] [1:36:48 PM] OPTIONS /api/courses from http://localhost:5173
+[1:36:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:48 PM] [1:36:48 PM] OPTIONS /api/quizzes from http://localhost:5173
+[1:36:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:48 PM] [1:36:48 PM] OPTIONS /api/students/count from http://localhost:5173
+[1:36:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:48 PM] [1:36:48 PM] OPTIONS /api/students from http://localhost:5173
+[1:36:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:48 PM] [1:36:48 PM] GET /api/courses from http://localhost:5173
+[1:36:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:48 PM] [1:36:48 PM] GET /api/courses
+[1:36:48 PM] [1:36:48 PM] GET /api/quizzes from http://localhost:5173
+[1:36:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:48 PM] [1:36:48 PM] GET /api/quizzes
+[1:36:48 PM] [1:36:48 PM] GET /api/students/count from http://localhost:5173
+[1:36:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:48 PM] [1:36:48 PM] GET /api/students/count
+[1:36:48 PM] [1:36:48 PM] GET /api/students from http://localhost:5173
+[1:36:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:48 PM] [1:36:48 PM] GET /api/students
+[1:36:49 PM] [1:36:49 PM] OPTIONS /api/submissions from http://localhost:5173
+[1:36:49 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:49 PM] [1:36:49 PM] GET /api/submissions from http://localhost:5173
+[1:36:49 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:49 PM] [1:36:49 PM] GET /api/submissions
+[1:36:55 PM] [1:36:55 PM] OPTIONS /api/faculties from http://localhost:5173
+[1:36:55 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:55 PM] [1:36:55 PM] OPTIONS /api/faculties from http://localhost:5173
+[1:36:55 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:55 PM] [1:36:55 PM] OPTIONS /api/departments from http://localhost:5173
+[1:36:55 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:55 PM] [1:36:55 PM] OPTIONS /api/courses from http://localhost:5173
+[1:36:55 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:55 PM] [1:36:55 PM] OPTIONS /api/quizzes from http://localhost:5173
+[1:36:55 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:55 PM] [1:36:55 PM] OPTIONS /api/students/count from http://localhost:5173
+[1:36:55 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:55 PM] [1:36:55 PM] OPTIONS /api/students from http://localhost:5173
+[1:36:55 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:55 PM] [1:36:55 PM] GET /api/faculties from http://localhost:5173
+[1:36:55 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:55 PM] [1:36:55 PM] GET /api/faculties
+[1:36:55 PM] [1:36:55 PM] GET /api/departments from http://localhost:5173
+[1:36:55 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:55 PM] [1:36:55 PM] GET /api/departments
+[1:36:55 PM] [1:36:55 PM] GET /api/courses from http://localhost:5173
+[1:36:55 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:55 PM] [1:36:55 PM] GET /api/courses
+[1:36:55 PM] [1:36:55 PM] GET /api/faculties from http://localhost:5173
+[1:36:55 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:55 PM] [1:36:55 PM] GET /api/faculties
+[1:36:55 PM] [1:36:55 PM] GET /api/quizzes from http://localhost:5173
+[1:36:55 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:55 PM] [1:36:55 PM] GET /api/quizzes
+[1:36:55 PM] [1:36:55 PM] GET /api/students/count from http://localhost:5173
+[1:36:55 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:55 PM] [1:36:55 PM] GET /api/students/count
+[1:36:55 PM] [1:36:55 PM] GET /api/students from http://localhost:5173
+[1:36:55 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:55 PM] [1:36:55 PM] GET /api/students
+[1:36:56 PM] [1:36:56 PM] OPTIONS /api/submissions from http://localhost:5173
+[1:36:56 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:56 PM] [1:36:56 PM] GET /api/submissions from http://localhost:5173
+[1:36:56 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:56 PM] [1:36:56 PM] GET /api/submissions
+[1:36:59 PM] [1:36:59 PM] GET /api/courses from http://localhost:5173
+[1:36:59 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:59 PM] [1:36:59 PM] GET /api/courses
+[1:36:59 PM] [1:36:59 PM] GET /api/quizzes from http://localhost:5173
+[1:36:59 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:59 PM] [1:36:59 PM] GET /api/quizzes
+[1:36:59 PM] [1:36:59 PM] GET /api/students/count from http://localhost:5173
+[1:36:59 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:59 PM] [1:36:59 PM] GET /api/students/count
+[1:36:59 PM] [1:36:59 PM] GET /api/students from http://localhost:5173
+[1:36:59 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:59 PM] [1:36:59 PM] GET /api/students
+[1:37:00 PM] [1:37:00 PM] OPTIONS /api/courses from http://localhost:5173
+[1:37:00 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:00 PM] [1:37:00 PM] OPTIONS /api/quizzes from http://localhost:5173
+[1:37:00 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:00 PM] [1:37:00 PM] OPTIONS /api/students/count from http://localhost:5173
+[1:37:00 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:00 PM] [1:37:00 PM] OPTIONS /api/students from http://localhost:5173
+[1:37:00 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:00 PM] [1:37:00 PM] GET /api/courses from http://localhost:5173
+[1:37:00 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:00 PM] [1:37:00 PM] GET /api/courses
+[1:37:00 PM] [1:37:00 PM] GET /api/quizzes from http://localhost:5173
+[1:37:00 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:00 PM] [1:37:00 PM] GET /api/quizzes
+[1:37:00 PM] [1:37:00 PM] GET /api/students/count from http://localhost:5173
+[1:37:00 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:00 PM] [1:37:00 PM] GET /api/students/count
+[1:37:00 PM] [1:37:00 PM] GET /api/students from http://localhost:5173
+[1:37:00 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:00 PM] [1:37:00 PM] GET /api/students
+[1:37:03 PM] [1:37:03 PM] OPTIONS /api/submissions from http://localhost:5173
+[1:37:03 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:03 PM] [1:37:03 PM] GET /api/submissions from http://localhost:5173
+[1:37:03 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:03 PM] [1:37:03 PM] GET /api/submissions
+[1:37:06 PM] [1:37:06 PM] OPTIONS /api/courses from http://localhost:5173
+[1:37:06 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:06 PM] [1:37:06 PM] OPTIONS /api/quizzes from http://localhost:5173
+[1:37:06 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:06 PM] [1:37:06 PM] OPTIONS /api/students/count from http://localhost:5173
+[1:37:06 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:06 PM] [1:37:06 PM] OPTIONS /api/students from http://localhost:5173
+[1:37:06 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:06 PM] [1:37:06 PM] GET /api/courses from http://localhost:5173
+[1:37:06 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:06 PM] [1:37:06 PM] GET /api/courses
+[1:37:06 PM] [1:37:06 PM] GET /api/quizzes from http://localhost:5173
+[1:37:06 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:06 PM] [1:37:06 PM] GET /api/quizzes
+[1:37:06 PM] [1:37:06 PM] GET /api/students/count from http://localhost:5173
+[1:37:06 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:06 PM] [1:37:06 PM] GET /api/students/count
+[1:37:06 PM] [1:37:06 PM] GET /api/students from http://localhost:5173
+[1:37:06 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:06 PM] [1:37:06 PM] GET /api/students
+[1:37:07 PM] [1:37:07 PM] GET /api/submissions from http://localhost:5173
+[1:37:07 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:37:07 PM] [1:37:07 PM] GET /api/submissions
