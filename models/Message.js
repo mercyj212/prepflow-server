@@ -22,7 +22,11 @@ const messageSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true
-  }
+  },
+  readBy: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Student'
+  }]
 }, { timestamps: true });
 
 const Message = mongoose.model('Message', messageSchema);

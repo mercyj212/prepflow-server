@@ -48,7 +48,7 @@ router.get('/conversations', protect, async (req, res) => {
     // 3. Course study rooms have been disabled per user request.
 
     // 4. Fetch all user's chats
-    const conversations = await Conversation.find({
+    let conversationDocs = await Conversation.find({
       participants: req.user._id
     })
     .populate('participants', 'fullName email profilePicture')
@@ -56,6 +56,15 @@ router.get('/conversations', protect, async (req, res) => {
     .populate('admin', 'fullName email')
     .sort({ updatedAt: -1 })
     .lean();
+
+    // 👁️ CALCULATE UNREAD COUNTS: For each conversation, count messages where readBy doesn't include current user
+    const conversations = await Promise.all(conversationDocs.map(async (convo) => {
+      const unreadCount = await Message.countDocuments({
+        conversationId: convo._id,
+        readBy: { $ne: req.user._id }
+      });
+      return { ...convo, unreadCount };
+    }));
 
     res.json(conversations);
   } catch (error) {
@@ -77,6 +86,12 @@ router.get('/:conversationId', protect, async (req, res) => {
     if (!convo.isGlobal && !isEnrolled && !isMember) {
       return res.status(403).json({ message: 'Access denied to this chat.' });
     }
+
+    // 👁️ MARK AS READ: When a user fetches history, mark messages they haven't seen as read
+    await Message.updateMany(
+      { conversationId: convo._id, readBy: { $ne: req.user._id } },
+      { $addToSet: { readBy: req.user._id } }
+    );
 
     const messages = await Message.find({ conversationId: convo._id })
       .populate('sender', 'fullName')
@@ -111,7 +126,8 @@ router.post('/:conversationId', protect, async (req, res) => {
       conversationId: convo._id,
       sender: req.user._id,
       isModel: false,
-      text: text.trim()
+      text: text.trim(),
+      readBy: [req.user._id]
     });
 
     const populatedUserMessage = await Message.findById(userMessage._id).populate('sender', 'fullName');
@@ -169,7 +185,8 @@ router.post('/:conversationId', protect, async (req, res) => {
           const aiMessage = await Message.create({
             conversationId: convo._id,
             isModel: true,
-            text: aiResponseText
+            text: aiResponseText,
+            readBy: [req.user._id]
           });
           return res.status(201).json({ userMessage: populatedUserMessage, aiMessage });
         }
@@ -208,7 +225,8 @@ router.post('/:conversationId', protect, async (req, res) => {
             const aiMessage = await Message.create({
               conversationId: convo._id,
               isModel: true,
-              text: data.choices[0].message.content
+              text: data.choices[0].message.content,
+              readBy: [req.user._id]
             });
             return res.status(201).json({ userMessage: populatedUserMessage, aiMessage });
             
@@ -239,7 +257,8 @@ router.post('/:conversationId', protect, async (req, res) => {
             const aiMessage = await Message.create({
               conversationId: convo._id,
               isModel: true,
-              text: data.choices[0].message.content
+              text: data.choices[0].message.content,
+              readBy: [req.user._id]
             });
             return res.status(201).json({ userMessage: populatedUserMessage, aiMessage });
             
@@ -272,7 +291,8 @@ router.post('/:conversationId', protect, async (req, res) => {
             const aiMessage = await Message.create({
               conversationId: convo._id,
               isModel: true,
-              text: data.choices[0].message.content
+              text: data.choices[0].message.content,
+              readBy: [req.user._id]
             });
             return res.status(201).json({ userMessage: populatedUserMessage, aiMessage });
           }
