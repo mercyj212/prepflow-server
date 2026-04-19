@@ -191,11 +191,17 @@ export const getLatestSubmissionForQuiz = async (req, res) => {
     })
       .populate({
         path: 'quiz',
-        select: 'title questions',
-        populate: {
-          path: 'questions',
-          select: 'text options explanation',
-        },
+        select: 'title questions course',
+        populate: [
+          {
+            path: 'questions',
+            select: 'text options explanation subject',
+          },
+          {
+            path: 'course',
+            select: 'path'
+          }
+        ],
       })
       .sort({ createdAt: -1 });
 
@@ -203,12 +209,23 @@ export const getLatestSubmissionForQuiz = async (req, res) => {
       return res.status(404).json({ message: 'No submission found for this quiz.' });
     }
 
-    // Build a rich per-question result breakdown
+    // Build a rich per-question result breakdown + Topic/Subject analysis
     const quiz = submission.quiz;
+    const analysisMap = {};
+
     const questionResults = submission.answers.map((ans) => {
       const question = quiz?.questions?.find(q => q._id.toString() === ans.questionId.toString());
       const selectedOption = question?.options?.find(o => o._id.toString() === ans.selectedOptionId?.toString());
       const correctOption = question?.options?.find(o => o.isCorrect);
+      
+      const subject = question?.subject || 'General';
+      
+      // Aggregate for Subject Analysis
+      if (!analysisMap[subject]) {
+        analysisMap[subject] = { correct: 0, total: 0 };
+      }
+      analysisMap[subject].total++;
+      if (ans.isCorrect) analysisMap[subject].correct++;
 
       return {
         questionText: question?.text || 'Question not found',
@@ -216,8 +233,21 @@ export const getLatestSubmissionForQuiz = async (req, res) => {
         correctAnswer: correctOption?.text || 'N/A',
         isCorrect: ans.isCorrect,
         explanation: question?.explanation || null,
+        subject: subject
       };
     });
+
+    // Convert map to array for frontend
+    const subjectAnalysis = Object.keys(analysisMap).map(sub => ({
+      subject: sub,
+      correct: analysisMap[sub].correct,
+      total: analysisMap[sub].total,
+      percentage: Math.round((analysisMap[sub].correct / analysisMap[sub].total) * 100)
+    })).sort((a, b) => a.percentage - b.percentage); // Weakest first
+
+    // Determine Label
+    const isEntrance = quiz?.course?.path === 'entrance';
+    const analysisLabel = isEntrance ? 'Subject Analysis' : 'Course Analysis';
 
     res.json({
       _id: submission._id,
@@ -227,6 +257,8 @@ export const getLatestSubmissionForQuiz = async (req, res) => {
       timeTaken: submission.timeTaken,
       createdAt: submission.createdAt,
       questionResults,
+      subjectAnalysis,
+      analysisLabel
     });
   } catch (error) {
     console.error('[GET_LATEST_SUBMISSION]:', error);
@@ -243,11 +275,17 @@ export const getSubmissionById = async (req, res) => {
     const submission = await Submission.findById(req.params.id)
       .populate({
         path: 'quiz',
-        select: 'title questions',
-        populate: {
-          path: 'questions',
-          select: 'text options explanation',
-        },
+        select: 'title questions course',
+        populate: [
+          {
+            path: 'questions',
+            select: 'text options explanation subject',
+          },
+          {
+            path: 'course',
+            select: 'path'
+          }
+        ],
       });
 
     if (!submission) {
@@ -260,10 +298,21 @@ export const getSubmissionById = async (req, res) => {
     }
 
     const quiz = submission.quiz;
+    const analysisMap = {};
+
     const questionResults = submission.answers.map((ans) => {
       const question = quiz?.questions?.find(q => q._id.toString() === ans.questionId.toString());
       const selectedOption = question?.options?.find(o => o._id.toString() === ans.selectedOptionId?.toString());
       const correctOption = question?.options?.find(o => o.isCorrect);
+
+      const subject = question?.subject || 'General';
+      
+      // Aggregate for Subject Analysis
+      if (!analysisMap[subject]) {
+        analysisMap[subject] = { correct: 0, total: 0 };
+      }
+      analysisMap[subject].total++;
+      if (ans.isCorrect) analysisMap[subject].correct++;
 
       return {
         questionText: question?.text || 'Question not found',
@@ -271,8 +320,19 @@ export const getSubmissionById = async (req, res) => {
         correctAnswer: correctOption?.text || 'N/A',
         isCorrect: ans.isCorrect,
         explanation: question?.explanation || null,
+        subject: subject
       };
     });
+
+    const subjectAnalysis = Object.keys(analysisMap).map(sub => ({
+      subject: sub,
+      correct: analysisMap[sub].correct,
+      total: analysisMap[sub].total,
+      percentage: Math.round((analysisMap[sub].correct / analysisMap[sub].total) * 100)
+    })).sort((a, b) => a.percentage - b.percentage);
+
+    const isEntrance = quiz?.course?.path === 'entrance';
+    const analysisLabel = isEntrance ? 'Subject Analysis' : 'Course Analysis';
 
     res.json({
       _id: submission._id,
@@ -282,6 +342,8 @@ export const getSubmissionById = async (req, res) => {
       timeTaken: submission.timeTaken,
       createdAt: submission.createdAt,
       questionResults,
+      subjectAnalysis,
+      analysisLabel
     });
   } catch (error) {
     console.error('[GET_SUBMISSION_BY_ID]:', error);

@@ -26,6 +26,11 @@ const questionSchema = new mongoose.Schema({
     default: "",
     trim: true,
   },
+  subject: {
+    type: String,
+    default: "General",
+    trim: true,
+  },
 });
 
 const quizSchema = new mongoose.Schema(
