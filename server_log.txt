@@ -11207,3 +11207,87 @@ Please retry in 33.635142343s. [{"@type":"type.googleapis.com/google.rpc.Help","
 [3:25:58 PM] [3:25:58 PM] GET /api/chat/conversations from http://localhost:5173
 [3:25:58 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
 [3:25:58 PM] [3:25:58 PM] GET /api/chat/conversations
+[3:26:13 PM] [3:26:13 PM] OPTIONS /api/chat/conversations from http://localhost:5173
+[3:26:13 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:26:13 PM] [3:26:13 PM] GET /api/chat/conversations from http://localhost:5173
+[3:26:13 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:26:13 PM] [3:26:13 PM] GET /api/chat/conversations
+[3:26:28 PM] [3:26:28 PM] OPTIONS /api/chat/conversations from http://localhost:5173
+[3:26:28 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:26:28 PM] [3:26:28 PM] GET /api/chat/conversations from http://localhost:5173
+[3:26:28 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:26:28 PM] [3:26:28 PM] GET /api/chat/conversations
+[3:26:43 PM] [3:26:43 PM] OPTIONS /api/chat/conversations from http://localhost:5173
+[3:26:43 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:26:43 PM] [3:26:43 PM] GET /api/chat/conversations from http://localhost:5173
+[3:26:43 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:26:43 PM] [3:26:43 PM] GET /api/chat/conversations
+[3:26:58 PM] [3:26:58 PM] OPTIONS /api/chat/conversations from http://localhost:5173
+[3:26:58 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:26:58 PM] [3:26:58 PM] GET /api/chat/conversations from http://localhost:5173
+[3:26:58 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:26:58 PM] [3:26:58 PM] GET /api/chat/conversations
+[3:27:13 PM] [3:27:13 PM] OPTIONS /api/chat/conversations from http://localhost:5173
+[3:27:13 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:27:13 PM] [3:27:13 PM] GET /api/chat/conversations from http://localhost:5173
+[3:27:13 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:27:13 PM] [3:27:13 PM] GET /api/chat/conversations
+[3:27:28 PM] [3:27:28 PM] OPTIONS /api/chat/conversations from http://localhost:5173
+[3:27:28 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:27:28 PM] [3:27:28 PM] GET /api/chat/conversations from http://localhost:5173
+[3:27:28 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:27:28 PM] [3:27:28 PM] GET /api/chat/conversations
+[3:27:43 PM] [3:27:43 PM] OPTIONS /api/chat/conversations from http://localhost:5173
+[3:27:43 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:27:43 PM] [3:27:43 PM] GET /api/chat/conversations from http://localhost:5173
+[3:27:43 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:27:43 PM] [3:27:43 PM] GET /api/chat/conversations
+[3:27:58 PM] [3:27:58 PM] OPTIONS /api/chat/conversations from http://localhost:5173
+[3:27:58 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:27:58 PM] [3:27:58 PM] GET /api/chat/conversations from http://localhost:5173
+[3:27:58 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:27:58 PM] [3:27:58 PM] GET /api/chat/conversations
+[3:28:13 PM] [3:28:13 PM] OPTIONS /api/chat/conversations from http://localhost:5173
+[3:28:13 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:28:13 PM] [3:28:13 PM] GET /api/chat/conversations from http://localhost:5173
+[3:28:13 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:28:13 PM] [3:28:13 PM] GET /api/chat/conversations
+[10:58:27 PM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[10:58:27 PM] Server is running on port 10000
+[10:58:27 PM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[10:58:38 PM] [10:58:38 PM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[10:58:38 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:58:38 PM] [10:58:38 PM] OPTIONS /api/submissions/progress from http://localhost:5173
+[10:58:38 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:58:39 PM] [10:58:39 PM] GET /api/quizzes/stats from http://localhost:5173
+[10:58:39 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:58:39 PM] [10:58:39 PM] GET /api/quizzes/stats
+[10:58:39 PM] [10:58:39 PM] GET /api/submissions/progress from http://localhost:5173
+[10:58:39 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:58:39 PM] [10:58:39 PM] GET /api/submissions/progress
+[ERROR][10:58:39 PM] TokenExpiredError: jwt expired
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:190:21
+    at getSecret [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:97:14[90m)[39m
+    at module.exports [as verify] [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:101:10[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:14:27[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at Route.dispatch [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:117:3[90m)[39m
+    at handle [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:295:15 {
+  expiredAt: [35m2026-04-17T14:36:33.000Z[39m
+}
+[10:58:39 PM] [10:58:39 PM] GET /api/auth/refresh from http://localhost:5173
+[10:58:39 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:58:39 PM] [10:58:39 PM] GET /api/auth/refresh
+[ERROR][10:58:49 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][10:58:49 PM] MongoDB connection failed (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+[10:58:49 PM] Retrying connection in 3s...
+[ERROR][10:58:49 PM] [DB]: MongoDB connection error: Server selection timed out after 10000 ms
+[10:58:52 PM] MongoDB Connected: undefined
+[10:58:55 PM] [DB]: MongoDB connection restored.
+[10:58:55 PM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[11:01:50 PM] [11:01:50 PM] GET /api/quizzes/stats from http://localhost:5173
+[11:01:50 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:01:50 PM] [11:01:50 PM] GET /api/quizzes/stats
