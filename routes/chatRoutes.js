@@ -11,11 +11,8 @@ const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY || 'MISSING_API_
 // 🔄 GET /api/chat/conversations - Fetch sidebar chats
 router.get('/conversations', protect, async (req, res) => {
   try {
-    // 1. Ensure Global room exists
-    let globalChat = await Conversation.findOne({ isGlobal: true });
-    if (!globalChat) {
-      globalChat = await Conversation.create({ isGlobal: true });
-    }
+    // 1. Global room has been disabled per user request.
+
 
     // 2. Ensure Personal AI room exists
     let aiChat = await Conversation.findOne({ isAI: true, participants: req.user._id });
@@ -48,28 +45,11 @@ router.get('/conversations', protect, async (req, res) => {
       studentAccess = await CourseAccess.find({ student: req.user._id, isActive: true }).populate('course');
     }
 
-    for (const access of studentAccess) {
-      if (access.course) {
-        // Find existing course group room
-        let courseChat = await Conversation.findOne({ isGlobal: false, course: access.course._id });
-        if (!courseChat) {
-          courseChat = await Conversation.create({ 
-            isGlobal: false, 
-            isAI: false,
-            course: access.course._id,
-            participants: [] // Global for everyone in course
-          });
-        }
-      }
-    }
+    // 3. Course study rooms have been disabled per user request.
 
     // 4. Fetch all user's chats
     const conversations = await Conversation.find({
-      $or: [
-        { isGlobal: true }, 
-        { course: { $exists: true } }, // 🛡️ Ensure Course Study Groups are included
-        { participants: req.user._id }
-      ]
+      participants: req.user._id
     })
     .populate('participants', 'fullName email profilePicture')
     .populate('course', 'title')
@@ -143,12 +123,7 @@ router.post('/:conversationId', protect, async (req, res) => {
       }
 
       try {
-        // Fetch minimal messages for context to avoid 429 token limits
-        const model = genAI.getGenerativeModel({ 
-          model: 'gemini-2.5-flash',
-          systemInstruction: 'You are the PrepUp AI Tutor. Be concise and helpful.'
-        });
-
+        // Fetch minimal messages for context to avoid token limits
         const recentMessages = await Message.find({ conversationId: convo._id })
           .sort({ createdAt: -1 })
           .limit(3) // 🛡️ Reduced from 10 to 3 to stay within free tier limits
@@ -162,24 +137,153 @@ router.post('/:conversationId', protect, async (req, res) => {
             parts: [{ text: m.text }]
           }));
 
-        const chat = model.startChat({ history });
-        const result = await chat.sendMessage(text.trim());
-        const aiResponseText = result.response.text();
+        let aiResponseText = null;
+        let lastGeminiError = null;
 
-        const aiMessage = await Message.create({
-          conversationId: convo._id,
-          isModel: true,
-          text: aiResponseText
-        });
-
-        return res.status(201).json({ userMessage: populatedUserMessage, aiMessage });
-      } catch (aiError) {
-        console.error('[AI_REPLY_FAILED]:', aiError);
+        // --- 🛡️ WATERFALL TIER 1: INTERNAL GEMINI ROTATION ---
+        const geminiModels = ['gemini-2.5-flash', 'gemini-1.5-pro', 'gemini-1.5-flash'];
         
-        // Handle Rate Limiting (429) specifically
-        if (aiError.status === 429) {
+        for (const modelName of geminiModels) {
+          try {
+            const model = genAI.getGenerativeModel({ 
+              model: modelName,
+              systemInstruction: 'You are the PrepUp AI Tutor. Be concise and helpful.'
+            });
+            const chat = model.startChat({ history });
+            const result = await chat.sendMessage(text.trim());
+            aiResponseText = result.response.text();
+            break; // Success! Exit the loop.
+          } catch (geminiErr) {
+            lastGeminiError = geminiErr;
+            if (geminiErr.status === 429 || geminiErr.message?.includes('429')) {
+               console.warn(`[GEMINI_RATE_LIMIT]: ${modelName} hit limit. Re-routing...`);
+               continue; // Try the next Gemini model
+            } else {
+               break; // Not a rate limit (e.g., policy violation), break to external fallback immediately
+            }
+          }
+        }
+
+        // If a Gemini model succeeded, return it immediately
+        if (aiResponseText) {
+          const aiMessage = await Message.create({
+            conversationId: convo._id,
+            isModel: true,
+            text: aiResponseText
+          });
+          return res.status(201).json({ userMessage: populatedUserMessage, aiMessage });
+        }
+
+        // If we reach here, ALL Gemini models failed or hit rate limits. Throw to Tier 2.
+        throw lastGeminiError || new Error('All internal Gemini models failed');
+      } catch (aiError) {
+        console.warn('[GEMINI_TIER_FAILED]:', aiError.message);
+        
+        // --- 🛡️ WATERFALL TIER 2: EXTERNAL API FALLBACK LOGIC ---
+        try {
+          if (process.env.GROQ_API_KEY) {
+            console.log('[FALLBACK]: Attempting Groq API...');
+            const groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${process.env.GROQ_API_KEY}`,
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                model: 'llama3-8b-8192',
+                messages: [
+                  { role: 'system', content: 'You are the PrepUp AI Tutor. Be concise and helpful.' },
+                  ...history.map(m => ({
+                    role: m.role === 'model' ? 'assistant' : 'user',
+                    content: m.parts[0].text
+                  })),
+                  { role: 'user', content: text.trim() }
+                ]
+              })
+            });
+
+            if (!groqRes.ok) throw new Error(`Groq Error: ${groqRes.statusText}`);
+            const data = await groqRes.json();
+            
+            const aiMessage = await Message.create({
+              conversationId: convo._id,
+              isModel: true,
+              text: data.choices[0].message.content
+            });
+            return res.status(201).json({ userMessage: populatedUserMessage, aiMessage });
+            
+          } else if (process.env.OPENAI_API_KEY) {
+            console.log('[FALLBACK]: Attempting native OpenAI API...');
+            const oaiRes = await fetch('https://api.openai.com/v1/chat/completions', {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                model: 'gpt-4o-mini',
+                messages: [
+                  { role: 'system', content: 'You are the PrepUp AI Tutor. Be concise and helpful.' },
+                  ...history.map(m => ({
+                    role: m.role === 'model' ? 'assistant' : 'user',
+                    content: m.parts[0].text
+                  })),
+                  { role: 'user', content: text.trim() }
+                ]
+              })
+            });
+
+            if (!oaiRes.ok) throw new Error(`OpenAI Error: ${oaiRes.statusText}`);
+            const data = await oaiRes.json();
+            
+            const aiMessage = await Message.create({
+              conversationId: convo._id,
+              isModel: true,
+              text: data.choices[0].message.content
+            });
+            return res.status(201).json({ userMessage: populatedUserMessage, aiMessage });
+            
+          } else if (process.env.OPENROUTER_API_KEY) {
+            console.log('[FALLBACK]: Attempting OpenRouter API...');
+            const orRes = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
+                'Content-Type': 'application/json',
+                'HTTP-Referer': process.env.FRONTEND_URL || 'https://prepup.app',
+                'X-Title': 'PrepUp Tutor'
+              },
+              body: JSON.stringify({
+                model: 'meta-llama/llama-3-8b-instruct:free',
+                messages: [
+                  { role: 'system', content: 'You are the PrepUp AI Tutor. Be concise and helpful.' },
+                  ...history.map(m => ({
+                    role: m.role === 'model' ? 'assistant' : 'user',
+                    content: m.parts[0].text
+                  })),
+                  { role: 'user', content: text.trim() }
+                ]
+              })
+            });
+
+            if (!orRes.ok) throw new Error(`OpenRouter Error: ${orRes.statusText}`);
+            const data = await orRes.json();
+            
+            const aiMessage = await Message.create({
+              conversationId: convo._id,
+              isModel: true,
+              text: data.choices[0].message.content
+            });
+            return res.status(201).json({ userMessage: populatedUserMessage, aiMessage });
+          }
+        } catch (fallbackError) {
+          console.error('[FALLBACK_FAILED]:', fallbackError.message);
+        }
+        
+        // Handle Rate Limiting (429) if fallbacks failed or keys weren't set
+        if (aiError.status === 429 || aiError.message?.includes('429')) {
           return res.status(429).json({
-            message: 'PrepUp AI is currently busy (Rate Limit reached). Please try again in 30 seconds.',
+            message: 'PrepUp AI is currently busy. Add a free GROQ_API_KEY, OPENAI_API_KEY, or OPENROUTER_API_KEY to your .env to unlock unlimited fallback access.',
             error: 'Quota exceeded',
             userMessage: populatedUserMessage
           });
