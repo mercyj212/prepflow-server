@@ -7452,3 +7452,13 @@ Please retry in 33.635142343s. [{"@type":"type.googleapis.com/google.rpc.Help","
 [2:17:12 PM] [2:17:12 PM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
 [2:17:12 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
 [2:17:12 PM] [2:17:12 PM] GET /api/chat/69e076045a31bd8e5069f5c5
+[2:17:17 PM] [2:17:17 PM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[2:17:17 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:17:17 PM] [2:17:17 PM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[2:17:17 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:17:17 PM] [2:17:17 PM] GET /api/chat/69e076045a31bd8e5069f5c5
+[2:17:22 PM] [2:17:22 PM] OPTIONS /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[2:17:22 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:17:22 PM] [2:17:22 PM] GET /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5173
+[2:17:22 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:17:22 PM] [2:17:22 PM] GET /api/chat/69e076045a31bd8e5069f5c5
