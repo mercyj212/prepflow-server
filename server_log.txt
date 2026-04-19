@@ -11543,3 +11543,45 @@ Please retry in 33.635142343s. [{"@type":"type.googleapis.com/google.rpc.Help","
 [12:27:45 AM] [12:27:45 AM] GET /api/quizzes/stats from http://localhost:5173
 [12:27:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
 [12:27:45 AM] [12:27:45 AM] GET /api/quizzes/stats
+[12:28:34 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[12:28:35 AM] Server is running on port 10000
+[12:28:35 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[ERROR][12:28:57 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][12:28:57 AM] MongoDB connection failed (attempt 1): Server selection timed out after 10000 ms
+[12:28:57 AM] Retrying connection in 3s...
+[ERROR][12:28:57 AM] [DB]: MongoDB connection error: Server selection timed out after 10000 ms
+[12:29:00 AM] MongoDB Connected: undefined
+[12:29:03 AM] [DB]: MongoDB connection restored.
+[12:29:03 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[12:56:29 AM] [12:56:29 AM] OPTIONS /api/auth/login from http://localhost:5173
+[12:56:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:29 AM] [12:56:29 AM] POST /api/auth/login from http://localhost:5173
+[12:56:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:29 AM] [12:56:29 AM] POST /api/auth/login
+[12:56:29 AM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[12:56:29 AM] [AUTH STEP 2]: Querying database...
+[12:56:29 AM] [AUTH STEP 3]: Comparing password...
+[12:56:30 AM] [AUTH STEP 4]: Authentication successful. Checking verification...
+[12:56:30 AM] [AUTH STEP 5]: Updating activity tracker...
+[12:56:30 AM] [AUTH STEP 6]: Sending token response...
+[12:56:31 AM] [12:56:31 AM] OPTIONS /api/quizzes from http://localhost:5173
+[12:56:31 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:31 AM] [12:56:31 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[12:56:31 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:31 AM] [12:56:31 AM] GET /api/quizzes from http://localhost:5173
+[12:56:31 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:31 AM] [12:56:31 AM] GET /api/quizzes
+[12:56:31 AM] [12:56:31 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[12:56:31 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:31 AM] [12:56:31 AM] GET /api/submissions/my-submissions
+[12:56:36 AM] [12:56:36 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[12:56:36 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:36 AM] [12:56:36 AM] GET /api/chat/conversations from http://localhost:5173
+[12:56:36 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:36 AM] [12:56:36 AM] GET /api/chat/conversations
+[12:56:52 AM] [12:56:52 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[12:56:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:53 AM] [12:56:53 AM] GET /api/chat/conversations from http://localhost:5173
+[12:56:53 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:56:53 AM] [12:56:53 AM] GET /api/chat/conversations
