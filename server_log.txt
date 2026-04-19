@@ -11291,3 +11291,255 @@ Please retry in 33.635142343s. [{"@type":"type.googleapis.com/google.rpc.Help","
 [11:01:50 PM] [11:01:50 PM] GET /api/quizzes/stats from http://localhost:5173
 [11:01:50 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
 [11:01:50 PM] [11:01:50 PM] GET /api/quizzes/stats
+[11:16:24 PM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[11:16:24 PM] Server is running on port 10000
+[11:16:24 PM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[ERROR][11:16:37 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][11:16:37 PM] MongoDB connection failed (attempt 1): Server selection timed out after 10000 ms
+[11:16:37 PM] Retrying connection in 3s...
+[ERROR][11:16:37 PM] [DB]: MongoDB connection error: Server selection timed out after 10000 ms
+[11:16:38 PM] [11:16:38 PM] OPTIONS /api/auth/login from http://localhost:5173
+[11:16:38 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:16:38 PM] [11:16:38 PM] POST /api/auth/login from http://localhost:5173
+[11:16:38 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:16:38 PM] [11:16:38 PM] POST /api/auth/login
+[11:16:38 PM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[11:16:38 PM] [AUTH STEP 2]: Querying database...
+[11:16:40 PM] MongoDB Connected: undefined
+[11:16:45 PM] [DB]: MongoDB connection restored.
+[11:16:45 PM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[11:16:46 PM] [AUTH STEP 3]: Comparing password...
+[11:16:46 PM] [AUTH STEP 4]: Authentication successful. Checking verification...
+[11:16:46 PM] [AUTH STEP 5]: Updating activity tracker...
+[11:16:46 PM] [AUTH STEP 6]: Sending token response...
+[11:16:48 PM] [11:16:48 PM] OPTIONS /api/quizzes from http://localhost:5173
+[11:16:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:16:48 PM] [11:16:48 PM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[11:16:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:16:48 PM] [11:16:48 PM] GET /api/quizzes from http://localhost:5173
+[11:16:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:16:48 PM] [11:16:48 PM] GET /api/quizzes
+[11:16:48 PM] [11:16:48 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[11:16:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:16:48 PM] [11:16:48 PM] GET /api/submissions/my-submissions
+[11:21:40 PM] [11:21:40 PM] OPTIONS /api/auth/logout from http://localhost:5173
+[11:21:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:21:40 PM] [11:21:40 PM] POST /api/auth/logout from http://localhost:5173
+[11:21:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:21:40 PM] [11:21:40 PM] POST /api/auth/logout
+[11:21:40 PM] [11:21:40 PM] GET /api/quizzes/stats from http://localhost:5173
+[11:21:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:21:40 PM] [11:21:40 PM] GET /api/quizzes/stats
+[11:22:39 PM] [11:22:39 PM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[11:22:39 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:22:39 PM] [11:22:39 PM] OPTIONS /api/submissions/progress from http://localhost:5173
+[11:22:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:22:40 PM] [11:22:40 PM] GET /api/quizzes/stats from http://localhost:5173
+[11:22:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:22:40 PM] [11:22:40 PM] GET /api/quizzes/stats
+[11:22:40 PM] [11:22:40 PM] GET /api/submissions/progress from http://localhost:5173
+[11:22:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:22:40 PM] [11:22:40 PM] GET /api/submissions/progress
+[ERROR][11:22:40 PM] TokenExpiredError: jwt expired
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:190:21
+    at getSecret [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:97:14[90m)[39m
+    at module.exports [as verify] [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:101:10[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:14:27[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at Route.dispatch [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:117:3[90m)[39m
+    at handle [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:295:15 {
+  expiredAt: [35m2026-04-19T16:08:03.000Z[39m
+}
+[11:22:40 PM] [11:22:40 PM] GET /api/auth/refresh from http://localhost:5173
+[11:22:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:22:40 PM] [11:22:40 PM] GET /api/auth/refresh
+[11:22:40 PM] [11:22:40 PM] GET /api/submissions/progress from http://localhost:5173
+[11:22:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:22:40 PM] [11:22:40 PM] GET /api/submissions/progress
+[11:23:24 PM] [11:23:24 PM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[11:23:24 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:23:24 PM] [11:23:24 PM] OPTIONS /api/submissions/progress from http://localhost:5173
+[11:23:24 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:23:24 PM] [11:23:24 PM] GET /api/quizzes/stats from http://localhost:5173
+[11:23:24 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:23:24 PM] [11:23:24 PM] GET /api/quizzes/stats
+[11:23:24 PM] [11:23:24 PM] GET /api/submissions/progress from http://localhost:5173
+[11:23:24 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:23:24 PM] [11:23:24 PM] GET /api/submissions/progress
+[11:23:55 PM] [11:23:55 PM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[11:23:55 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:23:55 PM] [11:23:55 PM] OPTIONS /api/submissions/progress from http://localhost:5173
+[11:23:55 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:23:55 PM] [11:23:55 PM] GET /api/quizzes/stats from http://localhost:5173
+[11:23:55 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:23:55 PM] [11:23:55 PM] GET /api/quizzes/stats
+[11:23:55 PM] [11:23:55 PM] GET /api/submissions/progress from http://localhost:5173
+[11:23:55 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:23:55 PM] [11:23:55 PM] GET /api/submissions/progress
+[11:26:20 PM] [11:26:20 PM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[11:26:20 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:26:20 PM] [11:26:20 PM] OPTIONS /api/submissions/progress from http://localhost:5173
+[11:26:20 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:26:20 PM] [11:26:20 PM] GET /api/quizzes/stats from http://localhost:5173
+[11:26:20 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:26:20 PM] [11:26:20 PM] GET /api/quizzes/stats
+[11:26:20 PM] [11:26:20 PM] GET /api/submissions/progress from http://localhost:5173
+[11:26:20 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:26:20 PM] [11:26:20 PM] GET /api/submissions/progress
+[11:27:29 PM] [11:27:29 PM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[11:27:29 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:27:29 PM] [11:27:29 PM] OPTIONS /api/submissions/progress from http://localhost:5173
+[11:27:29 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:27:29 PM] [11:27:29 PM] GET /api/quizzes/stats from http://localhost:5173
+[11:27:29 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:27:29 PM] [11:27:29 PM] GET /api/quizzes/stats
+[11:27:29 PM] [11:27:29 PM] GET /api/submissions/progress from http://localhost:5173
+[11:27:29 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:27:29 PM] [11:27:29 PM] GET /api/submissions/progress
+[11:28:10 PM] [11:28:10 PM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[11:28:10 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:28:10 PM] [11:28:10 PM] OPTIONS /api/submissions/progress from http://localhost:5173
+[11:28:10 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:28:10 PM] [11:28:10 PM] GET /api/quizzes/stats from http://localhost:5173
+[11:28:10 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:28:10 PM] [11:28:10 PM] GET /api/quizzes/stats
+[11:28:11 PM] [11:28:11 PM] GET /api/submissions/progress from http://localhost:5173
+[11:28:11 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:28:11 PM] [11:28:11 PM] GET /api/submissions/progress
+[11:29:21 PM] [11:29:21 PM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[11:29:21 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:29:21 PM] [11:29:21 PM] OPTIONS /api/submissions/progress from http://localhost:5173
+[11:29:21 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:29:21 PM] [11:29:21 PM] GET /api/quizzes/stats from http://localhost:5173
+[11:29:21 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:29:21 PM] [11:29:21 PM] GET /api/quizzes/stats
+[11:29:21 PM] [11:29:21 PM] GET /api/submissions/progress from http://localhost:5173
+[11:29:21 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:29:21 PM] [11:29:21 PM] GET /api/submissions/progress
+[11:39:42 PM] [11:39:42 PM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[11:39:42 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:39:42 PM] [11:39:42 PM] OPTIONS /api/submissions/progress from http://localhost:5173
+[11:39:42 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:39:42 PM] [11:39:42 PM] GET /api/quizzes/stats from http://localhost:5173
+[11:39:42 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:39:42 PM] [11:39:42 PM] GET /api/quizzes/stats
+[11:39:42 PM] [11:39:42 PM] GET /api/submissions/progress from http://localhost:5173
+[11:39:42 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:39:42 PM] [11:39:42 PM] GET /api/submissions/progress
+[11:59:37 PM] [11:59:37 PM] OPTIONS /api/auth/login from http://localhost:5173
+[11:59:37 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:59:37 PM] [11:59:37 PM] POST /api/auth/login from http://localhost:5173
+[11:59:37 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:59:37 PM] [11:59:37 PM] POST /api/auth/login
+[11:59:37 PM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[11:59:37 PM] [AUTH STEP 2]: Querying database...
+[11:59:38 PM] [AUTH STEP 3]: Comparing password...
+[11:59:38 PM] [AUTH STEP 4]: Authentication successful. Checking verification...
+[11:59:38 PM] [AUTH STEP 5]: Updating activity tracker...
+[11:59:38 PM] [AUTH STEP 6]: Sending token response...
+[11:59:40 PM] [11:59:40 PM] OPTIONS /api/quizzes from http://localhost:5173
+[11:59:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:59:40 PM] [11:59:40 PM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[11:59:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:59:40 PM] [11:59:40 PM] GET /api/quizzes from http://localhost:5173
+[11:59:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:59:40 PM] [11:59:40 PM] GET /api/quizzes
+[11:59:40 PM] [11:59:40 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[11:59:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:59:40 PM] [11:59:40 PM] GET /api/submissions/my-submissions
+[12:00:50 AM] [12:00:50 AM] OPTIONS /api/auth/logout from http://localhost:5173
+[12:00:50 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:00:51 AM] [12:00:51 AM] POST /api/auth/logout from http://localhost:5173
+[12:00:51 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:00:51 AM] [12:00:51 AM] POST /api/auth/logout
+[12:00:51 AM] [12:00:51 AM] GET /api/quizzes/stats from http://localhost:5173
+[12:00:51 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:00:51 AM] [12:00:51 AM] GET /api/quizzes/stats
+[12:01:13 AM] [12:01:13 AM] OPTIONS /api/auth/login from http://localhost:5173
+[12:01:13 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:01:13 AM] [12:01:13 AM] POST /api/auth/login from http://localhost:5173
+[12:01:13 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:01:13 AM] [12:01:13 AM] POST /api/auth/login
+[12:01:13 AM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[12:01:13 AM] [AUTH STEP 2]: Querying database...
+[12:01:13 AM] [AUTH STEP 3]: Comparing password...
+[12:01:13 AM] [AUTH STEP 4]: Authentication successful. Checking verification...
+[12:01:13 AM] [AUTH STEP 5]: Updating activity tracker...
+[12:01:14 AM] [AUTH STEP 6]: Sending token response...
+[12:01:15 AM] [12:01:15 AM] OPTIONS /api/quizzes from http://localhost:5173
+[12:01:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:01:15 AM] [12:01:15 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[12:01:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:01:15 AM] [12:01:15 AM] GET /api/quizzes from http://localhost:5173
+[12:01:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:01:15 AM] [12:01:15 AM] GET /api/quizzes
+[12:01:16 AM] [12:01:16 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[12:01:16 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:01:16 AM] [12:01:16 AM] GET /api/submissions/my-submissions
+[12:05:22 AM] [12:05:22 AM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[12:05:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:05:22 AM] [12:05:22 AM] OPTIONS /api/submissions/progress from http://localhost:5173
+[12:05:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:05:22 AM] [12:05:22 AM] GET /api/quizzes/stats from http://localhost:5173
+[12:05:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:05:22 AM] [12:05:22 AM] GET /api/quizzes/stats
+[12:05:22 AM] [12:05:22 AM] GET /api/submissions/progress from http://localhost:5173
+[12:05:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:05:22 AM] [12:05:22 AM] GET /api/submissions/progress
+[12:08:55 AM] [12:08:55 AM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[12:08:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:08:55 AM] [12:08:55 AM] OPTIONS /api/submissions/progress from http://localhost:5173
+[12:08:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:08:55 AM] [12:08:55 AM] GET /api/quizzes/stats from http://localhost:5173
+[12:08:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:08:55 AM] [12:08:55 AM] GET /api/quizzes/stats
+[12:08:55 AM] [12:08:55 AM] GET /api/submissions/progress from http://localhost:5173
+[12:08:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:08:55 AM] [12:08:55 AM] GET /api/submissions/progress
+[12:10:23 AM] [12:10:23 AM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[12:10:23 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:10:23 AM] [12:10:23 AM] OPTIONS /api/submissions/progress from http://localhost:5173
+[12:10:23 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:10:23 AM] [12:10:23 AM] GET /api/quizzes/stats from http://localhost:5173
+[12:10:23 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:10:23 AM] [12:10:23 AM] GET /api/quizzes/stats
+[12:10:23 AM] [12:10:23 AM] GET /api/submissions/progress from http://localhost:5173
+[12:10:23 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:10:23 AM] [12:10:23 AM] GET /api/submissions/progress
+[12:14:55 AM] [12:14:55 AM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[12:14:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:14:55 AM] [12:14:55 AM] OPTIONS /api/submissions/progress from http://localhost:5173
+[12:14:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:14:55 AM] [12:14:55 AM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[12:14:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:14:55 AM] [12:14:55 AM] OPTIONS /api/submissions/progress from http://localhost:5173
+[12:14:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:14:56 AM] [12:14:56 AM] GET /api/quizzes/stats from http://localhost:5173
+[12:14:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:14:56 AM] [12:14:56 AM] GET /api/quizzes/stats
+[12:14:56 AM] [12:14:56 AM] GET /api/submissions/progress from http://localhost:5173
+[12:14:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:14:56 AM] [12:14:56 AM] GET /api/submissions/progress
+[12:14:57 AM] [12:14:57 AM] GET /api/submissions/progress from http://localhost:5173
+[12:14:57 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:14:57 AM] [12:14:57 AM] GET /api/submissions/progress
+[12:14:58 AM] [12:14:58 AM] GET /api/quizzes/stats from http://localhost:5173
+[12:14:58 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:14:58 AM] [12:14:58 AM] GET /api/quizzes/stats
+[12:15:17 AM] [12:15:17 AM] OPTIONS /api/auth/logout from http://localhost:5173
+[12:15:17 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:15:17 AM] [12:15:17 AM] POST /api/auth/logout from http://localhost:5173
+[12:15:17 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:15:17 AM] [12:15:17 AM] POST /api/auth/logout
+[12:15:17 AM] [12:15:17 AM] GET /api/quizzes/stats from http://localhost:5173
+[12:15:17 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:15:17 AM] [12:15:17 AM] GET /api/quizzes/stats
+[12:27:45 AM] [12:27:45 AM] GET /api/quizzes/stats from http://localhost:5173
+[12:27:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:27:45 AM] [12:27:45 AM] GET /api/quizzes/stats

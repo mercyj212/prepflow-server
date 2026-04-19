@@ -12,7 +12,7 @@ async function removeGroups() {
   try {
     console.log('Connecting to database...');
     await mongoose.connect(process.env.MONGODB_URI);
-    console.log('Connected. Identifying group conversations to delete...');
+    console.log('Connected. Identifying group conversations to delete...'); ac
     const result = await Conversation.deleteMany({
       $or: [
         { isGroup: true },
