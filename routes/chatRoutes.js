@@ -333,6 +333,31 @@ router.post('/direct/new', protect, async (req, res) => {
   }
 });
 
+// ✏️ PUT /api/chat/message/:id - Edit a sent message
+router.put('/message/:id', protect, async (req, res) => {
+  try {
+    const { text } = req.body;
+    if (!text || !text.trim()) return res.status(400).json({ message: 'Message text is required' });
+
+    const message = await Message.findById(req.params.id);
+    if (!message) return res.status(404).json({ message: 'Message not found' });
+
+    // Verify sender
+    if (message.sender.toString() !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'You can only edit your own messages' });
+    }
+
+    message.text = text.trim();
+    message.isEdited = true;
+    await message.save();
+
+    const populatedMessage = await Message.findById(message._id).populate('sender', 'fullName email profilePicture');
+    res.status(200).json(populatedMessage);
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to edit message', error: error.message });
+  }
+});
+
 // ── GROUP ROUTES ──────────────────────────────────────────────────────
 
 // POST /api/chat/group/create
