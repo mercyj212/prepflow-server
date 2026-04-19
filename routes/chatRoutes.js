@@ -73,6 +73,7 @@ router.get('/conversations', protect, async (req, res) => {
     })
     .populate('participants', 'fullName email profilePicture')
     .populate('course', 'title')
+    .populate('admin', 'fullName email')
     .sort({ updatedAt: -1 })
     .lean();
 
@@ -89,10 +90,11 @@ router.get('/:conversationId', protect, async (req, res) => {
     const convo = await Conversation.findById(req.params.conversationId);
     if (!convo) return res.status(404).json({ message: 'Conversation not found' });
 
-    // 🛡️ PERMISSIONS 2.0: Allow access if Global, AI, or Enrolled in the course
+    // 🛡️ PERMISSIONS 2.0: Allow if Global, AI, group member, or enrolled in course
     const isEnrolled = convo.course ? await CourseAccess.exists({ student: req.user._id, course: convo.course, isActive: true }) : false;
-    
-    if (!convo.isGlobal && !isEnrolled && !convo.participants.includes(req.user._id)) {
+    const isMember = convo.participants.map(p => p.toString()).includes(req.user._id.toString());
+
+    if (!convo.isGlobal && !isEnrolled && !isMember) {
       return res.status(403).json({ message: 'Access denied to this chat.' });
     }
 
@@ -116,10 +118,11 @@ router.post('/:conversationId', protect, async (req, res) => {
     const convo = await Conversation.findById(req.params.conversationId);
     if (!convo) return res.status(404).json({ message: 'Conversation not found' });
 
-    // 🛡️ PERMISSIONS 2.0: Allow posting if Global, AI, or Enrolled in the course
+    // 🛡️ PERMISSIONS 2.0: Allow posting if Global, group member, AI, or enrolled in course
     const isEnrolled = convo.course ? await CourseAccess.exists({ student: req.user._id, course: convo.course, isActive: true }) : false;
+    const isMember = convo.participants.map(p => p.toString()).includes(req.user._id.toString());
 
-    if (!convo.isGlobal && !isEnrolled && !convo.participants.includes(req.user._id)) {
+    if (!convo.isGlobal && !isEnrolled && !isMember) {
       return res.status(403).json({ message: 'Access denied' });
     }
 
@@ -223,6 +226,100 @@ router.post('/direct/new', protect, async (req, res) => {
     res.status(200).json(populatedConvo);
   } catch (error) {
     res.status(500).json({ message: 'Failed to start DM', error: error.message });
+  }
+});
+
+// ── GROUP ROUTES ──────────────────────────────────────────────────────
+
+// POST /api/chat/group/create
+router.post('/group/create', protect, async (req, res) => {
+  try {
+    const { name, description, memberIds = [] } = req.body;
+    if (!name || !name.trim()) return res.status(400).json({ message: 'Group name is required' });
+
+    const uniqueMembers = [...new Set([req.user._id.toString(), ...memberIds])];
+
+    const group = await Conversation.create({
+      isGroup: true,
+      name: name.trim(),
+      description: description?.trim() || '',
+      admin: req.user._id,
+      participants: uniqueMembers
+    });
+
+    const populated = await Conversation.findById(group._id)
+      .populate('participants', 'fullName email profilePicture')
+      .populate('admin', 'fullName email');
+
+    res.status(201).json(populated);
+  } catch (error) {
+    console.error('[GROUP_CREATE_FAIL]:', error);
+    res.status(500).json({ message: 'Failed to create group', error: error.message });
+  }
+});
+
+// POST /api/chat/group/:id/add-member  (admin only)
+router.post('/group/:id/add-member', protect, async (req, res) => {
+  try {
+    const group = await Conversation.findOne({ _id: req.params.id, isGroup: true });
+    if (!group) return res.status(404).json({ message: 'Group not found' });
+    if (group.admin.toString() !== req.user._id.toString())
+      return res.status(403).json({ message: 'Only the group admin can add members' });
+
+    const { memberId } = req.body;
+    if (!memberId) return res.status(400).json({ message: 'memberId is required' });
+
+    if (!group.participants.map(p => p.toString()).includes(memberId)) {
+      group.participants.push(memberId);
+      await group.save();
+    }
+
+    const populated = await Conversation.findById(group._id)
+      .populate('participants', 'fullName email profilePicture')
+      .populate('admin', 'fullName email');
+    res.json(populated);
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to add member', error: error.message });
+  }
+});
+
+// DELETE /api/chat/group/:id/remove-member  (admin only)
+router.delete('/group/:id/remove-member', protect, async (req, res) => {
+  try {
+    const group = await Conversation.findOne({ _id: req.params.id, isGroup: true });
+    if (!group) return res.status(404).json({ message: 'Group not found' });
+    if (group.admin.toString() !== req.user._id.toString())
+      return res.status(403).json({ message: 'Only the group admin can remove members' });
+
+    const { memberId } = req.body;
+    if (!memberId) return res.status(400).json({ message: 'memberId is required' });
+    if (memberId === req.user._id.toString())
+      return res.status(400).json({ message: 'Admin cannot remove themselves' });
+
+    group.participants = group.participants.filter(p => p.toString() !== memberId);
+    await group.save();
+
+    const populated = await Conversation.findById(group._id)
+      .populate('participants', 'fullName email profilePicture')
+      .populate('admin', 'fullName email');
+    res.json(populated);
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to remove member', error: error.message });
+  }
+});
+
+// DELETE /api/chat/group/:id  (admin deletes whole group)
+router.delete('/group/:id', protect, async (req, res) => {
+  try {
+    const group = await Conversation.findOne({ _id: req.params.id, isGroup: true });
+    if (!group) return res.status(404).json({ message: 'Group not found' });
+    if (group.admin.toString() !== req.user._id.toString())
+      return res.status(403).json({ message: 'Only the group admin can delete this group' });
+    await Message.deleteMany({ conversationId: group._id });
+    await group.deleteOne();
+    res.json({ message: 'Group deleted' });
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to delete group', error: error.message });
   }
 });
 
