@@ -11585,3 +11585,83 @@ Please retry in 33.635142343s. [{"@type":"type.googleapis.com/google.rpc.Help","
 [12:56:53 AM] [12:56:53 AM] GET /api/chat/conversations from http://localhost:5173
 [12:56:53 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
 [12:56:53 AM] [12:56:53 AM] GET /api/chat/conversations
+[1:04:22 AM] [1:04:22 AM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[1:04:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:04:22 AM] [1:04:22 AM] OPTIONS /api/submissions/progress from http://localhost:5173
+[1:04:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:04:22 AM] [1:04:22 AM] OPTIONS /api/submissions/progress from http://localhost:5173
+[1:04:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:04:22 AM] [1:04:22 AM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[1:04:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:04:22 AM] [1:04:22 AM] GET /api/quizzes/stats from http://localhost:5173
+[1:04:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:04:23 AM] [1:04:23 AM] GET /api/quizzes/stats
+[1:04:23 AM] [1:04:23 AM] GET /api/submissions/progress from http://localhost:5173
+[1:04:23 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:04:23 AM] [1:04:23 AM] GET /api/submissions/progress
+[1:04:25 AM] [1:04:25 AM] GET /api/submissions/progress from http://localhost:5173
+[1:04:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:04:25 AM] [1:04:25 AM] GET /api/submissions/progress
+[1:04:26 AM] [1:04:26 AM] GET /api/quizzes/stats from http://localhost:5173
+[1:04:26 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:04:26 AM] [1:04:26 AM] GET /api/quizzes/stats
+[2:24:11 AM] [2:24:11 AM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[2:24:11 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:24:12 AM] [2:24:12 AM] OPTIONS /api/submissions/progress from http://localhost:5173
+[2:24:12 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:24:12 AM] [2:24:12 AM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[2:24:12 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:24:12 AM] [2:24:12 AM] OPTIONS /api/submissions/progress from http://localhost:5173
+[2:24:12 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:24:12 AM] [2:24:12 AM] GET /api/submissions/progress from http://localhost:5173
+[2:24:12 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:24:12 AM] [2:24:12 AM] GET /api/submissions/progress
+[ERROR][2:24:12 AM] TokenExpiredError: jwt expired
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:190:21
+    at getSecret [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:97:14[90m)[39m
+    at module.exports [as verify] [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:101:10[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:14:27[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at Route.dispatch [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:117:3[90m)[39m
+    at handle [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:295:15 {
+  expiredAt: [35m2026-04-20T00:22:40.000Z[39m
+}
+[2:24:12 AM] [2:24:12 AM] GET /api/quizzes/stats from http://localhost:5173
+[2:24:12 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:24:12 AM] [2:24:12 AM] GET /api/quizzes/stats
+[2:24:12 AM] [2:24:12 AM] GET /api/submissions/progress from http://localhost:5173
+[2:24:12 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:24:12 AM] [2:24:12 AM] GET /api/submissions/progress
+[ERROR][2:24:12 AM] TokenExpiredError: jwt expired
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:190:21
+    at getSecret [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:97:14[90m)[39m
+    at module.exports [as verify] [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:101:10[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:14:27[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at Route.dispatch [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:117:3[90m)[39m
+    at handle [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:295:15 {
+  expiredAt: [35m2026-04-20T00:22:40.000Z[39m
+}
+[2:24:15 AM] [2:24:15 AM] GET /api/quizzes/stats from http://localhost:5173
+[2:24:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:24:15 AM] [2:24:15 AM] GET /api/quizzes/stats
+[2:24:17 AM] [2:24:17 AM] GET /api/auth/refresh from http://localhost:5173
+[2:24:17 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:24:17 AM] [2:24:17 AM] GET /api/auth/refresh
+[2:24:17 AM] [2:24:17 AM] OPTIONS /api/submissions/progress from http://localhost:5173
+[2:24:17 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:24:17 AM] [2:24:17 AM] GET /api/submissions/progress from http://localhost:5173
+[2:24:17 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:24:17 AM] [2:24:17 AM] GET /api/submissions/progress
+[2:24:17 AM] [2:24:17 AM] GET /api/auth/refresh from http://localhost:5173
+[2:24:17 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:24:17 AM] [2:24:17 AM] GET /api/auth/refresh
+[2:24:18 AM] [2:24:18 AM] GET /api/submissions/progress from http://localhost:5173
+[2:24:18 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:24:18 AM] [2:24:18 AM] GET /api/submissions/progress
