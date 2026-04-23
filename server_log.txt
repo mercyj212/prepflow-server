@@ -11665,3 +11665,96 @@ Please retry in 33.635142343s. [{"@type":"type.googleapis.com/google.rpc.Help","
 [2:24:18 AM] [2:24:18 AM] GET /api/submissions/progress from http://localhost:5173
 [2:24:18 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
 [2:24:18 AM] [2:24:18 AM] GET /api/submissions/progress
+[3:45:54 PM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[3:45:54 PM] Server is running on port 10000
+[3:45:54 PM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[ERROR][3:45:54 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][3:45:54 PM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[3:45:54 PM] Retrying connection in 3s...
+[ERROR][3:45:54 PM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[3:45:57 PM] MongoDB Connected: undefined
+[ERROR][3:46:07 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][3:46:07 PM] MongoDB connection failed (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+[3:46:07 PM] Retrying connection in 3s...
+[ERROR][3:46:07 PM] [DB]: MongoDB connection error: getaddrinfo EAI_AGAIN ac-gy8st3b-shard-00-01.vjeopgu.mongodb.net
+[3:46:10 PM] MongoDB Connected: undefined
+[3:46:11 PM] [DB]: MongoDB connection restored.
+[3:46:11 PM] MongoDB Connected: ac-gy8st3b-shard-00-01.vjeopgu.mongodb.net
+[3:46:23 PM] [3:46:23 PM] OPTIONS /api/quizzes from http://localhost:5173
+[3:46:23 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:46:23 PM] [3:46:23 PM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[3:46:23 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:46:24 PM] [3:46:24 PM] GET /api/quizzes from http://localhost:5173
+[3:46:24 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:46:24 PM] [3:46:24 PM] GET /api/quizzes
+[3:46:24 PM] [3:46:24 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[3:46:24 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:46:24 PM] [3:46:24 PM] GET /api/submissions/my-submissions
+[ERROR][3:46:24 PM] TokenExpiredError: jwt expired
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:190:21
+    at getSecret [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:97:14[90m)[39m
+    at module.exports [as verify] [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:101:10[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:14:27[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at Route.dispatch [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:117:3[90m)[39m
+    at handle [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:295:15 {
+  expiredAt: [35m2026-04-20T01:56:30.000Z[39m
+}
+[3:46:24 PM] [3:46:24 PM] GET /api/auth/refresh from http://localhost:5173
+[3:46:24 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:46:24 PM] [3:46:24 PM] GET /api/auth/refresh
+[3:46:24 PM] [3:46:24 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[3:46:24 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:46:24 PM] [3:46:24 PM] GET /api/submissions/my-submissions
+[7:32:20 PM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[7:32:20 PM] Server is running on port 10000
+[7:32:20 PM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[ERROR][7:32:32 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][7:32:32 PM] MongoDB connection failed (attempt 1): Server selection timed out after 10000 ms
+[7:32:32 PM] Retrying connection in 3s...
+[ERROR][7:32:32 PM] [DB]: MongoDB connection error: Server selection timed out after 10000 ms
+[7:32:35 PM] MongoDB Connected: undefined
+[7:32:36 PM] [DB]: MongoDB connection restored.
+[7:32:36 PM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[7:32:44 PM] [7:32:44 PM] OPTIONS /api/quizzes from http://localhost:5173
+[7:32:44 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:32:44 PM] [7:32:44 PM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[7:32:44 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:32:45 PM] [7:32:45 PM] GET /api/quizzes from http://localhost:5173
+[7:32:45 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:32:45 PM] [7:32:45 PM] GET /api/quizzes
+[7:32:45 PM] [7:32:45 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[7:32:45 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:32:45 PM] [7:32:45 PM] GET /api/submissions/my-submissions
+[ERROR][7:32:45 PM] TokenExpiredError: jwt expired
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:190:21
+    at getSecret [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:97:14[90m)[39m
+    at module.exports [as verify] [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:101:10[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:14:27[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at Route.dispatch [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:117:3[90m)[39m
+    at handle [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:295:15 {
+  expiredAt: [35m2026-04-23T16:46:24.000Z[39m
+}
+[7:32:45 PM] [7:32:45 PM] GET /api/auth/refresh from http://localhost:5173
+[7:32:45 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:32:45 PM] [7:32:45 PM] GET /api/auth/refresh
+[7:32:45 PM] [7:32:45 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[7:32:45 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:32:45 PM] [7:32:45 PM] GET /api/submissions/my-submissions
+[7:39:38 PM] [7:39:38 PM] OPTIONS /api/quizzes from http://localhost:5173
+[7:39:38 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:39:38 PM] [7:39:38 PM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[7:39:39 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:39:39 PM] [7:39:39 PM] GET /api/quizzes from http://localhost:5173
+[7:39:39 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:39:39 PM] [7:39:39 PM] GET /api/quizzes
+[7:39:39 PM] [7:39:39 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[7:39:39 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:39:39 PM] [7:39:39 PM] GET /api/submissions/my-submissions
