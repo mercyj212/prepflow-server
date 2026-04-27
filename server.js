@@ -37,6 +37,7 @@ import courseRoutes from './routes/courseRoutes.js';
 import chatRoutes from './routes/chatRoutes.js';
 import facultyRoutes from './routes/facultyRoutes.js';
 import departmentRoutes from './routes/departmentRoutes.js';
+import gameRoutes from './routes/gameRoutes.js';
 import mongoose from 'mongoose';
 
 import helmet from 'helmet';
@@ -129,6 +130,7 @@ app.use('/api/courses', courseRoutes);
 app.use('/api/faculties', facultyRoutes);
 app.use('/api/departments', departmentRoutes);
 app.use('/api/chat', chatRoutes);
+app.use('/api/game', gameRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ 

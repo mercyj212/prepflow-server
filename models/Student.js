@@ -59,6 +59,15 @@ const studentSchema = new mongoose.Schema(
     verificationTokenExpire: Date,
     resetPasswordToken: String,
     resetPasswordExpire: Date,
+    // 🎮 GAME STATS
+    prepDriveScore: {
+      type: Number,
+      default: 0,
+    },
+    prepDriveAwards: {
+      type: Number,
+      default: 0,
+    },
   },
   {
     timestamps: true,

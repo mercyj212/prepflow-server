@@ -11758,3 +11758,1130 @@ Please retry in 33.635142343s. [{"@type":"type.googleapis.com/google.rpc.Help","
 [7:39:39 PM] [7:39:39 PM] GET /api/submissions/my-submissions from http://localhost:5173
 [7:39:39 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
 [7:39:39 PM] [7:39:39 PM] GET /api/submissions/my-submissions
+[ERROR][8:45:23 PM] [DB]: MongoDB disconnected! Attempting reconnect...
+[8:45:30 PM] [DB]: MongoDB connection restored.
+[8:45:30 PM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[6:33:45 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[6:33:45 AM] Server is running on port 10000
+[6:33:45 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[6:33:50 AM] [DB]: MongoDB connection restored.
+[6:33:50 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[6:37:21 AM] [6:37:21 AM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[6:37:21 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[6:37:21 AM] [6:37:21 AM] OPTIONS /api/submissions/progress from http://localhost:5173
+[6:37:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[6:37:22 AM] [6:37:22 AM] GET /api/quizzes/stats from http://localhost:5173
+[6:37:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[6:37:22 AM] [6:37:22 AM] GET /api/quizzes/stats
+[6:37:22 AM] [6:37:22 AM] GET /api/submissions/progress from http://localhost:5173
+[6:37:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[6:37:22 AM] [6:37:22 AM] GET /api/submissions/progress
+[ERROR][6:37:22 AM] TokenExpiredError: jwt expired
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:190:21
+    at getSecret [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:97:14[90m)[39m
+    at module.exports [as verify] [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:101:10[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:14:27[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at Route.dispatch [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:117:3[90m)[39m
+    at handle [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:295:15 {
+  expiredAt: [35m2026-04-23T20:32:45.000Z[39m
+}
+[6:37:22 AM] [6:37:22 AM] GET /api/auth/refresh from http://localhost:5173
+[6:37:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[6:37:22 AM] [6:37:22 AM] GET /api/auth/refresh
+[6:37:22 AM] [6:37:22 AM] GET /api/submissions/progress from http://localhost:5173
+[6:37:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[6:37:22 AM] [6:37:22 AM] GET /api/submissions/progress
+[6:37:52 AM] [6:37:52 AM] OPTIONS /api/quizzes from http://localhost:5173
+[6:37:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[6:37:52 AM] [6:37:52 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[6:37:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[6:37:52 AM] [6:37:52 AM] GET /api/quizzes from http://localhost:5173
+[6:37:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[6:37:52 AM] [6:37:52 AM] GET /api/quizzes
+[6:37:53 AM] [6:37:53 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[6:37:53 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[6:37:53 AM] [6:37:53 AM] GET /api/submissions/my-submissions
+[6:42:34 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[6:42:34 AM] Server is running on port 10000
+[6:42:34 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[6:42:46 AM] [DB]: MongoDB connection restored.
+[6:42:46 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[6:42:57 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[6:42:57 AM] Server is running on port 10000
+[6:42:57 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[6:43:01 AM] [DB]: MongoDB connection restored.
+[6:43:01 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[6:43:05 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[6:43:06 AM] Server is running on port 10000
+[6:43:06 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[6:43:10 AM] [DB]: MongoDB connection restored.
+[6:43:10 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[6:45:21 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[6:45:21 AM] Server is running on port 10000
+[6:45:21 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[6:45:29 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[6:45:29 AM] Server is running on port 10000
+[6:45:29 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[6:45:34 AM] [DB]: MongoDB connection restored.
+[6:45:34 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[7:37:02 AM] [7:37:02 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[7:37:02 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:37:02 AM] [7:37:02 AM] GET /api/game/leaderboard from http://localhost:5173
+[7:37:02 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:37:02 AM] [7:37:02 AM] GET /api/game/leaderboard
+[7:39:03 AM] [7:39:03 AM] OPTIONS /api/game/questions from http://localhost:5173
+[7:39:03 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:39:03 AM] [7:39:03 AM] GET /api/game/questions from http://localhost:5173
+[7:39:03 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:39:03 AM] [7:39:03 AM] GET /api/game/questions
+[7:39:26 AM] [7:39:26 AM] OPTIONS /api/game/questions from http://localhost:5173
+[7:39:26 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:39:26 AM] [7:39:26 AM] GET /api/game/questions from http://localhost:5173
+[7:39:26 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:39:26 AM] [7:39:26 AM] GET /api/game/questions
+[7:43:08 AM] [7:43:08 AM] OPTIONS /api/game/questions from http://localhost:5173
+[7:43:08 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:43:09 AM] [7:43:09 AM] GET /api/game/questions from http://localhost:5173
+[7:43:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:43:09 AM] [7:43:09 AM] GET /api/game/questions
+[7:44:09 AM] [7:44:09 AM] OPTIONS /api/game/questions from http://localhost:5173
+[7:44:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:44:10 AM] [7:44:10 AM] GET /api/game/questions from http://localhost:5173
+[7:44:10 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:44:10 AM] [7:44:10 AM] GET /api/game/questions
+[7:44:29 AM] [7:44:29 AM] OPTIONS /api/game/questions from http://localhost:5173
+[7:44:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:44:29 AM] [7:44:29 AM] GET /api/game/questions from http://localhost:5173
+[7:44:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:44:29 AM] [7:44:29 AM] GET /api/game/questions
+[7:50:45 AM] [7:50:45 AM] OPTIONS /api/game/questions from http://localhost:5173
+[7:50:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:50:45 AM] [7:50:45 AM] GET /api/game/questions from http://localhost:5173
+[7:50:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:50:45 AM] [7:50:45 AM] GET /api/game/questions
+[7:51:49 AM] [7:51:49 AM] OPTIONS /api/game/questions from http://localhost:5173
+[7:51:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:51:50 AM] [7:51:50 AM] GET /api/game/questions from http://localhost:5173
+[7:51:50 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:51:50 AM] [7:51:50 AM] GET /api/game/questions
+[7:52:05 AM] [7:52:05 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[7:52:05 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:52:05 AM] [7:52:05 AM] GET /api/game/leaderboard from http://localhost:5173
+[7:52:06 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:52:06 AM] [7:52:06 AM] GET /api/game/leaderboard
+[7:52:15 AM] [7:52:15 AM] OPTIONS /api/game/questions from http://localhost:5173
+[7:52:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:52:16 AM] [7:52:16 AM] GET /api/game/questions from http://localhost:5173
+[7:52:16 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:52:16 AM] [7:52:16 AM] GET /api/game/questions
+[7:53:38 AM] [7:53:38 AM] OPTIONS /api/game/questions from http://localhost:5173
+[7:53:38 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:53:39 AM] [7:53:39 AM] GET /api/game/questions from http://localhost:5173
+[7:53:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:53:39 AM] [7:53:39 AM] GET /api/game/questions
+[7:54:55 AM] [7:54:55 AM] OPTIONS /api/game/questions from http://localhost:5173
+[7:54:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:54:55 AM] [7:54:55 AM] GET /api/game/questions from http://localhost:5173
+[7:54:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:54:55 AM] [7:54:55 AM] GET /api/game/questions
+[7:56:50 AM] [7:56:50 AM] OPTIONS /api/game/questions from http://localhost:5173
+[7:56:50 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:56:50 AM] [7:56:50 AM] GET /api/game/questions from http://localhost:5173
+[7:56:50 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:56:50 AM] [7:56:50 AM] GET /api/game/questions
+[7:57:01 AM] [7:57:01 AM] OPTIONS /api/game/questions from http://localhost:5173
+[7:57:01 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:57:01 AM] [7:57:01 AM] GET /api/game/questions from http://localhost:5173
+[7:57:01 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:57:01 AM] [7:57:01 AM] GET /api/game/questions
+[7:57:50 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[7:57:50 AM] Server is running on port 10000
+[7:57:50 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[7:57:51 AM] [7:57:51 AM] OPTIONS /api/game/questions from http://localhost:5173
+[7:57:51 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:57:52 AM] [7:57:52 AM] GET /api/game/questions from http://localhost:5173
+[7:57:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:57:52 AM] [7:57:52 AM] GET /api/game/questions
+[7:57:59 AM] [DB]: MongoDB connection restored.
+[7:57:59 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[7:58:10 AM] [7:58:10 AM] OPTIONS /api/game/questions from http://localhost:5173
+[7:58:10 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:58:10 AM] [7:58:10 AM] GET /api/game/questions from http://localhost:5173
+[7:58:10 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:58:10 AM] [7:58:10 AM] GET /api/game/questions
+[7:59:35 AM] [7:59:35 AM] OPTIONS /api/game/questions from http://localhost:5173
+[7:59:35 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:59:36 AM] [7:59:36 AM] GET /api/game/questions from http://localhost:5173
+[7:59:36 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[7:59:36 AM] [7:59:36 AM] GET /api/game/questions
+[8:14:18 AM] [8:14:18 AM] OPTIONS /api/game/questions from http://localhost:5173
+[8:14:18 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:14:32 AM] [8:14:32 AM] OPTIONS /api/game/questions from http://localhost:5173
+[8:14:32 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:14:32 AM] [8:14:32 AM] GET /api/game/questions from http://localhost:5173
+[8:14:32 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:14:32 AM] [8:14:32 AM] GET /api/game/questions
+[8:15:14 AM] [8:15:14 AM] OPTIONS /api/game/questions from http://localhost:5173
+[8:15:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:15:14 AM] [8:15:14 AM] GET /api/game/questions from http://localhost:5173
+[8:15:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:15:14 AM] [8:15:14 AM] GET /api/game/questions
+[8:15:38 AM] [8:15:38 AM] OPTIONS /api/game/questions from http://localhost:5173
+[8:15:38 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:15:38 AM] [8:15:38 AM] GET /api/game/questions from http://localhost:5173
+[8:15:38 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:15:38 AM] [8:15:38 AM] GET /api/game/questions
+[8:16:56 AM] [8:16:56 AM] OPTIONS /api/game/questions from http://localhost:5173
+[8:16:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:16:56 AM] [8:16:56 AM] GET /api/game/questions from http://localhost:5173
+[8:16:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:16:56 AM] [8:16:56 AM] GET /api/game/questions
+[8:17:06 AM] [8:17:06 AM] OPTIONS /api/game/questions from http://localhost:5173
+[8:17:06 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:17:06 AM] [8:17:06 AM] GET /api/game/questions from http://localhost:5173
+[8:17:06 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:17:06 AM] [8:17:06 AM] GET /api/game/questions
+[8:17:28 AM] [8:17:28 AM] OPTIONS /api/game/questions from http://localhost:5173
+[8:17:28 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:17:29 AM] [8:17:29 AM] GET /api/game/questions from http://localhost:5173
+[8:17:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:17:29 AM] [8:17:29 AM] GET /api/game/questions
+[8:19:22 AM] [8:19:22 AM] OPTIONS /api/game/score from http://localhost:5173
+[8:19:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:19:22 AM] [8:19:22 AM] POST /api/game/score from http://localhost:5173
+[8:19:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:19:22 AM] [8:19:22 AM] POST /api/game/score
+[ERROR][8:19:23 AM] Error saving game score: TypeError: Cannot read properties of undefined (reading '_id')
+    at saveScore [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mcontrollers/gameController.js:49:35[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:21:14[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[8:19:26 AM] [8:19:26 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[8:19:26 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:19:26 AM] [8:19:26 AM] GET /api/game/leaderboard from http://localhost:5173
+[8:19:26 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:19:26 AM] [8:19:26 AM] GET /api/game/leaderboard
+[8:20:55 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[8:20:56 AM] Server is running on port 10000
+[8:20:56 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[8:21:01 AM] [DB]: MongoDB connection restored.
+[8:21:01 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[8:21:08 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[8:21:08 AM] Server is running on port 10000
+[8:21:08 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[8:21:10 AM] [DB]: MongoDB connection restored.
+[8:21:10 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[8:33:16 AM] [8:33:16 AM] OPTIONS /api/game/courses from http://localhost:5173
+[8:33:16 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:33:16 AM] [8:33:16 AM] GET /api/game/courses from http://localhost:5173
+[8:33:16 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:33:16 AM] [8:33:16 AM] GET /api/game/courses
+[8:35:28 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[8:35:28 AM] Server is running on port 10000
+[8:35:28 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[8:35:43 AM] [8:35:43 AM] OPTIONS /api/game/courses from http://localhost:5173
+[8:35:43 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:35:43 AM] [8:35:43 AM] GET /api/game/courses from http://localhost:5173
+[8:35:43 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:35:43 AM] [8:35:43 AM] GET /api/game/courses
+[8:35:44 AM] [DB]: MongoDB connection restored.
+[8:35:44 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[8:37:16 AM] [8:37:16 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[8:37:16 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:37:16 AM] [8:37:16 AM] GET /api/game/leaderboard from http://localhost:5173
+[8:37:16 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:37:16 AM] [8:37:16 AM] GET /api/game/leaderboard
+[8:37:19 AM] [8:37:19 AM] OPTIONS /api/game/courses from http://localhost:5173
+[8:37:19 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:37:19 AM] [8:37:19 AM] GET /api/game/courses from http://localhost:5173
+[8:37:19 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:37:19 AM] [8:37:19 AM] GET /api/game/courses
+[8:38:09 AM] [8:38:09 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[8:38:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:38:09 AM] [8:38:09 AM] GET /api/game/leaderboard from http://localhost:5173
+[8:38:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:38:09 AM] [8:38:09 AM] GET /api/game/leaderboard
+[8:38:13 AM] [8:38:13 AM] OPTIONS /api/game/courses from http://localhost:5173
+[8:38:13 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:38:13 AM] [8:38:13 AM] GET /api/game/courses from http://localhost:5173
+[8:38:13 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:38:13 AM] [8:38:13 AM] GET /api/game/courses
+[8:38:24 AM] [8:38:24 AM] OPTIONS /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[8:38:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:38:25 AM] [8:38:25 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[8:38:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:38:25 AM] [8:38:25 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a
+[8:40:14 AM] [8:40:14 AM] OPTIONS /api/game/score from http://localhost:5173
+[8:40:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:40:15 AM] [8:40:15 AM] POST /api/game/score from http://localhost:5173
+[8:40:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:40:15 AM] [8:40:15 AM] POST /api/game/score
+[ERROR][8:40:15 AM] TokenExpiredError: jwt expired
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:190:21
+    at getSecret [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:97:14[90m)[39m
+    at module.exports [as verify] [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:101:10[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:14:27[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at Route.dispatch [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:117:3[90m)[39m
+    at handle [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:295:15 {
+  expiredAt: [35m2026-04-24T07:37:22.000Z[39m
+}
+[8:40:15 AM] [8:40:15 AM] GET /api/auth/refresh from http://localhost:5173
+[8:40:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:40:15 AM] [8:40:15 AM] GET /api/auth/refresh
+[8:40:15 AM] [8:40:15 AM] POST /api/game/score from http://localhost:5173
+[8:40:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:40:15 AM] [8:40:15 AM] POST /api/game/score
+[ERROR][8:40:15 AM] Error saving game score: TypeError: Cannot read properties of undefined (reading '_id')
+    at saveScore [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mcontrollers/gameController.js:81:35[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:21:14[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[8:40:25 AM] [8:40:25 AM] OPTIONS /api/game/courses from http://localhost:5173
+[8:40:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:40:25 AM] [8:40:25 AM] GET /api/game/courses from http://localhost:5173
+[8:40:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:40:25 AM] [8:40:25 AM] GET /api/game/courses
+[8:40:30 AM] [8:40:30 AM] OPTIONS /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[8:40:30 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:40:30 AM] [8:40:30 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[8:40:30 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:40:30 AM] [8:40:30 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a
+[8:40:45 AM] [8:40:45 AM] OPTIONS /api/game/courses from http://localhost:5173
+[8:40:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:40:45 AM] [8:40:45 AM] GET /api/game/courses from http://localhost:5173
+[8:40:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:40:45 AM] [8:40:45 AM] GET /api/game/courses
+[8:40:50 AM] [8:40:50 AM] OPTIONS /api/game/questions?courseId=69d0ec9fe390b419ac21d3b6 from http://localhost:5173
+[8:40:51 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:40:51 AM] [8:40:51 AM] GET /api/game/questions?courseId=69d0ec9fe390b419ac21d3b6 from http://localhost:5173
+[8:40:51 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:40:51 AM] [8:40:51 AM] GET /api/game/questions?courseId=69d0ec9fe390b419ac21d3b6
+[8:43:44 AM] [8:43:44 AM] OPTIONS /api/game/courses from http://localhost:5173
+[8:43:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:43:44 AM] [8:43:44 AM] GET /api/game/courses from http://localhost:5173
+[8:43:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:43:44 AM] [8:43:44 AM] GET /api/game/courses
+[8:44:30 AM] [8:44:30 AM] OPTIONS /api/game/courses from http://localhost:5173
+[8:44:30 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:44:30 AM] [8:44:30 AM] GET /api/game/courses from http://localhost:5173
+[8:44:30 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:44:30 AM] [8:44:30 AM] GET /api/game/courses
+[8:44:40 AM] [8:44:40 AM] OPTIONS /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[8:44:40 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:44:40 AM] [8:44:40 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[8:44:40 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:44:40 AM] [8:44:40 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a
+[8:45:35 AM] [8:45:35 AM] OPTIONS /api/game/courses from http://localhost:5173
+[8:45:35 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:45:35 AM] [8:45:35 AM] GET /api/game/courses from http://localhost:5173
+[8:45:35 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:45:35 AM] [8:45:35 AM] GET /api/game/courses
+[8:49:26 AM] [8:49:26 AM] OPTIONS /api/game/score from http://localhost:5173
+[8:49:26 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:49:26 AM] [8:49:26 AM] POST /api/game/score from http://localhost:5173
+[8:49:26 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:49:26 AM] [8:49:26 AM] POST /api/game/score
+[ERROR][8:49:26 AM] Error saving game score: TypeError: Cannot read properties of undefined (reading '_id')
+    at saveScore [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mcontrollers/gameController.js:81:35[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:21:14[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[8:49:28 AM] [8:49:28 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[8:49:28 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:49:28 AM] [8:49:28 AM] GET /api/game/leaderboard from http://localhost:5173
+[8:49:28 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:49:28 AM] [8:49:28 AM] GET /api/game/leaderboard
+[8:49:31 AM] [8:49:31 AM] OPTIONS /api/game/courses from http://localhost:5173
+[8:49:31 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:49:31 AM] [8:49:31 AM] GET /api/game/courses from http://localhost:5173
+[8:49:31 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:49:31 AM] [8:49:31 AM] GET /api/game/courses
+[8:49:37 AM] [8:49:37 AM] OPTIONS /api/game/questions?courseId=69cc73db039db582ef093a64 from http://localhost:5173
+[8:49:37 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:49:37 AM] [8:49:37 AM] GET /api/game/questions?courseId=69cc73db039db582ef093a64 from http://localhost:5173
+[8:49:37 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:49:38 AM] [8:49:38 AM] GET /api/game/questions?courseId=69cc73db039db582ef093a64
+[8:49:48 AM] [8:49:48 AM] OPTIONS /api/game/courses from http://localhost:5173
+[8:49:48 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:49:48 AM] [8:49:48 AM] GET /api/game/courses from http://localhost:5173
+[8:49:48 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:49:48 AM] [8:49:48 AM] GET /api/game/courses
+[8:52:47 AM] [8:52:47 AM] OPTIONS /api/game/score from http://localhost:5173
+[8:52:47 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:52:47 AM] [8:52:47 AM] POST /api/game/score from http://localhost:5173
+[8:52:47 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:52:47 AM] [8:52:47 AM] POST /api/game/score
+[ERROR][8:52:47 AM] Error saving game score: TypeError: Cannot read properties of undefined (reading '_id')
+    at saveScore [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mcontrollers/gameController.js:81:35[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:21:14[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[8:52:56 AM] [8:52:56 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[8:52:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:52:56 AM] [8:52:56 AM] GET /api/game/leaderboard from http://localhost:5173
+[8:52:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:52:56 AM] [8:52:56 AM] GET /api/game/leaderboard
+[8:53:00 AM] [8:53:00 AM] OPTIONS /api/quizzes from http://localhost:5173
+[8:53:00 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:53:00 AM] [8:53:00 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[8:53:00 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:53:00 AM] [8:53:00 AM] GET /api/quizzes from http://localhost:5173
+[8:53:00 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:53:00 AM] [8:53:00 AM] GET /api/quizzes
+[8:53:00 AM] [8:53:00 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[8:53:00 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:53:00 AM] [8:53:00 AM] GET /api/submissions/my-submissions
+[8:53:08 AM] [8:53:08 AM] OPTIONS /api/quizzes from http://localhost:5173
+[8:53:08 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:53:08 AM] [8:53:08 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[8:53:08 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:53:08 AM] [8:53:08 AM] GET /api/quizzes from http://localhost:5173
+[8:53:08 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:53:08 AM] [8:53:08 AM] GET /api/quizzes
+[8:53:08 AM] [8:53:08 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[8:53:08 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:53:08 AM] [8:53:08 AM] GET /api/submissions/my-submissions
+[8:53:21 AM] [8:53:21 AM] OPTIONS /api/quizzes from http://localhost:5173
+[8:53:21 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:53:21 AM] [8:53:21 AM] GET /api/quizzes from http://localhost:5173
+[8:53:21 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:53:21 AM] [8:53:21 AM] GET /api/quizzes
+[8:53:28 AM] [8:53:28 AM] OPTIONS /api/quizzes from http://localhost:5173
+[8:53:28 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:53:28 AM] [8:53:28 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[8:53:28 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:53:28 AM] [8:53:28 AM] GET /api/quizzes from http://localhost:5173
+[8:53:28 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:53:28 AM] [8:53:28 AM] GET /api/quizzes
+[8:53:28 AM] [8:53:28 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[8:53:28 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:53:28 AM] [8:53:28 AM] GET /api/submissions/my-submissions
+[8:55:42 AM] [8:55:42 AM] OPTIONS /api/quizzes from http://localhost:5173
+[8:55:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:55:42 AM] [8:55:42 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[8:55:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:55:43 AM] [8:55:43 AM] GET /api/quizzes from http://localhost:5173
+[8:55:43 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:55:43 AM] [8:55:43 AM] GET /api/quizzes
+[8:55:43 AM] [8:55:43 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[8:55:43 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:55:43 AM] [8:55:43 AM] GET /api/submissions/my-submissions
+[8:56:21 AM] [8:56:21 AM] OPTIONS /api/quizzes from http://localhost:5173
+[8:56:21 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:56:21 AM] [8:56:21 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[8:56:21 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:56:21 AM] [8:56:21 AM] GET /api/quizzes from http://localhost:5173
+[8:56:21 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:56:21 AM] [8:56:21 AM] GET /api/quizzes
+[8:56:22 AM] [8:56:22 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[8:56:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:56:22 AM] [8:56:22 AM] GET /api/submissions/my-submissions
+[8:56:27 AM] [8:56:27 AM] OPTIONS /api/quizzes from http://localhost:5173
+[8:56:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:56:27 AM] [8:56:27 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[8:56:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:56:27 AM] [8:56:27 AM] GET /api/quizzes from http://localhost:5173
+[8:56:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:56:27 AM] [8:56:27 AM] GET /api/quizzes
+[8:56:27 AM] [8:56:27 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[8:56:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:56:27 AM] [8:56:27 AM] GET /api/submissions/my-submissions
+[8:57:04 AM] [8:57:04 AM] OPTIONS /api/quizzes from http://localhost:5173
+[8:57:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:57:04 AM] [8:57:04 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[8:57:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:57:05 AM] [8:57:05 AM] GET /api/quizzes from http://localhost:5173
+[8:57:05 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:57:05 AM] [8:57:05 AM] GET /api/quizzes
+[8:57:05 AM] [8:57:05 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[8:57:05 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:57:05 AM] [8:57:05 AM] GET /api/submissions/my-submissions
+[8:57:21 AM] [8:57:21 AM] OPTIONS /api/quizzes from http://localhost:5173
+[8:57:21 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:57:21 AM] [8:57:21 AM] GET /api/quizzes from http://localhost:5173
+[8:57:21 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:57:21 AM] [8:57:21 AM] GET /api/quizzes
+[8:57:24 AM] [8:57:24 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[8:57:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:57:24 AM] [8:57:24 AM] GET /api/quizzes from http://localhost:5173
+[8:57:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:57:24 AM] [8:57:24 AM] GET /api/quizzes
+[8:57:25 AM] [8:57:25 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[8:57:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:57:25 AM] [8:57:25 AM] GET /api/submissions/my-submissions
+[8:57:36 AM] [8:57:36 AM] OPTIONS /api/auth/logout from http://localhost:5173
+[8:57:36 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:57:36 AM] [8:57:36 AM] POST /api/auth/logout from http://localhost:5173
+[8:57:36 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:57:36 AM] [8:57:36 AM] POST /api/auth/logout
+[8:57:36 AM] [8:57:36 AM] GET /api/quizzes/stats from http://localhost:5173
+[8:57:36 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[8:57:36 AM] [8:57:36 AM] GET /api/quizzes/stats
+[ERROR][10:18:37 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][10:19:32 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][10:19:32 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[10:19:32 AM] Retrying connection in 3s...
+[ERROR][10:19:32 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[10:19:35 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][10:20:23 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][10:20:23 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[10:20:23 AM] Retrying connection in 3s...
+[ERROR][10:20:23 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[10:20:26 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[10:20:56 AM] [10:20:56 AM] OPTIONS /api/auth/login from http://localhost:5173
+[10:20:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:20:56 AM] [10:20:56 AM] POST /api/auth/login from http://localhost:5173
+[10:20:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:20:56 AM] [10:20:56 AM] POST /api/auth/login
+[10:20:56 AM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[10:20:56 AM] [AUTH STEP 2]: Querying database...
+[ERROR][10:20:57 AM] MongoNetworkError: getaddrinfo EAI_AGAIN ac-gy8st3b-shard-00-01.vjeopgu.mongodb.net
+    at TLSSocket.<anonymous> (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\mongodb\lib\cmap\connect.js:313:44)
+    at Object.onceWrapper (node:events:633:26)
+    at TLSSocket.emit (node:events:518:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+[10:21:10 AM] [10:21:10 AM] OPTIONS /api/auth/login from http://localhost:5173
+[10:21:10 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:21:10 AM] [10:21:10 AM] POST /api/auth/login from http://localhost:5173
+[10:21:10 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:21:10 AM] [10:21:10 AM] POST /api/auth/login
+[10:21:10 AM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[10:21:10 AM] [AUTH STEP 2]: Querying database...
+[ERROR][10:21:10 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][10:21:10 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[10:21:10 AM] Retrying connection in 3s...
+[ERROR][10:21:10 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[ERROR][10:21:10 AM] MongoNetworkError: getaddrinfo EAI_AGAIN ac-gy8st3b-shard-00-01.vjeopgu.mongodb.net
+    at TLSSocket.<anonymous> (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\mongodb\lib\cmap\connect.js:313:44)
+    at Object.onceWrapper (node:events:633:26)
+    at TLSSocket.emit (node:events:518:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+[10:21:13 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[10:22:05 AM] [10:22:05 AM] OPTIONS /api/auth/login from http://localhost:5173
+[10:22:05 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:22:05 AM] [10:22:05 AM] POST /api/auth/login from http://localhost:5173
+[10:22:05 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:22:05 AM] [10:22:05 AM] POST /api/auth/login
+[10:22:05 AM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[10:22:05 AM] [AUTH STEP 2]: Querying database...
+[ERROR][10:22:05 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][10:22:05 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[10:22:05 AM] Retrying connection in 3s...
+[ERROR][10:22:05 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[ERROR][10:22:06 AM] MongoNetworkError: getaddrinfo EAI_AGAIN ac-gy8st3b-shard-00-01.vjeopgu.mongodb.net
+    at TLSSocket.<anonymous> (C:\Users\HP\Desktop\prepup copy\prepflow-server\node_modules\mongodb\lib\cmap\connect.js:313:44)
+    at Object.onceWrapper (node:events:633:26)
+    at TLSSocket.emit (node:events:518:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+[10:22:09 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[10:22:50 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[10:22:50 AM] Server is running on port 10000
+[10:22:50 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[ERROR][10:22:50 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][10:22:50 AM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[10:22:50 AM] Retrying connection in 3s...
+[ERROR][10:22:50 AM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[ERROR][10:22:53 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][10:22:53 AM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[10:22:53 AM] Retrying connection in 3s...
+[ERROR][10:22:53 AM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[10:22:55 AM] MongoDB Connected: undefined
+[10:22:56 AM] MongoDB Connected: undefined
+[10:23:00 AM] [DB]: MongoDB connection restored.
+[10:23:00 AM] MongoDB Connected: ac-gy8st3b-shard-00-02.vjeopgu.mongodb.net
+[10:23:03 AM] [10:23:03 AM] OPTIONS /api/auth/login from http://localhost:5173
+[10:23:03 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:03 AM] [10:23:03 AM] POST /api/auth/login from http://localhost:5173
+[10:23:03 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:03 AM] [10:23:03 AM] POST /api/auth/login
+[10:23:03 AM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[10:23:03 AM] [AUTH STEP 2]: Querying database...
+[10:23:03 AM] [AUTH STEP 3]: Comparing password...
+[10:23:04 AM] [AUTH STEP 4]: Authentication successful. Checking verification...
+[10:23:04 AM] [AUTH STEP 5]: Updating activity tracker...
+[10:23:04 AM] [AUTH STEP 6]: Sending token response...
+[10:23:05 AM] [10:23:05 AM] OPTIONS /api/quizzes from http://localhost:5173
+[10:23:05 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:05 AM] [10:23:05 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[10:23:05 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:05 AM] [10:23:05 AM] GET /api/quizzes from http://localhost:5173
+[10:23:05 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:05 AM] [10:23:05 AM] GET /api/quizzes
+[10:23:05 AM] [10:23:05 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[10:23:05 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:05 AM] [10:23:05 AM] GET /api/submissions/my-submissions
+[10:23:15 AM] [10:23:15 AM] OPTIONS /api/auth/logout from http://localhost:5173
+[10:23:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:15 AM] [10:23:15 AM] POST /api/auth/logout from http://localhost:5173
+[10:23:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:15 AM] [10:23:15 AM] POST /api/auth/logout
+[10:23:15 AM] [10:23:15 AM] GET /api/quizzes/stats from http://localhost:5173
+[10:23:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:15 AM] [10:23:15 AM] GET /api/quizzes/stats
+[10:23:33 AM] [10:23:33 AM] OPTIONS /api/auth/login from http://localhost:5173
+[10:23:33 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:33 AM] [10:23:33 AM] POST /api/auth/login from http://localhost:5173
+[10:23:33 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:33 AM] [10:23:33 AM] POST /api/auth/login
+[10:23:33 AM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[10:23:33 AM] [AUTH STEP 2]: Querying database...
+[10:23:33 AM] [AUTH STEP 3]: Comparing password...
+[10:23:33 AM] [AUTH STEP 4]: Authentication successful. Checking verification...
+[10:23:33 AM] [AUTH STEP 5]: Updating activity tracker...
+[10:23:33 AM] [AUTH STEP 6]: Sending token response...
+[10:23:35 AM] [10:23:35 AM] OPTIONS /api/quizzes from http://localhost:5173
+[10:23:35 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:35 AM] [10:23:35 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[10:23:35 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:35 AM] [10:23:35 AM] GET /api/quizzes from http://localhost:5173
+[10:23:35 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:35 AM] [10:23:35 AM] GET /api/quizzes
+[10:23:35 AM] [10:23:35 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[10:23:35 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:35 AM] [10:23:35 AM] GET /api/submissions/my-submissions
+[10:23:47 AM] [10:23:47 AM] OPTIONS /api/quizzes from http://localhost:5173
+[10:23:47 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:47 AM] [10:23:47 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[10:23:47 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:47 AM] [10:23:47 AM] GET /api/quizzes from http://localhost:5173
+[10:23:47 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:47 AM] [10:23:47 AM] GET /api/quizzes
+[10:23:47 AM] [10:23:47 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[10:23:47 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:47 AM] [10:23:47 AM] GET /api/submissions/my-submissions
+[10:23:52 AM] [10:23:52 AM] OPTIONS /api/quizzes from http://localhost:5173
+[10:23:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:52 AM] [10:23:52 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[10:23:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:52 AM] [10:23:52 AM] GET /api/quizzes from http://localhost:5173
+[10:23:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:52 AM] [10:23:52 AM] GET /api/quizzes
+[10:23:52 AM] [10:23:52 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[10:23:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:23:52 AM] [10:23:52 AM] GET /api/submissions/my-submissions
+[10:25:09 AM] [10:25:09 AM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[10:25:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:25:09 AM] [10:25:09 AM] OPTIONS /api/submissions/progress from http://localhost:5173
+[10:25:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:25:10 AM] [10:25:10 AM] GET /api/quizzes/stats from http://localhost:5173
+[10:25:10 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:25:10 AM] [10:25:10 AM] GET /api/quizzes/stats
+[10:25:10 AM] [10:25:10 AM] GET /api/submissions/progress from http://localhost:5173
+[10:25:10 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:25:10 AM] [10:25:10 AM] GET /api/submissions/progress
+[10:25:25 AM] [10:25:25 AM] OPTIONS /api/quizzes from http://localhost:5173
+[10:25:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:25:25 AM] [10:25:25 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[10:25:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:25:25 AM] [10:25:25 AM] GET /api/quizzes from http://localhost:5173
+[10:25:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:25:25 AM] [10:25:25 AM] GET /api/quizzes
+[10:25:25 AM] [10:25:25 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[10:25:25 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:25:25 AM] [10:25:25 AM] GET /api/submissions/my-submissions
+[10:25:42 AM] [10:25:42 AM] OPTIONS /api/quizzes/stats from http://localhost:5173
+[10:25:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:25:42 AM] [10:25:42 AM] OPTIONS /api/submissions/progress from http://localhost:5173
+[10:25:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:25:42 AM] [10:25:42 AM] GET /api/quizzes/stats from http://localhost:5173
+[10:25:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:25:42 AM] [10:25:42 AM] GET /api/quizzes/stats
+[10:25:42 AM] [10:25:42 AM] GET /api/submissions/progress from http://localhost:5173
+[10:25:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:25:42 AM] [10:25:42 AM] GET /api/submissions/progress
+[10:25:55 AM] [10:25:55 AM] OPTIONS /api/quizzes from http://localhost:5173
+[10:25:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:25:55 AM] [10:25:55 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[10:25:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:25:55 AM] [10:25:55 AM] GET /api/quizzes from http://localhost:5173
+[10:25:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:25:55 AM] [10:25:55 AM] GET /api/quizzes
+[10:25:56 AM] [10:25:56 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[10:25:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:25:56 AM] [10:25:56 AM] GET /api/submissions/my-submissions
+[10:31:15 AM] [10:31:15 AM] OPTIONS /api/quizzes from http://localhost:5173
+[10:31:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:31:15 AM] [10:31:15 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[10:31:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:31:15 AM] [10:31:15 AM] GET /api/quizzes from http://localhost:5173
+[10:31:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:31:15 AM] [10:31:15 AM] GET /api/quizzes
+[10:31:15 AM] [10:31:15 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[10:31:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:31:15 AM] [10:31:15 AM] GET /api/submissions/my-submissions
+[10:32:08 AM] [10:32:08 AM] OPTIONS /api/quizzes from http://localhost:5173
+[10:32:08 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:32:08 AM] [10:32:08 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[10:32:08 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:32:08 AM] [10:32:08 AM] GET /api/quizzes from http://localhost:5173
+[10:32:08 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:32:08 AM] [10:32:08 AM] GET /api/quizzes
+[10:32:08 AM] [10:32:08 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[10:32:08 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:32:08 AM] [10:32:08 AM] GET /api/submissions/my-submissions
+[10:32:20 AM] [10:32:20 AM] OPTIONS /api/quizzes from http://localhost:5173
+[10:32:20 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:32:20 AM] [10:32:20 AM] GET /api/quizzes from http://localhost:5173
+[10:32:20 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:32:20 AM] [10:32:20 AM] GET /api/quizzes
+[10:32:27 AM] [10:32:27 AM] OPTIONS /api/quizzes from http://localhost:5173
+[10:32:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:32:27 AM] [10:32:27 AM] GET /api/quizzes from http://localhost:5173
+[10:32:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:32:27 AM] [10:32:27 AM] GET /api/quizzes
+[10:34:09 AM] [10:34:09 AM] OPTIONS /api/quizzes from http://localhost:5173
+[10:34:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:34:09 AM] [10:34:09 AM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[10:34:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:34:09 AM] [10:34:09 AM] GET /api/quizzes from http://localhost:5173
+[10:34:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:34:09 AM] [10:34:09 AM] GET /api/quizzes
+[10:34:09 AM] [10:34:09 AM] GET /api/submissions/my-submissions from http://localhost:5173
+[10:34:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:34:09 AM] [10:34:09 AM] GET /api/submissions/my-submissions
+[10:34:31 AM] [10:34:31 AM] OPTIONS /api/chat/conversations from http://localhost:5173
+[10:34:31 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:34:31 AM] [10:34:31 AM] GET /api/chat/conversations from http://localhost:5173
+[10:34:31 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:34:31 AM] [10:34:31 AM] GET /api/chat/conversations
+[10:34:36 AM] [10:34:36 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[10:34:36 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:34:36 AM] [10:34:36 AM] GET /api/game/leaderboard from http://localhost:5173
+[10:34:36 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:34:36 AM] [10:34:36 AM] GET /api/game/leaderboard
+[10:34:41 AM] [10:34:41 AM] OPTIONS /api/game/courses from http://localhost:5173
+[10:34:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:34:41 AM] [10:34:41 AM] GET /api/game/courses from http://localhost:5173
+[10:34:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:34:41 AM] [10:34:41 AM] GET /api/game/courses
+[10:34:48 AM] [10:34:48 AM] OPTIONS /api/game/questions?courseId=69cc73db039db582ef093a64 from http://localhost:5173
+[10:34:48 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:34:48 AM] [10:34:48 AM] GET /api/game/questions?courseId=69cc73db039db582ef093a64 from http://localhost:5173
+[10:34:48 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:34:48 AM] [10:34:48 AM] GET /api/game/questions?courseId=69cc73db039db582ef093a64
+[10:36:55 AM] [10:36:55 AM] OPTIONS /api/game/score from http://localhost:5173
+[10:36:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:36:55 AM] [10:36:55 AM] POST /api/game/score from http://localhost:5173
+[10:36:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:36:55 AM] [10:36:55 AM] POST /api/game/score
+[ERROR][10:36:55 AM] Error saving game score: TypeError: Cannot read properties of undefined (reading '_id')
+    at saveScore [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mcontrollers/gameController.js:81:35[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:21:14[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[10:37:03 AM] [10:37:03 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[10:37:03 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:37:03 AM] [10:37:03 AM] GET /api/game/leaderboard from http://localhost:5173
+[10:37:03 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:37:03 AM] [10:37:03 AM] GET /api/game/leaderboard
+[10:39:41 AM] [10:39:41 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[10:39:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:39:41 AM] [10:39:41 AM] GET /api/game/leaderboard from http://localhost:5173
+[10:39:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:39:41 AM] [10:39:41 AM] GET /api/game/leaderboard
+[10:43:43 AM] [10:43:43 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[10:43:43 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:43:43 AM] [10:43:43 AM] GET /api/game/leaderboard from http://localhost:5173
+[10:43:43 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:43:43 AM] [10:43:43 AM] GET /api/game/leaderboard
+[10:44:32 AM] [10:44:32 AM] OPTIONS /api/game/courses from http://localhost:5173
+[10:44:32 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:44:32 AM] [10:44:32 AM] GET /api/game/courses from http://localhost:5173
+[10:44:32 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:44:32 AM] [10:44:32 AM] GET /api/game/courses
+[10:44:35 AM] [10:44:35 AM] OPTIONS /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[10:44:35 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:44:35 AM] [10:44:35 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[10:44:35 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:44:35 AM] [10:44:35 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a
+[10:44:46 AM] [10:44:46 AM] OPTIONS /api/game/courses from http://localhost:5173
+[10:44:46 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:44:47 AM] [10:44:47 AM] GET /api/game/courses from http://localhost:5173
+[10:44:47 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:44:47 AM] [10:44:47 AM] GET /api/game/courses
+[10:44:50 AM] [10:44:50 AM] OPTIONS /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[10:44:50 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:44:50 AM] [10:44:50 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[10:44:50 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:44:50 AM] [10:44:50 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a
+[10:44:53 AM] [10:44:53 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[10:44:53 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:44:53 AM] [10:44:53 AM] GET /api/game/leaderboard from http://localhost:5173
+[10:44:53 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:44:53 AM] [10:44:53 AM] GET /api/game/leaderboard
+[10:44:56 AM] [10:44:56 AM] OPTIONS /api/game/courses from http://localhost:5173
+[10:44:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:44:56 AM] [10:44:56 AM] GET /api/game/courses from http://localhost:5173
+[10:44:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:44:56 AM] [10:44:56 AM] GET /api/game/courses
+[10:45:01 AM] [10:45:01 AM] OPTIONS /api/game/questions?courseId=69d0b8a4b9b902a8446119f1 from http://localhost:5173
+[10:45:01 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:45:01 AM] [10:45:01 AM] GET /api/game/questions?courseId=69d0b8a4b9b902a8446119f1 from http://localhost:5173
+[10:45:01 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:45:01 AM] [10:45:01 AM] GET /api/game/questions?courseId=69d0b8a4b9b902a8446119f1
+[10:45:13 AM] [10:45:13 AM] OPTIONS /api/game/courses from http://localhost:5173
+[10:45:13 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:45:13 AM] [10:45:13 AM] GET /api/game/courses from http://localhost:5173
+[10:45:13 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:45:13 AM] [10:45:13 AM] GET /api/game/courses
+[10:45:16 AM] [10:45:16 AM] OPTIONS /api/game/questions?courseId=69d0b8a4b9b902a8446119f1 from http://localhost:5173
+[10:45:16 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:45:16 AM] [10:45:16 AM] GET /api/game/questions?courseId=69d0b8a4b9b902a8446119f1 from http://localhost:5173
+[10:45:16 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:45:16 AM] [10:45:16 AM] GET /api/game/questions?courseId=69d0b8a4b9b902a8446119f1
+[10:45:41 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[10:45:41 AM] Server is running on port 10000
+[10:45:41 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[ERROR][10:45:41 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][10:45:41 AM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[10:45:41 AM] Retrying connection in 3s...
+[ERROR][10:45:41 AM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[ERROR][10:45:44 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][10:45:44 AM] MongoDB connection failed (attempt 1): querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[10:45:44 AM] Retrying connection in 3s...
+[ERROR][10:45:44 AM] [DB]: MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[10:45:46 AM] MongoDB Connected: undefined
+[10:45:47 AM] MongoDB Connected: undefined
+[10:45:53 AM] [10:45:53 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[10:45:53 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:45:54 AM] [10:45:54 AM] GET /api/game/leaderboard from http://localhost:5173
+[10:45:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:45:54 AM] [10:45:54 AM] GET /api/game/leaderboard
+[ERROR][10:45:55 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][10:45:55 AM] MongoDB connection failed (attempt 1): Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+[10:45:55 AM] Retrying connection in 3s...
+[ERROR][10:45:55 AM] [DB]: MongoDB connection error: getaddrinfo EAI_AGAIN ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[10:45:56 AM] [10:45:56 AM] OPTIONS /api/game/courses from http://localhost:5173
+[10:45:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:45:56 AM] [10:45:56 AM] GET /api/game/courses from http://localhost:5173
+[10:45:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:45:56 AM] [10:45:56 AM] GET /api/game/courses
+[10:45:58 AM] MongoDB Connected: undefined
+[10:45:58 AM] [DB]: MongoDB connection restored.
+[10:45:58 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[10:46:02 AM] [10:46:02 AM] OPTIONS /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[10:46:02 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:46:02 AM] [10:46:02 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[10:46:02 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:46:02 AM] [10:46:02 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a
+[10:46:45 AM] [10:46:45 AM] OPTIONS /api/game/courses from http://localhost:5173
+[10:46:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:46:45 AM] [10:46:45 AM] GET /api/game/courses from http://localhost:5173
+[10:46:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:46:45 AM] [10:46:45 AM] GET /api/game/courses
+[10:48:09 AM] [10:48:09 AM] OPTIONS /api/game/courses from http://localhost:5173
+[10:48:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:48:09 AM] [10:48:09 AM] GET /api/game/courses from http://localhost:5173
+[10:48:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:48:09 AM] [10:48:09 AM] GET /api/game/courses
+[10:48:35 AM] [10:48:35 AM] OPTIONS /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[10:48:35 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:48:35 AM] [10:48:35 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[10:48:35 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:48:35 AM] [10:48:35 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a
+[10:49:42 AM] [10:49:42 AM] OPTIONS /api/game/score from http://localhost:5173
+[10:49:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:49:42 AM] [10:49:42 AM] POST /api/game/score from http://localhost:5173
+[10:49:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:49:42 AM] [10:49:42 AM] POST /api/game/score
+[ERROR][10:49:42 AM] Error saving game score: TypeError: Cannot read properties of undefined (reading '_id')
+    at saveScore [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mcontrollers/gameController.js:81:35[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:21:14[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[10:50:17 AM] [10:50:17 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[10:50:17 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:50:17 AM] [10:50:17 AM] GET /api/game/leaderboard from http://localhost:5173
+[10:50:17 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:50:17 AM] [10:50:17 AM] GET /api/game/leaderboard
+[10:51:47 AM] [10:51:47 AM] OPTIONS /api/game/courses from http://localhost:5173
+[10:51:47 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:51:48 AM] [10:51:48 AM] GET /api/game/courses from http://localhost:5173
+[10:51:48 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:51:48 AM] [10:51:48 AM] GET /api/game/courses
+[10:51:52 AM] [10:51:52 AM] OPTIONS /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[10:51:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:51:52 AM] [10:51:52 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[10:51:52 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:51:52 AM] [10:51:52 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a
+[10:54:22 AM] [10:54:22 AM] OPTIONS /api/game/score from http://localhost:5173
+[10:54:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:54:22 AM] [10:54:22 AM] POST /api/game/score from http://localhost:5173
+[10:54:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:54:22 AM] [10:54:22 AM] POST /api/game/score
+[ERROR][10:54:23 AM] Error saving game score: TypeError: Cannot read properties of undefined (reading '_id')
+    at saveScore [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mcontrollers/gameController.js:81:35[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:21:14[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[10:54:27 AM] [10:54:27 AM] OPTIONS /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[10:54:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:54:27 AM] [10:54:27 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[10:54:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[10:54:27 AM] [10:54:27 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a
+[11:00:54 AM] [11:00:54 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:01:06 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[11:01:06 AM] Server is running on port 10000
+[11:01:06 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[ERROR][11:01:06 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][11:01:06 AM] MongoDB connection failed (attempt 1): queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[11:01:06 AM] Retrying connection in 3s...
+[ERROR][11:01:06 AM] [DB]: MongoDB connection error: queryTxt ESERVFAIL cluster0.vjeopgu.mongodb.net
+[11:01:06 AM] [11:01:06 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:01:06 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:01:07 AM] [11:01:07 AM] GET /api/game/courses from http://localhost:5173
+[11:01:07 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:01:07 AM] [11:01:07 AM] GET /api/game/courses
+[11:01:09 AM] MongoDB Connected: undefined
+[ERROR][11:01:18 AM] Error fetching game courses: MongooseError: Operation `quizzes.find()` buffering timed out after 10000ms
+    at Timeout._onTimeout [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mmongoose[24m\lib\drivers\node-mongodb-native\collection.js:131:25[90m)[39m
+[90m    at listOnTimeout (node:internal/timers:588:17)[39m
+[90m    at process.processTimers (node:internal/timers:523:7)[39m
+[ERROR][11:01:18 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][11:01:18 AM] MongoDB connection failed (attempt 1): getaddrinfo EAI_AGAIN ac-gy8st3b-shard-00-01.vjeopgu.mongodb.net
+[11:01:18 AM] Retrying connection in 3s...
+[ERROR][11:01:18 AM] [DB]: MongoDB connection error: getaddrinfo EAI_AGAIN ac-gy8st3b-shard-00-01.vjeopgu.mongodb.net
+[11:01:21 AM] MongoDB Connected: undefined
+[11:01:29 AM] [DB]: MongoDB connection restored.
+[11:01:29 AM] MongoDB Connected: ac-gy8st3b-shard-00-02.vjeopgu.mongodb.net
+[11:01:45 AM] [11:01:45 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:01:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:01:45 AM] [11:01:45 AM] GET /api/game/courses from http://localhost:5173
+[11:01:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:01:45 AM] [11:01:45 AM] GET /api/game/courses
+[11:03:32 AM] [11:03:32 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:03:32 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:03:32 AM] [11:03:32 AM] GET /api/game/courses from http://localhost:5173
+[11:03:32 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:03:32 AM] [11:03:32 AM] GET /api/game/courses
+[11:04:02 AM] [11:04:02 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:04:02 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:04:02 AM] [11:04:02 AM] GET /api/game/courses from http://localhost:5173
+[11:04:02 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:04:02 AM] [11:04:02 AM] GET /api/game/courses
+[11:05:24 AM] [11:05:24 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:05:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:05:24 AM] [11:05:24 AM] GET /api/game/courses from http://localhost:5173
+[11:05:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:05:24 AM] [11:05:24 AM] GET /api/game/courses
+[11:08:31 AM] [11:08:31 AM] OPTIONS /api/game/score from http://localhost:5173
+[11:08:31 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:08:31 AM] [11:08:31 AM] POST /api/game/score from http://localhost:5173
+[11:08:31 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:08:31 AM] [11:08:31 AM] POST /api/game/score
+[11:08:51 AM] [11:08:51 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:08:51 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:08:51 AM] [11:08:51 AM] GET /api/game/courses from http://localhost:5173
+[11:08:51 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:08:51 AM] [11:08:51 AM] GET /api/game/courses
+[11:12:28 AM] [11:12:28 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:12:28 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:12:28 AM] [11:12:28 AM] GET /api/game/courses from http://localhost:5173
+[11:12:28 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:12:28 AM] [11:12:28 AM] GET /api/game/courses
+[11:12:37 AM] [11:12:37 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:12:37 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:12:37 AM] [11:12:37 AM] GET /api/game/courses from http://localhost:5173
+[11:12:37 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:12:37 AM] [11:12:37 AM] GET /api/game/courses
+[11:12:44 AM] [11:12:44 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:12:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:12:44 AM] [11:12:44 AM] GET /api/game/courses from http://localhost:5173
+[11:12:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:12:44 AM] [11:12:44 AM] GET /api/game/courses
+[11:13:01 AM] [11:13:01 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:13:01 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:13:02 AM] [11:13:02 AM] GET /api/game/courses from http://localhost:5173
+[11:13:02 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:13:02 AM] [11:13:02 AM] GET /api/game/courses
+[11:13:47 AM] [11:13:47 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:13:47 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:13:47 AM] [11:13:47 AM] GET /api/game/courses from http://localhost:5173
+[11:13:47 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:13:47 AM] [11:13:47 AM] GET /api/game/courses
+[11:15:34 AM] [11:15:34 AM] OPTIONS /api/game/score from http://localhost:5173
+[11:15:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:15:34 AM] [11:15:34 AM] POST /api/game/score from http://localhost:5173
+[11:15:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:15:34 AM] [11:15:34 AM] POST /api/game/score
+[11:16:04 AM] [11:16:04 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:16:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:16:04 AM] [11:16:04 AM] GET /api/game/courses from http://localhost:5173
+[11:16:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:16:04 AM] [11:16:04 AM] GET /api/game/courses
+[11:16:46 AM] [11:16:46 AM] OPTIONS /api/game/score from http://localhost:5173
+[11:16:46 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:16:46 AM] [11:16:46 AM] POST /api/game/score from http://localhost:5173
+[11:16:46 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:16:46 AM] [11:16:46 AM] POST /api/game/score
+[11:21:03 AM] [11:21:03 AM] OPTIONS /api/game/score from http://localhost:5173
+[11:21:03 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:21:04 AM] [11:21:04 AM] POST /api/game/score from http://localhost:5173
+[11:21:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:21:04 AM] [11:21:04 AM] POST /api/game/score
+[11:21:54 AM] [11:21:54 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:21:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:21:54 AM] [11:21:54 AM] GET /api/game/courses from http://localhost:5173
+[11:21:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:21:54 AM] [11:21:54 AM] GET /api/game/courses
+[11:23:04 AM] [11:23:04 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:23:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:23:04 AM] [11:23:04 AM] GET /api/game/courses from http://localhost:5173
+[11:23:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:23:04 AM] [11:23:04 AM] GET /api/game/courses
+[11:23:16 AM] [11:23:16 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:23:16 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:23:16 AM] [11:23:16 AM] GET /api/game/courses from http://localhost:5173
+[11:23:16 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:23:16 AM] [11:23:16 AM] GET /api/game/courses
+[11:23:19 AM] [11:23:19 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[11:23:19 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:23:19 AM] [11:23:19 AM] GET /api/game/leaderboard from http://localhost:5173
+[11:23:19 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:23:19 AM] [11:23:19 AM] GET /api/game/leaderboard
+[11:23:22 AM] [11:23:22 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:23:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:23:43 AM] [11:23:43 AM] GET /api/game/courses from http://localhost:5173
+[11:23:43 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:23:43 AM] [11:23:43 AM] GET /api/game/courses
+[11:25:34 AM] [11:25:34 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:25:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:25:35 AM] [11:25:35 AM] GET /api/game/courses from http://localhost:5173
+[11:25:35 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:25:35 AM] [11:25:35 AM] GET /api/game/courses
+[11:25:58 AM] [11:25:58 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[11:25:58 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:25:58 AM] [11:25:58 AM] GET /api/game/leaderboard from http://localhost:5173
+[11:25:58 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:25:58 AM] [11:25:58 AM] GET /api/game/leaderboard
+[11:26:02 AM] [11:26:02 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:26:02 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:26:02 AM] [11:26:02 AM] GET /api/game/courses from http://localhost:5173
+[11:26:02 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:26:02 AM] [11:26:02 AM] GET /api/game/courses
+[11:26:20 AM] [11:26:20 AM] OPTIONS /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[11:26:20 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:26:20 AM] [11:26:20 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[11:26:20 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:26:20 AM] [11:26:20 AM] GET /api/game/questions?courseId=69cc7162039db582ef09123a
+[11:27:32 AM] [11:27:32 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:27:32 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:27:32 AM] [11:27:32 AM] GET /api/game/courses from http://localhost:5173
+[11:27:32 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:27:32 AM] [11:27:32 AM] GET /api/game/courses
+[11:27:48 AM] [11:27:48 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:27:48 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:27:48 AM] [11:27:48 AM] GET /api/game/courses from http://localhost:5173
+[11:27:48 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:27:48 AM] [11:27:48 AM] GET /api/game/courses
+[11:29:29 AM] [11:29:29 AM] OPTIONS /api/game/score from http://localhost:5173
+[11:29:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:29:29 AM] [11:29:29 AM] POST /api/game/score from http://localhost:5173
+[11:29:29 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:29:29 AM] [11:29:29 AM] POST /api/game/score
+[11:40:34 AM] [11:40:34 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:40:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:40:34 AM] [11:40:34 AM] GET /api/game/courses from http://localhost:5173
+[11:40:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:40:34 AM] [11:40:34 AM] GET /api/game/courses
+[11:42:06 AM] [11:42:06 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[11:42:06 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:42:06 AM] [11:42:06 AM] GET /api/game/leaderboard from http://localhost:5173
+[11:42:06 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:42:06 AM] [11:42:06 AM] GET /api/game/leaderboard
+[11:42:09 AM] [11:42:09 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:42:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:42:09 AM] [11:42:09 AM] GET /api/game/courses from http://localhost:5173
+[11:42:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:42:09 AM] [11:42:09 AM] GET /api/game/courses
+[11:42:21 AM] [11:42:21 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:42:21 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:42:21 AM] [11:42:21 AM] GET /api/game/courses from http://localhost:5173
+[11:42:21 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:42:21 AM] [11:42:21 AM] GET /api/game/courses
+[11:44:38 AM] [11:44:38 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:44:38 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:44:38 AM] [11:44:38 AM] GET /api/game/courses from http://localhost:5173
+[11:44:38 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:44:38 AM] [11:44:38 AM] GET /api/game/courses
+[11:46:18 AM] [11:46:18 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:46:18 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:46:18 AM] [11:46:18 AM] GET /api/game/courses from http://localhost:5173
+[11:46:18 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:46:18 AM] [11:46:18 AM] GET /api/game/courses
+[11:46:47 AM] [11:46:47 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:46:47 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:46:48 AM] [11:46:48 AM] GET /api/game/courses from http://localhost:5173
+[11:46:48 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:46:48 AM] [11:46:48 AM] GET /api/game/courses
+[11:51:08 AM] [11:51:08 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:51:08 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:51:08 AM] [11:51:08 AM] GET /api/game/courses from http://localhost:5173
+[11:51:08 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:51:08 AM] [11:51:08 AM] GET /api/game/courses
+[11:52:46 AM] [11:52:46 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:52:46 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:52:46 AM] [11:52:46 AM] GET /api/game/courses from http://localhost:5173
+[11:52:46 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:52:46 AM] [11:52:46 AM] GET /api/game/courses
+[11:55:08 AM] [11:55:08 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:55:08 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:55:09 AM] [11:55:09 AM] GET /api/game/courses from http://localhost:5173
+[11:55:09 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:55:09 AM] [11:55:09 AM] GET /api/game/courses
+[11:55:58 AM] [11:55:58 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:55:58 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:55:58 AM] [11:55:58 AM] GET /api/game/courses from http://localhost:5173
+[11:55:58 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:55:58 AM] [11:55:58 AM] GET /api/game/courses
+[11:59:23 AM] [11:59:23 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:59:23 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:59:24 AM] [11:59:24 AM] GET /api/game/courses from http://localhost:5173
+[11:59:24 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:59:24 AM] [11:59:24 AM] GET /api/game/courses
+[11:59:34 AM] [11:59:34 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:59:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:59:34 AM] [11:59:34 AM] GET /api/game/courses from http://localhost:5173
+[11:59:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:59:34 AM] [11:59:34 AM] GET /api/game/courses
+[11:59:58 AM] [11:59:58 AM] OPTIONS /api/game/courses from http://localhost:5173
+[11:59:58 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:59:58 AM] [11:59:58 AM] GET /api/game/courses from http://localhost:5173
+[11:59:58 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[11:59:58 AM] [11:59:58 AM] GET /api/game/courses
+[12:00:48 PM] [12:00:48 PM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[12:00:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:00:48 PM] [12:00:48 PM] GET /api/game/leaderboard from http://localhost:5173
+[12:00:48 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:00:48 PM] [12:00:48 PM] GET /api/game/leaderboard
+[12:00:51 PM] [12:00:51 PM] OPTIONS /api/game/courses from http://localhost:5173
+[12:00:51 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:00:51 PM] [12:00:51 PM] GET /api/game/courses from http://localhost:5173
+[12:00:51 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[12:00:51 PM] [12:00:51 PM] GET /api/game/courses
