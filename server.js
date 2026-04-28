@@ -71,7 +71,8 @@ const corsOptions = {
       return callback(null, true);
     }
     const normalized = origin.replace(/\/$/, '');
-    const isAllowed = allowedOrigins.includes(normalized) || normalized.endsWith('.vercel.app');
+    const isLocalDevOrigin = /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(normalized);
+    const isAllowed = allowedOrigins.includes(normalized) || normalized.endsWith('.vercel.app') || isLocalDevOrigin;
     
     console.log(`[CORS]: Request from ${origin} - ${isAllowed ? 'ALLOWED' : 'DENIED'}`);
     
@@ -136,10 +137,11 @@ app.get('/api/health', (req, res) => {
   res.json({ 
     status: 'System Functional', 
     database: mongoose.connection.readyState === 1 ? 'Operational' : 'Establishing...',
+    databaseReadyState: mongoose.connection.readyState,
     environment: {
       db: process.env.MONGODB_URI ? 'Locked' : 'Missing',
       auth: process.env.JWT_SECRET ? 'Locked' : 'Missing',
-      ai: process.env.GOOGLE_API_KEY ? 'Locked' : 'Missing'
+      ai: (process.env.GOOGLE_API_KEY || process.env.GEMINI_API_KEY) ? 'Locked' : 'Missing'
     }
   });
 });

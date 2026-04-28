@@ -128,6 +128,13 @@ export const loginStudent = async (req, res) => {
       return res.status(400).json({ message: "Email and password are required" });
     }
 
+    if (mongoose.connection.readyState !== 1) {
+      return res.status(503).json({
+        message: "Database connection is still starting. Please wait a moment and try again.",
+        debug: `MongoDB readyState=${mongoose.connection.readyState}`
+      });
+    }
+
     console.log(`[AUTH STEP 2]: Querying database...`);
     const student = await Student.findOne({ email });
 
@@ -207,6 +214,19 @@ export const loginStudent = async (req, res) => {
     }
   } catch (error) {
     console.error(error.stack);
+    const isDatabaseConnectionError =
+      error.name === 'MongooseServerSelectionError' ||
+      error.name === 'MongoServerSelectionError' ||
+      error.message?.toLowerCase().includes('server selection timed out') ||
+      error.message?.toLowerCase().includes('querysrv etimeout');
+
+    if (isDatabaseConnectionError) {
+      return res.status(503).json({
+        message: "Database connection is temporarily unavailable. Please try again in a moment.",
+        debug: error.message
+      });
+    }
+
     res.status(500).json({ 
       message: "Identity verification failed on the server. Reach out to support if this persists.",
       debug: error.message 

@@ -12885,3 +12885,749 @@ Please retry in 33.635142343s. [{"@type":"type.googleapis.com/google.rpc.Help","
 [12:00:51 PM] [12:00:51 PM] GET /api/game/courses from http://localhost:5173
 [12:00:51 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
 [12:00:51 PM] [12:00:51 PM] GET /api/game/courses
+[3:39:08 PM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[3:39:08 PM] Server is running on port 10000
+[3:39:08 PM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[3:39:16 PM] [DB]: MongoDB connection restored.
+[3:39:16 PM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[3:39:16 PM] [3:39:16 PM] OPTIONS /api/quizzes from http://localhost:5173
+[3:39:16 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:39:16 PM] [3:39:16 PM] OPTIONS /api/submissions/my-submissions from http://localhost:5173
+[3:39:16 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:39:17 PM] [3:39:17 PM] GET /api/quizzes from http://localhost:5173
+[3:39:17 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:39:17 PM] [3:39:17 PM] GET /api/quizzes
+[3:39:17 PM] [3:39:17 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[3:39:17 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:39:17 PM] [3:39:17 PM] GET /api/submissions/my-submissions
+[ERROR][3:39:17 PM] TokenExpiredError: jwt expired
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:190:21
+    at getSecret [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:97:14[90m)[39m
+    at module.exports [as verify] [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:101:10[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:14:27[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at Route.dispatch [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:117:3[90m)[39m
+    at handle [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:295:15 {
+  expiredAt: [35m2026-04-24T11:23:33.000Z[39m
+}
+[3:39:17 PM] [3:39:17 PM] GET /api/auth/refresh from http://localhost:5173
+[3:39:17 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:39:17 PM] [3:39:17 PM] GET /api/auth/refresh
+[3:39:17 PM] [3:39:17 PM] GET /api/submissions/my-submissions from http://localhost:5173
+[3:39:17 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:39:17 PM] [3:39:17 PM] GET /api/submissions/my-submissions
+[3:39:32 PM] [3:39:32 PM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[3:39:32 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:39:32 PM] [3:39:32 PM] GET /api/game/leaderboard from http://localhost:5173
+[3:39:32 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:39:32 PM] [3:39:32 PM] GET /api/game/leaderboard
+[3:39:36 PM] [3:39:36 PM] OPTIONS /api/game/courses from http://localhost:5173
+[3:39:36 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:39:36 PM] [3:39:36 PM] GET /api/game/courses from http://localhost:5173
+[3:39:36 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:39:36 PM] [3:39:36 PM] GET /api/game/courses
+[3:39:45 PM] [3:39:45 PM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[3:39:45 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:39:45 PM] [3:39:45 PM] GET /api/game/leaderboard from http://localhost:5173
+[3:39:45 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:39:45 PM] [3:39:45 PM] GET /api/game/leaderboard
+[3:39:49 PM] [3:39:49 PM] OPTIONS /api/game/courses from http://localhost:5173
+[3:39:49 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:39:49 PM] [3:39:49 PM] GET /api/game/courses from http://localhost:5173
+[3:39:49 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:39:49 PM] [3:39:49 PM] GET /api/game/courses
+[3:44:08 PM] [3:44:08 PM] OPTIONS /api/game/courses from http://localhost:5173
+[3:44:08 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:44:09 PM] [3:44:09 PM] GET /api/game/courses from http://localhost:5173
+[3:44:09 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:44:09 PM] [3:44:09 PM] GET /api/game/courses
+[3:46:40 PM] [3:46:40 PM] OPTIONS /api/game/courses from http://localhost:5173
+[3:46:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:46:40 PM] [3:46:40 PM] GET /api/game/courses from http://localhost:5173
+[3:46:40 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:46:40 PM] [3:46:40 PM] GET /api/game/courses
+[3:51:30 PM] [3:51:30 PM] OPTIONS /api/game/courses from http://localhost:5173
+[3:51:30 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:51:30 PM] [3:51:30 PM] GET /api/game/courses from http://localhost:5173
+[3:51:30 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:51:30 PM] [3:51:30 PM] GET /api/game/courses
+[3:51:44 PM] [3:51:44 PM] OPTIONS /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[3:51:44 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:51:44 PM] [3:51:44 PM] GET /api/game/questions?courseId=69cc7162039db582ef09123a from http://localhost:5173
+[3:51:44 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:51:44 PM] [3:51:44 PM] GET /api/game/questions?courseId=69cc7162039db582ef09123a
+[3:51:56 PM] [3:51:56 PM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[3:51:56 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:51:56 PM] [3:51:56 PM] GET /api/game/leaderboard from http://localhost:5173
+[3:51:56 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:51:56 PM] [3:51:56 PM] GET /api/game/leaderboard
+[3:52:00 PM] [3:52:00 PM] OPTIONS /api/game/courses from http://localhost:5173
+[3:52:00 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:52:00 PM] [3:52:00 PM] GET /api/game/courses from http://localhost:5173
+[3:52:00 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:52:00 PM] [3:52:00 PM] GET /api/game/courses
+[3:52:29 PM] [3:52:29 PM] OPTIONS /api/game/courses from http://localhost:5173
+[3:52:29 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:52:29 PM] [3:52:29 PM] GET /api/game/courses from http://localhost:5173
+[3:52:29 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:52:29 PM] [3:52:29 PM] GET /api/game/courses
+[3:52:54 PM] [3:52:54 PM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[3:52:54 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:52:54 PM] [3:52:54 PM] GET /api/game/leaderboard from http://localhost:5173
+[3:52:54 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:52:54 PM] [3:52:54 PM] GET /api/game/leaderboard
+[3:57:49 PM] [3:57:49 PM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[3:57:49 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:57:49 PM] [3:57:49 PM] GET /api/game/leaderboard from http://localhost:5173
+[3:57:49 PM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[3:57:49 PM] [3:57:49 PM] GET /api/game/leaderboard
+[ERROR][1:06:14 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[1:06:15 AM] [1:06:15 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[1:06:15 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:06:16 AM] [1:06:16 AM] GET /api/game/leaderboard from http://localhost:5173
+[1:06:16 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:06:16 AM] [1:06:16 AM] GET /api/game/leaderboard
+[1:06:30 AM] [1:06:30 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:06:30 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:06:30 AM] [1:06:30 AM] GET /api/game/courses from http://localhost:5173
+[1:06:30 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:06:30 AM] [1:06:30 AM] GET /api/game/courses
+[ERROR][1:07:05 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:07:05 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:07:05 AM] Retrying connection in 3s...
+[ERROR][1:07:05 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:07:08 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:07:40 AM] [1:07:40 AM] OPTIONS /api/game/questions?courseId=69d5f18074b77a444990b72f from http://localhost:5173
+[1:07:40 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:07:41 AM] [1:07:41 AM] GET /api/game/questions?courseId=69d5f18074b77a444990b72f from http://localhost:5173
+[1:07:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:07:41 AM] [1:07:41 AM] GET /api/game/questions?courseId=69d5f18074b77a444990b72f
+[1:07:44 AM] [1:07:44 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[1:07:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:07:44 AM] [1:07:44 AM] GET /api/game/leaderboard from http://localhost:5173
+[1:07:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:07:44 AM] [1:07:44 AM] GET /api/game/leaderboard
+[1:07:48 AM] [1:07:48 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:07:48 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:07:48 AM] [1:07:48 AM] GET /api/game/courses from http://localhost:5173
+[1:07:48 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:07:48 AM] [1:07:48 AM] GET /api/game/courses
+[ERROR][1:08:01 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:08:01 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:08:01 AM] Retrying connection in 3s...
+[ERROR][1:08:01 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:08:04 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:08:49 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:08:49 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:08:49 AM] Retrying connection in 3s...
+[ERROR][1:08:49 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:08:52 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:09:47 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:09:47 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:09:47 AM] Retrying connection in 3s...
+[ERROR][1:09:47 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:09:50 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:10:39 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:10:39 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:10:39 AM] Retrying connection in 3s...
+[ERROR][1:10:40 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:10:43 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:10:58 AM] [1:10:58 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:10:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:10:59 AM] [1:10:59 AM] GET /api/game/courses from http://localhost:5173
+[1:10:59 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:10:59 AM] [1:10:59 AM] GET /api/game/courses
+[ERROR][1:11:35 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:11:35 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:11:35 AM] Retrying connection in 3s...
+[ERROR][1:11:35 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:11:38 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:12:27 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:12:27 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:12:27 AM] Retrying connection in 3s...
+[ERROR][1:12:27 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:12:30 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:13:20 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:13:20 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:13:20 AM] Retrying connection in 3s...
+[ERROR][1:13:20 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:13:23 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:14:16 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:14:16 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:14:16 AM] Retrying connection in 3s...
+[ERROR][1:14:16 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:14:19 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:15:06 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:15:06 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:15:06 AM] Retrying connection in 3s...
+[ERROR][1:15:06 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:15:09 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:16:03 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:16:03 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:16:03 AM] Retrying connection in 3s...
+[ERROR][1:16:03 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:16:07 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:16:59 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:16:59 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:16:59 AM] Retrying connection in 3s...
+[ERROR][1:16:59 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:17:02 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:17:31 AM] [1:17:31 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:17:31 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:17:31 AM] [1:17:31 AM] GET /api/game/courses from http://localhost:5173
+[1:17:31 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:17:31 AM] [1:17:31 AM] GET /api/game/courses
+[ERROR][1:17:48 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:17:48 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:17:48 AM] Retrying connection in 3s...
+[ERROR][1:17:48 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:17:51 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:18:03 AM] [1:18:03 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:18:03 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:18:03 AM] [1:18:03 AM] GET /api/game/courses from http://localhost:5173
+[1:18:03 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:18:03 AM] [1:18:03 AM] GET /api/game/courses
+[1:18:11 AM] [1:18:11 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:18:11 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:18:11 AM] [1:18:11 AM] GET /api/game/courses from http://localhost:5173
+[1:18:11 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:18:11 AM] [1:18:11 AM] GET /api/game/courses
+[ERROR][1:18:35 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:18:35 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:18:35 AM] Retrying connection in 3s...
+[ERROR][1:18:35 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:18:38 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:18:39 AM] [1:18:39 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:18:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:18:39 AM] [1:18:39 AM] GET /api/game/courses from http://localhost:5173
+[1:18:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:18:39 AM] [1:18:39 AM] GET /api/game/courses
+[1:19:00 AM] [1:19:00 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[1:19:00 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:19:01 AM] [1:19:01 AM] GET /api/game/leaderboard from http://localhost:5173
+[1:19:01 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:19:01 AM] [1:19:01 AM] GET /api/game/leaderboard
+[1:19:04 AM] [1:19:04 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:19:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:19:04 AM] [1:19:04 AM] GET /api/game/courses from http://localhost:5173
+[1:19:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:19:04 AM] [1:19:04 AM] GET /api/game/courses
+[ERROR][1:19:30 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:19:30 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:19:30 AM] Retrying connection in 3s...
+[ERROR][1:19:30 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:19:33 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:20:07 AM] [1:20:07 AM] OPTIONS /api/game/questions?courseId=69d5f18074b77a444990b72f from http://localhost:5173
+[1:20:07 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:20:07 AM] [1:20:07 AM] GET /api/game/questions?courseId=69d5f18074b77a444990b72f from http://localhost:5173
+[1:20:07 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:20:07 AM] [1:20:07 AM] GET /api/game/questions?courseId=69d5f18074b77a444990b72f
+[ERROR][1:20:22 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:20:22 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:20:22 AM] Retrying connection in 3s...
+[ERROR][1:20:22 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:20:25 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:21:10 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:21:11 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:21:11 AM] Retrying connection in 3s...
+[ERROR][1:21:11 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:21:14 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:21:41 AM] [1:21:41 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:21:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:21:41 AM] [1:21:41 AM] GET /api/game/courses from http://localhost:5173
+[1:21:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:21:41 AM] [1:21:41 AM] GET /api/game/courses
+[1:21:49 AM] [1:21:49 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:21:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:21:49 AM] [1:21:49 AM] GET /api/game/courses from http://localhost:5173
+[1:21:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:21:49 AM] [1:21:49 AM] GET /api/game/courses
+[ERROR][1:21:59 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:21:59 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:21:59 AM] Retrying connection in 3s...
+[ERROR][1:21:59 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:22:02 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:22:44 AM] [1:22:44 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[1:22:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:22:45 AM] [1:22:45 AM] GET /api/game/leaderboard from http://localhost:5173
+[1:22:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:22:45 AM] [1:22:45 AM] GET /api/game/leaderboard
+[1:22:47 AM] [1:22:47 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:22:47 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:22:48 AM] [1:22:48 AM] GET /api/game/courses from http://localhost:5173
+[1:22:48 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:22:48 AM] [1:22:48 AM] GET /api/game/courses
+[1:22:49 AM] [1:22:49 AM] OPTIONS /api/game/questions from http://localhost:5173
+[1:22:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:22:49 AM] [1:22:49 AM] GET /api/game/questions from http://localhost:5173
+[1:22:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:22:49 AM] [1:22:49 AM] GET /api/game/questions
+[ERROR][1:22:51 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:22:51 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:22:51 AM] Retrying connection in 3s...
+[ERROR][1:22:51 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:22:54 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:23:42 AM] [1:23:42 AM] OPTIONS /api/game/score from http://localhost:5173
+[1:23:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:23:42 AM] [1:23:42 AM] POST /api/game/score from http://localhost:5173
+[1:23:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:23:43 AM] [1:23:43 AM] POST /api/game/score
+[ERROR][1:23:43 AM] TokenExpiredError: jwt expired
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:190:21
+    at getSecret [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:97:14[90m)[39m
+    at module.exports [as verify] [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:101:10[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:14:27[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at Route.dispatch [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:117:3[90m)[39m
+    at handle [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:295:15 {
+  expiredAt: [35m2026-04-27T16:39:17.000Z[39m
+}
+[1:23:44 AM] [1:23:44 AM] GET /api/auth/refresh from http://localhost:5173
+[1:23:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:23:44 AM] [1:23:44 AM] GET /api/auth/refresh
+[ERROR][1:23:44 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:23:44 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:23:45 AM] Retrying connection in 3s...
+[ERROR][1:23:45 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:23:45 AM] [1:23:45 AM] POST /api/game/score from http://localhost:5173
+[1:23:45 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:23:45 AM] [1:23:45 AM] POST /api/game/score
+[1:23:48 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:24:36 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:24:36 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:24:36 AM] Retrying connection in 3s...
+[ERROR][1:24:36 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:24:39 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:25:23 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:25:23 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:25:23 AM] Retrying connection in 3s...
+[ERROR][1:25:23 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:25:26 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:25:39 AM] [1:25:39 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[1:25:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:25:39 AM] [1:25:39 AM] GET /api/game/leaderboard from http://localhost:5173
+[1:25:39 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:25:39 AM] [1:25:39 AM] GET /api/game/leaderboard
+[1:25:42 AM] [1:25:42 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:25:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:25:42 AM] [1:25:42 AM] GET /api/game/courses from http://localhost:5173
+[1:25:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:25:42 AM] [1:25:42 AM] GET /api/game/courses
+[1:26:04 AM] [1:26:04 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[1:26:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:26:04 AM] [1:26:04 AM] GET /api/game/leaderboard from http://localhost:5173
+[1:26:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:26:04 AM] [1:26:04 AM] GET /api/game/leaderboard
+[1:26:08 AM] [1:26:08 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:26:08 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:26:08 AM] [1:26:08 AM] GET /api/game/courses from http://localhost:5173
+[1:26:08 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:26:08 AM] [1:26:08 AM] GET /api/game/courses
+[ERROR][1:26:12 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:26:12 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:26:12 AM] Retrying connection in 3s...
+[ERROR][1:26:12 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:26:15 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:26:27 AM] [1:26:27 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[1:26:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:26:28 AM] [1:26:28 AM] GET /api/game/leaderboard from http://localhost:5173
+[1:26:28 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:26:28 AM] [1:26:28 AM] GET /api/game/leaderboard
+[ERROR][1:27:07 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:27:07 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:27:07 AM] Retrying connection in 3s...
+[ERROR][1:27:07 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:27:10 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:27:58 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:27:58 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:27:58 AM] Retrying connection in 3s...
+[ERROR][1:27:58 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:28:01 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:28:50 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:28:50 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:28:50 AM] Retrying connection in 3s...
+[ERROR][1:28:50 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:28:53 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:29:46 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:29:46 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:29:46 AM] Retrying connection in 3s...
+[ERROR][1:29:46 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:29:49 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:30:37 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:30:37 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:30:37 AM] Retrying connection in 3s...
+[ERROR][1:30:37 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:30:40 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:31:24 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:31:24 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:31:24 AM] Retrying connection in 3s...
+[ERROR][1:31:24 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:31:27 AM] [1:31:27 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[1:31:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:31:27 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:31:27 AM] [1:31:27 AM] GET /api/game/leaderboard from http://localhost:5173
+[1:31:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:31:27 AM] [1:31:27 AM] GET /api/game/leaderboard
+[1:31:41 AM] [1:31:41 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[1:31:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:31:41 AM] [1:31:41 AM] GET /api/game/leaderboard from http://localhost:5173
+[1:31:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:31:41 AM] [1:31:41 AM] GET /api/game/leaderboard
+[1:31:55 AM] [1:31:55 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[1:31:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:31:56 AM] [1:31:56 AM] GET /api/game/leaderboard from http://localhost:5173
+[1:31:56 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:31:56 AM] [1:31:56 AM] GET /api/game/leaderboard
+[ERROR][1:32:10 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:32:10 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:32:10 AM] Retrying connection in 3s...
+[ERROR][1:32:10 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:32:13 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:32:40 AM] [1:32:40 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[1:32:40 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:32:41 AM] [1:32:41 AM] GET /api/game/leaderboard from http://localhost:5173
+[1:32:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:32:41 AM] [1:32:41 AM] GET /api/game/leaderboard
+[1:33:02 AM] [1:33:02 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:33:02 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:33:02 AM] [1:33:02 AM] GET /api/game/courses from http://localhost:5173
+[1:33:02 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:33:02 AM] [1:33:02 AM] GET /api/game/courses
+[ERROR][1:33:07 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:33:07 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:33:08 AM] Retrying connection in 3s...
+[ERROR][1:33:08 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:33:11 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:34:02 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:34:02 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:34:02 AM] Retrying connection in 3s...
+[ERROR][1:34:02 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:34:05 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:34:27 AM] [1:34:27 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:34:27 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:34:28 AM] [1:34:28 AM] GET /api/game/courses from http://localhost:5173
+[1:34:28 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:34:28 AM] [1:34:28 AM] GET /api/game/courses
+[ERROR][1:34:56 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:34:56 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:34:56 AM] Retrying connection in 3s...
+[ERROR][1:34:56 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:34:59 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:35:48 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:35:49 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:35:50 AM] Retrying connection in 3s...
+[ERROR][1:35:53 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:35:57 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:35:58 AM] [1:35:58 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:36:00 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:04 AM] [1:36:04 AM] GET /api/game/courses from http://localhost:5173
+[1:36:04 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:04 AM] [1:36:04 AM] GET /api/game/courses
+[1:36:21 AM] [1:36:21 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:36:21 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:21 AM] [1:36:21 AM] GET /api/game/courses from http://localhost:5173
+[1:36:21 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:22 AM] [1:36:22 AM] GET /api/game/courses
+[1:36:46 AM] [1:36:46 AM] OPTIONS /api/game/questions from http://localhost:5173
+[1:36:46 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:46 AM] [1:36:46 AM] GET /api/game/questions from http://localhost:5173
+[1:36:46 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:36:47 AM] [1:36:47 AM] GET /api/game/questions
+[ERROR][1:36:56 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:36:56 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:36:56 AM] Retrying connection in 3s...
+[ERROR][1:36:56 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:36:59 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:37:53 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:37:54 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:37:55 AM] Retrying connection in 3s...
+[ERROR][1:37:56 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:37:59 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:38:12 AM] [1:38:12 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:38:12 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:38:12 AM] [1:38:12 AM] GET /api/game/courses from http://localhost:5173
+[1:38:12 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:38:13 AM] [1:38:13 AM] GET /api/game/courses
+[ERROR][1:38:43 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:38:43 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:38:43 AM] Retrying connection in 3s...
+[ERROR][1:38:43 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:38:46 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:39:21 AM] [1:39:21 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:39:21 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:39:22 AM] [1:39:22 AM] GET /api/game/courses from http://localhost:5173
+[1:39:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:39:22 AM] [1:39:22 AM] GET /api/game/courses
+[ERROR][1:39:32 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:39:32 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:39:32 AM] Retrying connection in 3s...
+[ERROR][1:39:32 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:39:35 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:40:20 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:40:23 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:40:26 AM] Retrying connection in 3s...
+[ERROR][1:40:30 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:40:35 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:41:38 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:41:44 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:41:44 AM] Retrying connection in 3s...
+[ERROR][1:41:45 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:41:48 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:42:22 AM] [1:42:22 AM] OPTIONS /api/game/score from http://localhost:5173
+[1:42:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:42:22 AM] [1:42:22 AM] POST /api/game/score from http://localhost:5173
+[1:42:22 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:42:22 AM] [1:42:22 AM] POST /api/game/score
+[ERROR][1:42:24 AM] TokenExpiredError: jwt expired
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:190:21
+    at getSecret [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:97:14[90m)[39m
+    at module.exports [as verify] [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:101:10[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/prepup%20copy/prepflow-server/[39mutils/authMiddleware.js:14:27[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at Route.dispatch [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\route.js:117:3[90m)[39m
+    at handle [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at [90mC:\Users\HP\Desktop\prepup copy\prepflow-server\[39mnode_modules\[4mrouter[24m\index.js:295:15 {
+  expiredAt: [35m2026-04-20T03:24:17.000Z[39m
+}
+[1:42:27 AM] [1:42:27 AM] GET /api/auth/refresh from http://localhost:5173
+[1:42:28 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:42:28 AM] [1:42:28 AM] GET /api/auth/refresh
+[ERROR][1:42:30 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:42:31 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:42:31 AM] Retrying connection in 3s...
+[ERROR][1:42:31 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:42:32 AM] [1:42:32 AM] OPTIONS /api/game/courses from http://localhost:5173
+[1:42:32 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:42:32 AM] [1:42:32 AM] GET /api/game/courses from http://localhost:5173
+[1:42:32 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[1:42:32 AM] [1:42:32 AM] GET /api/game/courses
+[1:42:34 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[ERROR][1:43:17 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:43:17 AM] MongoDB connection failed (attempt 1): querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:43:17 AM] Retrying connection in 3s...
+[ERROR][1:43:17 AM] [DB]: MongoDB connection error: querySrv ETIMEOUT _mongodb._tcp.cluster0.vjeopgu.mongodb.net
+[1:43:20 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[1:58:18 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[1:58:19 AM] Server is running on port 10000
+[1:58:19 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[ERROR][1:58:31 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][1:58:31 AM] MongoDB connection failed (attempt 1): Server selection timed out after 10000 ms
+[1:58:31 AM] Retrying connection in 3s...
+[ERROR][1:58:31 AM] [DB]: MongoDB connection error: Server selection timed out after 10000 ms
+[1:58:34 AM] MongoDB Connected: undefined
+[1:58:34 AM] [DB]: MongoDB connection restored.
+[1:58:34 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[2:02:31 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[2:02:31 AM] Server is running on port 10000
+[2:02:31 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[ERROR][2:02:43 AM] [DB]: MongoDB disconnected! Attempting reconnect...
+[ERROR][2:02:43 AM] MongoDB connection failed (attempt 1): Server selection timed out after 10000 ms
+[2:02:43 AM] Retrying connection in 3s...
+[ERROR][2:02:43 AM] [DB]: MongoDB connection error: Server selection timed out after 10000 ms
+[2:02:46 AM] MongoDB Connected: undefined
+[2:02:51 AM] [DB]: MongoDB connection restored.
+[2:02:51 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[2:08:17 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[2:08:18 AM] Server is running on port 10000
+[2:08:18 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[2:08:26 AM] [DB]: MongoDB connection restored.
+[2:08:26 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[2:12:28 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[2:12:28 AM] Server is running on port 10000
+[2:12:28 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[2:12:33 AM] [DB]: MongoDB connection restored.
+[2:12:33 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[2:16:15 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[2:16:15 AM] Server is running on port 10000
+[2:16:15 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[2:16:23 AM] [DB]: MongoDB connection restored.
+[2:16:23 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[2:17:01 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[2:17:01 AM] Server is running on port 10000
+[2:17:01 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[2:17:04 AM] [DB]: MongoDB connection restored.
+[2:17:04 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[2:18:22 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[2:18:22 AM] Server is running on port 10000
+[2:18:22 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[2:18:34 AM] [DB]: MongoDB connection restored.
+[2:18:34 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[2:18:40 AM] [2:18:40 AM] OPTIONS /api/game/courses from http://localhost:5173
+[2:18:41 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:18:42 AM] [2:18:42 AM] GET /api/game/courses from http://localhost:5173
+[2:18:42 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:18:43 AM] [2:18:43 AM] GET /api/game/courses
+[2:18:44 AM] [2:18:44 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[2:18:44 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:18:51 AM] [2:18:51 AM] GET /api/game/leaderboard from http://localhost:5173
+[2:18:51 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:18:52 AM] [2:18:52 AM] GET /api/game/leaderboard
+[2:19:01 AM] [2:19:01 AM] POST /api/auth/login from http://localhost:5174
+[2:19:01 AM] [CORS]: Request from http://localhost:5174 - ALLOWED
+[2:19:01 AM] [2:19:01 AM] POST /api/auth/login
+[2:19:01 AM] 
+[AUTH STEP 1]: Login attempt for jaymercy510@gmail.com
+[2:19:01 AM] [AUTH STEP 2]: Querying database...
+[2:19:01 AM] [AUTH STEP 3]: Comparing password...
+[2:19:02 AM] [AUTH STEP 4]: Authentication successful. Checking verification...
+[2:19:02 AM] [AUTH STEP 5]: Updating activity tracker...
+[2:19:02 AM] [AUTH STEP 6]: Sending token response...
+[2:19:04 AM] [2:19:04 AM] GET /api/quizzes from unknown
+[2:19:04 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:19:04 AM] [2:19:04 AM] GET /api/quizzes
+[2:19:04 AM] [2:19:04 AM] GET /api/submissions/my-submissions from unknown
+[2:19:04 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:19:04 AM] [2:19:04 AM] GET /api/submissions/my-submissions
+[2:19:19 AM] [2:19:19 AM] GET /api/chat/conversations from unknown
+[2:19:19 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:19:19 AM] [2:19:19 AM] GET /api/chat/conversations
+[2:19:23 AM] [2:19:23 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from unknown
+[2:19:23 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:19:23 AM] [2:19:23 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[2:19:26 AM] [2:19:26 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from unknown
+[2:19:26 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:19:26 AM] [2:19:26 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[2:19:30 AM] [2:19:30 AM] POST /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5174
+[2:19:30 AM] [CORS]: Request from http://localhost:5174 - ALLOWED
+[2:19:30 AM] [2:19:30 AM] POST /api/chat/69e076045a31bd8e5069f5c5
+[2:19:35 AM] [2:19:35 AM] OPTIONS /api/game/courses from http://localhost:5173
+[2:19:35 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:19:35 AM] [2:19:35 AM] GET /api/game/courses from http://localhost:5173
+[2:19:35 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:19:35 AM] [2:19:35 AM] GET /api/game/courses
+[2:19:36 AM] [2:19:36 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from unknown
+[2:19:36 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:19:36 AM] [2:19:36 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[2:19:36 AM] [2:19:36 AM] GET /api/chat/conversations from unknown
+[2:19:36 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:19:36 AM] [2:19:36 AM] GET /api/chat/conversations
+[2:19:36 AM] [2:19:36 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[2:19:36 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:19:36 AM] [2:19:36 AM] GET /api/game/leaderboard from http://localhost:5173
+[2:19:36 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:19:36 AM] [2:19:36 AM] GET /api/game/leaderboard
+[2:19:41 AM] [2:19:41 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from unknown
+[2:19:41 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:19:41 AM] [2:19:41 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[2:19:46 AM] [2:19:46 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from unknown
+[2:19:47 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:19:47 AM] [2:19:47 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[2:19:48 AM] [2:19:48 AM] OPTIONS /api/game/courses from http://localhost:5173
+[2:19:48 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:19:49 AM] [2:19:49 AM] GET /api/game/courses from http://localhost:5173
+[2:19:49 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:19:49 AM] [2:19:49 AM] GET /api/game/courses
+[2:19:50 AM] [2:19:50 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[2:19:50 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:19:50 AM] [2:19:50 AM] GET /api/game/leaderboard from http://localhost:5173
+[2:19:50 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:19:50 AM] [2:19:50 AM] GET /api/game/leaderboard
+[2:19:52 AM] [2:19:52 AM] GET /api/chat/conversations from unknown
+[2:19:52 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:19:52 AM] [2:19:52 AM] GET /api/chat/conversations
+[2:19:52 AM] [2:19:52 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from unknown
+[2:19:52 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:19:52 AM] [2:19:52 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[2:19:56 AM] [2:19:56 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from unknown
+[2:19:56 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:19:56 AM] [2:19:56 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[2:20:01 AM] [2:20:01 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from unknown
+[2:20:01 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:20:01 AM] [2:20:01 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[2:20:04 AM] [2:20:04 AM] POST /api/chat/69e076045a31bd8e5069f5c5 from http://localhost:5174
+[2:20:04 AM] [CORS]: Request from http://localhost:5174 - ALLOWED
+[2:20:04 AM] [2:20:04 AM] POST /api/chat/69e076045a31bd8e5069f5c5
+[2:20:06 AM] [2:20:06 AM] GET /api/chat/conversations from unknown
+[2:20:06 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:20:06 AM] [2:20:06 AM] GET /api/chat/conversations
+[2:20:12 AM] [2:20:12 AM] GET /api/chat/69e076045a31bd8e5069f5c5 from unknown
+[2:20:12 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:20:13 AM] [2:20:13 AM] GET /api/chat/69e076045a31bd8e5069f5c5
+[2:20:14 AM] [2:20:14 AM] OPTIONS /api/game/courses from http://localhost:5173
+[2:20:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:20:14 AM] [2:20:14 AM] GET /api/game/courses from http://localhost:5173
+[2:20:14 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:20:14 AM] [2:20:14 AM] GET /api/game/courses
+[2:20:14 AM] [2:20:14 AM] GET /api/game/leaderboard from unknown
+[2:20:15 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:20:15 AM] [2:20:15 AM] GET /api/game/leaderboard
+[2:20:16 AM] [2:20:16 AM] OPTIONS /api/game/leaderboard from http://localhost:5173
+[2:20:16 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:20:18 AM] [2:20:18 AM] GET /api/game/leaderboard from http://localhost:5173
+[2:20:18 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:20:18 AM] [2:20:18 AM] GET /api/game/leaderboard
+[2:20:18 AM] [2:20:18 AM] GET /api/game/courses from unknown
+[2:20:18 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:20:18 AM] [2:20:18 AM] GET /api/game/courses
+[2:20:46 AM] [2:20:46 AM] GET /api/game/leaderboard from unknown
+[2:20:46 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:20:46 AM] [2:20:46 AM] GET /api/game/leaderboard
+[2:20:54 AM] [2:20:54 AM] OPTIONS /api/game/courses from http://localhost:5173
+[2:20:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:20:54 AM] [2:20:54 AM] GET /api/game/courses from http://localhost:5173
+[2:20:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:20:54 AM] [2:20:54 AM] GET /api/game/courses
+[2:21:04 AM] [2:21:04 AM] OPTIONS /api/game/courses from http://localhost:5173
+[2:21:05 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:21:05 AM] [2:21:05 AM] GET /api/game/courses from http://localhost:5173
+[2:21:05 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:21:05 AM] [2:21:05 AM] GET /api/game/courses
+[2:21:07 AM] [2:21:07 AM] OPTIONS /api/game/courses from http://localhost:5173
+[2:21:07 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:21:07 AM] [2:21:07 AM] GET /api/game/courses from http://localhost:5173
+[2:21:07 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:21:07 AM] [2:21:07 AM] GET /api/game/courses
+[2:21:21 AM] [2:21:21 AM] GET /api/game/courses from unknown
+[2:21:21 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:21:21 AM] [2:21:21 AM] GET /api/game/courses
+[2:21:34 AM] [2:21:34 AM] OPTIONS /api/game/courses from http://localhost:5173
+[2:21:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:21:34 AM] [2:21:34 AM] GET /api/game/courses from http://localhost:5173
+[2:21:34 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:21:34 AM] [2:21:34 AM] GET /api/game/courses
+[2:21:36 AM] [2:21:36 AM] OPTIONS /api/game/courses from http://localhost:5173
+[2:21:36 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:21:37 AM] [2:21:37 AM] GET /api/game/courses from http://localhost:5173
+[2:21:37 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:21:37 AM] [2:21:37 AM] GET /api/game/courses
+[2:21:45 AM] [2:21:45 AM] GET /api/game/leaderboard from unknown
+[2:21:45 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:21:45 AM] [2:21:45 AM] GET /api/game/leaderboard
+[2:21:54 AM] [2:21:54 AM] OPTIONS /api/game/courses from http://localhost:5173
+[2:21:54 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:21:55 AM] [2:21:55 AM] GET /api/game/courses from http://localhost:5173
+[2:21:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:21:55 AM] [2:21:55 AM] GET /api/game/courses
+[2:21:55 AM] [2:21:55 AM] OPTIONS /api/game/courses from http://localhost:5173
+[2:21:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:21:55 AM] [2:21:55 AM] GET /api/game/courses from http://localhost:5173
+[2:21:55 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:21:55 AM] [2:21:55 AM] GET /api/game/courses
+[2:24:33 AM] [2:24:33 AM] OPTIONS /api/game/courses from http://localhost:5173
+[2:24:33 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:24:33 AM] [2:24:33 AM] GET /api/game/courses from http://localhost:5173
+[2:24:33 AM] [CORS]: Request from http://localhost:5173 - ALLOWED
+[2:24:33 AM] [2:24:33 AM] GET /api/game/courses
+[2:26:59 AM] [2:26:59 AM] GET /api/health from unknown
+[2:26:59 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:26:59 AM] [2:26:59 AM] GET /api/health
+[2:26:59 AM] [2:26:59 AM] GET /favicon.ico from unknown
+[2:26:59 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:26:59 AM] [2:26:59 AM] GET /favicon.ico
+[2:27:28 AM] [2:27:28 AM] GET /api/game/courses from unknown
+[2:27:28 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:27:28 AM] [2:27:28 AM] GET /api/game/courses
+[2:27:30 AM] [2:27:30 AM] GET /api/game/courses from unknown
+[2:27:30 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:27:30 AM] [2:27:30 AM] GET /api/game/courses
+[2:31:32 AM] [2:31:32 AM] GET /api/game/leaderboard from unknown
+[2:31:32 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:31:32 AM] [2:31:32 AM] GET /api/game/leaderboard

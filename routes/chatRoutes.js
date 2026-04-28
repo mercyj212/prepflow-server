@@ -6,7 +6,8 @@ import { protect } from '../utils/authMiddleware.js';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const router = express.Router();
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY || 'MISSING_API_KEY');
+const geminiApiKey = process.env.GOOGLE_API_KEY || process.env.GEMINI_API_KEY;
+const genAI = new GoogleGenerativeAI(geminiApiKey || 'MISSING_API_KEY');
 
 // 🔄 GET /api/chat/conversations - Fetch sidebar chats
 router.get('/conversations', protect, async (req, res) => {
@@ -134,8 +135,8 @@ router.post('/:conversationId', protect, async (req, res) => {
 
     // If it's the AI tutor, process AI reply
     if (convo.isAI) {
-      if (!process.env.GOOGLE_API_KEY) {
-        throw new Error('GOOGLE_API_KEY is missing from environment variables');
+      if (!geminiApiKey) {
+        throw new Error('GOOGLE_API_KEY or GEMINI_API_KEY is missing from environment variables');
       }
 
       try {
