@@ -108,16 +108,19 @@ export const getCoursesWithQuestions = async (req, res) => {
         let hasPaidAccess = accessedCourseIds.includes(course._id.toString());
         const hasAdminAccess = req.user?.role === "admin";
         
-        // SURGICAL OVERRIDE for jaymercy510@gmail.com
-        if (req.user?.email === 'jaymercy510@gmail.com') {
-            hasPaidAccess = (courseIndex === 0);
-            console.log(`[OVERRIDE] jaymercy510 access for ${course.title}: ${hasPaidAccess}`);
+        // Universal Preview Override: First course is always accessible
+        if (courseIndex === 0 && !hasPaidAccess) {
+            hasPaidAccess = true;
+            course.gameAccessReason = "preview";
+        } else {
+            course.gameAccessReason = hasAdminAccess ? "admin" : hasPaidAccess ? "paid" : "locked";
         }
         
-        console.log(`[GAME_ACCESS]: Course ${course.title} | Paid: ${hasPaidAccess} | Admin: ${hasAdminAccess}`);
+        // Remove the hardcoded Jaymercy override since we're doing universal preview
+        
+        console.log(`[GAME_ACCESS]: Course ${course.title} | Paid: ${hasPaidAccess} | Reason: ${course.gameAccessReason}`);
         
         course.hasGameAccess = hasPaidAccess;
-        course.gameAccessReason = hasAdminAccess ? "admin" : hasPaidAccess ? "paid" : "locked";
         course.faculty = course.department?.faculty || null;
         courseMap.set(course._id.toString(), course);
         courseIndex++;
