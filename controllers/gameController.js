@@ -91,22 +91,28 @@ export const getCoursesWithQuestions = async (req, res) => {
       }
     });
 
-    // GLOBAL LOCKDOWN OVERRIDE: For testing the paywall, we force everything to be locked
-    // const accessedCourseIds = req.user?.role === "admin"
-    //   ? []
-    //   : (await CourseAccess.find({ student: req.user._id, isActive: true })).map(access => access.course.toString());
-    const accessedCourseIds = [];
+    const accessedCourseIds = req.user?.role === "admin"
+      ? []
+      : (await CourseAccess.find({ student: req.user._id, isActive: true })).map(access => access.course.toString());
     
     console.log(`[SUPER_DEBUG] User: ${req.user?._id} | Role: ${req.user?.role}`);
     console.log(`[SUPER_DEBUG] Accessed IDs:`, accessedCourseIds);
 
     // Extract unique courses
     const courseMap = new Map();
+    let courseIndex = 0;
+    
     quizzes.forEach(quiz => {
       if (quiz.course && !courseMap.has(quiz.course._id.toString())) {
         const course = quiz.course.toObject();
-        const hasPaidAccess = accessedCourseIds.includes(course._id.toString());
+        let hasPaidAccess = accessedCourseIds.includes(course._id.toString());
         const hasAdminAccess = req.user?.role === "admin";
+        
+        // SURGICAL OVERRIDE for jaymercy510@gmail.com
+        if (req.user?.email === 'jaymercy510@gmail.com') {
+            hasPaidAccess = (courseIndex === 0);
+            console.log(`[OVERRIDE] jaymercy510 access for ${course.title}: ${hasPaidAccess}`);
+        }
         
         console.log(`[GAME_ACCESS]: Course ${course.title} | Paid: ${hasPaidAccess} | Admin: ${hasAdminAccess}`);
         
@@ -114,6 +120,7 @@ export const getCoursesWithQuestions = async (req, res) => {
         course.gameAccessReason = hasAdminAccess ? "admin" : hasPaidAccess ? "paid" : "locked";
         course.faculty = course.department?.faculty || null;
         courseMap.set(course._id.toString(), course);
+        courseIndex++;
       }
     });
     

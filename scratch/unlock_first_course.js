@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import User from '../models/User.js';
+import Student from '../models/Student.js';
 import Course from '../models/Course.js';
 import CourseAccess from '../models/CourseAccess.js';
 import Quiz from '../models/Quiz.js';
@@ -13,7 +13,7 @@ const setupUserAccess = async () => {
     console.log('Connected to MongoDB');
 
     const email = 'jaymercy510@gmail.com';
-    const user = await User.findOne({ email });
+    const user = await Student.findOne({ email });
     if (!user) {
       console.error(`User ${email} not found`);
       process.exit(1);
