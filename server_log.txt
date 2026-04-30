@@ -13903,3 +13903,42 @@ Please retry in 33.635142343s. [{"@type":"type.googleapis.com/google.rpc.Help","
 [3:16:59 AM] [3:16:59 AM] GET /api/game/leaderboard from unknown
 [3:16:59 AM] [CORS]: No origin provided (likely server-to-server or direct)
 [3:16:59 AM] [3:16:59 AM] GET /api/game/leaderboard
+[8:45:57 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[8:45:58 AM] Server is running on port 10000
+[8:45:58 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[8:46:05 AM] [DB]: MongoDB connection restored.
+[8:46:05 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[9:42:29 AM] [9:42:29 AM] GET /api/health from unknown
+[9:42:29 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[9:42:29 AM] [9:42:29 AM] GET /api/health
+[9:42:29 AM] [9:42:29 AM] GET /api/quizzes/stats from unknown
+[9:42:29 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[9:42:29 AM] [9:42:29 AM] GET /api/quizzes/stats
+[9:42:30 AM] [9:42:30 AM] GET /api/submissions/progress from unknown
+[9:42:30 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[9:42:30 AM] [9:42:30 AM] GET /api/submissions/progress
+[ERROR][9:42:30 AM] TokenExpiredError: jwt expired
+    at [90mC:\Users\HP\Desktop\PrepFlow\server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:190:21
+    at getSecret [90m(C:\Users\HP\Desktop\PrepFlow\server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:97:14[90m)[39m
+    at module.exports [as verify] [90m(C:\Users\HP\Desktop\PrepFlow\server\[39mnode_modules\[4mjsonwebtoken[24m\verify.js:101:10[90m)[39m
+    at protect [90m(file:///C:/Users/HP/Desktop/PrepFlow/server/[39mutils/authMiddleware.js:14:27[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\PrepFlow\server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at next [90m(C:\Users\HP\Desktop\PrepFlow\server\[39mnode_modules\[4mrouter[24m\lib\route.js:157:13[90m)[39m
+    at Route.dispatch [90m(C:\Users\HP\Desktop\PrepFlow\server\[39mnode_modules\[4mrouter[24m\lib\route.js:117:3[90m)[39m
+    at handle [90m(C:\Users\HP\Desktop\PrepFlow\server\[39mnode_modules\[4mrouter[24m\index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(C:\Users\HP\Desktop\PrepFlow\server\[39mnode_modules\[4mrouter[24m\lib\layer.js:152:17[90m)[39m
+    at [90mC:\Users\HP\Desktop\PrepFlow\server\[39mnode_modules\[4mrouter[24m\index.js:295:15 {
+  expiredAt: [35m2026-04-28T03:19:02.000Z[39m
+}
+[9:42:30 AM] [9:42:30 AM] GET /api/auth/refresh from unknown
+[9:42:30 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[9:42:30 AM] [9:42:30 AM] GET /api/auth/refresh
+[9:42:31 AM] [9:42:31 AM] GET /api/submissions/progress from unknown
+[9:42:31 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[9:42:31 AM] [9:42:31 AM] GET /api/submissions/progress
+[9:43:52 AM] [9:43:52 AM] GET /api/quizzes/stats from unknown
+[9:43:52 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[9:43:52 AM] [9:43:52 AM] GET /api/quizzes/stats
+[9:43:52 AM] [9:43:52 AM] GET /api/submissions/progress from unknown
+[9:43:52 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[9:43:52 AM] [9:43:52 AM] GET /api/submissions/progress
