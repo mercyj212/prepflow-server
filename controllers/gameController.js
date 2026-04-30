@@ -1,19 +1,37 @@
 import Student from "../models/Student.js";
 import Quiz from "../models/Quiz.js";
+import CourseAccess from "../models/CourseAccess.js";
 
 // @desc    Get questions for PrepDrive
 // @route   GET /api/game/questions
-// @access  Public or Private
+// @access  Private
 export const getQuestions = async (req, res) => {
   try {
     const { courseId } = req.query;
     
-    let quizzes;
-    if (courseId) {
-      quizzes = await Quiz.find({ course: courseId }).limit(5);
-    } else {
-      quizzes = await Quiz.aggregate([{ $sample: { size: 3 } }]);
+    if (!courseId) {
+      return res.status(400).json({
+        success: false,
+        message: "Select a paid course to start this game."
+      });
     }
+
+    if (req.user?.role !== "admin") {
+      const access = await CourseAccess.findOne({
+        student: req.user._id,
+        course: courseId,
+        isActive: true
+      });
+
+      if (!access) {
+        return res.status(403).json({
+          success: false,
+          message: "Pay for this course to unlock its game."
+        });
+      }
+    }
+
+    const quizzes = await Quiz.find({ course: courseId }).limit(5);
 
     let questions = [];
     
@@ -49,17 +67,35 @@ export const getQuestions = async (req, res) => {
 
 // @desc    Get courses that have questions
 // @route   GET /api/game/courses
-// @access  Public
+// @access  Private
 export const getCoursesWithQuestions = async (req, res) => {
   try {
     // Find all quizzes that have questions
-    const quizzes = await Quiz.find({ "questions.0": { $exists: true } }).populate("course", "title description path");
+    const quizzes = await Quiz.find({ "questions.0": { $exists: true } }).populate({
+      path: "course",
+      select: "title description path level department price",
+      populate: {
+        path: "department",
+        select: "name faculty",
+        populate: { path: "faculty", select: "name path" }
+      }
+    });
+
+    const accessedCourseIds = req.user?.role === "admin"
+      ? []
+      : (await CourseAccess.find({ student: req.user._id, isActive: true })).map(access => access.course.toString());
     
     // Extract unique courses
     const courseMap = new Map();
     quizzes.forEach(quiz => {
       if (quiz.course && !courseMap.has(quiz.course._id.toString())) {
-        courseMap.set(quiz.course._id.toString(), quiz.course);
+        const course = quiz.course.toObject();
+        const hasPaidAccess = accessedCourseIds.includes(course._id.toString());
+        const hasAdminAccess = req.user?.role === "admin";
+        course.hasGameAccess = hasAdminAccess || hasPaidAccess;
+        course.gameAccessReason = hasAdminAccess ? "admin" : hasPaidAccess ? "paid" : "locked";
+        course.faculty = course.department?.faculty || null;
+        courseMap.set(course._id.toString(), course);
       }
     });
     

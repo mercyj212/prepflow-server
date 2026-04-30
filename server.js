@@ -1,29 +1,5 @@
-import 'dotenv/config';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-// 📝 PERSISTENT LOG CAPTURING
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const logFile = path.join(__dirname, 'server_log.txt');
-const logStream = fs.createWriteStream(logFile, { flags: 'a' });
-
-const originalStdoutWrite = process.stdout.write.bind(process.stdout);
-const originalStderrWrite = process.stderr.write.bind(process.stderr);
-
-process.stdout.write = (chunk) => {
-  logStream.write(`[${new Date().toLocaleTimeString()}] ${chunk}`);
-  return originalStdoutWrite(chunk);
-};
-
-process.stderr.write = (chunk) => {
-  logStream.write(`[ERROR][${new Date().toLocaleTimeString()}] ${chunk}`);
-  return originalStderrWrite(chunk);
-};
-
-console.log('--- SERVER RESTARTED - LOGGER ACTIVE ---');
-
 import express from 'express';
+import dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './config/db.js';
 
@@ -38,18 +14,20 @@ import chatRoutes from './routes/chatRoutes.js';
 import facultyRoutes from './routes/facultyRoutes.js';
 import departmentRoutes from './routes/departmentRoutes.js';
 import gameRoutes from './routes/gameRoutes.js';
+import paymentRoutes from './routes/paymentRoutes.js';
 import mongoose from 'mongoose';
 
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
-import mongoSanitize from 'express-mongo-sanitize';
-import hpp from 'hpp';
 import cookieParser from 'cookie-parser';
+import { mongoSanitizeMiddleware, hppMiddleware } from './utils/securityMiddleware.js';
+
+dotenv.config();
 
 const app = express();
 app.use(cookieParser());
 
-// 👉 MOVE LOGGER TO TOP TO CATCH EVERYTHING
+// 👉 REQUEST LOGGER
 app.use((req, res, next) => {
   console.log(`[${new Date().toLocaleTimeString()}] ${req.method} ${req.url} from ${req.headers.origin || 'unknown'}`);
   next();
@@ -67,14 +45,11 @@ const allowedOrigins = [
 const corsOptions = {
   origin(origin, callback) {
     if (!origin) {
-      console.log('[CORS]: No origin provided (likely server-to-server or direct)');
       return callback(null, true);
     }
     const normalized = origin.replace(/\/$/, '');
     const isLocalDevOrigin = /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(normalized);
     const isAllowed = allowedOrigins.includes(normalized) || normalized.endsWith('.vercel.app') || isLocalDevOrigin;
-    
-    console.log(`[CORS]: Request from ${origin} - ${isAllowed ? 'ALLOWED' : 'DENIED'}`);
     
     if (isAllowed) {
       callback(null, true);
@@ -96,28 +71,43 @@ app.options(/.*/, cors(corsOptions));
 app.use(helmet({
   crossOriginOpenerPolicy: { policy: "same-origin-allow-popups" },
   crossOriginEmbedderPolicy: false,
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "https://js.paystack.co"],
+      connectSrc: ["'self'", "https://api.paystack.co", "https://generativelanguage.googleapis.com"],
+      imgSrc: ["'self'", "data:", "https://res.cloudinary.com"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      frameSrc: ["'self'", "https://checkout.paystack.com", "https://js.paystack.co"],
+    },
+  },
 }));
 
-// 2. DATA SANITIZATION 
-// app.use(mongoSanitize()); // Incompatible with Express 5 (Cannot set property query of #<IncomingMessage>)
+// 2. DATA SANITIZATION (Express 5 Compatible)
+app.use(mongoSanitizeMiddleware);
 
 // 3. PARAMETER POLLUTION PROTECTION
-// app.use(hpp()); // Incompatible with Express 5
+app.use(hppMiddleware);
+
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, 
-  max: 2000, // Further increased to avoid polling limits
+  max: 2000, 
   message: { message: "Too many requests from this IP, please try again after 15 minutes" }
 });
+
+const authLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000, // 1 hour
+  max: 10, // 10 attempts per hour
+  message: { message: "Too many authentication attempts. Please try again in an hour." }
+});
+
 app.use('/api/', limiter);
+app.use('/api/auth/login', authLimiter);
+app.use('/api/auth/register', authLimiter);
+app.use('/api/auth/forgot-password', authLimiter);
 
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
-
-// 👉 REQUEST LOGGER
-app.use((req, res, next) => {
-  console.log(`[${new Date().toLocaleTimeString()}] ${req.method} ${req.url}`);
-  next();
-});
 
 connectDB();
 
@@ -132,17 +122,13 @@ app.use('/api/faculties', facultyRoutes);
 app.use('/api/departments', departmentRoutes);
 app.use('/api/chat', chatRoutes);
 app.use('/api/game', gameRoutes);
+app.use('/api/payments', paymentRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ 
     status: 'System Functional', 
     database: mongoose.connection.readyState === 1 ? 'Operational' : 'Establishing...',
-    databaseReadyState: mongoose.connection.readyState,
-    environment: {
-      db: process.env.MONGODB_URI ? 'Locked' : 'Missing',
-      auth: process.env.JWT_SECRET ? 'Locked' : 'Missing',
-      ai: (process.env.GOOGLE_API_KEY || process.env.GEMINI_API_KEY) ? 'Locked' : 'Missing'
-    }
+    databaseReadyState: mongoose.connection.readyState
   });
 });
 
@@ -150,16 +136,13 @@ app.get('/', (req, res) => {
   res.json({ message: 'Backend is working🚀' });
 });
 
-const PORT = process.env.PORT || 10000; // Render expects 10000 by default
+const PORT = process.env.PORT || 10000;
 
-// Global error handler
 app.use((err, req, res, next) => {
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
   console.error(`[CRITICAL SERVER ERROR] ${req.method} ${req.url}:`, err.message);
-  console.error(err.stack);
-  
   res.status(statusCode).json({ 
-    message: "A critical backend error occurred. Please check the server logs.",
+    message: "A critical backend error occurred.",
     debug: err.message,
     stack: process.env.NODE_ENV === 'production' ? null : err.stack
   });
@@ -167,5 +150,4 @@ app.use((err, req, res, next) => {
 
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
-  console.log('ENV CHECK:', process.env.MONGODB_URI);
 });

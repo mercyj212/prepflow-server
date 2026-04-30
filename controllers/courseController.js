@@ -1,18 +1,45 @@
 import Course from "../models/Course.js";
 import Student from "../models/Student.js";
+import CourseAccess from "../models/CourseAccess.js";
 import sendEmail from "../utils/emailService.js";
 import { cloudinary } from "../config/cloudinary.js";
 
 // @desc    Get all courses (optionally filter by department, level)
 // @route   GET /api/courses?department=&level=
-// @access  Public
+// @access  Public (Access checked if logged in)
 export const getCourses = async (req, res) => {
   try {
     const filter = {};
     if (req.query.department) filter.department = req.query.department;
     if (req.query.level) filter.level = req.query.level;
     if (req.query.path) filter.path = req.query.path;
-    const courses = await Course.find(filter).populate("department", "name faculty").sort({ title: 1 });
+    
+    let courses = await Course.find(filter)
+      .populate({
+        path: "department",
+        select: "name faculty",
+        populate: { path: "faculty", select: "name path" },
+      })
+      .sort({ title: 1 });
+
+    courses = courses.map(course => {
+      const courseObj = course.toObject();
+      courseObj.faculty = courseObj.department?.faculty || null;
+      return courseObj;
+    });
+    
+    // If student is logged in, check access for each course
+    if (req.user && req.user.role === 'student') {
+        const studentAccess = await CourseAccess.find({ student: req.user._id });
+        const accessedCourseIds = studentAccess.map(a => a.course.toString());
+        
+        courses = courses.map(course => {
+            const courseObj = { ...course };
+            courseObj.hasAccess = accessedCourseIds.includes(course._id.toString()) || (course.price === 0);
+            return courseObj;
+        });
+    }
+
     res.json(courses);
   } catch (error) {
     res.status(500).json({ message: error.message });

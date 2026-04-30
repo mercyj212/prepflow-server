@@ -4,8 +4,8 @@ import { protect } from "../utils/authMiddleware.js";
 
 const router = express.Router();
 
-router.get("/questions", getQuestions);
-router.get("/courses", getCoursesWithQuestions);
+router.get("/questions", protect, getQuestions);
+router.get("/courses", protect, getCoursesWithQuestions);
 router.get("/leaderboard", getLeaderboard);
 router.post("/score", protect, saveScore);
 

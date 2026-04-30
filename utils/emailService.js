@@ -11,13 +11,16 @@ const __dirname = path.dirname(__filename);
 const sendEmail = async (options) => {
     // Persistent Transport Configuration (Optimized for Render/Vercel Cloud Nodes)
     const transporter = nodemailer.createTransport({
+        pool: true, // Enable connection pooling
+        maxConnections: 3, // Max simultaneous connections
+        maxMessages: 100, // Max messages per connection
         host: 'smtp.gmail.com',
         port: 465,
         secure: true, // Use SSL
         family: 4, 
-        connectionTimeout: 20000, // 20s
-        greetingTimeout: 20000, 
-        socketTimeout: 20000, 
+        connectionTimeout: 30000, // Increased to 30s
+        greetingTimeout: 30000, 
+        socketTimeout: 30000, 
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,

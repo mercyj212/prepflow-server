@@ -39,6 +39,10 @@ const courseSchema = new mongoose.Schema(
             default: null,
         },
         materials: [materialSchema],
+        price: {
+            type: Number,
+            default: 0,
+        },
     },
     { timestamps: true }
 );

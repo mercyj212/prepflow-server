@@ -23,17 +23,45 @@ const ensureStructure = async () => {
       console.log('Faculty already exists: School of ICT');
     }
 
-    // 2. Ensure Computer Science (Department) exists under School of ICT
-    let csDept = await Department.findOne({ name: /Computer Science/i, faculty: ictFaculty._id });
-    if (!csDept) {
-      csDept = await Department.create({
+    // 2. Ensure ICT departments exist under School of ICT
+    const departments = [
+      {
         name: 'Computer Science',
-        faculty: ictFaculty._id,
-        description: 'Department of Computer Science'
+        description: 'ND1 and ND2 foundation department'
+      },
+      {
+        name: 'Software and Web Development',
+        description: 'HND specialization department'
+      },
+      {
+        name: 'Artificial Intelligence',
+        description: 'HND specialization department'
+      },
+      {
+        name: 'Networking and Cloud Computing',
+        description: 'HND specialization department'
+      },
+      {
+        name: 'Cyber Security',
+        description: 'HND specialization department'
+      }
+    ];
+
+    for (const dept of departments) {
+      const exists = await Department.findOne({
+        name: new RegExp(`^${dept.name}$`, 'i'),
+        faculty: ictFaculty._id
       });
-      console.log('Created Department: Computer Science');
-    } else {
-      console.log('Department already exists: Computer Science');
+
+      if (!exists) {
+        await Department.create({
+          ...dept,
+          faculty: ictFaculty._id
+        });
+        console.log(`Created Department: ${dept.name}`);
+      } else {
+        console.log(`Department already exists: ${dept.name}`);
+      }
     }
 
     console.log('Academic structure preparation complete.');

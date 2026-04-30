@@ -15,6 +15,16 @@ const shuffleArray = (array) => {
   return shuffled;
 };
 
+const coursePopulate = {
+  path: "course",
+  select: "title level path department",
+  populate: {
+    path: "department",
+    select: "name faculty",
+    populate: { path: "faculty", select: "name path" },
+  },
+};
+
 // @desc    Get public platform stats (no auth required)
 // @route   GET /api/quizzes/stats
 // @access  Public
@@ -50,7 +60,7 @@ export const getPublicStats = async (req, res) => {
 // @desc    Get all quizzes
 export const getQuizzes = async (req, res) => {
   try {
-    const quizzes = await Quiz.find({ isActive: true }).populate("course", "title");
+    const quizzes = await Quiz.find({ isActive: true }).populate(coursePopulate);
     res.json(quizzes);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -60,7 +70,7 @@ export const getQuizzes = async (req, res) => {
 // @desc    Get single quiz (Standard Exam - 60 Random Questions)
 export const getQuizById = async (req, res) => {
   try {
-    const quiz = await Quiz.findById(req.params.id).populate("course", "title");
+    const quiz = await Quiz.findById(req.params.id).populate(coursePopulate);
 
     if (quiz) {
       const quizObj = quiz.toObject();
@@ -89,7 +99,7 @@ export const getQuizById = async (req, res) => {
 // @desc    Get single quiz for study mode (60 Random Questions with Answers)
 export const getStudyQuizById = async (req, res) => {
   try {
-    const quiz = await Quiz.findById(req.params.id).populate("course", "title");
+    const quiz = await Quiz.findById(req.params.id).populate(coursePopulate);
 
     if (quiz) {
       const quizObj = quiz.toObject();
@@ -114,7 +124,7 @@ export const getStudyQuizById = async (req, res) => {
 // @desc    Get single quiz for public practice (60 Random Questions with Answers)
 export const getStudyQuizByIdPublic = async (req, res) => {
   try {
-    const quiz = await Quiz.findById(req.params.id).populate("course", "title");
+    const quiz = await Quiz.findById(req.params.id).populate(coursePopulate);
 
     if (quiz) {
       const quizObj = quiz.toObject();
