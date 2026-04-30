@@ -13631,3 +13631,275 @@ Please retry in 33.635142343s. [{"@type":"type.googleapis.com/google.rpc.Help","
 [2:31:32 AM] [2:31:32 AM] GET /api/game/leaderboard from unknown
 [2:31:32 AM] [CORS]: No origin provided (likely server-to-server or direct)
 [2:31:32 AM] [2:31:32 AM] GET /api/game/leaderboard
+[2:41:33 AM] [2:41:33 AM] GET /api/game/leaderboard from unknown
+[2:41:33 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:41:33 AM] [2:41:33 AM] GET /api/game/leaderboard
+[2:42:30 AM] [2:42:30 AM] GET /api/quizzes/stats from unknown
+[2:42:30 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:42:30 AM] [2:42:30 AM] GET /api/quizzes/stats
+[2:42:30 AM] [2:42:30 AM] GET /api/submissions/progress from unknown
+[2:42:30 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:42:30 AM] [2:42:30 AM] GET /api/submissions/progress
+[2:42:42 AM] [2:42:42 AM] GET /api/quizzes from unknown
+[2:42:42 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:42:42 AM] [2:42:42 AM] GET /api/quizzes
+[2:42:42 AM] [2:42:42 AM] GET /api/submissions/my-submissions from unknown
+[2:42:42 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:42:42 AM] [2:42:42 AM] GET /api/submissions/my-submissions
+[2:42:50 AM] [2:42:50 AM] GET /api/game/leaderboard from unknown
+[2:42:50 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:42:50 AM] [2:42:50 AM] GET /api/game/leaderboard
+[2:42:53 AM] [2:42:53 AM] GET /api/game/courses from unknown
+[2:42:53 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:42:53 AM] [2:42:53 AM] GET /api/game/courses
+[2:43:41 AM] [2:43:41 AM] GET /api/game/leaderboard from unknown
+[2:43:41 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:43:41 AM] [2:43:41 AM] GET /api/game/leaderboard
+[2:43:46 AM] [2:43:46 AM] GET /api/game/courses from unknown
+[2:43:46 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:43:46 AM] [2:43:46 AM] GET /api/game/courses
+[2:45:08 AM] [2:45:08 AM] GET /api/game/leaderboard from unknown
+[2:45:08 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:45:08 AM] [2:45:08 AM] GET /api/game/leaderboard
+[2:45:14 AM] [2:45:14 AM] GET /api/game/leaderboard from unknown
+[2:45:14 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:45:14 AM] [2:45:14 AM] GET /api/game/leaderboard
+[2:45:38 AM] [2:45:38 AM] GET /api/game/leaderboard from unknown
+[2:45:38 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:45:38 AM] [2:45:38 AM] GET /api/game/leaderboard
+[2:47:31 AM] --- SERVER RESTARTED - LOGGER ACTIVE ---
+[2:47:31 AM] Server is running on port 10000
+[2:47:31 AM] ENV CHECK: mongodb+srv://prepflow:Prepflow4801@cluster0.vjeopgu.mongodb.net/prepflow?retryWrites=true&w=majority
+[2:47:45 AM] [DB]: MongoDB connection restored.
+[2:47:45 AM] MongoDB Connected: ac-gy8st3b-shard-00-00.vjeopgu.mongodb.net
+[2:47:52 AM] [2:47:52 AM] GET /api/quizzes/stats from unknown
+[2:47:52 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:47:52 AM] [2:47:52 AM] GET /api/quizzes/stats
+[2:47:52 AM] [2:47:52 AM] GET /api/submissions/progress from unknown
+[2:47:52 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:47:52 AM] [2:47:52 AM] GET /api/submissions/progress
+[2:48:07 AM] [2:48:07 AM] GET /api/quizzes/stats from unknown
+[2:48:07 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:48:07 AM] [2:48:07 AM] GET /api/quizzes/stats
+[2:48:07 AM] [2:48:07 AM] GET /api/submissions/progress from unknown
+[2:48:07 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:48:07 AM] [2:48:07 AM] GET /api/submissions/progress
+[2:48:16 AM] [2:48:16 AM] GET /api/quizzes/stats from unknown
+[2:48:16 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:48:16 AM] [2:48:16 AM] GET /api/quizzes/stats
+[2:48:16 AM] [2:48:16 AM] GET /api/submissions/progress from unknown
+[2:48:16 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:48:16 AM] [2:48:16 AM] GET /api/submissions/progress
+[2:48:27 AM] [2:48:27 AM] GET /api/quizzes/stats from unknown
+[2:48:27 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:48:27 AM] [2:48:27 AM] GET /api/quizzes/stats
+[2:48:27 AM] [2:48:27 AM] GET /api/submissions/progress from unknown
+[2:48:27 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:48:27 AM] [2:48:27 AM] GET /api/submissions/progress
+[2:49:20 AM] [2:49:20 AM] GET /api/quizzes/stats from unknown
+[2:49:20 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:49:20 AM] [2:49:20 AM] GET /api/quizzes/stats
+[2:49:20 AM] [2:49:20 AM] GET /api/submissions/progress from unknown
+[2:49:20 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:49:20 AM] [2:49:20 AM] GET /api/submissions/progress
+[2:49:45 AM] [2:49:45 AM] GET /api/quizzes/stats from unknown
+[2:49:45 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:49:45 AM] [2:49:45 AM] GET /api/quizzes/stats
+[2:49:45 AM] [2:49:45 AM] GET /api/submissions/progress from unknown
+[2:49:45 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:49:45 AM] [2:49:45 AM] GET /api/submissions/progress
+[2:49:47 AM] [2:49:47 AM] GET /api/quizzes/stats from unknown
+[2:49:47 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:49:47 AM] [2:49:47 AM] GET /api/quizzes/stats
+[2:49:47 AM] [2:49:47 AM] GET /api/submissions/progress from unknown
+[2:49:47 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:49:47 AM] [2:49:47 AM] GET /api/submissions/progress
+[2:51:09 AM] [2:51:09 AM] GET /api/quizzes/stats from unknown
+[2:51:09 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:51:09 AM] [2:51:09 AM] GET /api/quizzes/stats
+[2:51:09 AM] [2:51:09 AM] GET /api/submissions/progress from unknown
+[2:51:09 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:51:09 AM] [2:51:09 AM] GET /api/submissions/progress
+[2:51:29 AM] [2:51:29 AM] GET /api/quizzes/stats from unknown
+[2:51:29 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:51:29 AM] [2:51:29 AM] GET /api/quizzes/stats
+[2:51:29 AM] [2:51:29 AM] GET /api/submissions/progress from unknown
+[2:51:29 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:51:29 AM] [2:51:29 AM] GET /api/submissions/progress
+[2:52:08 AM] [2:52:08 AM] GET /api/game/courses from unknown
+[2:52:08 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:52:08 AM] [2:52:08 AM] GET /api/game/courses
+[2:53:54 AM] [2:53:54 AM] GET /api/game/leaderboard from unknown
+[2:53:54 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:53:54 AM] [2:53:54 AM] GET /api/game/leaderboard
+[2:54:03 AM] [2:54:03 AM] GET /api/quizzes/stats from unknown
+[2:54:03 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:54:03 AM] [2:54:03 AM] GET /api/quizzes/stats
+[2:54:03 AM] [2:54:03 AM] GET /api/submissions/progress from unknown
+[2:54:03 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:54:03 AM] [2:54:03 AM] GET /api/submissions/progress
+[2:56:41 AM] [2:56:41 AM] GET /api/game/courses from unknown
+[2:56:41 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:56:41 AM] [2:56:41 AM] GET /api/game/courses
+[2:57:13 AM] [2:57:13 AM] POST /api/game/score from http://localhost:5174
+[2:57:13 AM] [CORS]: Request from http://localhost:5174 - ALLOWED
+[2:57:13 AM] [2:57:13 AM] POST /api/game/score
+[2:58:03 AM] [2:58:03 AM] GET /api/game/leaderboard from unknown
+[2:58:03 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:58:03 AM] [2:58:03 AM] GET /api/game/leaderboard
+[2:58:15 AM] [2:58:15 AM] GET /api/quizzes/stats from unknown
+[2:58:15 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:58:15 AM] [2:58:15 AM] GET /api/quizzes/stats
+[2:58:15 AM] [2:58:15 AM] GET /api/submissions/progress from unknown
+[2:58:15 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:58:15 AM] [2:58:15 AM] GET /api/submissions/progress
+[2:58:28 AM] [2:58:28 AM] GET /api/quizzes/stats from unknown
+[2:58:28 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:58:28 AM] [2:58:28 AM] GET /api/quizzes/stats
+[2:58:28 AM] [2:58:28 AM] GET /api/submissions/progress from unknown
+[2:58:28 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[2:58:28 AM] [2:58:28 AM] GET /api/submissions/progress
+[3:00:06 AM] [3:00:06 AM] GET /api/quizzes/stats from unknown
+[3:00:06 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:00:06 AM] [3:00:06 AM] GET /api/quizzes/stats
+[3:00:06 AM] [3:00:06 AM] GET /api/submissions/progress from unknown
+[3:00:06 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:00:06 AM] [3:00:06 AM] GET /api/submissions/progress
+[3:00:28 AM] [3:00:28 AM] GET /api/quizzes/stats from unknown
+[3:00:28 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:00:28 AM] [3:00:28 AM] GET /api/quizzes/stats
+[3:00:28 AM] [3:00:28 AM] GET /api/submissions/progress from unknown
+[3:00:28 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:00:28 AM] [3:00:28 AM] GET /api/submissions/progress
+[3:00:37 AM] [3:00:37 AM] GET /api/quizzes/stats from unknown
+[3:00:37 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:00:37 AM] [3:00:37 AM] GET /api/quizzes/stats
+[3:00:37 AM] [3:00:37 AM] GET /api/submissions/progress from unknown
+[3:00:37 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:00:37 AM] [3:00:37 AM] GET /api/submissions/progress
+[3:00:49 AM] [3:00:49 AM] GET /api/quizzes/stats from unknown
+[3:00:49 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:00:49 AM] [3:00:49 AM] GET /api/quizzes/stats
+[3:00:49 AM] [3:00:49 AM] GET /api/submissions/progress from unknown
+[3:00:49 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:00:49 AM] [3:00:49 AM] GET /api/submissions/progress
+[3:01:22 AM] [3:01:22 AM] GET /api/game/courses from unknown
+[3:01:22 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:01:22 AM] [3:01:22 AM] GET /api/game/courses
+[3:02:59 AM] [3:02:59 AM] GET /api/quizzes/stats from unknown
+[3:02:59 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:02:59 AM] [3:02:59 AM] GET /api/quizzes/stats
+[3:02:59 AM] [3:02:59 AM] GET /api/submissions/progress from unknown
+[3:02:59 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:02:59 AM] [3:02:59 AM] GET /api/submissions/progress
+[3:03:56 AM] [3:03:56 AM] GET /api/quizzes/stats from unknown
+[3:03:56 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:03:56 AM] [3:03:56 AM] GET /api/quizzes/stats
+[3:03:56 AM] [3:03:56 AM] GET /api/submissions/progress from unknown
+[3:03:56 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:03:56 AM] [3:03:56 AM] GET /api/submissions/progress
+[3:04:00 AM] [3:04:00 AM] GET /api/game/courses from unknown
+[3:04:00 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:04:00 AM] [3:04:00 AM] GET /api/game/courses
+[3:04:27 AM] [3:04:27 AM] GET /api/game/courses from unknown
+[3:04:27 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:04:27 AM] [3:04:27 AM] GET /api/game/courses
+[3:04:53 AM] [3:04:53 AM] GET /api/quizzes/stats from unknown
+[3:04:53 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:04:54 AM] [3:04:54 AM] GET /api/quizzes/stats
+[3:04:54 AM] [3:04:54 AM] GET /api/submissions/progress from unknown
+[3:04:54 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:04:54 AM] [3:04:54 AM] GET /api/submissions/progress
+[3:05:20 AM] [3:05:20 AM] GET /api/quizzes/stats from unknown
+[3:05:20 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:05:21 AM] [3:05:21 AM] GET /api/quizzes/stats
+[3:05:21 AM] [3:05:21 AM] GET /api/submissions/progress from unknown
+[3:05:21 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:05:22 AM] [3:05:22 AM] GET /api/submissions/progress
+[3:05:33 AM] [3:05:33 AM] GET /api/game/courses from unknown
+[3:05:33 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:05:33 AM] [3:05:33 AM] GET /api/game/courses
+[3:05:38 AM] [3:05:38 AM] GET /api/quizzes/stats from unknown
+[3:05:38 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:05:38 AM] [3:05:38 AM] GET /api/quizzes/stats
+[3:05:38 AM] [3:05:38 AM] GET /api/submissions/progress from unknown
+[3:05:38 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:05:38 AM] [3:05:38 AM] GET /api/submissions/progress
+[3:05:48 AM] [3:05:48 AM] GET /api/game/courses from unknown
+[3:05:48 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:05:48 AM] [3:05:48 AM] GET /api/game/courses
+[3:05:48 AM] [3:05:48 AM] GET /api/quizzes/stats from unknown
+[3:05:48 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:05:48 AM] [3:05:48 AM] GET /api/quizzes/stats
+[3:05:48 AM] [3:05:48 AM] GET /api/submissions/progress from unknown
+[3:05:48 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:05:48 AM] [3:05:48 AM] GET /api/submissions/progress
+[3:06:36 AM] [3:06:36 AM] GET /api/quizzes/stats from unknown
+[3:06:36 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:06:36 AM] [3:06:36 AM] GET /api/quizzes/stats
+[3:06:36 AM] [3:06:36 AM] GET /api/submissions/progress from unknown
+[3:06:36 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:06:36 AM] [3:06:36 AM] GET /api/submissions/progress
+[3:06:41 AM] [3:06:41 AM] GET /api/game/courses from unknown
+[3:06:41 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:06:41 AM] [3:06:41 AM] GET /api/game/courses
+[3:06:42 AM] [3:06:42 AM] GET /api/quizzes/stats from unknown
+[3:06:42 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:06:42 AM] [3:06:42 AM] GET /api/quizzes/stats
+[3:06:42 AM] [3:06:42 AM] GET /api/submissions/progress from unknown
+[3:06:42 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:06:42 AM] [3:06:42 AM] GET /api/submissions/progress
+[3:08:49 AM] [3:08:49 AM] GET /api/quizzes/stats from unknown
+[3:08:49 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:08:49 AM] [3:08:49 AM] GET /api/quizzes/stats
+[3:08:49 AM] [3:08:49 AM] GET /api/submissions/progress from unknown
+[3:08:49 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:08:49 AM] [3:08:49 AM] GET /api/submissions/progress
+[3:08:51 AM] [3:08:51 AM] GET /api/submissions/progress from unknown
+[3:08:51 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:08:51 AM] [3:08:51 AM] GET /api/submissions/progress
+[3:08:52 AM] [3:08:52 AM] GET /api/quizzes/stats from unknown
+[3:08:52 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:08:52 AM] [3:08:52 AM] GET /api/quizzes/stats
+[3:10:16 AM] [3:10:16 AM] GET /api/quizzes/stats from unknown
+[3:10:16 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:10:16 AM] [3:10:16 AM] GET /api/quizzes/stats
+[3:10:16 AM] [3:10:16 AM] GET /api/submissions/progress from unknown
+[3:10:16 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:10:16 AM] [3:10:16 AM] GET /api/submissions/progress
+[3:10:55 AM] [3:10:55 AM] GET /api/quizzes/stats from unknown
+[3:10:55 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:10:55 AM] [3:10:55 AM] GET /api/quizzes/stats
+[3:10:55 AM] [3:10:55 AM] GET /api/submissions/progress from unknown
+[3:10:55 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:10:55 AM] [3:10:55 AM] GET /api/submissions/progress
+[3:13:10 AM] [3:13:10 AM] GET /api/quizzes/stats from unknown
+[3:13:10 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:13:10 AM] [3:13:10 AM] GET /api/quizzes/stats
+[3:13:10 AM] [3:13:10 AM] GET /api/submissions/progress from unknown
+[3:13:10 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:13:10 AM] [3:13:10 AM] GET /api/submissions/progress
+[3:13:41 AM] [3:13:41 AM] GET /api/quizzes/stats from unknown
+[3:13:41 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:13:41 AM] [3:13:41 AM] GET /api/quizzes/stats
+[3:13:41 AM] [3:13:41 AM] GET /api/submissions/progress from unknown
+[3:13:41 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:13:41 AM] [3:13:41 AM] GET /api/submissions/progress
+[3:15:12 AM] [3:15:12 AM] GET /api/game/courses from unknown
+[3:15:12 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:15:12 AM] [3:15:12 AM] GET /api/game/courses
+[3:15:46 AM] [3:15:46 AM] GET /api/game/leaderboard from unknown
+[3:15:46 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:15:46 AM] [3:15:46 AM] GET /api/game/leaderboard
+[3:15:51 AM] [3:15:51 AM] GET /api/game/courses from unknown
+[3:15:51 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:15:51 AM] [3:15:51 AM] GET /api/game/courses
+[3:16:21 AM] [3:16:21 AM] GET /api/game/leaderboard from unknown
+[3:16:21 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:16:21 AM] [3:16:21 AM] GET /api/game/leaderboard
+[3:16:33 AM] [3:16:33 AM] GET /api/game/courses from unknown
+[3:16:33 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:16:33 AM] [3:16:33 AM] GET /api/game/courses
+[3:16:59 AM] [3:16:59 AM] GET /api/game/leaderboard from unknown
+[3:16:59 AM] [CORS]: No origin provided (likely server-to-server or direct)
+[3:16:59 AM] [3:16:59 AM] GET /api/game/leaderboard
