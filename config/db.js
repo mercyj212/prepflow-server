@@ -1,4 +1,9 @@
 import mongoose from "mongoose";
+import dns from "dns";
+
+// 🛡️ DNS RESCUE: Force use of Google Public DNS
+// This prevents 'ESERVFAIL' errors on unstable networks/hotspots when resolving Atlas SRV records.
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 let retryCount = 0;
 const MAX_RETRIES = 5;
@@ -6,9 +11,9 @@ const MAX_RETRIES = 5;
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGODB_URI, {
-      serverSelectionTimeoutMS: 10000,
+      serverSelectionTimeoutMS: 20000,
       socketTimeoutMS: 45000,
-      heartbeatFrequencyMS: 10000,
+      heartbeatFrequencyMS: 20000,
     });
     retryCount = 0; // Reset on success
     console.log(`MongoDB Connected: ${conn.connection.host}`);

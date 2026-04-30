@@ -68,6 +68,14 @@ const studentSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    speedRecallScore: {
+      type: Number,
+      default: 0,
+    },
+    speedRecallAwards: {
+      type: Number,
+      default: 0,
+    },
   },
   {
     timestamps: true,

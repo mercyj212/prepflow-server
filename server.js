@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './config/db.js';
 
-// 👇 IMPORT ROUTES
 import studentRoutes from './routes/studentRoutes.js';
 import accessRoutes from './routes/accessRoutes.js';
 import authRoutes from './routes/authRoutes.js';
@@ -27,7 +26,6 @@ dotenv.config();
 const app = express();
 app.use(cookieParser());
 
-// 👉 REQUEST LOGGER
 app.use((req, res, next) => {
   console.log(`[${new Date().toLocaleTimeString()}] ${req.method} ${req.url} from ${req.headers.origin || 'unknown'}`);
   next();
@@ -50,7 +48,7 @@ const corsOptions = {
     const normalized = origin.replace(/\/$/, '');
     const isLocalDevOrigin = /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(normalized);
     const isAllowed = allowedOrigins.includes(normalized) || normalized.endsWith('.vercel.app') || isLocalDevOrigin;
-    
+
     if (isAllowed) {
       callback(null, true);
     } else {
@@ -67,7 +65,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.options(/.*/, cors(corsOptions));
 
-// 1. SECURITY HEADERS 
 app.use(helmet({
   crossOriginOpenerPolicy: { policy: "same-origin-allow-popups" },
   crossOriginEmbedderPolicy: false,
@@ -83,21 +80,18 @@ app.use(helmet({
   },
 }));
 
-// 2. DATA SANITIZATION (Express 5 Compatible)
 app.use(mongoSanitizeMiddleware);
-
-// 3. PARAMETER POLLUTION PROTECTION
 app.use(hppMiddleware);
 
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, 
-  max: 2000, 
+  windowMs: 15 * 60 * 1000,
+  max: 2000,
   message: { message: "Too many requests from this IP, please try again after 15 minutes" }
 });
 
 const authLimiter = rateLimit({
-  windowMs: 60 * 60 * 1000, // 1 hour
-  max: 10, // 10 attempts per hour
+  windowMs: 60 * 60 * 1000,
+  max: 10,
   message: { message: "Too many authentication attempts. Please try again in an hour." }
 });
 
@@ -111,7 +105,27 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 connectDB();
 
-// 👇 ROUTES
+app.get('/api/health', (req, res) => {
+  const isDatabaseReady = mongoose.connection.readyState === 1;
+
+  res.status(isDatabaseReady ? 200 : 503).json({
+    status: isDatabaseReady ? 'System Functional' : 'System Warming Up',
+    database: isDatabaseReady ? 'Operational' : 'Establishing...',
+    databaseReadyState: mongoose.connection.readyState
+  });
+});
+
+app.use('/api', (req, res, next) => {
+  if (mongoose.connection.readyState === 1) {
+    return next();
+  }
+
+  return res.status(503).json({
+    message: 'The server is waking up. Please try again in a moment.',
+    databaseReadyState: mongoose.connection.readyState
+  });
+});
+
 app.use('/api/students', studentRoutes);
 app.use('/api/access', accessRoutes);
 app.use('/api/auth', authRoutes);
@@ -124,16 +138,8 @@ app.use('/api/chat', chatRoutes);
 app.use('/api/game', gameRoutes);
 app.use('/api/payments', paymentRoutes);
 
-app.get('/api/health', (req, res) => {
-  res.json({ 
-    status: 'System Functional', 
-    database: mongoose.connection.readyState === 1 ? 'Operational' : 'Establishing...',
-    databaseReadyState: mongoose.connection.readyState
-  });
-});
-
 app.get('/', (req, res) => {
-  res.json({ message: 'Backend is working🚀' });
+  res.json({ message: 'Backend is working' });
 });
 
 const PORT = process.env.PORT || 10000;
@@ -141,7 +147,7 @@ const PORT = process.env.PORT || 10000;
 app.use((err, req, res, next) => {
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
   console.error(`[CRITICAL SERVER ERROR] ${req.method} ${req.url}:`, err.message);
-  res.status(statusCode).json({ 
+  res.status(statusCode).json({
     message: "A critical backend error occurred.",
     debug: err.message,
     stack: process.env.NODE_ENV === 'production' ? null : err.stack

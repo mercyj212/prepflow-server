@@ -2,6 +2,15 @@ import Student from "../models/Student.js";
 import Quiz from "../models/Quiz.js";
 import CourseAccess from "../models/CourseAccess.js";
 
+const shuffleOptions = (options) => {
+  const shuffled = [...options];
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+  }
+  return shuffled;
+};
+
 // @desc    Get questions for PrepDrive
 // @route   GET /api/game/questions
 // @access  Private
@@ -45,15 +54,16 @@ export const getQuestions = async (req, res) => {
     
     // Map to game format: { q: "text", a: ["opt1", "opt2", "opt3", "opt4"], c: correctIndex, expl: "explanation" }
     const formattedQuestions = questions.map(q => {
-      let correctIndex = 0;
-      const options = q.options.map((opt, idx) => {
-        if (opt.isCorrect) correctIndex = idx;
-        return opt.text;
-      });
+      const shuffledOptions = shuffleOptions(q.options.map(opt => ({
+        text: opt.text,
+        isCorrect: opt.isCorrect
+      })));
+      const correctIndex = shuffledOptions.findIndex(opt => opt.isCorrect);
+
       return {
         q: q.text,
-        a: options,
-        c: correctIndex,
+        a: shuffledOptions.map(opt => opt.text),
+        c: correctIndex >= 0 ? correctIndex : 0,
         expl: q.explanation || "Review this topic carefully."
       };
     });
@@ -113,7 +123,7 @@ export const getCoursesWithQuestions = async (req, res) => {
 // @access  Private
 export const saveScore = async (req, res) => {
   try {
-    const { score, awards } = req.body;
+    const { score, awards, gameType = 'prepDrive' } = req.body;
     const studentId = req.user._id;
 
     const student = await Student.findById(studentId);
@@ -122,16 +132,28 @@ export const saveScore = async (req, res) => {
     }
 
     // Update if new score is higher
-    if (score > student.prepDriveScore) {
+    if (gameType === 'speedRecall') {
+      if (score > (student.speedRecallScore || 0)) {
+        student.speedRecallScore = score;
+      }
+    } else if (score > student.prepDriveScore) {
       student.prepDriveScore = score;
     }
     
     // Always add awards
-    student.prepDriveAwards = (student.prepDriveAwards || 0) + awards;
+    if (gameType === 'speedRecall') {
+      student.speedRecallAwards = (student.speedRecallAwards || 0) + (awards || 0);
+    } else {
+      student.prepDriveAwards = (student.prepDriveAwards || 0) + (awards || 0);
+    }
 
     await student.save();
     
-    res.status(200).json({ success: true, data: { score: student.prepDriveScore, awards: student.prepDriveAwards } });
+    const responseData = gameType === 'speedRecall' 
+      ? { score: student.speedRecallScore, awards: student.speedRecallAwards }
+      : { score: student.prepDriveScore, awards: student.prepDriveAwards };
+
+    res.status(200).json({ success: true, data: responseData });
   } catch (error) {
     console.error("Error saving game score:", error);
     res.status(500).json({ success: false, message: "Failed to save score" });
@@ -143,12 +165,28 @@ export const saveScore = async (req, res) => {
 // @access  Public
 export const getLeaderboard = async (req, res) => {
   try {
-    const topDrivers = await Student.find({ prepDriveScore: { $gt: 0 } })
-      .sort({ prepDriveScore: -1 })
+    const { game = 'prepDrive' } = req.query;
+    console.log(`[GAME]: Fetching Global Leaderboard for ${game}...`);
+    let query = {};
+    let sort = {};
+    let select = "fullName profilePicture";
+
+    if (game === 'speedRecall') {
+      query = { speedRecallScore: { $gt: 0 } };
+      sort = { speedRecallScore: -1 };
+      select += " speedRecallScore speedRecallAwards";
+    } else {
+      query = { prepDriveScore: { $gt: 0 } };
+      sort = { prepDriveScore: -1 };
+      select += " prepDriveScore prepDriveAwards";
+    }
+
+    const players = await Student.find(query)
+      .sort(sort)
       .limit(10)
-      .select("fullName profilePicture prepDriveScore prepDriveAwards");
+      .select(select);
       
-    res.status(200).json({ success: true, data: topDrivers });
+    res.status(200).json({ success: true, data: players });
   } catch (error) {
     console.error("Error fetching leaderboard:", error);
     res.status(500).json({ success: false, message: "Failed to fetch leaderboard" });

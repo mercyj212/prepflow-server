@@ -15,6 +15,18 @@ const shuffleArray = (array) => {
   return shuffled;
 };
 
+const shuffleQuestionOptions = (question) => ({
+  ...question,
+  options: shuffleArray(question.options || []).map(option => ({
+    ...option,
+    isCorrect: Boolean(option.isCorrect)
+  }))
+});
+
+const shuffleQuizQuestionOptions = (questions = []) => (
+  questions.map(question => shuffleQuestionOptions(question))
+);
+
 const coursePopulate = {
   path: "course",
   select: "title level path department",
@@ -76,16 +88,7 @@ export const getQuizById = async (req, res) => {
       const quizObj = quiz.toObject();
       const randomQuestions = shuffleArray(quizObj.questions).slice(0, 60);
 
-      quizObj.questions = randomQuestions.map(q => {
-        return {
-          ...q,
-          options: shuffleArray(q.options).map(o => ({
-            _id: o._id,
-            text: o.text,
-            isCorrect: Boolean(o.isCorrect)
-          }))
-        };
-      });
+      quizObj.questions = shuffleQuizQuestionOptions(randomQuestions);
       
       res.json(quizObj);
     } else {
@@ -105,12 +108,7 @@ export const getStudyQuizById = async (req, res) => {
       const quizObj = quiz.toObject();
       const randomQuestions = shuffleArray(quizObj.questions).slice(0, 60);
       
-      quizObj.questions = randomQuestions.map(q => {
-        return {
-          ...q,
-          options: shuffleArray(q.options)
-        };
-      });
+      quizObj.questions = shuffleQuizQuestionOptions(randomQuestions);
 
       res.json(quizObj);
     } else {
@@ -130,12 +128,7 @@ export const getStudyQuizByIdPublic = async (req, res) => {
       const quizObj = quiz.toObject();
       const randomQuestions = shuffleArray(quizObj.questions).slice(0, 60);
       
-      quizObj.questions = randomQuestions.map(q => {
-        return {
-          ...q,
-          options: shuffleArray(q.options)
-        };
-      });
+      quizObj.questions = shuffleQuizQuestionOptions(randomQuestions);
       res.json(quizObj);
     } else {
       res.status(404).json({ message: "Quiz not found" });
@@ -148,7 +141,11 @@ export const getStudyQuizByIdPublic = async (req, res) => {
 // @desc    Create a quiz
 export const createQuiz = async (req, res) => {
   try {
-    const quiz = new Quiz(req.body);
+    const payload = {
+      ...req.body,
+      questions: shuffleQuizQuestionOptions(req.body.questions || [])
+    };
+    const quiz = new Quiz(payload);
     const createdQuiz = await quiz.save();
     res.status(201).json(createdQuiz);
   } catch (error) {
@@ -163,7 +160,7 @@ export const addQuestion = async (req, res) => {
 
     if (quiz) {
       const { text, options, explanation } = req.body;
-      const question = { text, options, explanation };
+      const question = shuffleQuestionOptions({ text, options, explanation });
       quiz.questions.push(question);
       const updatedQuiz = await quiz.save();
       res.status(201).json(updatedQuiz);
@@ -183,7 +180,7 @@ export const addBatchQuestions = async (req, res) => {
       const { questions } = req.body;
       if (!Array.isArray(questions)) return res.status(400).json({ message: "Questions must be an array" });
       
-      quiz.questions.push(...questions);
+      quiz.questions.push(...shuffleQuizQuestionOptions(questions));
       const updatedQuiz = await quiz.save();
       res.status(201).json(updatedQuiz);
     } else {
@@ -200,7 +197,13 @@ export const updateQuiz = async (req, res) => {
     const quiz = await Quiz.findById(req.params.id);
 
     if (quiz) {
-      Object.assign(quiz, req.body);
+      const payload = {
+        ...req.body,
+        ...(Array.isArray(req.body.questions)
+          ? { questions: shuffleQuizQuestionOptions(req.body.questions) }
+          : {})
+      };
+      Object.assign(quiz, payload);
       const updatedQuiz = await quiz.save();
       res.json(updatedQuiz);
     } else {
@@ -356,12 +359,7 @@ Focus on:
       throw new Error("The AI provided an incompatible data format. Please refine the source material.");
     }
 
-    const shuffledQuestions = (questions || []).map(q => {
-      if (q.options && q.options.length > 0) {
-        q.options = shuffleArray(q.options);
-      }
-      return q;
-    });
+    const shuffledQuestions = shuffleQuizQuestionOptions(questions || []);
 
     quiz.questions.push(...shuffledQuestions);
     const updatedQuiz = await quiz.save();
