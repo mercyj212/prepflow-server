@@ -30,7 +30,7 @@ export const getCourses = async (req, res) => {
     
     // If student is logged in, check access for each course
     if (req.user && req.user.role === 'student') {
-        const studentAccess = await CourseAccess.find({ student: req.user._id });
+        const studentAccess = await CourseAccess.find({ student: req.user._id, isActive: true });
         const accessedCourseIds = studentAccess.map(a => a.course.toString());
         
         courses = courses.map(course => {

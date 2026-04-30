@@ -111,7 +111,7 @@ export const getProgressMetrics = async (req, res) => {
 // @route   POST /api/submissions
 // @access  Private
 export const createSubmission = async (req, res) => {
-  const { quizId, answers, timeTaken } = req.body;
+  const { quizId, answers = [], timeTaken, totalQuestions } = req.body;
 
   try {
     const quiz = await Quiz.findById(quizId);
@@ -120,12 +120,13 @@ export const createSubmission = async (req, res) => {
       return res.status(404).json({ message: "Quiz not found" });
     }
 
+    const submittedAnswers = Array.isArray(answers) ? answers : [];
     let score = 0;
-    const processedAnswers = answers.map((answer) => {
+    const processedAnswers = submittedAnswers.map((answer) => {
       const question = quiz.questions.id(answer.questionId);
       
       let isCorrect = false;
-      if (question) {
+      if (question && answer.selectedOptionId) {
         const selectedOption = question.options.id(answer.selectedOptionId);
         if (selectedOption && selectedOption.isCorrect) {
           isCorrect = true;
@@ -144,8 +145,8 @@ export const createSubmission = async (req, res) => {
       student: req.user._id,
       quiz: quizId,
       score,
-      totalQuestions: answers.length || quiz.questions.length,
-      timeTaken,
+      totalQuestions: Number(totalQuestions) || quiz.questions.length,
+      timeTaken: Number(timeTaken) || 0,
       answers: processedAnswers,
     });
 
@@ -251,6 +252,7 @@ export const getLatestSubmissionForQuiz = async (req, res) => {
 
     res.json({
       _id: submission._id,
+      quizId: quiz?._id,
       quizTitle: quiz?.title || 'Quiz',
       score: submission.score,
       totalQuestions: submission.totalQuestions,
@@ -336,6 +338,7 @@ export const getSubmissionById = async (req, res) => {
 
     res.json({
       _id: submission._id,
+      quizId: quiz?._id,
       quizTitle: quiz?.title || 'Quiz',
       score: submission.score,
       totalQuestions: submission.totalQuestions,

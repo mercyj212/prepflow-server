@@ -91,10 +91,15 @@ export const getCoursesWithQuestions = async (req, res) => {
       }
     });
 
-    const accessedCourseIds = req.user?.role === "admin"
-      ? []
-      : (await CourseAccess.find({ student: req.user._id, isActive: true })).map(access => access.course.toString());
+    // GLOBAL LOCKDOWN OVERRIDE: For testing the paywall, we force everything to be locked
+    // const accessedCourseIds = req.user?.role === "admin"
+    //   ? []
+    //   : (await CourseAccess.find({ student: req.user._id, isActive: true })).map(access => access.course.toString());
+    const accessedCourseIds = [];
     
+    console.log(`[SUPER_DEBUG] User: ${req.user?._id} | Role: ${req.user?.role}`);
+    console.log(`[SUPER_DEBUG] Accessed IDs:`, accessedCourseIds);
+
     // Extract unique courses
     const courseMap = new Map();
     quizzes.forEach(quiz => {
@@ -102,7 +107,10 @@ export const getCoursesWithQuestions = async (req, res) => {
         const course = quiz.course.toObject();
         const hasPaidAccess = accessedCourseIds.includes(course._id.toString());
         const hasAdminAccess = req.user?.role === "admin";
-        course.hasGameAccess = hasAdminAccess || hasPaidAccess;
+        
+        console.log(`[GAME_ACCESS]: Course ${course.title} | Paid: ${hasPaidAccess} | Admin: ${hasAdminAccess}`);
+        
+        course.hasGameAccess = hasPaidAccess;
         course.gameAccessReason = hasAdminAccess ? "admin" : hasPaidAccess ? "paid" : "locked";
         course.faculty = course.department?.faculty || null;
         courseMap.set(course._id.toString(), course);
