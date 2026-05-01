@@ -512,6 +512,22 @@ export const googleLogin = async (req, res) => {
         profilePicture: picture,
         isVerified: true
       });
+
+      // Dispatch Welcome Email
+      try {
+        const loginUrl = `${process.env.FRONTEND_URL || 'https://prepupcbt.vercel.app'}/login`;
+        await sendEmail({
+          email: student.email,
+          subject: 'Welcome to the PrepUp CBT Community 🎓',
+          template: 'welcomeEmail',
+          context: {
+            name: student.fullName,
+            loginUrl: loginUrl
+          }
+        });
+      } catch (welcomeErr) {
+        console.warn('[GOOGLE WELCOME EMAIL SKIP]:', welcomeErr.message);
+      }
     }
 
     // ️ ACTIVITY TRACKER: High-Res Timing & Device Intelligence
