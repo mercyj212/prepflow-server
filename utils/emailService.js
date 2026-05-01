@@ -50,6 +50,7 @@ const sendEmail = async (options) => {
     const mailOptions = {
         from: `"PrepUp Team" <${process.env.EMAIL_USER}>`, 
         to: options.email,
+        replyTo: options.replyTo,
         subject: options.subject,
         text: options.message || `Hi ${options.context?.name || 'there'}, your verification code is: ${options.context?.otp}. Welcome to PrepUp!`, 
         html: htmlContent || `<div style="font-family: sans-serif; color: #1a1a1a;">${options.message}</div>`,

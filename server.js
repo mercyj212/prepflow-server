@@ -15,6 +15,7 @@ import facultyRoutes from './routes/facultyRoutes.js';
 import departmentRoutes from './routes/departmentRoutes.js';
 import gameRoutes from './routes/gameRoutes.js';
 import paymentRoutes from './routes/paymentRoutes.js';
+import supportRoutes from './routes/supportRoutes.js';
 import mongoose from 'mongoose';
 
 import helmet from 'helmet';
@@ -138,6 +139,7 @@ app.use('/api/departments', departmentRoutes);
 app.use('/api/chat', chatRoutes);
 app.use('/api/game', gameRoutes);
 app.use('/api/payments', paymentRoutes);
+app.use('/api/support', supportRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'Backend is working' });

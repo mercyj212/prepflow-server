@@ -26,13 +26,18 @@ export const getQuestions = async (req, res) => {
     }
 
     if (req.user?.role !== "admin") {
+      // Find the "First Course" exactly like getCoursesWithQuestions does
+      const firstQuiz = await Quiz.findOne({ "questions.0": { $exists: true } }).sort({ createdAt: 1 });
+      const firstCourseId = firstQuiz?.course?.toString();
+      const isPreviewCourse = courseId === firstCourseId;
+
       const access = await CourseAccess.findOne({
         student: req.user._id,
         course: courseId,
         isActive: true
       });
 
-      if (!access) {
+      if (!access && !isPreviewCourse) {
         return res.status(403).json({
           success: false,
           message: "Pay for this course to unlock its game."
@@ -81,7 +86,9 @@ export const getQuestions = async (req, res) => {
 export const getCoursesWithQuestions = async (req, res) => {
   try {
     // Find all quizzes that have questions
-    const quizzes = await Quiz.find({ "questions.0": { $exists: true } }).populate({
+    const quizzes = await Quiz.find({ "questions.0": { $exists: true } })
+      .sort({ createdAt: 1 })
+      .populate({
       path: "course",
       select: "title description path level department price",
       populate: {
@@ -101,17 +108,21 @@ export const getCoursesWithQuestions = async (req, res) => {
     // Extract unique courses
     const courseMap = new Map();
     
-    quizzes.forEach(quiz => {
+    quizzes.forEach((quiz, index) => {
       if (quiz.course && !courseMap.has(quiz.course._id.toString())) {
         const course = quiz.course.toObject();
         const hasPaidAccess = accessedCourseIds.includes(course._id.toString());
         const hasAdminAccess = req.user?.role === "admin";
         
-        course.gameAccessReason = hasAdminAccess ? "admin" : hasPaidAccess ? "paid" : "locked";
+        // Grant "Free Preview" to the very first course in the list if not paid
+        const isFirstCourse = courseMap.size === 0;
+        const isPreview = isFirstCourse && !hasPaidAccess && !hasAdminAccess;
+
+        course.gameAccessReason = hasAdminAccess ? "admin" : hasPaidAccess ? "paid" : isPreview ? "preview" : "locked";
         
         console.log(`[GAME_ACCESS]: Course ${course.title} | Paid: ${hasPaidAccess} | Reason: ${course.gameAccessReason}`);
         
-        course.hasGameAccess = hasAdminAccess || hasPaidAccess;
+        course.hasGameAccess = hasAdminAccess || hasPaidAccess || isPreview;
         course.faculty = course.department?.faculty || null;
         courseMap.set(course._id.toString(), course);
       }
