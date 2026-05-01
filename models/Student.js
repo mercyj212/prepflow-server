@@ -27,6 +27,12 @@ const studentSchema = new mongoose.Schema(
     profilePicture: {
       type: String,
     },
+    nickname: {
+      type: String,
+      trim: true,
+      minlength: 3,
+      maxlength: 20,
+    },
     role: {
       type: String,
       enum: ["student", "admin"],

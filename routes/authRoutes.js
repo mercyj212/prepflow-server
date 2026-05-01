@@ -9,6 +9,7 @@ import {
   resetPassword,
   googleLogin,
   updateProfilePicture,
+  updateNickname,
   refreshSession,
   logoutUser,
   getAuthStatus
@@ -34,5 +35,6 @@ router.put("/reset-password/:token", resetPassword);
 
 // 🛡️ PROFILE MANAGEMENT
 router.put("/profile/avatar", protect, upload.single("avatar"), updateProfilePicture);
+router.put("/profile/nickname", protect, updateNickname);
 
 export default router;

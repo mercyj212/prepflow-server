@@ -115,9 +115,9 @@ router.get('/conversations', protect, async (req, res) => {
     let conversationDocs = await Conversation.find({
       participants: req.user._id
     })
-    .populate('participants', 'fullName email profilePicture')
+    .populate('participants', 'fullName nickname email profilePicture')
     .populate('course', 'title')
-    .populate('admin', 'fullName email')
+    .populate('admin', 'fullName nickname email')
     .sort({ updatedAt: -1 })
     .lean();
 
@@ -158,7 +158,7 @@ router.get('/:conversationId', protect, async (req, res) => {
     );
 
     const messages = await Message.find({ conversationId: convo._id })
-      .populate('sender', 'fullName')
+      .populate('sender', 'fullName nickname email profilePicture')
       .sort({ createdAt: 1 })
       .limit(100);
 
@@ -194,7 +194,7 @@ router.post('/:conversationId', protect, async (req, res) => {
       readBy: [req.user._id]
     });
 
-    const populatedUserMessage = await Message.findById(userMessage._id).populate('sender', 'fullName');
+    const populatedUserMessage = await Message.findById(userMessage._id).populate('sender', 'fullName nickname email profilePicture');
 
     // If it's the AI tutor, process AI reply
     if (convo.isAI) {
@@ -440,7 +440,7 @@ router.post('/direct/new', protect, async (req, res) => {
       });
     }
 
-    const populatedConvo = await Conversation.findById(convo._id).populate('participants', 'fullName email profilePicture');
+    const populatedConvo = await Conversation.findById(convo._id).populate('participants', 'fullName nickname email profilePicture');
     res.status(200).json(populatedConvo);
   } catch (error) {
     res.status(500).json({ message: 'Failed to start DM', error: error.message });
@@ -465,7 +465,7 @@ router.put('/message/:id', protect, async (req, res) => {
     message.isEdited = true;
     await message.save();
 
-    const populatedMessage = await Message.findById(message._id).populate('sender', 'fullName email profilePicture');
+    const populatedMessage = await Message.findById(message._id).populate('sender', 'fullName nickname email profilePicture');
     res.status(200).json(populatedMessage);
   } catch (error) {
     res.status(500).json({ message: 'Failed to edit message', error: error.message });
@@ -491,8 +491,8 @@ router.post('/group/create', protect, async (req, res) => {
     });
 
     const populated = await Conversation.findById(group._id)
-      .populate('participants', 'fullName email profilePicture')
-      .populate('admin', 'fullName email');
+      .populate('participants', 'fullName nickname email profilePicture')
+      .populate('admin', 'fullName nickname email');
 
     res.status(201).json(populated);
   } catch (error) {
@@ -518,8 +518,8 @@ router.post('/group/:id/add-member', protect, async (req, res) => {
     }
 
     const populated = await Conversation.findById(group._id)
-      .populate('participants', 'fullName email profilePicture')
-      .populate('admin', 'fullName email');
+      .populate('participants', 'fullName nickname email profilePicture')
+      .populate('admin', 'fullName nickname email');
     res.json(populated);
   } catch (error) {
     res.status(500).json({ message: 'Failed to add member', error: error.message });
@@ -543,8 +543,8 @@ router.delete('/group/:id/remove-member', protect, async (req, res) => {
     await group.save();
 
     const populated = await Conversation.findById(group._id)
-      .populate('participants', 'fullName email profilePicture')
-      .populate('admin', 'fullName email');
+      .populate('participants', 'fullName nickname email profilePicture')
+      .populate('admin', 'fullName nickname email');
     res.json(populated);
   } catch (error) {
     res.status(500).json({ message: 'Failed to remove member', error: error.message });

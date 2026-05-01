@@ -17,6 +17,10 @@ const generateRefreshToken = (id) => {
   });
 };
 
+const normalizeNickname = (value = "") => value.toString().trim().replace(/\s+/g, " ");
+const nicknamePattern = /^[A-Za-z0-9 _-]{3,20}$/;
+const escapeRegex = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
 const sendTokenResponse = (student, statusCode, res, message = null) => {
   const accessToken = generateAccessToken(student._id);
   const refreshToken = generateRefreshToken(student._id);
@@ -35,6 +39,7 @@ const sendTokenResponse = (student, statusCode, res, message = null) => {
     role: student.role,
     isVerified: student.isVerified,
     profilePicture: student.profilePicture,
+    nickname: student.nickname,
     message,
     token: accessToken,
   });
@@ -288,7 +293,8 @@ export const verifyOTP = async (req, res) => {
       email: student.email,
       role: student.role,
       isVerified: true,
-      profilePicture: student.profilePicture
+      profilePicture: student.profilePicture,
+      nickname: student.nickname
     };
     
     // Set cookie and send response
@@ -577,6 +583,44 @@ export const updateProfilePicture = async (req, res) => {
   } catch (error) {
     console.error('[AUTH ERROR][AVATAR UPDATE]:', error);
     res.status(500).json({ message: "Failed to update profile picture. Ensure the image is valid." });
+  }
+};
+
+// @desc    Update User Nickname
+// @route   PUT /api/auth/profile/nickname
+// @access  Private
+export const updateNickname = async (req, res) => {
+  try {
+    const nickname = normalizeNickname(req.body.nickname);
+
+    if (!nicknamePattern.test(nickname)) {
+      return res.status(400).json({
+        message: "Nickname must be 3-20 characters and can use letters, numbers, spaces, underscores, or hyphens."
+      });
+    }
+
+    const student = await Student.findById(req.user._id);
+
+    if (!student) {
+      return res.status(404).json({ message: "Student account not found." });
+    }
+
+    const existingNickname = await Student.findOne({
+      _id: { $ne: student._id },
+      nickname: new RegExp(`^${escapeRegex(nickname)}$`, "i")
+    });
+
+    if (existingNickname) {
+      return res.status(409).json({ message: "That nickname is already taken. Try another one." });
+    }
+
+    student.nickname = nickname;
+    await student.save();
+
+    sendTokenResponse(student, 200, res, "Nickname saved.");
+  } catch (error) {
+    console.error('[AUTH ERROR][NICKNAME UPDATE]:', error);
+    res.status(500).json({ message: "Failed to update nickname." });
   }
 };
 
