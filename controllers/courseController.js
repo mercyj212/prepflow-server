@@ -13,7 +13,7 @@ export const getCourses = async (req, res) => {
     if (req.query.department) filter.department = req.query.department;
     if (req.query.level) filter.level = req.query.level;
     if (req.query.path) filter.path = req.query.path;
-    
+
     let courses = await Course.find(filter)
       .populate({
         path: "department",
@@ -22,22 +22,20 @@ export const getCourses = async (req, res) => {
       })
       .sort({ title: 1 });
 
-    courses = courses.map(course => {
+    courses = courses.map((course) => {
       const courseObj = course.toObject();
       courseObj.faculty = courseObj.department?.faculty || null;
       return courseObj;
     });
-    
-    // If student is logged in, check access for each course
-    if (req.user && req.user.role === 'student') {
-        const studentAccess = await CourseAccess.find({ student: req.user._id, isActive: true });
-        const accessedCourseIds = studentAccess.map(a => a.course.toString());
-        
-        courses = courses.map(course => {
-            const courseObj = { ...course };
-            courseObj.hasAccess = accessedCourseIds.includes(course._id.toString()) || (course.price === 0);
-            return courseObj;
-        });
+
+    if (req.user && req.user.role === "student") {
+      const studentAccess = await CourseAccess.find({ student: req.user._id, isActive: true });
+      const accessedCourseIds = studentAccess.map((access) => access.course.toString());
+
+      courses = courses.map((course) => ({
+        ...course,
+        hasAccess: accessedCourseIds.includes(course._id.toString()),
+      }));
     }
 
     res.json(courses);
@@ -51,18 +49,23 @@ export const getCourses = async (req, res) => {
 // @access  Private/Admin
 export const createCourse = async (req, res) => {
   const { title, description, department, level, path } = req.body;
+
   try {
     const courseExists = await Course.findOne({ title: title.toUpperCase() });
     if (courseExists) {
       return res.status(400).json({ message: "Course already exists" });
     }
 
-    const course = new Course({ title, description, department: department || null, level: level || null, path: path || null });
+    const course = new Course({
+      title,
+      description,
+      department: department || null,
+      level: level || null,
+      path: path || null,
+    });
     const createdCourse = await course.save();
 
-    // 📧 AUTO-NOTIFY ENGINE: If the admin opted-in, trigger the broadcast
     if (req.body.notifyStudents) {
-      // Fire-and-forget broadcast to keep the UI responsive
       handleAutoBroadcast(createdCourse.title);
     }
 
@@ -72,17 +75,13 @@ export const createCourse = async (req, res) => {
   }
 };
 
-/**
- * 🛰️ STABILIZED BACKGROUND BROADCAST
- * Sequentially notifies all students about the new curriculum asset.
- */
 const handleAutoBroadcast = async (courseTitle) => {
   try {
-    const students = await Student.find({ role: 'student' });
+    const students = await Student.find({ role: "student" });
     if (!students || students.length === 0) return;
 
-    const subject = `New Curriculum: ${courseTitle} is now available! 🎓`;
-    const loginUrl = `${process.env.FRONTEND_URL || 'https://prepupcbt.vercel.app'}/login`;
+    const subject = `New Curriculum: ${courseTitle} is now available!`;
+    const loginUrl = `${process.env.FRONTEND_URL || "https://prepupcbt.vercel.app"}/login`;
 
     console.log(`[AUTO-BROADCAST]: Starting for ${students.length} students...`);
 
@@ -90,24 +89,24 @@ const handleAutoBroadcast = async (courseTitle) => {
       try {
         await sendEmail({
           email: student.email,
-          subject: subject,
-          template: 'courseUpdate',
-          context: { 
+          subject,
+          template: "courseUpdate",
+          context: {
             name: student.fullName,
-            courseTitle: courseTitle,
-            loginUrl: loginUrl
-          }
+            courseTitle,
+            loginUrl,
+          },
         });
-        // 🛡️ SLOW-DRIP: Small delay to respect SMTP rate limits
-        await new Promise(r => setTimeout(r, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 1000));
       } catch (err) {
-          console.error(`[AUTO-BROADCAST][FAILED]: ${student.email} - ${err.message}`);
-          await new Promise(r => setTimeout(r, 2000));
+        console.error(`[AUTO-BROADCAST][FAILED]: ${student.email} - ${err.message}`);
+        await new Promise((resolve) => setTimeout(resolve, 2000));
       }
     }
+
     console.log(`[AUTO-BROADCAST]: Successfully completed for "${courseTitle}".`);
   } catch (err) {
-    console.error('[AUTO-BROADCAST][CRITICAL ERROR]:', err);
+    console.error("[AUTO-BROADCAST][CRITICAL ERROR]:", err);
   }
 };
 
@@ -119,11 +118,11 @@ export const renameCourse = async (req, res) => {
   if (!title || !title.trim()) {
     return res.status(400).json({ message: "Title is required" });
   }
+
   try {
     const course = await Course.findById(req.params.id);
     if (!course) return res.status(404).json({ message: "Course not found" });
 
-    // Check if another course already uses this title
     const duplicate = await Course.findOne({
       title: title.trim().toUpperCase(),
       _id: { $ne: course._id },
@@ -153,8 +152,8 @@ export const uploadMaterial = async (req, res) => {
     const isPdf = req.file.mimetype === "application/pdf";
     const material = {
       name: req.file.originalname,
-      url: req.file.path,          // Cloudinary secure URL
-      publicId: req.file.filename, // Cloudinary public_id
+      url: req.file.path,
+      publicId: req.file.filename,
       type: isPdf ? "pdf" : "image",
     };
 
@@ -177,7 +176,6 @@ export const deleteMaterial = async (req, res) => {
     const material = course.materials.id(req.params.materialId);
     if (!material) return res.status(404).json({ message: "Material not found" });
 
-    // Remove from Cloudinary
     if (material.publicId) {
       const resourceType = material.type === "pdf" ? "raw" : "image";
       try {
@@ -203,7 +201,6 @@ export const deleteCourse = async (req, res) => {
     const course = await Course.findById(req.params.id);
     if (!course) return res.status(404).json({ message: "Course not found" });
 
-    // Clean up all cloudinary materials
     for (const mat of course.materials) {
       if (mat.publicId) {
         const resourceType = mat.type === "pdf" ? "raw" : "image";
@@ -217,6 +214,28 @@ export const deleteCourse = async (req, res) => {
 
     await Course.deleteOne({ _id: course._id });
     res.json({ message: "Course removed" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Update a course (price, title, description, etc.)
+// @route   PUT /api/courses/:id
+// @access  Private/Admin
+export const updateCourse = async (req, res) => {
+  try {
+    const course = await Course.findById(req.params.id);
+    if (!course) return res.status(404).json({ message: "Course not found" });
+
+    const allowedFields = ["price", "title", "description", "level", "path"];
+    allowedFields.forEach((field) => {
+      if (req.body[field] !== undefined) {
+        course[field] = req.body[field];
+      }
+    });
+
+    const updated = await course.save();
+    res.json({ success: true, data: updated });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

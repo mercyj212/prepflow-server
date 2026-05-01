@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+dotenv.config();
 import cors from 'cors';
 import connectDB from './config/db.js';
 
@@ -21,7 +22,7 @@ import rateLimit from 'express-rate-limit';
 import cookieParser from 'cookie-parser';
 import { mongoSanitizeMiddleware, hppMiddleware } from './utils/securityMiddleware.js';
 
-dotenv.config();
+// dotenv.config() moved to top
 
 const app = express();
 app.use(cookieParser());

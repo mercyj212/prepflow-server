@@ -3,10 +3,23 @@ import Course from "../models/Course.js";
 import CourseAccess from "../models/CourseAccess.js";
 import crypto from "crypto";
 
-const PAYSTACK_SECRET = process.env.PAYSTACK_SECRET_KEY;
+const getPaystackSecret = () => (process.env.PAYSTACK_SECRET_KEY || "").trim();
+
+const getFrontendUrl = (req) => {
+    const origin = req.get("origin");
+    return (origin || process.env.FRONTEND_URL || "https://prepupcbt.vercel.app").replace(/\/$/, "");
+};
 
 export const initializeTransaction = async (req, res) => {
     try {
+        const secret = (process.env.PAYSTACK_SECRET_KEY || "").trim();
+        console.log('[PAYSTACK_SECRET_CHECK]:', {
+            length: secret.length,
+            prefix: secret.substring(0, 8),
+            suffix: secret.substring(secret.length - 4),
+            type: typeof secret
+        });
+
         const { courseId } = req.body;
         const studentId = req.user._id;
 
@@ -26,13 +39,13 @@ export const initializeTransaction = async (req, res) => {
         const response = await fetch("https://api.paystack.co/transaction/initialize", {
             method: "POST",
             headers: {
-                Authorization: `Bearer ${PAYSTACK_SECRET}`,
+                Authorization: `Bearer ${secret}`,
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 email: req.user.email,
                 amount: amount,
-                callback_url: `${process.env.FRONTEND_URL}/payment/verify`,
+                callback_url: `${getFrontendUrl(req)}/payment/verify`,
                 metadata: {
                     courseId,
                     studentId,
@@ -43,7 +56,11 @@ export const initializeTransaction = async (req, res) => {
         const data = await response.json();
 
         if (!data.status) {
-            return res.status(400).json({ message: data.message });
+            const message = data.message === "Invalid key"
+                ? "Paystack secret key is invalid. Check PAYSTACK_SECRET_KEY in the server environment."
+                : data.message;
+            const statusCode = response.status === 401 ? 500 : 400;
+            return res.status(statusCode).json({ message });
         }
 
         // Create a pending transaction
@@ -65,11 +82,12 @@ export const initializeTransaction = async (req, res) => {
 export const verifyTransaction = async (req, res) => {
     try {
         const { reference } = req.params;
+        const secret = getPaystackSecret();
 
         const response = await fetch(`https://api.paystack.co/transaction/verify/${reference}`, {
             method: "GET",
             headers: {
-                Authorization: `Bearer ${PAYSTACK_SECRET}`,
+                Authorization: `Bearer ${secret}`,
             },
         });
 
@@ -120,8 +138,9 @@ export const verifyTransaction = async (req, res) => {
 export const handleWebhook = async (req, res) => {
     try {
         // Validate webhook signature
+        const secret = getPaystackSecret();
         const hash = crypto
-            .createHmac("sha512", PAYSTACK_SECRET)
+            .createHmac("sha512", secret)
             .update(JSON.stringify(req.body))
             .digest("hex");
 

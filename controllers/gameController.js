@@ -100,30 +100,20 @@ export const getCoursesWithQuestions = async (req, res) => {
 
     // Extract unique courses
     const courseMap = new Map();
-    let courseIndex = 0;
     
     quizzes.forEach(quiz => {
       if (quiz.course && !courseMap.has(quiz.course._id.toString())) {
         const course = quiz.course.toObject();
-        let hasPaidAccess = accessedCourseIds.includes(course._id.toString());
+        const hasPaidAccess = accessedCourseIds.includes(course._id.toString());
         const hasAdminAccess = req.user?.role === "admin";
         
-        // Universal Preview Override: First course is always accessible
-        if (courseIndex === 0 && !hasPaidAccess) {
-            hasPaidAccess = true;
-            course.gameAccessReason = "preview";
-        } else {
-            course.gameAccessReason = hasAdminAccess ? "admin" : hasPaidAccess ? "paid" : "locked";
-        }
-        
-        // Remove the hardcoded Jaymercy override since we're doing universal preview
+        course.gameAccessReason = hasAdminAccess ? "admin" : hasPaidAccess ? "paid" : "locked";
         
         console.log(`[GAME_ACCESS]: Course ${course.title} | Paid: ${hasPaidAccess} | Reason: ${course.gameAccessReason}`);
         
-        course.hasGameAccess = hasPaidAccess;
+        course.hasGameAccess = hasAdminAccess || hasPaidAccess;
         course.faculty = course.department?.faculty || null;
         courseMap.set(course._id.toString(), course);
-        courseIndex++;
       }
     });
     
@@ -185,26 +175,42 @@ export const getLeaderboard = async (req, res) => {
   try {
     const { game = 'prepDrive' } = req.query;
     console.log(`[GAME]: Fetching Global Leaderboard for ${game}...`);
-    let query = {};
-    let sort = {};
-    let select = "fullName profilePicture";
 
-    if (game === 'speedRecall') {
-      query = { speedRecallScore: { $gt: 0 } };
-      sort = { speedRecallScore: -1 };
-      select += " speedRecallScore speedRecallAwards";
-    } else {
-      query = { prepDriveScore: { $gt: 0 } };
-      sort = { prepDriveScore: -1 };
-      select += " prepDriveScore prepDriveAwards";
-    }
+    const gameFieldMap = {
+      prepDrive: { scoreField: 'prepDriveScore', awardsField: 'prepDriveAwards' },
+      speedRecall: { scoreField: 'speedRecallScore', awardsField: 'speedRecallAwards' },
+      conceptMapping: { scoreField: 'conceptMappingScore', awardsField: 'conceptMappingAwards' },
+      socialDuels: { scoreField: 'socialDuelsScore', awardsField: 'socialDuelsAwards' },
+    };
+
+    const fields = gameFieldMap[game] || gameFieldMap.prepDrive;
+    const { scoreField, awardsField } = fields;
+
+    const query = { [scoreField]: { $exists: true, $gte: 0 } };
+    const sort = { [scoreField]: -1 };
+    const select = `fullName profilePicture ${scoreField} ${awardsField}`;
 
     const players = await Student.find(query)
       .sort(sort)
       .limit(10)
       .select(select);
-      
-    res.status(200).json({ success: true, data: players });
+
+    // Normalize field names for frontend compatibility
+    const normalized = players.map(p => ({
+      _id: p._id,
+      fullName: p.fullName,
+      profilePicture: p.profilePicture,
+      prepDriveScore: p.prepDriveScore,
+      prepDriveAwards: p.prepDriveAwards,
+      speedRecallScore: p.speedRecallScore,
+      speedRecallAwards: p.speedRecallAwards,
+      conceptMappingScore: p.conceptMappingScore,
+      conceptMappingAwards: p.conceptMappingAwards,
+      socialDuelsScore: p.socialDuelsScore,
+      socialDuelsAwards: p.socialDuelsAwards,
+    }));
+
+    res.status(200).json({ success: true, data: normalized });
   } catch (error) {
     console.error("Error fetching leaderboard:", error);
     res.status(500).json({ success: false, message: "Failed to fetch leaderboard" });

@@ -109,31 +109,6 @@ router.get('/conversations', protect, async (req, res) => {
       aiChat = await Conversation.create({ isAI: true, participants: [req.user._id] });
     }
 
-    // 3. Ensure Course Study Rooms exist for user's enrolled courses
-    let studentAccess = await CourseAccess.find({ student: req.user._id, isActive: true }).populate('course');
-
-    // 🛡️ AUTO-ENROLL PATTERN: If 0 courses found, enroll in available public courses for demo
-    if (studentAccess.length === 0) {
-      console.log(`[AUTO-ENROLL]: Student ${req.user.email} has 0 courses. Providing demo set.`);
-      const Course = (await import('../models/Course.js')).default;
-      const allCourses = await Course.find({}).limit(5);
-      
-      for (const course of allCourses) {
-        try {
-          await CourseAccess.create({
-            student: req.user._id,
-            course: course._id,
-            isActive: true,
-            accessToken: `DEMO-${Math.random().toString(36).substr(2, 9).toUpperCase()}`
-          });
-        } catch (enrollErr) {
-          // Likely already exists or unique constraint check
-        }
-      }
-      // Re-fetch now that they are enrolled
-      studentAccess = await CourseAccess.find({ student: req.user._id, isActive: true }).populate('course');
-    }
-
     // 3. Course study rooms have been disabled per user request.
 
     // 4. Fetch all user's chats
