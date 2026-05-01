@@ -72,7 +72,11 @@ export const getPublicStats = async (req, res) => {
 // @desc    Get all quizzes
 export const getQuizzes = async (req, res) => {
   try {
-    const quizzes = await Quiz.find({ isActive: true }).populate(coursePopulate);
+    const filter = { isActive: true };
+    if (req.query.course) {
+      filter.course = req.query.course;
+    }
+    const quizzes = await Quiz.find(filter).populate(coursePopulate);
     res.json(quizzes);
   } catch (error) {
     res.status(500).json({ message: error.message });
