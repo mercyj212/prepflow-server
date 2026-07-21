@@ -30,7 +30,51 @@ const sendEmail = async (options) => {
             : `Hi ${options.context?.name || 'there'}, welcome to PrepUp!`;
     }
 
-    // 2. DISPATCH VIA RESEND HTTP API IF KEY IS DEFINED (Render/Vercel Safe)
+    // 2. DISPATCH VIA BREVO API IF KEY IS DEFINED (Render/Vercel Safe, Sends to ANY email immediately)
+    if (process.env.BREVO_API_KEY) {
+        console.log(`[BREVO INITIATED]: Dispatching to ${options.email} via HTTPS API`);
+        const senderEmail = process.env.EMAIL_USER || 'mercyjay510@gmail.com';
+        const senderName = 'PrepUp Team';
+        
+        try {
+            const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+                method: 'POST',
+                headers: {
+                    'accept': 'application/json',
+                    'api-key': process.env.BREVO_API_KEY,
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    sender: {
+                        name: senderName,
+                        email: senderEmail
+                    },
+                    to: [
+                        {
+                            email: options.email,
+                            name: options.context?.name || 'User'
+                        }
+                    ],
+                    replyTo: options.replyTo ? { email: options.replyTo } : undefined,
+                    subject: options.subject,
+                    htmlContent: htmlContent || `<div style="font-family: sans-serif; color: #1a1a1a;">${textContent}</div>`,
+                    textContent: textContent
+                })
+            });
+
+            const resData = await response.json();
+            if (!response.ok) {
+                throw new Error(resData.message || JSON.stringify(resData));
+            }
+            console.log(`[EMAIL DISPATCHED VIA BREVO]: Target -> ${options.email}, ID -> ${resData.messageId}`);
+            return;
+        } catch (err) {
+            console.error('[BREVO DISPATCH ERROR]: Target ->', options.email, err.message);
+            throw new Error(`Brevo API Error: ${err.message}`);
+        }
+    }
+
+    // 3. DISPATCH VIA RESEND HTTP API IF KEY IS DEFINED (Render/Vercel Safe)
     if (process.env.RESEND_API_KEY) {
         console.log(`[RESEND INITIATED]: Dispatching to ${options.email} via HTTPS API`);
         const sender = process.env.EMAIL_FROM || 'PrepUp <onboarding@resend.dev>';
@@ -64,7 +108,7 @@ const sendEmail = async (options) => {
         }
     }
 
-    // 3. SMTP FALLBACK DISPATCH (For local development/SMTP configuration)
+    // 4. SMTP FALLBACK DISPATCH (For local development/SMTP configuration)
     console.log(`[SMTP FALLBACK INITIATED]: Dispatching to ${options.email} via SMTP`);
     const host = process.env.EMAIL_HOST || 'smtp.gmail.com';
     const port = parseInt(process.env.EMAIL_PORT || '465');
