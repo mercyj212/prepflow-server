@@ -4,24 +4,55 @@ import CourseAccess from "../models/CourseAccess.js";
 import crypto from "crypto";
 
 const getPaystackSecret = () => (process.env.PAYSTACK_SECRET_KEY || "").trim();
+const getPaymentBrandName = () => process.env.PAYMENT_BRAND_NAME || "PrepUp CBT";
+const getPaymentSupportEmail = () => process.env.PAYMENT_SUPPORT_EMAIL || process.env.SUPPORT_EMAIL || "";
 
 const getFrontendUrl = (req) => {
     const origin = req.get("origin");
     return (origin || process.env.FRONTEND_URL || "https://prepupcbt.vercel.app").replace(/\/$/, "");
 };
 
+const finalizeSuccessfulPayment = async ({ transaction, paystackData }) => {
+    const paidAt = paystackData?.paid_at ? new Date(paystackData.paid_at) : new Date();
+    const studentId = transaction.student;
+    const courseId = transaction.course;
+
+    await Transaction.findOneAndUpdate(
+        { _id: transaction._id },
+        {
+            $set: {
+                status: "success",
+                paidAt,
+                paystackResponse: paystackData,
+            },
+        },
+        { new: true }
+    );
+
+    const accessToken = crypto.randomBytes(16).toString("hex");
+
+    await CourseAccess.findOneAndUpdate(
+        { student: studentId, course: courseId },
+        {
+            student: studentId,
+            course: courseId,
+            accessToken,
+            isActive: true,
+            isUsed: true,
+            firstUsedAt: new Date(),
+        },
+        { upsert: true, new: true }
+    );
+};
+
 export const initializeTransaction = async (req, res) => {
     try {
         const secret = (process.env.PAYSTACK_SECRET_KEY || "").trim();
-        console.log('[PAYSTACK_SECRET_CHECK]:', {
-            length: secret.length,
-            prefix: secret.substring(0, 8),
-            suffix: secret.substring(secret.length - 4),
-            type: typeof secret
-        });
 
         const { courseId } = req.body;
         const studentId = req.user._id;
+        const brandName = getPaymentBrandName();
+        const supportEmail = getPaymentSupportEmail();
 
         const course = await Course.findById(courseId);
         if (!course) {
@@ -49,6 +80,25 @@ export const initializeTransaction = async (req, res) => {
                 metadata: {
                     courseId,
                     studentId,
+                    brandName,
+                    supportEmail,
+                    custom_fields: [
+                        {
+                            display_name: "Business Name",
+                            variable_name: "business_name",
+                            value: brandName,
+                        },
+                        ...(supportEmail ? [{
+                            display_name: "Support Email",
+                            variable_name: "support_email",
+                            value: supportEmail,
+                        }] : []),
+                        {
+                            display_name: "Course",
+                            variable_name: "course",
+                            value: course.title,
+                        },
+                    ],
                 },
             }),
         });
@@ -75,7 +125,7 @@ export const initializeTransaction = async (req, res) => {
         res.status(200).json(data.data);
     } catch (error) {
         console.error("Initialize Transaction Error:", error);
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: "Could not initialize payment. Please try again." });
     }
 };
 
@@ -83,6 +133,14 @@ export const verifyTransaction = async (req, res) => {
     try {
         const { reference } = req.params;
         const secret = getPaystackSecret();
+        const existingTransaction = await Transaction.findOne({
+            reference,
+            student: req.user._id,
+        });
+
+        if (!existingTransaction) {
+            return res.status(404).json({ message: "Transaction not found" });
+        }
 
         const response = await fetch(`https://api.paystack.co/transaction/verify/${reference}`, {
             method: "GET",
@@ -95,32 +153,20 @@ export const verifyTransaction = async (req, res) => {
 
         if (data.status && data.data.status === "success") {
             const { courseId, studentId } = data.data.metadata;
+            const expectedAmount = Number(existingTransaction.amount) * 100;
 
-            // Update transaction status
-            const transaction = await Transaction.findOneAndUpdate(
-                { reference },
-                { status: "success", paystackResponse: data.data },
-                { new: true }
-            );
-
-            if (transaction) {
-                // Grant access to the course
-                // Generate a random access token for the CourseAccess model
-                const accessToken = crypto.randomBytes(16).toString("hex");
-
-                await CourseAccess.findOneAndUpdate(
-                    { student: studentId, course: courseId },
-                    { 
-                        student: studentId, 
-                        course: courseId, 
-                        accessToken, 
-                        isActive: true,
-                        isUsed: true,
-                        firstUsedAt: new Date()
-                    },
-                    { upsert: true, new: true }
-                );
+            if (
+                studentId?.toString() !== req.user._id.toString()
+                || courseId?.toString() !== existingTransaction.course.toString()
+                || Number(data.data.amount) !== expectedAmount
+            ) {
+                return res.status(403).json({ message: "Payment verification mismatch" });
             }
+
+            await finalizeSuccessfulPayment({
+                transaction: existingTransaction,
+                paystackData: data.data,
+            });
 
             return res.status(200).json({ 
                 message: "Payment successful", 
@@ -131,7 +177,7 @@ export const verifyTransaction = async (req, res) => {
         res.status(400).json({ message: "Payment verification failed" });
     } catch (error) {
         console.error("Verify Transaction Error:", error);
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: "Could not verify payment. Please try again." });
     }
 };
 
@@ -139,45 +185,49 @@ export const handleWebhook = async (req, res) => {
     try {
         // Validate webhook signature
         const secret = getPaystackSecret();
+        const rawBody = Buffer.isBuffer(req.body)
+            ? req.body
+            : Buffer.from(JSON.stringify(req.body));
         const hash = crypto
             .createHmac("sha512", secret)
-            .update(JSON.stringify(req.body))
+            .update(rawBody)
             .digest("hex");
 
         if (hash !== req.headers["x-paystack-signature"]) {
             return res.status(401).send("Invalid signature");
         }
 
-        const event = req.body;
+        const event = Buffer.isBuffer(req.body)
+            ? JSON.parse(req.body.toString("utf8"))
+            : req.body;
+
         if (event.event === "charge.success") {
             const { reference, metadata } = event.data;
             const { courseId, studentId } = metadata;
+            const transaction = await Transaction.findOne({ reference });
 
-            // Update transaction
-            await Transaction.findOneAndUpdate(
-                { reference },
-                { status: "success", paystackResponse: event.data }
-            );
+            if (!transaction) {
+                return res.sendStatus(200);
+            }
 
-            // Grant access
-            const accessToken = crypto.randomBytes(16).toString("hex");
-            await CourseAccess.findOneAndUpdate(
-                { student: studentId, course: courseId },
-                { 
-                    student: studentId, 
-                    course: courseId, 
-                    accessToken, 
-                    isActive: true,
-                    isUsed: true,
-                    firstUsedAt: new Date()
-                },
-                { upsert: true }
-            );
+            if (
+                transaction.student.toString() !== studentId?.toString()
+                || transaction.course.toString() !== courseId?.toString()
+                || Number(event.data.amount) !== Number(transaction.amount) * 100
+            ) {
+                console.warn(`[PAYSTACK WEBHOOK]: Ignored mismatched transaction ${reference}`);
+                return res.sendStatus(200);
+            }
+
+            await finalizeSuccessfulPayment({
+                transaction,
+                paystackData: event.data,
+            });
         }
 
         res.sendStatus(200);
     } catch (error) {
         console.error("Webhook Error:", error);
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: "Webhook processing failed" });
     }
 };

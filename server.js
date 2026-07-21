@@ -35,12 +35,15 @@ app.use((req, res, next) => {
 
 const allowedOrigins = [
   process.env.FRONTEND_URL,
+  ...(process.env.FRONTEND_URLS || '').split(','),
   'https://prepupcbt.vercel.app',
   'https://www.prepupcbt.vercel.app',
-  'http://localhost:5173',
-  'http://127.0.0.1:5173',
-  'http://localhost:3000'
-].filter(Boolean).map(origin => origin.replace(/\/$/, ''));
+  ...(process.env.NODE_ENV === 'production' ? [] : [
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+    'http://localhost:3000'
+  ])
+].filter(Boolean).map(origin => origin.trim().replace(/\/$/, ''));
 
 const corsOptions = {
   origin(origin, callback) {
@@ -49,7 +52,10 @@ const corsOptions = {
     }
     const normalized = origin.replace(/\/$/, '');
     const isLocalDevOrigin = /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(normalized);
-    const isAllowed = allowedOrigins.includes(normalized) || normalized.endsWith('.vercel.app') || isLocalDevOrigin;
+    const allowVercelPreviews = process.env.ALLOW_VERCEL_PREVIEWS === 'true';
+    const isAllowed = allowedOrigins.includes(normalized)
+      || (process.env.NODE_ENV !== 'production' && isLocalDevOrigin)
+      || (allowVercelPreviews && normalized.endsWith('.vercel.app'));
 
     if (isAllowed) {
       callback(null, true);
@@ -87,23 +93,33 @@ app.use(hppMiddleware);
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 2000,
+  max: 500,
   message: { message: "Too many requests from this IP, please try again after 15 minutes" }
 });
 
 const authLimiter = rateLimit({
-  windowMs: 60 * 60 * 1000,
-  max: 10,
-  message: { message: "Too many authentication attempts. Please try again in an hour." }
+  windowMs: 15 * 60 * 1000,
+  max: 20,
+  message: { message: "Too many authentication attempts. Please try again in 15 minutes." }
+});
+
+const sensitiveAuthLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 5,
+  message: { message: "Too many attempts. Please wait 15 minutes and try again." }
 });
 
 app.use('/api/', limiter);
 app.use('/api/auth/login', authLimiter);
 app.use('/api/auth/register', authLimiter);
-app.use('/api/auth/forgot-password', authLimiter);
+app.use('/api/auth/forgot-password', sensitiveAuthLimiter);
+app.use('/api/auth/reset-password', sensitiveAuthLimiter);
+app.use('/api/auth/verify-otp', sensitiveAuthLimiter);
+app.use('/api/auth/resend-otp', sensitiveAuthLimiter);
 
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+app.use('/api/payments/webhook', express.raw({ type: 'application/json', limit: '1mb' }));
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 connectDB();
 
@@ -152,7 +168,7 @@ app.use((err, req, res, next) => {
   console.error(`[CRITICAL SERVER ERROR] ${req.method} ${req.url}:`, err.message);
   res.status(statusCode).json({
     message: "A critical backend error occurred.",
-    debug: err.message,
+    debug: process.env.NODE_ENV === 'production' ? null : err.message,
     stack: process.env.NODE_ENV === 'production' ? null : err.stack
   });
 });

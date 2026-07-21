@@ -20,6 +20,18 @@ const generateRefreshToken = (id) => {
 const normalizeNickname = (value = "") => value.toString().trim().replace(/\s+/g, " ");
 const nicknamePattern = /^[A-Za-z0-9 _-]{3,20}$/;
 const escapeRegex = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const otpTtlMs = 15 * 60 * 1000;
+const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+const passwordMessage = "Security Requirement: Your password must be at least 8 characters long and include an uppercase letter, a number, and a special symbol (@$!%*?&).";
+const resetRequestMessage = "If an account exists for that email, a recovery link has been sent.";
+
+const shouldLogSecrets = () => process.env.NODE_ENV !== "production";
+
+const logOtpFallback = (context, otp) => {
+  if (shouldLogSecrets()) {
+    console.warn(`\n===  DEV OTP FALLBACK  ===\n${context}: [ ${otp} ]\n==========================\n`);
+  }
+};
 
 const sendTokenResponse = (student, statusCode, res, message = null) => {
   const accessToken = generateAccessToken(student._id);
@@ -58,10 +70,9 @@ export const registerStudent = async (req, res) => {
 
   try {
     // ️ SECURITY SENTINEL: ENFORCE HIGH-ENTROPY PASSWORDS
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    if (!passwordRegex.test(password)) {
+    if (!passwordPattern.test(password)) {
       return res.status(400).json({ 
-        message: "Security Requirement: Your password must be at least 8 characters long and include an uppercase letter, a number, and a special symbol (@$!%*?&)." 
+        message: passwordMessage
       });
     }
 
@@ -81,7 +92,7 @@ export const registerStudent = async (req, res) => {
       password,
       phone,
       verificationToken: otpHash,
-      verificationTokenExpire: Date.now() + 60 * 60 * 1000, // 60 minutes
+      verificationTokenExpire: Date.now() + otpTtlMs,
     });
 
     if (student) {
@@ -97,7 +108,7 @@ export const registerStudent = async (req, res) => {
           }
         });
       } catch (emailErr) {
-        console.warn(`\n===  RENDER SMTP BYPASS  ===\nYour free Render server blocked outbound SMTP.\nRetrieve OTP Code to Register: [ ${otp} ]\n==============================\n`);
+        logOtpFallback("Registration OTP", otp);
         console.error('[COMMUNICATION DELAY]:', emailErr.message);
         mailDiagnostic = emailErr.message || "Silent Communication Failure";
       }
@@ -136,7 +147,7 @@ export const loginStudent = async (req, res) => {
     if (mongoose.connection.readyState !== 1) {
       return res.status(503).json({
         message: "Database connection is still starting. Please wait a moment and try again.",
-        debug: `MongoDB readyState=${mongoose.connection.readyState}`
+        debug: shouldLogSecrets() ? `MongoDB readyState=${mongoose.connection.readyState}` : undefined
       });
     }
 
@@ -162,7 +173,7 @@ export const loginStudent = async (req, res) => {
 
         await Student.findByIdAndUpdate(student._id, {
           verificationToken: otpHash,
-          verificationTokenExpire: Date.now() + 60 * 60 * 1000, // 60 minutes
+          verificationTokenExpire: Date.now() + otpTtlMs,
         });
 
         let mailDiagnostic = "success";
@@ -175,7 +186,7 @@ export const loginStudent = async (req, res) => {
             context: { name: student.fullName, otp: otp }
           });
         } catch (emailErr) {
-          console.warn(`\n===  RENDER SMTP BYPASS  ===\nYour free Render server blocked outbound SMTP.\nRetrieve OTP Code to Login: [ ${otp} ]\n==============================\n`);
+          logOtpFallback("Login verification OTP", otp);
           console.error('[COMMUNICATION DELAY]:', emailErr.message);
           mailDiagnostic = emailErr.message || "Silent Communication Failure";
         }
@@ -228,13 +239,13 @@ export const loginStudent = async (req, res) => {
     if (isDatabaseConnectionError) {
       return res.status(503).json({
         message: "Database connection is temporarily unavailable. Please try again in a moment.",
-        debug: error.message
+        debug: shouldLogSecrets() ? error.message : undefined
       });
     }
 
     res.status(500).json({ 
       message: "Identity verification failed on the server. Reach out to support if this persists.",
-      debug: error.message 
+      debug: shouldLogSecrets() ? error.message : undefined
     });
   }
 };
@@ -355,7 +366,7 @@ export const forgotPassword = async (req, res) => {
     const student = await Student.findOne({ email: req.body.email });
 
     if (!student) {
-      return res.status(404).json({ message: "No account found with this email address." });
+      return res.json({ message: resetRequestMessage });
     }
 
     const rToken = crypto.randomBytes(32).toString('hex');
@@ -365,7 +376,7 @@ export const forgotPassword = async (req, res) => {
     await Student.findByIdAndUpdate(student._id, {
       $set: {
         resetPasswordToken: rTokenHash,
-        resetPasswordExpire: Date.now() + 60 * 60 * 1000 // 1 hour
+        resetPasswordExpire: Date.now() + 30 * 60 * 1000
       }
     });
 
@@ -378,7 +389,7 @@ export const forgotPassword = async (req, res) => {
         context: { resetUrl }
       });
       res.json({ 
-        message: "Password reset link sent! Please check your email.",
+        message: resetRequestMessage,
         serverDiagnostic: "success"
       });
     } catch (emailErr) {
@@ -399,6 +410,10 @@ export const forgotPassword = async (req, res) => {
 // @route   PUT /api/auth/reset-password/:token
 export const resetPassword = async (req, res) => {
   try {
+    if (!passwordPattern.test(req.body.password || "")) {
+      return res.status(400).json({ message: passwordMessage });
+    }
+
     const rTokenHash = crypto.createHash('sha256').update(req.params.token).digest('hex');
 
     const student = await Student.findOne({
@@ -447,7 +462,7 @@ export const resendOTP = async (req, res) => {
 
     await Student.findByIdAndUpdate(student._id, {
       verificationToken: otpHash,
-      verificationTokenExpire: Date.now() + 60 * 60 * 1000, // 60 minutes
+      verificationTokenExpire: Date.now() + otpTtlMs,
     });
 
     let mailDiagnostic = 'success';
@@ -459,7 +474,7 @@ export const resendOTP = async (req, res) => {
         context: { name: student.fullName, otp: otp }
       });
     } catch (emailErr) {
-      console.warn(`\n===  RENDER SMTP BYPASS  ===\nOTP Code for ${student.email}: [ ${otp} ]\n==============================\n`);
+      logOtpFallback("Resend verification OTP", otp);
       console.error('[RESEND OTP DISPATCH ERROR]:', emailErr.message);
       mailDiagnostic = emailErr.message || 'Silent Communication Failure';
     }
@@ -555,7 +570,7 @@ export const googleLogin = async (req, res) => {
     console.error('[AUTH ERROR][GOOGLE HUB]:', error);
     res.status(401).json({ 
       message: "Identity verification failed via Google Hub. Access denied.",
-      debug: error.message 
+      debug: shouldLogSecrets() ? error.message : undefined
     });
   }
 };

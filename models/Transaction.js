@@ -29,6 +29,9 @@ const transactionSchema = new mongoose.Schema(
         paystackResponse: {
             type: Object,
         },
+        paidAt: {
+            type: Date,
+        },
     },
     { timestamps: true }
 );

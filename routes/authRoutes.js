@@ -15,7 +15,7 @@ import {
   getAuthStatus
 } from "../controllers/authController.js";
 import { protect } from "../utils/authMiddleware.js";
-import { upload } from "../config/cloudinary.js";
+import { avatarUpload } from "../config/cloudinary.js";
 
 const router = express.Router();
 
@@ -34,7 +34,7 @@ router.post("/forgot-password", forgotPassword);
 router.put("/reset-password/:token", resetPassword);
 
 // 🛡️ PROFILE MANAGEMENT
-router.put("/profile/avatar", protect, upload.single("avatar"), updateProfilePicture);
+router.put("/profile/avatar", protect, avatarUpload.single("avatar"), updateProfilePicture);
 router.put("/profile/nickname", protect, updateNickname);
 
 export default router;
