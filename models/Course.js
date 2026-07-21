@@ -38,6 +38,11 @@ const courseSchema = new mongoose.Schema(
             enum: ["university", "polytechnic", "entrance", null],
             default: null,
         },
+        semester: {
+            type: String,
+            enum: ["First Semester", "Second Semester", null],
+            default: null,
+        },
         materials: [materialSchema],
         price: {
             type: Number,

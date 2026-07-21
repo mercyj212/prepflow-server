@@ -48,7 +48,7 @@ export const getCourses = async (req, res) => {
 // @route   POST /api/courses
 // @access  Private/Admin
 export const createCourse = async (req, res) => {
-  const { title, description, department, level, path } = req.body;
+  const { title, description, department, level, path, semester } = req.body;
 
   try {
     const courseExists = await Course.findOne({ title: title.toUpperCase() });
@@ -62,6 +62,7 @@ export const createCourse = async (req, res) => {
       department: department || null,
       level: level || null,
       path: path || null,
+      semester: semester || null,
     });
     const createdCourse = await course.save();
 
@@ -227,7 +228,7 @@ export const updateCourse = async (req, res) => {
     const course = await Course.findById(req.params.id);
     if (!course) return res.status(404).json({ message: "Course not found" });
 
-    const allowedFields = ["price", "title", "description", "level", "path"];
+    const allowedFields = ["price", "title", "description", "level", "path", "semester"];
     allowedFields.forEach((field) => {
       if (req.body[field] !== undefined) {
         course[field] = req.body[field];
