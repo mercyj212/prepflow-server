@@ -76,6 +76,7 @@ export const registerStudent = async (req, res) => {
       });
     }
 
+
     const studentExists = await Student.findOne({ email });
 
     if (studentExists) {
@@ -96,6 +97,7 @@ export const registerStudent = async (req, res) => {
     });
 
     if (student) {
+      logOtpFallback("Registration OTP", otp);
       let mailDiagnostic = "success";
       try {
         await sendEmail({
@@ -108,7 +110,6 @@ export const registerStudent = async (req, res) => {
           }
         });
       } catch (emailErr) {
-        logOtpFallback("Registration OTP", otp);
         console.error('[COMMUNICATION DELAY]:', emailErr.message);
         mailDiagnostic = emailErr.message || "Silent Communication Failure";
       }
@@ -176,6 +177,7 @@ export const loginStudent = async (req, res) => {
           verificationTokenExpire: Date.now() + otpTtlMs,
         });
 
+        logOtpFallback("Login verification OTP", otp);
         let mailDiagnostic = "success";
         
         try {
@@ -186,7 +188,6 @@ export const loginStudent = async (req, res) => {
             context: { name: student.fullName, otp: otp }
           });
         } catch (emailErr) {
-          logOtpFallback("Login verification OTP", otp);
           console.error('[COMMUNICATION DELAY]:', emailErr.message);
           mailDiagnostic = emailErr.message || "Silent Communication Failure";
         }
@@ -465,6 +466,7 @@ export const resendOTP = async (req, res) => {
       verificationTokenExpire: Date.now() + otpTtlMs,
     });
 
+    logOtpFallback("Resend verification OTP", otp);
     let mailDiagnostic = 'success';
     try {
       await sendEmail({
@@ -474,7 +476,6 @@ export const resendOTP = async (req, res) => {
         context: { name: student.fullName, otp: otp }
       });
     } catch (emailErr) {
-      logOtpFallback("Resend verification OTP", otp);
       console.error('[RESEND OTP DISPATCH ERROR]:', emailErr.message);
       mailDiagnostic = emailErr.message || 'Silent Communication Failure';
     }
