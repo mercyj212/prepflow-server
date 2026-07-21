@@ -79,22 +79,34 @@ export const registerStudent = async (req, res) => {
 
     const studentExists = await Student.findOne({ email });
 
-    if (studentExists) {
-      return res.status(400).json({ message: "Student already exists" });
-    }
-
     // ️ GENERATE 6-DIGIT OTP
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     const otpHash = crypto.createHash('sha256').update(otp).digest('hex');
 
-    const student = await Student.create({
-      fullName,
-      email,
-      password,
-      phone,
-      verificationToken: otpHash,
-      verificationTokenExpire: Date.now() + otpTtlMs,
-    });
+    let student;
+    if (studentExists) {
+      if (studentExists.isVerified) {
+        return res.status(400).json({ message: "Student already exists" });
+      }
+      
+      // If the existing user is unverified, update their registration details and renew OTP
+      studentExists.fullName = fullName;
+      studentExists.password = password; // Trigger hashing via pre-save hook
+      studentExists.phone = phone;
+      studentExists.verificationToken = otpHash;
+      studentExists.verificationTokenExpire = Date.now() + otpTtlMs;
+      
+      student = await studentExists.save();
+    } else {
+      student = await Student.create({
+        fullName,
+        email,
+        password,
+        phone,
+        verificationToken: otpHash,
+        verificationTokenExpire: Date.now() + otpTtlMs,
+      });
+    }
 
     if (student) {
       logOtpFallback("Registration OTP", otp);
