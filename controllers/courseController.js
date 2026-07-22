@@ -10,9 +10,15 @@ import { cloudinary } from "../config/cloudinary.js";
 export const getCourses = async (req, res) => {
   try {
     const filter = {};
-    if (req.query.department) filter.department = req.query.department;
+    if (req.query.department) {
+      filter.$or = [
+        { department: req.query.department },
+        { department: null }
+      ];
+    }
     if (req.query.level) filter.level = req.query.level;
     if (req.query.path) filter.path = req.query.path;
+
 
     let courses = await Course.find(filter)
       .populate({
