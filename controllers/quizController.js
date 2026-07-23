@@ -64,32 +64,6 @@ export const getPublicStats = async (req, res) => {
       : 74; // Healthy academic benchmark for early-stage platform
 
 
-// @desc    Get public platform stats (no auth required)
-// @route   GET /api/quizzes/stats
-// @access  Public
-export const getPublicStats = async (req, res) => {
-  try {
-    const quizzes = await Quiz.find({ isActive: true }).select('questions');
-    const totalQuizzes = quizzes.length;
-    const totalQuestions = quizzes.reduce((acc, q) => acc + (q.questions?.length || 0), 0);
-
-    // Calculate global average score
-    const submissions = await Submission.find({}).select('score totalQuestions');
-    let totalScorePercentage = 0;
-    
-    if (submissions.length > 0) {
-      submissions.forEach(sub => {
-        const percentage = (sub.score / Math.max(1, sub.totalQuestions)) * 100;
-        totalScorePercentage += percentage;
-      });
-    }
-
-    // Baseline intelligence: If platform is new (few submissions), show a healthy benchmark
-    // instead of a raw 0 to maintain brand perception.
-    const averageScore = submissions.length >= 5 
-      ? Math.round(totalScorePercentage / submissions.length) 
-      : 74; // Healthy academic benchmark for early-stage platform
-
     res.json({ totalQuestions, totalQuizzes, averageScore });
   } catch (error) {
     res.status(500).json({ message: error.message });
