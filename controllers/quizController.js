@@ -63,6 +63,33 @@ export const getPublicStats = async (req, res) => {
       ? Math.round(totalScorePercentage / submissions.length) 
       : 74; // Healthy academic benchmark for early-stage platform
 
+
+// @desc    Get public platform stats (no auth required)
+// @route   GET /api/quizzes/stats
+// @access  Public
+export const getPublicStats = async (req, res) => {
+  try {
+    const quizzes = await Quiz.find({ isActive: true }).select('questions');
+    const totalQuizzes = quizzes.length;
+    const totalQuestions = quizzes.reduce((acc, q) => acc + (q.questions?.length || 0), 0);
+
+    // Calculate global average score
+    const submissions = await Submission.find({}).select('score totalQuestions');
+    let totalScorePercentage = 0;
+    
+    if (submissions.length > 0) {
+      submissions.forEach(sub => {
+        const percentage = (sub.score / Math.max(1, sub.totalQuestions)) * 100;
+        totalScorePercentage += percentage;
+      });
+    }
+
+    // Baseline intelligence: If platform is new (few submissions), show a healthy benchmark
+    // instead of a raw 0 to maintain brand perception.
+    const averageScore = submissions.length >= 5 
+      ? Math.round(totalScorePercentage / submissions.length) 
+      : 74; // Healthy academic benchmark for early-stage platform
+
     res.json({ totalQuestions, totalQuizzes, averageScore });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -76,7 +103,17 @@ export const getQuizzes = async (req, res) => {
     if (req.query.course) {
       filter.course = req.query.course;
     }
-    const quizzes = await Quiz.find(filter).populate(coursePopulate);
+    if (req.query.courses) {
+      const courseIds = req.query.courses.split(',').filter(Boolean);
+      if (courseIds.length > 0) {
+        filter.course = { $in: courseIds };
+      }
+    }
+    const quizzes = await Quiz.find(filter)
+      .select('title description course isActive questions._id duration level createdAt updatedAt')
+      .populate(coursePopulate)
+      .lean();
+
     res.json(quizzes);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -85,46 +122,6 @@ export const getQuizzes = async (req, res) => {
 
 // @desc    Get single quiz (Standard Exam - 60 Random Questions)
 export const getQuizById = async (req, res) => {
-  try {
-    const quiz = await Quiz.findById(req.params.id).populate(coursePopulate);
-
-    if (quiz) {
-      const quizObj = quiz.toObject();
-      const randomQuestions = shuffleArray(quizObj.questions).slice(0, 60);
-
-      quizObj.questions = shuffleQuizQuestionOptions(randomQuestions);
-      
-      res.json(quizObj);
-    } else {
-      res.status(404).json({ message: "Quiz not found" });
-    }
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
-// @desc    Get single quiz for study mode (60 Random Questions with Answers)
-export const getStudyQuizById = async (req, res) => {
-  try {
-    const quiz = await Quiz.findById(req.params.id).populate(coursePopulate);
-
-    if (quiz) {
-      const quizObj = quiz.toObject();
-      const randomQuestions = shuffleArray(quizObj.questions).slice(0, 60);
-      
-      quizObj.questions = shuffleQuizQuestionOptions(randomQuestions);
-
-      res.json(quizObj);
-    } else {
-      res.status(404).json({ message: "Quiz not found" });
-    }
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
-// @desc    Get single quiz for public practice (60 Random Questions with Answers)
-export const getStudyQuizByIdPublic = async (req, res) => {
   try {
     const quiz = await Quiz.findById(req.params.id).populate(coursePopulate);
 
