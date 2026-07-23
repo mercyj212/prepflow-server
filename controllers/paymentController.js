@@ -133,6 +133,7 @@ export const verifyTransaction = async (req, res) => {
     try {
         const { reference } = req.params;
         const secret = getPaystackSecret();
+
         const existingTransaction = await Transaction.findOne({
             reference,
             student: req.user._id,
@@ -140,6 +141,14 @@ export const verifyTransaction = async (req, res) => {
 
         if (!existingTransaction) {
             return res.status(404).json({ message: "Transaction not found" });
+        }
+
+        // If already finalized, return success immediately
+        if (existingTransaction.status === "success") {
+            return res.status(200).json({ 
+                message: "Payment already verified", 
+                courseId: existingTransaction.course 
+            });
         }
 
         const response = await fetch(`https://api.paystack.co/transaction/verify/${reference}`, {
@@ -152,12 +161,12 @@ export const verifyTransaction = async (req, res) => {
         const data = await response.json();
 
         if (data.status && data.data.status === "success") {
-            const { courseId, studentId } = data.data.metadata;
+            const { courseId, studentId } = data.data.metadata || {};
             const expectedAmount = Number(existingTransaction.amount) * 100;
 
             if (
-                studentId?.toString() !== req.user._id.toString()
-                || courseId?.toString() !== existingTransaction.course.toString()
+                (studentId && studentId.toString() !== req.user._id.toString())
+                || (courseId && courseId.toString() !== existingTransaction.course.toString())
                 || Number(data.data.amount) !== expectedAmount
             ) {
                 return res.status(403).json({ message: "Payment verification mismatch" });
@@ -170,7 +179,7 @@ export const verifyTransaction = async (req, res) => {
 
             return res.status(200).json({ 
                 message: "Payment successful", 
-                courseId 
+                courseId: existingTransaction.course 
             });
         }
 
@@ -180,6 +189,7 @@ export const verifyTransaction = async (req, res) => {
         res.status(500).json({ message: "Could not verify payment. Please try again." });
     }
 };
+
 
 export const handleWebhook = async (req, res) => {
     try {
