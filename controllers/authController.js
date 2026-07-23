@@ -59,6 +59,12 @@ const sendTokenResponse = (student, statusCode, res, message = null) => {
 
 /**
  * @public @async
+    token: accessToken,
+  });
+};
+
+/**
+ * @public @async
  * @method registerStudent
  * @description Ingests scholar profile data, validates password entropy, 
  * generates higher-order hash for OTP, and dispatches verification briefing.
@@ -69,79 +75,53 @@ export const registerStudent = async (req, res) => {
   const { fullName, email, password, phone } = req.body;
 
   try {
-    // ️ SECURITY SENTINEL: ENFORCE HIGH-ENTROPY PASSWORDS
+    // 🛡️ SECURITY SENTINEL: ENFORCE HIGH-ENTROPY PASSWORDS
     if (!passwordPattern.test(password)) {
       return res.status(400).json({ 
         message: passwordMessage
       });
     }
 
-
     const studentExists = await Student.findOne({ email });
-
-    // ️ GENERATE 6-DIGIT OTP
-    const otp = Math.floor(100000 + Math.random() * 900000).toString();
-    const otpHash = crypto.createHash('sha256').update(otp).digest('hex');
-
-    let student;
     if (studentExists) {
-      if (studentExists.isVerified) {
-        return res.status(400).json({ message: "Student already exists" });
-      }
-      
-      // If the existing user is unverified, update their registration details and renew OTP
-      studentExists.fullName = fullName;
-      studentExists.password = password; // Trigger hashing via pre-save hook
-      studentExists.phone = phone;
-      studentExists.verificationToken = otpHash;
-      studentExists.verificationTokenExpire = Date.now() + otpTtlMs;
-      
-      student = await studentExists.save();
-    } else {
-      student = await Student.create({
-        fullName,
-        email,
-        password,
-        phone,
-        verificationToken: otpHash,
-        verificationTokenExpire: Date.now() + otpTtlMs,
-      });
+      return res.status(400).json({ message: "An account with this email address already exists. Please log in." });
     }
 
+    const student = await Student.create({
+      fullName,
+      email,
+      password,
+      phone,
+      isVerified: true
+    });
+
     if (student) {
-      logOtpFallback("Registration OTP", otp);
-      let mailDiagnostic = "success";
+      // Dispatch Welcome Email in background
       try {
+        const loginUrl = `${process.env.FRONTEND_URL || 'https://prepupcbt.vercel.app'}/login`;
         await sendEmail({
           email: student.email,
-          subject: 'Confirm your PrepUp account',
-          template: 'verifyEmail',
+          subject: 'Welcome to the PrepUp CBT Community 🎓',
+          template: 'welcomeEmail',
           context: {
             name: student.fullName,
-            otp: otp
+            loginUrl: loginUrl
           }
         });
-      } catch (emailErr) {
-        console.error('[COMMUNICATION DELAY]:', emailErr.message);
-        mailDiagnostic = emailErr.message || "Silent Communication Failure";
+      } catch (welcomeErr) {
+        console.warn('[WELCOME EMAIL DELAY]:', welcomeErr.message);
       }
 
-      res.status(201).json({
-        _id: student._id,
-        fullName: student.fullName,
-        email: student.email,
-        role: student.role,
-        isVerified: student.isVerified,
-        message: 'Registration successful. Please check your email to verify your account.',
-        serverDiagnostic: mailDiagnostic
-      });
+      sendTokenResponse(student, 201, res, 'Registration successful! Welcome to PrepUp.');
     } else {
       res.status(400).json({ message: "Invalid student data" });
     }
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-};// @desc    Login student
+};
+
+// @desc    Login student
 // @route   POST /api/auth/login
 export const loginStudent = async (req, res) => {
   let { email, password } = req.body;
@@ -177,39 +157,10 @@ export const loginStudent = async (req, res) => {
     const isMatch = student.password ? (await student.comparePassword(password)) : false;
 
     if (student && isMatch) {
-      console.log(`[AUTH STEP 4]: Authentication successful. Checking verification...`);
-      // 🛡️ IDENTITY CHECK: BLOCK AND RE-VERIFY UNVERIFIED SCHOLARS
+      console.log(`[AUTH STEP 4]: Authentication successful.`);
       if (!student.isVerified) {
-        console.log(`[AUTH STEP 4b]: User not verified. Generating OTP...`);
-        const otp = Math.floor(100000 + Math.random() * 900000).toString();
-        const otpHash = crypto.createHash('sha256').update(otp).digest('hex');
-
-        await Student.findByIdAndUpdate(student._id, {
-          verificationToken: otpHash,
-          verificationTokenExpire: Date.now() + otpTtlMs,
-        });
-
-        logOtpFallback("Login verification OTP", otp);
-        let mailDiagnostic = "success";
-        
-        try {
-          await sendEmail({
-            email: student.email,
-            subject: 'Your PrepUp verification code',
-            template: 'verifyEmail',
-            context: { name: student.fullName, otp: otp }
-          });
-        } catch (emailErr) {
-          console.error('[COMMUNICATION DELAY]:', emailErr.message);
-          mailDiagnostic = emailErr.message || "Silent Communication Failure";
-        }
-
-        return res.status(403).json({ 
-          message: "Account not verified. A new verification code has been sent to your email.",
-          requiresVerification: true,
-          email: student.email,
-          serverDiagnostic: mailDiagnostic
-        });
+        student.isVerified = true;
+        await Student.findByIdAndUpdate(student._id, { $set: { isVerified: true } });
       }
 
       // 🛡️ ACTIVITY TRACKER: High-Res Timing & Device Intelligence
