@@ -1,13 +1,15 @@
 import CourseNote from "../models/CourseNote.js";
 import Course from "../models/Course.js";
 
+import mongoose from "mongoose";
+
 // @desc    Get all notes for a specific course
 // @route   GET /api/notes/:courseId
 // @access  Public (or could be restricted to logged in students depending on your rules, let's keep it public/enrolled logic)
 export const getCourseNotes = async (req, res) => {
   try {
     const { courseId } = req.params;
-    const notes = await CourseNote.find({ course: courseId }).sort({ order: 1 });
+    const notes = await CourseNote.find({ course: new mongoose.Types.ObjectId(courseId) }).sort({ order: 1 });
     res.json(notes);
   } catch (error) {
     res.status(500).json({ message: error.message });
