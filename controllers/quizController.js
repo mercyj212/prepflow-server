@@ -124,6 +124,36 @@ export const getQuizById = async (req, res) => {
   }
 };
 
+// @desc    Get single quiz for study mode (includes answers)
+export const getStudyQuizById = async (req, res) => {
+  try {
+    const quiz = await Quiz.findById(req.params.id).populate(coursePopulate);
+
+    if (quiz) {
+      res.json(quiz);
+    } else {
+      res.status(404).json({ message: "Quiz not found" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Get single quiz for public practice (includes answers)
+export const getStudyQuizByIdPublic = async (req, res) => {
+  try {
+    const quiz = await Quiz.findById(req.params.id).populate(coursePopulate);
+
+    if (quiz) {
+      res.json(quiz);
+    } else {
+      res.status(404).json({ message: "Quiz not found" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 // @desc    Create a quiz
 export const createQuiz = async (req, res) => {
   try {
