@@ -9,7 +9,8 @@ export const getDepartments = async (req, res) => {
     if (req.query.faculty) filter.faculty = req.query.faculty;
     const departments = await Department.find(filter)
       .populate("faculty", "name path")
-      .sort({ name: 1 });
+      .sort({ name: 1 })
+      .lean();
     res.json(departments);
   } catch (error) {
     res.status(500).json({ message: error.message });

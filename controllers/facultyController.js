@@ -8,7 +8,7 @@ export const getFaculties = async (req, res) => {
   try {
     const filter = {};
     if (req.query.path) filter.path = req.query.path;
-    const faculties = await Faculty.find(filter).sort({ name: 1 });
+    const faculties = await Faculty.find(filter).sort({ name: 1 }).lean();
     res.json(faculties);
   } catch (error) {
     res.status(500).json({ message: error.message });
