@@ -1,5 +1,6 @@
 import Quiz from "../models/Quiz.js";
 import Submission from "../models/Submission.js";
+import Course from "../models/Course.js";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
