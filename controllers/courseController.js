@@ -21,26 +21,27 @@ export const getCourses = async (req, res) => {
 
 
     let courses = await Course.find(filter)
+      .select('title description department level path semester price materials.name')
       .populate({
         path: "department",
         select: "name faculty",
         populate: { path: "faculty", select: "name path" },
       })
-      .sort({ title: 1 });
+      .sort({ title: 1 })
+      .lean();
 
-    courses = courses.map((course) => {
-      const courseObj = course.toObject();
-      courseObj.faculty = courseObj.department?.faculty || null;
-      return courseObj;
-    });
+    courses = courses.map((course) => ({
+      ...course,
+      faculty: course.department?.faculty || null,
+    }));
 
     if (req.user && req.user.role === "student") {
-      const studentAccess = await CourseAccess.find({ student: req.user._id, isActive: true });
-      const accessedCourseIds = studentAccess.map((access) => access.course.toString());
+      const studentAccess = await CourseAccess.find({ student: req.user._id, isActive: true }).select('course').lean();
+      const accessedCourseIds = new Set(studentAccess.map((access) => access.course.toString()));
 
       courses = courses.map((course) => ({
         ...course,
-        hasAccess: accessedCourseIds.includes(course._id.toString()),
+        hasAccess: accessedCourseIds.has(course._id.toString()),
       }));
     }
 
