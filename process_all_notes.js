@@ -97,7 +97,7 @@ Return ONLY the raw markdown text. Do not include markdown fences like \`\`\`mar
       };
 
       let responseText = '';
-      let retries = 5;
+      let retries = 10;
       while (retries > 0) {
           try {
               const result = await model.generateContent([prompt, filePart]);
@@ -105,15 +105,15 @@ Return ONLY the raw markdown text. Do not include markdown fences like \`\`\`mar
               break;
           } catch (err) {
               if (err.message.includes('429')) {
-                  console.warn(`Rate limit hit (429) for file ${file}. Waiting 30 seconds... (${retries} retries left)`);
+                  console.warn(`Rate limit hit (429) for file ${file}. Waiting 60 seconds... (${retries} retries left)`);
                   retries--;
                   if (retries === 0) throw err;
-                  await new Promise(resolve => setTimeout(resolve, 30000));
+                  await new Promise(resolve => setTimeout(resolve, 60000));
               } else if (err.message.includes('503') || err.message.includes('500')) {
-                  console.warn(`API Error for file ${file}: ${err.message}. Retrying in 5 seconds... (${retries} retries left)`);
+                  console.warn(`API Error for file ${file}: ${err.message}. Retrying in 10 seconds... (${retries} retries left)`);
                   retries--;
                   if (retries === 0) throw err;
-                  await new Promise(resolve => setTimeout(resolve, 5000));
+                  await new Promise(resolve => setTimeout(resolve, 10000));
               } else {
                   throw err;
               }
