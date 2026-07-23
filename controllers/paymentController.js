@@ -257,3 +257,25 @@ export const handleWebhook = async (req, res) => {
         res.status(500).json({ message: "Webhook processing failed" });
     }
 };
+
+export const getMyTransactions = async (req, res) => {
+    try {
+        const transactions = await Transaction.find({ student: req.user._id })
+            .populate({
+                path: "course",
+                select: "title level path department",
+                populate: {
+                    path: "department",
+                    select: "name faculty",
+                    populate: { path: "faculty", select: "name path" }
+                }
+            })
+            .sort({ createdAt: -1 });
+
+        res.status(200).json(transactions);
+    } catch (error) {
+        console.error("Get My Transactions Error:", error);
+        res.status(500).json({ message: "Could not fetch transaction history" });
+    }
+};
+
