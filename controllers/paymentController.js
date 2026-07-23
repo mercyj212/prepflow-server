@@ -143,11 +143,25 @@ export const verifyTransaction = async (req, res) => {
             return res.status(404).json({ message: "Transaction not found" });
         }
 
+        const fullCourse = await Course.findById(existingTransaction.course).populate({
+            path: "department",
+            populate: { path: "faculty" }
+        });
+
+        const coursePayload = fullCourse ? {
+            _id: fullCourse._id,
+            title: fullCourse.title,
+            path: fullCourse.path || fullCourse.department?.faculty?.path || "polytechnic",
+            facultyId: fullCourse.department?.faculty?._id || null,
+            departmentId: fullCourse.department?._id || null
+        } : null;
+
         // If already finalized, return success immediately
         if (existingTransaction.status === "success") {
             return res.status(200).json({ 
                 message: "Payment already verified", 
-                courseId: existingTransaction.course 
+                courseId: existingTransaction.course,
+                course: coursePayload
             });
         }
 
@@ -179,7 +193,8 @@ export const verifyTransaction = async (req, res) => {
 
             return res.status(200).json({ 
                 message: "Payment successful", 
-                courseId: existingTransaction.course 
+                courseId: existingTransaction.course,
+                course: coursePayload
             });
         }
 
@@ -189,6 +204,7 @@ export const verifyTransaction = async (req, res) => {
         res.status(500).json({ message: "Could not verify payment. Please try again." });
     }
 };
+
 
 
 export const handleWebhook = async (req, res) => {
