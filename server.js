@@ -21,7 +21,7 @@ import mongoose from 'mongoose';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import cookieParser from 'cookie-parser';
-import { mongoSanitizeMiddleware, hppMiddleware } from './utils/securityMiddleware.js';
+import { mongoSanitizeMiddleware, hppMiddleware, xssSanitizeMiddleware } from './utils/securityMiddleware.js';
 
 // dotenv.config() moved to top
 
@@ -109,6 +109,18 @@ const sensitiveAuthLimiter = rateLimit({
   message: { message: "Too many attempts. Please wait 15 minutes and try again." }
 });
 
+const aiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 30,
+  message: { message: "AI query rate limit exceeded. Please wait 15 minutes before asking more questions." }
+});
+
+const paymentLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 15,
+  message: { message: "Too many payment requests. Please wait a few minutes before trying again." }
+});
+
 app.use('/api/', limiter);
 app.use('/api/auth/login', authLimiter);
 app.use('/api/auth/register', authLimiter);
@@ -116,10 +128,14 @@ app.use('/api/auth/forgot-password', sensitiveAuthLimiter);
 app.use('/api/auth/reset-password', sensitiveAuthLimiter);
 app.use('/api/auth/verify-otp', sensitiveAuthLimiter);
 app.use('/api/auth/resend-otp', sensitiveAuthLimiter);
+app.use('/api/chat', aiLimiter);
+app.use('/api/payments/initialize', paymentLimiter);
+app.use('/api/payments/verify', paymentLimiter);
 
 app.use('/api/payments/webhook', express.raw({ type: 'application/json', limit: '1mb' }));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+app.use(xssSanitizeMiddleware);
 
 connectDB();
 

@@ -152,19 +152,20 @@ export const loginStudent = async (req, res) => {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
+    // 🛡️ SECURITY SENTINEL: BRUTE-FORCE LOCKOUT GUARD
+    if (student.lockUntil && new Date(student.lockUntil) > new Date()) {
+      const remainingMins = Math.ceil((new Date(student.lockUntil) - new Date()) / (60 * 1000));
+      return res.status(429).json({ 
+        message: `Account temporarily locked due to 5 consecutive failed login attempts. Please try again in ${remainingMins} minute${remainingMins === 1 ? '' : 's'}.` 
+      });
+    }
+
     console.log(`[AUTH STEP 3]: Comparing password...`);
-    // Handle case where account might exist but doesn't have a password (like Google logins)
     const isMatch = student.password ? (await student.comparePassword(password)) : false;
 
     if (student && isMatch) {
       console.log(`[AUTH STEP 4]: Authentication successful.`);
-      if (!student.isVerified) {
-        student.isVerified = true;
-        await Student.findByIdAndUpdate(student._id, { $set: { isVerified: true } });
-      }
-
-      // 🛡️ ACTIVITY TRACKER: High-Res Timing & Device Intelligence
-      console.log(`[AUTH STEP 5]: Updating activity tracker...`);
+      
       let deviceInfo = 'Standard Web-Client';
       const userAgent = req.headers['user-agent'] || '';
       
@@ -177,20 +178,40 @@ export const loginStudent = async (req, res) => {
       try {
         await Student.findByIdAndUpdate(student._id, {
           $set: { 
+            isVerified: true,
+            failedLoginAttempts: 0,
+            lockUntil: null,
             lastLogin: Date.now(),
             deviceInfo: deviceInfo
           }
         });
       } catch (updateError) {
-        console.warn(`[AUTH WARN]: Failed to update lastLogin, continuing...`);
+        console.warn(`[AUTH WARN]: Failed to update student stats, continuing...`);
       }
 
-      // Let sendTokenResponse handle the response
       console.log(`[AUTH STEP 6]: Sending token response...`);
       sendTokenResponse(student, 200, res);
     } else {
       console.log(`[AUTH STEP 3b]: Password mismatch or missing.`);
-      res.status(401).json({ message: "Invalid credentials" });
+      const attempts = (student.failedLoginAttempts || 0) + 1;
+      const updates = { failedLoginAttempts: attempts };
+      let lockedOut = false;
+
+      if (attempts >= 5) {
+        updates.lockUntil = new Date(Date.now() + 15 * 60 * 1000); // 15 minute lockout
+        lockedOut = true;
+      }
+      await Student.findByIdAndUpdate(student._id, { $set: updates });
+
+      if (lockedOut) {
+        return res.status(429).json({
+          message: "Account temporarily locked due to 5 consecutive failed login attempts. Please try again in 15 minutes."
+        });
+      }
+
+      res.status(401).json({ 
+        message: `Invalid credentials. (${5 - attempts} attempt${5 - attempts === 1 ? '' : 's'} remaining before account lockout)` 
+      });
     }
   } catch (error) {
     console.error(error.stack);
