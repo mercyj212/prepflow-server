@@ -291,6 +291,7 @@ async function main() {
         course: course._id,
         title: "CYS 322 Exam",
         timeLimit: 30, // 30 minutes
+        isActive: true,
         questions: formattedQuestions,
         createdAt: new Date(),
         updatedAt: new Date()
