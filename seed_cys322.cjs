@@ -259,6 +259,9 @@ async function main() {
         title: `CYS 322 - MOBILE AND WIRELESS SECURITY - ${deptName.toUpperCase()}`,
         code: 'CYS 322',
         department: deptId,
+        level: 'HND1',
+        semester: 'Second Semester',
+        path: 'polytechnic',
         description: 'Comprehensive guide to mobile and wireless network security concepts, threats, and mitigation tools.',
         createdAt: new Date(),
         updatedAt: new Date()
