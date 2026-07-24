@@ -241,16 +241,24 @@ async function main() {
 
   const depts = ["Cyber Security", "Networking and Cloud Computing"];
   
-  for (const dept of depts) {
-    console.log(`Processing for department: ${dept}`);
+  for (const deptName of depts) {
+    console.log(`Processing for department: ${deptName}`);
     
+    // Find department ObjectId
+    const deptDoc = await db.collection('departments').findOne({ name: deptName });
+    if (!deptDoc) {
+      console.log(`Department ${deptName} not found! Skipping.`);
+      continue;
+    }
+    const deptId = deptDoc._id;
+
     // Create course
-    let course = await db.collection('courses').findOne({ title: `CYS 322 - MOBILE AND WIRELESS SECURITY - ${dept.toUpperCase()}`, department: dept });
+    let course = await db.collection('courses').findOne({ title: `CYS 322 - MOBILE AND WIRELESS SECURITY - ${deptName.toUpperCase()}`, department: deptId });
     if (!course) {
       const result = await db.collection('courses').insertOne({
-        title: `CYS 322 - MOBILE AND WIRELESS SECURITY - ${dept.toUpperCase()}`,
+        title: `CYS 322 - MOBILE AND WIRELESS SECURITY - ${deptName.toUpperCase()}`,
         code: 'CYS 322',
-        department: dept,
+        department: deptId,
         description: 'Comprehensive guide to mobile and wireless network security concepts, threats, and mitigation tools.',
         createdAt: new Date(),
         updatedAt: new Date()
@@ -284,13 +292,13 @@ async function main() {
         createdAt: new Date(),
         updatedAt: new Date()
       });
-      console.log(`Quiz inserted for ${dept} with ${formattedQuestions.length} questions`);
+      console.log(`Quiz inserted for ${deptName} with ${formattedQuestions.length} questions`);
     } else {
       await db.collection('quizzes').updateOne(
         { _id: existingQuiz._id },
         { $set: { questions: formattedQuestions, timeLimit: 30 } }
       );
-      console.log(`Quiz updated for ${dept} with ${formattedQuestions.length} questions`);
+      console.log(`Quiz updated for ${deptName} with ${formattedQuestions.length} questions`);
     }
   }
 
