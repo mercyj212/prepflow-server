@@ -162,7 +162,9 @@ export const createSubmission = async (req, res) => {
 // @access  Private
 export const getMySubmissions = async (req, res) => {
   try {
-    const submissions = await Submission.find({ student: req.user._id }).populate("quiz", "title course");
+    const submissions = await Submission.find({ student: req.user._id })
+      .sort({ createdAt: -1 })
+      .populate("quiz", "title course");
     res.json(submissions);
   } catch (error) {
     res.status(500).json({ message: error.message });
