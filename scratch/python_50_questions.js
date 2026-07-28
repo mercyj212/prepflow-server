@@ -1,4 +1,4 @@
-﻿import mongoose from 'mongoose';
+import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -22,7 +22,7 @@ const fileManager = new GoogleAIFileManager(API_KEY);
 const COURSE_ID = '6a685990145c0ad0eb287329';
 const QUIZ_ID = '6a691279ea83ad203d94f6ea'; // existing Python Programming Exam
 const TARGET_QUESTIONS = 50;
-const PDF_FILES = ['python3.pdf', 'python4.pdf'];
+const PDF_FILES = ['python7.pdf', 'python8.pdf'];
 const PDFS_DIR = path.join(__dirname, '..', '..', 'pdfs');
 
 async function uploadAndWait(filename) {
