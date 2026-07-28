@@ -1,0 +1,799 @@
+1.
+Which of the following is the primary objective of mobile security?
+* A. To increase battery life
+* B. To protect mobile devices, applications, and data
+* C. To improve internet speed
+* D. To increase storage capacity
+Answer: B
+
+2.
+Which wireless technology has the shortest communication range?
+* A. Wi-Fi
+* B. Bluetooth
+* C. NFC
+* D. Cellular (4G)
+Answer: C
+
+3.
+Which of the following is considered the most secure Wi-Fi encryption protocol today?
+* A. WEP
+* B. WPA
+* C. WPA2
+* D. WPA3
+Answer: D
+
+4.
+A hacker sets up a fake Wi-Fi hotspot named “Free Airport Wi-Fi” to steal users’ information. This attack is called:
+* A. Bluesnarfing
+* B. Evil Twin Attack
+* C. SQL Injection
+* D. Phishing
+Answer: B
+
+5.
+Which attack targets Bluetooth-enabled devices to steal data?
+* A. Bluesnarfing
+* B. Smishing
+* C. Spoofing
+* D. Phishing
+Answer: A
+
+6.
+What is the major purpose of encryption in wireless communication?
+* A. To reduce signal strength
+* B. To convert data into an unreadable form for unauthorized users
+* C. To increase internet speed
+* D. To compress files
+Answer: B
+
+7.
+Which authentication method provides the highest level of security?
+* A. Username only
+* B. Password only
+* C. Multi-Factor Authentication (MFA)
+* D. Security questions only
+Answer: C
+
+8.
+Which of the following is an example of biometric authentication?
+* A. PIN
+* B. Password
+* C. Fingerprint recognition
+* D. Username
+Answer: C
+
+9.
+The main purpose of a Virtual Private Network (VPN) is to:
+* A. Improve battery life
+* B. Encrypt internet traffic over public networks
+* C. Increase storage
+* D. Remove malware
+Answer: B
+
+10.
+Which of the following is NOT a mobile malware?
+* A. Trojan
+* B. Spyware
+* C. Worm
+* D. Firewall
+Answer: D
+
+11.
+Spyware is mainly designed to:
+* A. Delete files
+* B. Monitor user activities secretly
+* C. Improve phone performance
+* D. Encrypt documents
+Answer: B
+
+12.
+Which attack sends fake text messages to trick users into revealing sensitive information?
+* A. Smishing
+* B. Bluesnarfing
+* C. Pharming
+* D. Shoulder Surfing
+Answer: A
+
+13.
+Which mobile operating system is open source?
+* A. iOS
+* B. Android
+* C. HarmonyOS
+* D. Windows Phone
+Answer: B
+
+14.
+The first action after losing a smartphone should be:
+* A. Buy another phone immediately
+* B. Ignore it
+* C. Lock or remotely wipe the device if possible
+* D. Change the wallpaper
+Answer: C
+
+15.
+A SIM swap attack is mainly intended to:
+* A. Improve network speed
+* B. Take control of the victim’s phone number
+* C. Damage the SIM physically
+* D. Increase data balance
+Answer: B
+
+16.
+Which security feature prevents unauthorized apps from accessing system resources?
+* A. Sandboxing
+* B. Formatting
+* C. Compression
+* D. Caching
+Answer: A
+
+17.
+The process of verifying a user’s identity is called:
+* A. Authentication
+* B. Authorization
+* C. Encryption
+* D. Encoding
+Answer: A
+
+18.
+Granting a verified user permission to access resources is known as:
+* A. Authentication
+* B. Authorization
+* C. Validation
+* D. Auditing
+Answer: B
+
+19.
+Which wireless network is generally more vulnerable when no password is required?
+* A. WPA3 Network
+* B. WPA2 Enterprise
+* C. Open Wi-Fi Network
+* D. VPN
+Answer: C
+
+20.
+What is the main function of a firewall?
+* A. Charge the phone
+* B. Block or allow network traffic based on security rules
+* C. Improve camera quality
+* D. Increase RAM
+Answer: B
+
+21.
+Which attack involves listening to wireless communication without altering it?
+* A. Eavesdropping
+* B. Phishing
+* C. Smishing
+* D. Spoofing
+Answer: A
+
+22.
+One advantage of using biometric authentication is:
+* A. It can be easily guessed.
+* B. It is unique to the individual.
+* C. It never requires hardware.
+* D. It is the same for everyone.
+Answer: B
+
+23.
+Which of the following is the safest place to download mobile applications?
+* A. Random websites
+* B. Unknown links
+* C. Official app stores
+* D. Social media messages
+Answer: C
+
+24.
+Which of the following is an example of social engineering?
+* A. Phishing email
+* B. Firewall configuration
+* C. VPN connection
+* D. File compression
+Answer: A
+
+25.
+Which security practice should every smartphone user adopt?
+* A. Install applications from unknown sources.
+* B. Disable screen lock.
+* C. Regularly update the operating system.
+* D. Share passwords with friends.
+Answer: C
+
+26.
+A user installs an application from an untrusted website. The greatest security risk is that the app may:
+* A. Improve battery life
+* B. Contain malware
+* C. Increase storage capacity
+* D. Speed up the processor
+Answer: B
+
+27.
+Which of the following is the primary purpose of mobile device encryption?
+* A. To make files smaller
+* B. To protect data if the device is lost or stolen
+* C. To improve internet speed
+* D. To reduce battery consumption
+Answer: B
+
+28.
+Which wireless technology is commonly used for contactless payment systems?
+* A. Wi-Fi
+* B. Bluetooth
+* C. NFC
+* D. Infrared
+Answer: C
+
+29.
+The process of updating software to fix security weaknesses is known as:
+* A. Debugging
+* B. Patching
+* C. Formatting
+* D. Scanning
+Answer: B
+
+30.
+An attacker intercepts communication between two devices without either party knowing. This is called:
+* A. Denial-of-Service Attack
+* B. Man-in-the-Middle (MITM) Attack
+* C. Password Attack
+* D. Spoofing
+Answer: B
+
+31.
+Which of the following helps prevent unauthorized physical access to a smartphone?
+* A. Strong screen lock
+* B. Large storage space
+* C. Fast processor
+* D. Bright display
+Answer: A
+
+32.
+What is the purpose of an antivirus application on a mobile device?
+* A. To increase storage
+* B. To detect and remove malicious software
+* C. To improve network speed
+* D. To increase battery life
+Answer: B
+
+33.
+Which of the following is considered a social engineering attack?
+* A. Smishing
+* B. Encryption
+* C. VPN
+* D. Firewall
+Answer: A
+
+34.
+Which of the following is the safest method for creating a password?
+* A. 12345678
+* B. Your birthday
+* C. A long combination of letters, numbers, and symbols
+* D. Your first name
+Answer: C
+
+35.
+Which attack attempts to overwhelm a wireless network with excessive traffic?
+* A. DoS Attack
+* B. Bluesnarfing
+* C. Smishing
+* D. Shoulder Surfing
+Answer: A
+
+36.
+Which of the following is an example of multi-factor authentication?
+* A. Username only
+* B. Password and fingerprint
+* C. PIN only
+* D. Email address only
+Answer: B
+
+37.
+The main advantage of WPA3 over WPA2 is:
+* A. Lower security
+* B. Stronger encryption and better protection against password attacks
+* C. Slower performance
+* D. Less authentication
+Answer: B
+
+38.
+Which wireless communication technology generally covers the largest area?
+* A. NFC
+* B. Bluetooth
+* C. Cellular Network (4G/5G)
+* D. Infrared
+Answer: C
+
+39.
+What is the main purpose of Mobile Device Management (MDM)?
+* A. Increase storage
+* B. Manage and secure organizational mobile devices
+* C. Repair damaged phones
+* D. Increase signal strength
+Answer: B
+
+40.
+A hacker sends an email pretending to be a bank and asks users to verify their account details. This is an example of:
+* A. Phishing
+* B. Bluesnarfing
+* C. VPN
+* D. Firewall
+Answer: A
+
+41.
+Which of the following can help secure a wireless router?
+* A. Leaving the default password unchanged
+* B. Using WPA3 and changing the default administrator password
+* C. Broadcasting unnecessary services
+* D. Disabling encryption
+Answer: B
+
+42.
+The main purpose of authentication is to:
+* A. Verify the identity of a user
+* B. Grant permissions
+* C. Encrypt files
+* D. Compress data
+Answer: A
+
+43.
+Authorization occurs:
+* A. Before authentication
+* B. After authentication
+* C. Instead of authentication
+* D. During encryption
+Answer: B
+
+44.
+Which attack involves secretly observing someone entering a password?
+* A. Shoulder Surfing
+* B. Smishing
+* C. Phishing
+* D. Spoofing
+Answer: A
+
+45.
+Why should Bluetooth be turned off when not in use?
+* A. To reduce the risk of unauthorized connections
+* B. To improve camera quality
+* C. To increase storage
+* D. To speed up charging
+Answer: A
+
+46.
+Which of the following best protects sensitive data on a lost smartphone?
+* A. Bright wallpaper
+* B. Device encryption
+* C. Loud ringtone
+* D. Large memory card
+Answer: B
+
+47.
+Which wireless security protocol is now considered obsolete because of major vulnerabilities?
+* A. WPA3
+* B. WPA2
+* C. WEP
+* D. WPA2 Enterprise
+Answer: C
+
+48.
+What is the safest action when connecting to public Wi-Fi?
+* A. Use a VPN
+* B. Disable device security
+* C. Share confidential information freely
+* D. Turn off device encryption
+Answer: A
+
+49.
+Which of the following is a common sign that a smartphone may be infected with malware?
+* A. Unusual battery drain
+* B. Faster charging
+* C. Better camera quality
+* D. Increased storage space
+Answer: A
+
+50.
+Which of the following best describes cybersecurity?
+* A. Protecting digital systems, networks, and data from attacks
+* B. Buying new smartphones
+* C. Repairing computer hardware
+* D. Developing websites
+Answer: A
+
+51.
+A fake wireless access point created to lure users into connecting is called:
+* A. Rogue Access Point
+* B. Firewall
+* C. VPN
+* D. Proxy Server
+Answer: A
+
+52.
+The primary purpose of MAC address filtering on a wireless router is to:
+* A. Increase internet speed
+* B. Restrict network access to approved devices
+* C. Encrypt network traffic
+* D. Improve signal strength
+Answer: B
+
+53.
+Which of the following is a limitation of MAC address filtering?
+* A. MAC addresses can be spoofed.
+* B. It slows the processor.
+* C. It disables Wi-Fi.
+* D. It prevents encryption.
+Answer: A
+
+54.
+What is the purpose of SSL/TLS in mobile communication?
+* A. To charge mobile devices
+* B. To secure data transmitted over a network
+* C. To increase storage capacity
+* D. To improve Bluetooth speed
+Answer: B
+
+55.
+Which protocol is commonly used to establish secure web connections?
+* A. HTTP
+* B. FTP
+* C. HTTPS
+* D. SMTP
+Answer: C
+
+56.
+Which attack redirects users from a legitimate website to a fake website?
+* A. Pharming
+* B. Bluesnarfing
+* C. DoS
+* D. Spoofing
+Answer: A
+
+57.
+A SIM cloning attack allows an attacker to:
+* A. Increase network speed
+* B. Duplicate a victim’s SIM information
+* C. Improve signal strength
+* D. Encrypt messages
+Answer: B
+
+58.
+What is session hijacking?
+* A. Taking over an active user session
+* B. Installing antivirus software
+* C. Updating a smartphone
+* D. Compressing data
+Answer: A
+
+59.
+Mobile application permissions should be:
+* A. Granted without checking
+* B. Reviewed before installation
+* C. Ignored
+* D. Automatically accepted
+Answer: B
+
+60.
+Granting unnecessary permissions to an application may:
+* A. Improve security
+* B. Increase privacy risks
+* C. Speed up the processor
+* D. Improve battery performance
+Answer: B
+
+61.
+Which wireless technology normally has the greatest coverage?
+* A. NFC
+* B. Bluetooth
+* C. Cellular Network (4G/5G)
+* D. Infrared
+Answer: C
+
+62.
+Which of the following is considered the weakest method of authentication?
+* A. Password only
+* B. Password + OTP
+* C. Fingerprint + PIN
+* D. Face ID + Password
+Answer: A
+
+63.
+One major advantage of biometric authentication is:
+* A. It cannot be forgotten.
+* B. It is easy to guess.
+* C. It requires no hardware.
+* D. Everyone has identical biometric features.
+Answer: A
+
+64.
+What is the purpose of a security patch?
+* A. To repair software vulnerabilities
+* B. To improve screen brightness
+* C. To increase RAM
+* D. To charge the battery
+Answer: A
+
+65.
+Which attack floods a wireless network with excessive traffic until it becomes unavailable?
+* A. DoS Attack
+* B. Smishing
+* C. Shoulder Surfing
+* D. Bluesnarfing
+Answer: A
+
+66.
+Which of the following is an example of physical security for a mobile device?
+* A. Device PIN
+* B. Device encryption
+* C. Keeping the phone in a secure location
+* D. Firewall
+Answer: C
+
+67.
+Why should users avoid rooting or jailbreaking their smartphones?
+* A. It often weakens built-in security protections.
+* B. It increases battery life.
+* C. It improves camera quality.
+* D. It speeds up charging.
+Answer: A
+
+68.
+Which wireless attack involves pretending to be another trusted device?
+* A. Spoofing
+* B. Encryption
+* C. Compression
+* D. Hashing
+Answer: A
+
+69.
+Which of the following is a common symptom of spyware infection?
+* A. Unauthorized collection of personal information
+* B. Faster device performance
+* C. Improved network coverage
+* D. Better battery health
+Answer: A
+
+70.
+The strongest defense against phishing attacks is:
+* A. Opening every email attachment
+* B. Verifying links and sender identity before responding
+* C. Sharing passwords
+* D. Ignoring software updates
+Answer: B
+
+71.
+What is the primary goal of cybersecurity?
+* A. Protect information systems from threats
+* B. Increase internet speed
+* C. Improve battery life
+* D. Expand storage space
+Answer: A
+
+72.
+Which of the following is an example of wireless communication?
+* A. Ethernet cable
+* B. Fibre optic cable
+* C. Wi-Fi
+* D. USB cable
+Answer: C
+
+73.
+Which organization develops many international Wi-Fi standards?
+* A. IEEE
+* B. FIFA
+* C. ICANN
+* D. ISO only
+Answer: A
+
+74.
+Which IEEE standard is associated with Wi-Fi?
+* A. IEEE 802.11
+* B. IEEE 802.3
+* C. IEEE 802.15.1
+* D. IEEE 802.5
+Answer: A
+
+75.
+Which of the following is the best practice for protecting a smartphone?
+* A. Disable security updates.
+* B. Use a strong password, enable biometric authentication, and keep the OS updated.
+* C. Install apps only from unknown websites.
+* D. Share your PIN with trusted friends.
+Answer: B
+
+76.
+Which of the following Bluetooth attacks sends unsolicited messages to nearby devices?
+* A. Bluejacking
+* B. Bluesnarfing
+* C. Bluebugging
+* D. Smishing
+Answer: A
+
+77.
+Which Bluetooth attack allows an attacker to steal data from a device?
+* A. Bluejacking
+* B. Bluesnarfing
+* C. Pharming
+* D. Shoulder Surfing
+Answer: B
+
+78.
+Which Bluetooth attack allows an attacker to gain control of a victim’s device?
+* A. Bluebugging
+* B. Bluejacking
+* C. Phishing
+* D. DoS
+Answer: A
+
+79.
+Which of the following is the safest practice when using Bluetooth?
+* A. Keep Bluetooth permanently discoverable.
+* B. Turn Bluetooth off when not in use.
+* C. Accept every pairing request.
+* D. Share files with unknown devices.
+Answer: B
+
+80.
+Which security technique converts data into a fixed-length value mainly used to verify integrity?
+* A. Hashing
+* B. Compression
+* C. Encoding
+* D. Routing
+Answer: A
+
+81.
+Which of the following algorithms is commonly used for encryption?
+* A. AES
+* B. HTML
+* C. JPEG
+* D. XML
+Answer: A
+
+82.
+A digital certificate is mainly used to:
+* A. Verify the identity of a website or device
+* B. Increase internet speed
+* C. Improve battery life
+* D. Expand storage
+Answer: A
+
+83.
+Which protocol securely transfers web pages over the Internet?
+* A. HTTP
+* B. HTTPS
+* C. FTP
+* D. Telnet
+Answer: B
+
+84.
+Which attack attempts to guess passwords by trying many possible combinations?
+* A. Brute Force Attack
+* B. Bluejacking
+* C. Pharming
+* D. Sniffing
+Answer: A
+
+85.
+What is the purpose of an Intrusion Detection System (IDS)?
+* A. Detect suspicious or malicious activities
+* B. Charge mobile devices
+* C. Increase signal strength
+* D. Store files
+Answer: A
+
+86.
+Which security mechanism allows only authorized users to access network resources?
+* A. Access Control
+* B. Compression
+* C. Formatting
+* D. Virtual Memory
+Answer: A
+
+87.
+Cloud storage services should be protected with:
+* A. Weak passwords
+* B. Multi-Factor Authentication
+* C. Shared passwords
+* D. No authentication
+Answer: B
+
+88.
+Which of the following is a major advantage of Multi-Factor Authentication?
+* A. It eliminates the need for usernames.
+* B. It provides additional security even if a password is stolen.
+* C. It removes encryption.
+* D. It reduces privacy.
+Answer: B
+
+89.
+Which wireless technology is commonly used to connect wireless headphones?
+* A. Bluetooth
+* B. NFC
+* C. Ethernet
+* D. Fibre Optics
+Answer: A
+
+90.
+Which of the following is an example of confidential information stored on a smartphone?
+* A. Banking details
+* B. Contact list
+* C. Personal photographs
+* D. All of the above
+Answer: D
+
+91.
+A company uses software to remotely lock and wipe employees’ smartphones if they are stolen. This is an example of:
+* A. Mobile Device Management (MDM)
+* B. VPN
+* C. Bluetooth Pairing
+* D. Hashing
+Answer: A
+
+92.
+Which of the following is a common objective of cyber attackers?
+* A. Steal confidential information
+* B. Protect users
+* C. Improve device performance
+* D. Increase network security
+Answer: A
+
+93.
+The process of making security fixes available to users is called:
+* A. Software Updating
+* B. File Compression
+* C. Formatting
+* D. Partitioning
+Answer: A
+
+94.
+Which of the following reduces the risk of malware infection?
+* A. Download apps only from trusted sources.
+* B. Disable antivirus software.
+* C. Click unknown links.
+* D. Ignore security updates.
+Answer: A
+
+95.
+Which type of attack secretly captures data travelling across a network?
+* A. Packet Sniffing
+* B. Bluejacking
+* C. Smishing
+* D. Shoulder Surfing
+Answer: A
+
+96.
+Which of the following is the best description of wireless security?
+* A. Protecting wireless communication from unauthorized access and attacks
+* B. Repairing damaged smartphones
+* C. Increasing Wi-Fi speed
+* D. Installing mobile applications
+Answer: A
+
+97.
+What is the major risk of connecting to an unsecured public Wi-Fi network?
+* A. Attackers may intercept your data.
+* B. The phone battery charges faster.
+* C. The phone memory increases.
+* D. Apps update automatically.
+Answer: A
+
+98.
+Which of the following is NOT a good security practice?
+* A. Enabling automatic updates
+* B. Using the same password for every account
+* C. Using device encryption
+* D. Enabling Multi-Factor Authentication
+Answer: B
+
+99.
+Which of the following best describes wireless security?
+* A. Protecting wireless networks, devices, and transmitted data
+* B. Designing websites
+* C. Installing operating systems
+* D. Repairing hardware
+Answer: A
+
+100.
+The overall goal of Mobile and Wireless Security is to:
+* A. Ensure the confidentiality, integrity, and availability of mobile and wireless systems
+* B. Increase storage capacity
+* C. Improve screen resolution
+* D. Reduce internet subscription costs
+Answer: A
