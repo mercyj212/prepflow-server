@@ -11,10 +11,15 @@ export const getCourses = async (req, res) => {
   try {
     const filter = {};
     if (req.query.department) {
-      filter.$or = [
-        { department: req.query.department },
-        { department: null }
-      ];
+      // When a level is also specified, only match the exact department (no orphaned courses)
+      if (req.query.level) {
+        filter.department = req.query.department;
+      } else {
+        filter.$or = [
+          { department: req.query.department },
+          { department: null }
+        ];
+      }
     }
     if (req.query.level) filter.level = req.query.level;
     if (req.query.path) filter.path = req.query.path;
