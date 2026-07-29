@@ -83,20 +83,27 @@ export const getQuizzes = async (req, res) => {
       if (courseIds.length > 0) {
         filter.course = { $in: courseIds };
       }
-    } else if (req.query.department) {
-      const deptCourses = await Course.find({
-        $or: [{ department: req.query.department }, { department: null }]
-      }).select('_id').lean();
-      const courseIds = deptCourses.map(c => c._id);
+    } else if (req.query.department || (req.query.level && req.query.level !== 'All')) {
+      const courseFilter = {};
+      
+      if (req.query.department) {
+        courseFilter.$or = [
+          { department: req.query.department }, 
+          { department: null }
+        ];
+      }
+      
+      if (req.query.level && req.query.level !== 'All') {
+        courseFilter.level = req.query.level;
+      }
+
+      const matchingCourses = await Course.find(courseFilter).select('_id').lean();
+      const courseIds = matchingCourses.map(c => c._id);
       filter.course = { $in: courseIds };
     }
 
-    if (req.query.level && req.query.level !== 'All') {
-      filter.level = req.query.level;
-    }
-
     const quizzes = await Quiz.find(filter)
-      .select('title description course isActive questions._id duration level createdAt updatedAt')
+      .select('title description course isActive questions._id duration createdAt updatedAt')
       .populate('course', 'title level path department semester price')
       .lean();
 

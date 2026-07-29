@@ -73,9 +73,8 @@ export const createCourse = async (req, res) => {
     });
     const createdCourse = await course.save();
 
-    if (req.body.notifyStudents) {
-      handleAutoBroadcast(createdCourse.title);
-    }
+    // Automatically notify all users on the database about the new course
+    handleAutoBroadcast(createdCourse.title);
 
     res.status(201).json(createdCourse);
   } catch (error) {
@@ -83,36 +82,38 @@ export const createCourse = async (req, res) => {
   }
 };
 
-const handleAutoBroadcast = async (courseTitle) => {
+export const handleAutoBroadcast = async (courseTitle) => {
   try {
-    const students = await Student.find({ role: "student" });
-    if (!students || students.length === 0) return;
+    // Find all registered users in the database
+    const users = await Student.find({});
+    if (!users || users.length === 0) return;
 
-    const subject = `New Curriculum: ${courseTitle} is now available!`;
+    const subject = `🚀 New Course Available: ${courseTitle}!`;
     const loginUrl = `${process.env.FRONTEND_URL || "https://prepupcbt.vercel.app"}/login`;
 
-    console.log(`[AUTO-BROADCAST]: Starting for ${students.length} students...`);
+    console.log(`[AUTO-BROADCAST]: Dispatching email for "${courseTitle}" to ${users.length} registered users...`);
 
-    for (const student of students) {
+    for (const user of users) {
+      if (!user.email) continue;
       try {
         await sendEmail({
-          email: student.email,
+          email: user.email,
           subject,
           template: "courseUpdate",
           context: {
-            name: student.fullName,
+            name: user.fullName || user.nickname || "PrepUp User",
             courseTitle,
             loginUrl,
           },
         });
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        // Short delay to avoid rate limits
+        await new Promise((resolve) => setTimeout(resolve, 300));
       } catch (err) {
-        console.error(`[AUTO-BROADCAST][FAILED]: ${student.email} - ${err.message}`);
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        console.error(`[AUTO-BROADCAST][FAILED]: ${user.email} - ${err.message}`);
       }
     }
 
-    console.log(`[AUTO-BROADCAST]: Successfully completed for "${courseTitle}".`);
+    console.log(`[AUTO-BROADCAST]: Successfully completed email notification for "${courseTitle}".`);
   } catch (err) {
     console.error("[AUTO-BROADCAST][CRITICAL ERROR]:", err);
   }
