@@ -1,6 +1,7 @@
 import Quiz from "../models/Quiz.js";
 import Submission from "../models/Submission.js";
 import Course from "../models/Course.js";
+import CourseAccess from "../models/CourseAccess.js";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
@@ -30,7 +31,7 @@ const shuffleQuizQuestionOptions = (questions = []) => (
 
 const coursePopulate = {
   path: "course",
-  select: "title level path department",
+  select: "title level path department price",
   populate: {
     path: "department",
     select: "name faculty",
@@ -118,15 +119,34 @@ export const getQuizById = async (req, res) => {
   try {
     const quiz = await Quiz.findById(req.params.id).populate(coursePopulate);
 
-    if (quiz) {
-      const quizObj = quiz.toObject();
-      const randomQuestions = shuffleArray(quizObj.questions).slice(0, 60);
-      
-      quizObj.questions = shuffleQuizQuestionOptions(randomQuestions);
-      res.json(quizObj);
-    } else {
-      res.status(404).json({ message: "Quiz not found" });
+    if (!quiz) {
+      return res.status(404).json({ message: "Quiz not found" });
     }
+
+    // Lock enforcement: check course access if student and course has a price
+    const courseId = quiz.course?._id || quiz.course;
+    const coursePrice = quiz.course?.price ?? 1000;
+    
+    if (courseId && coursePrice > 0 && req.user?.role !== "admin") {
+      const hasAccess = await CourseAccess.exists({
+        student: req.user._id,
+        course: courseId,
+        isActive: true,
+      });
+
+      if (!hasAccess) {
+        return res.status(403).json({
+          message: "Course access locked. Payment required to attempt this quiz.",
+          isLocked: true,
+          courseId: courseId
+        });
+      }
+    }
+
+    const quizObj = quiz.toObject();
+    const randomQuestions = shuffleArray(quizObj.questions).slice(0, 60);
+    quizObj.questions = shuffleQuizQuestionOptions(randomQuestions);
+    res.json(quizObj);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -137,11 +157,31 @@ export const getStudyQuizById = async (req, res) => {
   try {
     const quiz = await Quiz.findById(req.params.id).populate(coursePopulate);
 
-    if (quiz) {
-      res.json(quiz);
-    } else {
-      res.status(404).json({ message: "Quiz not found" });
+    if (!quiz) {
+      return res.status(404).json({ message: "Quiz not found" });
     }
+
+    // Lock enforcement: check course access if student and course has a price
+    const courseId = quiz.course?._id || quiz.course;
+    const coursePrice = quiz.course?.price ?? 1000;
+    
+    if (courseId && coursePrice > 0 && req.user?.role !== "admin") {
+      const hasAccess = await CourseAccess.exists({
+        student: req.user._id,
+        course: courseId,
+        isActive: true,
+      });
+
+      if (!hasAccess) {
+        return res.status(403).json({
+          message: "Course access locked. Payment required to access study mode.",
+          isLocked: true,
+          courseId: courseId
+        });
+      }
+    }
+
+    res.json(quiz);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -152,11 +192,33 @@ export const getStudyQuizByIdPublic = async (req, res) => {
   try {
     const quiz = await Quiz.findById(req.params.id).populate(coursePopulate);
 
-    if (quiz) {
-      res.json(quiz);
-    } else {
-      res.status(404).json({ message: "Quiz not found" });
+    if (!quiz) {
+      return res.status(404).json({ message: "Quiz not found" });
     }
+
+    // Public route must also enforce payment lock if course has price
+    const courseId = quiz.course?._id || quiz.course;
+    const coursePrice = quiz.course?.price ?? 1000;
+
+    if (courseId && coursePrice > 0) {
+      let isUnlocked = false;
+      if (req.user) {
+        isUnlocked = await CourseAccess.exists({
+          student: req.user._id,
+          course: courseId,
+          isActive: true,
+        });
+      }
+      if (!isUnlocked) {
+        return res.status(403).json({
+          message: "Course access locked. Payment required to access this quiz.",
+          isLocked: true,
+          courseId: courseId
+        });
+      }
+    }
+
+    res.json(quiz);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

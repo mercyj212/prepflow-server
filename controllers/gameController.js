@@ -25,6 +25,11 @@ export const getQuestions = async (req, res) => {
       });
     }
 
+    const quiz = await Quiz.findOne({ course: courseId });
+    if (!quiz) {
+      return res.status(404).json({ success: false, message: "Questions not found for this course." });
+    }
+
     if (req.user?.role !== "admin") {
       // Find the "First Course" exactly like getCoursesWithQuestions does
       const firstQuiz = await Quiz.findOne({ "questions.0": { $exists: true } }).sort({ createdAt: 1 });
@@ -45,20 +50,9 @@ export const getQuestions = async (req, res) => {
       }
     }
 
-    const quizzes = await Quiz.find({ course: courseId }).limit(5);
-
-    let questions = [];
-    
-    if (quizzes.length > 0) {
-      quizzes.forEach(quiz => {
-        questions.push(...quiz.questions);
-      });
-      // Shuffle and take up to 20
-      questions = questions.sort(() => 0.5 - Math.random()).slice(0, 20);
-    }
     
     // Map to game format: { q: "text", a: ["opt1", "opt2", "opt3", "opt4"], c: correctIndex, expl: "explanation" }
-    const formattedQuestions = questions.map(q => {
+    const formattedQuestions = quiz.questions.map(q => {
       const shuffledOptions = shuffleOptions(q.options.map(opt => ({
         text: opt.text,
         isCorrect: opt.isCorrect

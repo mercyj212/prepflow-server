@@ -1,5 +1,7 @@
 import Submission from "../models/Submission.js";
 import Quiz from "../models/Quiz.js";
+import CourseAccess from "../models/CourseAccess.js";
+import Course from "../models/Course.js";
 
 // @desc    Get progress metrics for current student
 // @route   GET /api/submissions/progress
@@ -114,10 +116,30 @@ export const createSubmission = async (req, res) => {
   const { quizId, answers = [], timeTaken, totalQuestions } = req.body;
 
   try {
-    const quiz = await Quiz.findById(quizId);
+    const quiz = await Quiz.findById(quizId).populate("course", "price");
     
     if (!quiz) {
       return res.status(404).json({ message: "Quiz not found" });
+    }
+
+    // Access lock enforcement
+    const courseId = quiz.course?._id || quiz.course;
+    const coursePrice = quiz.course?.price ?? 1000;
+
+    if (courseId && coursePrice > 0 && req.user?.role !== "admin") {
+      const hasAccess = await CourseAccess.exists({
+        student: req.user._id,
+        course: courseId,
+        isActive: true,
+      });
+
+      if (!hasAccess) {
+        return res.status(403).json({
+          message: "Course access locked. Payment required to submit responses for this course.",
+          isLocked: true,
+          courseId: courseId
+        });
+      }
     }
 
     const submittedAnswers = Array.isArray(answers) ? answers : [];

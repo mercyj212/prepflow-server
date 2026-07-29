@@ -1,14 +1,35 @@
 import CourseNote from "../models/CourseNote.js";
 import Course from "../models/Course.js";
-
+import CourseAccess from "../models/CourseAccess.js";
 import mongoose from "mongoose";
 
 // @desc    Get all notes for a specific course
 // @route   GET /api/notes/:courseId
-// @access  Public (or could be restricted to logged in students depending on your rules, let's keep it public/enrolled logic)
+// @access  Protected (Requires active CourseAccess if course has price)
 export const getCourseNotes = async (req, res) => {
   try {
     const { courseId } = req.params;
+    const course = await Course.findById(courseId).select("price");
+    const coursePrice = course?.price ?? 1000;
+
+    if (coursePrice > 0 && req.user?.role !== "admin") {
+      let hasAccess = false;
+      if (req.user) {
+        hasAccess = await CourseAccess.exists({
+          student: req.user._id,
+          course: courseId,
+          isActive: true,
+        });
+      }
+      if (!hasAccess) {
+        return res.status(403).json({
+          message: "Course access locked. Payment required to view notes for this course.",
+          isLocked: true,
+          courseId
+        });
+      }
+    }
+
     const notes = await CourseNote.find({ course: new mongoose.Types.ObjectId(courseId) }).sort({ order: 1 });
     res.json(notes);
   } catch (error) {

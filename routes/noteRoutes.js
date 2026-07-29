@@ -6,7 +6,7 @@ import {
   deleteCourseNote,
   askAITutor,
 } from "../controllers/noteController.js";
-import { protect, admin } from "../utils/authMiddleware.js";
+import { protect, optionalProtect, admin } from "../utils/authMiddleware.js";
 
 const router = express.Router();
 
@@ -16,7 +16,7 @@ router.route("/")
 router.post("/tutor", askAITutor);
 
 router.route("/:courseId")
-  .get(getCourseNotes);
+  .get(optionalProtect, getCourseNotes);
 
 router.route("/:id")
   .put(protect, admin, updateCourseNote)
