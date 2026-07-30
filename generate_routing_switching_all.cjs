@@ -42,6 +42,22 @@ async function callWithRetry(fn, retries = 5, initialDelay = 5000) {
   }
 }
 
+async function uploadPdfFile(filePath, displayName) {
+  console.log(`Uploading ${displayName}...`);
+  const uploadRes = await fileManager.uploadFile(filePath, {
+    mimeType: "application/pdf",
+    displayName
+  });
+  let file = await fileManager.getFile(uploadRes.file.name);
+  while (file.state === "PROCESSING") {
+    process.stdout.write(".");
+    await delay(2500);
+    file = await fileManager.getFile(uploadRes.file.name);
+  }
+  console.log(`\nPDF File ${file.displayName} uploaded and ready.`);
+  return { fileData: { mimeType: file.mimeType, fileUri: file.uri } };
+}
+
 async function main() {
   try {
     // ── 1. Database Connection & Course Setup ─────────────────────────────
@@ -61,7 +77,7 @@ async function main() {
     if (!course) {
       const newCourseDoc = {
         title: 'ROUTING AND SWITCHING',
-        description: 'Comprehensive Routing and Switching 1 & 2 covering OSI/TCP-IP models, Ethernet Switching, VLANs, Trunking, STP, Inter-VLAN Routing, Static/Dynamic Routing (OSPF, EIGRP, BGP), Subnetting, NAT, and ACLs.',
+        description: 'Comprehensive Routing and Switching 1 & 2 course based strictly on Routing and SWitching1.pdf and Routing and switching2.pdf covering OSI/TCP-IP models, Ethernet Switching, VLANs, Trunking, STP, Inter-VLAN Routing, Static/Dynamic Routing (OSPF, EIGRP, BGP), Subnetting, NAT, and ACLs.',
         department: nccDeptId,
         level: 'HND1',
         path: 'polytechnic',
@@ -91,24 +107,17 @@ async function main() {
       console.log(`✅ Configured course: "${course.title}" [ID: ${course._id}]`);
     }
 
-    // ── 2. PDF Context Setup ─────────────────────────────────────────────
-    const pdfPath = path.join(__dirname, '..', 'pdfs', 'NCC-321- lesson 9- NETWORKING.pdf');
-    console.log(`Uploading ${path.basename(pdfPath)}...`);
-    const uploadRes = await fileManager.uploadFile(pdfPath, {
-      mimeType: "application/pdf",
-      displayName: "NCC-321-NETWORKING.pdf"
-    });
-    let file = await fileManager.getFile(uploadRes.file.name);
-    while (file.state === "PROCESSING") {
-      process.stdout.write(".");
-      await delay(2500);
-      file = await fileManager.getFile(uploadRes.file.name);
-    }
-    console.log(`\nPDF File ${file.displayName} ready.`);
-    const filePart = { fileData: { mimeType: file.mimeType, fileUri: file.uri } };
+    // ── 2. PDF Context Setup (Routing & Switching 1 & 2) ──────────────────
+    const pdf1Path = path.join(__dirname, '..', 'pdfs', 'Routing and SWitching1.pdf');
+    const pdf2Path = path.join(__dirname, '..', 'pdfs', 'Routing and switching2.pdf');
+
+    const filePart1 = await uploadPdfFile(pdf1Path, "Routing_and_Switching_1.pdf");
+    const filePart2 = await uploadPdfFile(pdf2Path, "Routing_and_Switching_2.pdf");
+
+    const pdfFileParts = [filePart1, filePart2];
 
     // ── 3. Generate Course Notes (8 Chapters) ────────────────────────────
-    console.log('\nGenerating 8 Chapters of Course Notes...');
+    console.log('\nGenerating 8 Chapters of Course Notes directly from Routing & Switching 1 & 2 PDFs...');
     const notesModel = genAI.getGenerativeModel({
       model: "gemini-2.5-flash",
       generationConfig: {
@@ -128,15 +137,15 @@ async function main() {
     });
 
     const notePrompts = [
-      "Generate chapters 1 to 4 of Routing and Switching textbook notes: 1. Introduction to Computer Networking & Layer Architectures (OSI & TCP/IP), 2. Ethernet Switching & MAC Address Tables, 3. Virtual LANs (VLANs), 802.1Q Trunking & VTP, 4. Spanning Tree Protocol (STP, RSTP, MSTP) & Switch Redundancy. Include rich markdown, diagrams described in text, CLI configurations, and exam tips.",
-      "Generate chapters 5 to 8 of Routing and Switching textbook notes: 5. Inter-VLAN Routing (Router-on-a-Stick & Layer 3 Switch SVI), 6. IP Addressing, VLSM & IPv4/IPv6 Subnetting, 7. Dynamic Routing Protocols (RIP, EIGRP, OSPF, BGP), 8. Network Services, NAT/PAT, ACLs & Network Troubleshooting. Include rich markdown, CLI commands, and exam tips."
+      "Based STRICTLY on Routing and SWitching1.pdf and Routing and switching2.pdf provided, generate chapters 1 to 4 of Routing and Switching textbook notes: 1. Introduction to Networking, OSI & TCP/IP Layer Models, 2. Ethernet Switching & MAC Address Table Operation, 3. VLAN Concepts, 802.1Q Trunking & VTP Modes, 4. Spanning Tree Protocol (STP, RSTP, Root Bridge Selection). Include full technical depth, markdown, diagrams in text, CLI configurations, and exam notes.",
+      "Based STRICTLY on Routing and SWitching1.pdf and Routing and switching2.pdf provided, generate chapters 5 to 8 of Routing and Switching textbook notes: 5. Inter-VLAN Routing (Router-on-a-Stick & Layer 3 SVI Switching), 6. IP Addressing, VLSM & IPv4/IPv6 Subnetting, 7. Static & Dynamic Routing Protocols (RIP, EIGRP, OSPF, BGP), 8. Network Security, NAT/PAT, Access Control Lists (ACLs) & Troubleshooting. Include full technical depth, CLI commands, and exam notes."
     ];
 
     const allNotes = [];
     for (let g = 0; g < notePrompts.length; g++) {
       console.log(`Generating Notes Part ${g + 1}/2...`);
       await delay(3000);
-      const res = await callWithRetry(() => notesModel.generateContent([filePart, { text: notePrompts[g] }]));
+      const res = await callWithRetry(() => notesModel.generateContent([...pdfFileParts, { text: notePrompts[g] }]));
       const notesBatch = JSON.parse(res.response.text().trim());
       allNotes.push(...notesBatch);
     }
@@ -154,7 +163,7 @@ async function main() {
     console.log('✅ Course notes saved successfully!');
 
     // ── 4. Generate 150 CBT Questions (3 batches of 50) ──────────────────
-    console.log('\nGenerating 150 CBT Practice Questions (3 batches of 50 questions)...');
+    console.log('\nGenerating 150 CBT Practice Questions (3 batches of 50) strictly from Routing & Switching 1 & 2 PDFs...');
 
     const questionModel = genAI.getGenerativeModel({
       model: "gemini-2.5-flash",
@@ -187,9 +196,9 @@ async function main() {
     });
 
     const topics = [
-      "Networking Fundamentals, OSI & TCP/IP Layers, Ethernet Switching, MAC Address Tables, VLANs, and Access Ports",
-      "VLAN 802.1Q Trunking, VTP Modes, Spanning Tree Protocol (STP, RSTP, Root Bridge Selection), and Inter-VLAN Routing (ROAS & SVI)",
-      "IPv4/IPv6 Subnetting, VLSM, Static Routes, Dynamic Routing Protocols (RIP, EIGRP, OSPF, BGP), NAT/PAT, and Standard/Extended Access Control Lists (ACLs)"
+      "Routing & Switching 1 PDF Material: OSI & TCP/IP Layer Fundamentals, Ethernet Switching, MAC Address Tables, VLAN Configuration, Access Ports, and Port Security",
+      "Routing & Switching 1 & 2 PDF Material: 802.1Q VLAN Trunking, VTP Modes & Pruning, Spanning Tree Protocol (STP, RSTP, Root Bridge Election, BPDU Guard), Inter-VLAN Routing (ROAS & SVI)",
+      "Routing & Switching 2 PDF Material: IPv4/IPv6 Subnetting, VLSM Calculations, Static Routing, Dynamic Routing Protocols (RIPv2, EIGRP, Single-Area & Multi-Area OSPF, BGP), NAT/PAT, and Standard/Extended Access Control Lists (ACLs)"
     ];
 
     const allQuestions = [];
@@ -198,17 +207,17 @@ async function main() {
       await delay(3000);
 
       const qPrompt = `
-You are an expert Cisco Certified Network Associate (CCNA) and Routing & Switching university professor.
-Based on Routing and Switching 1 & 2 curriculum and the uploaded PDF, generate EXACTLY 50 unique multiple-choice questions focusing on: ${topics[batch]}.
+You are an expert Routing & Switching university professor and Cisco Certified Network Associate (CCNA) examiner.
+Using the content from Routing and SWitching1.pdf and Routing and switching2.pdf, generate EXACTLY 50 unique multiple-choice questions focusing on: ${topics[batch]}.
 
 Requirements:
 - Each question MUST have exactly 4 options.
 - Exactly ONE option MUST have "isCorrect": true, and the other 3 MUST be false.
-- Provide a clear, educational explanation showing the step-by-step reasoning or calculation (e.g. subnetting math or CLI command logic).
+- Provide a clear, detailed explanation demonstrating exact command syntax, subnetting calculations, or conceptual mechanics directly from the text.
 - Do NOT repeat questions from previous batches.
 `;
 
-      const qRes = await callWithRetry(() => questionModel.generateContent([filePart, { text: qPrompt }]));
+      const qRes = await callWithRetry(() => questionModel.generateContent([...pdfFileParts, { text: qPrompt }]));
       const batchQs = JSON.parse(qRes.response.text().trim());
 
       console.log(`  Batch ${batch + 1} generated ${batchQs.length} questions.`);
@@ -223,7 +232,7 @@ Requirements:
 
     const quizDoc = {
       title: "ROUTING AND SWITCHING CBT PRACTICE EXAM",
-      description: "Comprehensive 150-question practice exam covering Routing & Switching 1 & 2 (VLANs, STP, Inter-VLAN Routing, OSPF, Subnetting, NAT, ACLs) for Networking and Cloud Computing (NCC). (60 random questions per 30-minute exam session).",
+      description: "Comprehensive 150-question practice exam created directly from Routing & Switching 1 & 2 textbooks (VLANs, STP, Inter-VLAN Routing, OSPF, Subnetting, NAT, ACLs) for Networking and Cloud Computing (NCC). (60 random questions per 30-minute exam session).",
       course: course._id,
       questions: allQuestions,
       timeLimit: 30,
@@ -278,9 +287,10 @@ Requirements:
     console.log(`Quiz Title:   ${finalQuiz.title}`);
     console.log(`Total Qs:     ${finalQuiz.questions?.length}`);
     console.log(`Time Limit:   ${finalQuiz.timeLimit} minutes`);
+    console.log(`Sources Used: Routing and SWitching1.pdf & Routing and switching2.pdf`);
     console.log('==============================================');
 
-    console.log('\n🎉 ROUTING AND SWITCHING SET UP SUCCESSFULLY!');
+    console.log('\n🎉 ROUTING AND SWITCHING RE-GENERATED SUCCESSFULLY FROM BOTH PDFS!');
     process.exit(0);
 
   } catch (error) {
