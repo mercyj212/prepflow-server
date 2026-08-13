@@ -31,6 +31,38 @@ const questionSchema = new mongoose.Schema({
     default: "General",
     trim: true,
   },
+  difficulty: {
+    type: String,
+    enum: ["easy", "medium", "hard"],
+    default: "medium",
+  },
+  qualityScore: {
+    type: Number,
+    default: 100,
+    min: 0,
+    max: 100,
+  },
+  validationStatus: {
+    type: String,
+    enum: ["passed", "failed", "flagged_admin"],
+    default: "passed",
+  },
+  rejectionReasons: {
+    type: [String],
+    default: [],
+  },
+  regenerationCount: {
+    type: Number,
+    default: 0,
+  },
+  needsAdminReview: {
+    type: Boolean,
+    default: false,
+  },
+  aiGenerated: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 const quizSchema = new mongoose.Schema(

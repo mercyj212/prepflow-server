@@ -4,30 +4,17 @@ import Course from "../models/Course.js";
 import CourseAccess from "../models/CourseAccess.js";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { createRequire } from 'module';
+import {
+  calculateQualityScore,
+  shuffleOptionsWithTracking,
+  balanceBatchPositions,
+  sanitizeQuestionForStudent,
+  validateStructure,
+} from "../utils/mcqQualityPipeline.js";
+import { MCQ_QUALITY_CONFIG } from "../config/mcqQualityConfig.js";
+
 const require = createRequire(import.meta.url);
 const pdf = require('pdf-parse');
-
-const shuffleArray = (array) => {
-  if (!array || !Array.isArray(array)) return [];
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-};
-
-const shuffleQuestionOptions = (question) => ({
-  ...question,
-  options: shuffleArray(question.options || []).map(option => ({
-    ...option,
-    isCorrect: Boolean(option.isCorrect)
-  }))
-});
-
-const shuffleQuizQuestionOptions = (questions = []) => (
-  questions.map(question => shuffleQuestionOptions(question))
-);
 
 const coursePopulate = {
   path: "course",
@@ -39,6 +26,24 @@ const coursePopulate = {
   },
 };
 
+// Helper to format/shuffle single question with answer tracking
+const formatAndShuffleQuestion = (question) => {
+  const qObj = typeof question.toObject === "function" ? question.toObject() : { ...question };
+  const shuffled = shuffleOptionsWithTracking(qObj);
+  const qScore = calculateQualityScore(shuffled);
+
+  return {
+    ...shuffled,
+    difficulty: qObj.difficulty || "medium",
+    qualityScore: qObj.qualityScore ?? qScore.score,
+    validationStatus: qObj.validationStatus || (qScore.score >= MCQ_QUALITY_CONFIG.QUALITY_PASS_SCORE ? "passed" : "flagged_admin"),
+    rejectionReasons: qObj.rejectionReasons || qScore.rejectionReasons,
+    regenerationCount: qObj.regenerationCount || 0,
+    needsAdminReview: qObj.needsAdminReview ?? (qScore.score < MCQ_QUALITY_CONFIG.QUALITY_PASS_SCORE),
+    aiGenerated: qObj.aiGenerated ?? true
+  };
+};
+
 // @desc    Get public platform stats (no auth required)
 // @route   GET /api/quizzes/stats
 // @access  Public
@@ -48,7 +53,6 @@ export const getPublicStats = async (req, res) => {
     const totalQuizzes = quizzes.length;
     const totalQuestions = quizzes.reduce((acc, q) => acc + (q.questions?.length || 0), 0);
 
-    // Calculate global average score
     const submissions = await Submission.find({}).select('score totalQuestions');
     let totalScorePercentage = 0;
     
@@ -59,12 +63,9 @@ export const getPublicStats = async (req, res) => {
       });
     }
 
-    // Baseline intelligence: If platform is new (few submissions), show a healthy benchmark
-    // instead of a raw 0 to maintain brand perception.
     const averageScore = submissions.length >= 5 
       ? Math.round(totalScorePercentage / submissions.length) 
-      : 74; // Healthy academic benchmark for early-stage platform
-
+      : 74;
 
     res.json({ totalQuestions, totalQuizzes, averageScore });
   } catch (error) {
@@ -114,7 +115,7 @@ export const getQuizzes = async (req, res) => {
   }
 };
 
-// @desc    Get single quiz (Standard Exam - 60 Random Questions)
+// @desc    Get single quiz (Standard Exam - 60 Random Questions with Position Balancing & Security Sanitization)
 export const getQuizById = async (req, res) => {
   try {
     const quiz = await Quiz.findById(req.params.id).populate(coursePopulate);
@@ -123,7 +124,6 @@ export const getQuizById = async (req, res) => {
       return res.status(404).json({ message: "Quiz not found" });
     }
 
-    // Lock enforcement: check course access if student and course has a price
     const courseId = quiz.course?._id || quiz.course;
     const coursePrice = quiz.course?.price ?? 1000;
     
@@ -144,8 +144,16 @@ export const getQuizById = async (req, res) => {
     }
 
     const quizObj = quiz.toObject();
-    const randomQuestions = shuffleArray(quizObj.questions).slice(0, 60);
-    quizObj.questions = shuffleQuizQuestionOptions(randomQuestions);
+    // Balance answer positions across batch (25% A, 25% B, 25% C, 25% D)
+    const balancedQuestions = balanceBatchPositions(quizObj.questions || []);
+    
+    // Shuffle and pick 60 questions
+    const selectedQuestions = balancedQuestions
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 60)
+      .map(q => sanitizeQuestionForStudent(q));
+
+    quizObj.questions = selectedQuestions;
     res.json(quizObj);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -161,7 +169,6 @@ export const getStudyQuizById = async (req, res) => {
       return res.status(404).json({ message: "Quiz not found" });
     }
 
-    // Lock enforcement: check course access if student and course has a price
     const courseId = quiz.course?._id || quiz.course;
     const coursePrice = quiz.course?.price ?? 1000;
     
@@ -181,7 +188,12 @@ export const getStudyQuizById = async (req, res) => {
       }
     }
 
-    res.json(quiz);
+    const quizObj = quiz.toObject();
+    if (req.user?.role !== "admin") {
+      quizObj.questions = (quizObj.questions || []).map(q => sanitizeQuestionForStudent(q));
+    }
+
+    res.json(quizObj);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -196,7 +208,6 @@ export const getStudyQuizByIdPublic = async (req, res) => {
       return res.status(404).json({ message: "Quiz not found" });
     }
 
-    // Public route must also enforce payment lock if course has price
     const courseId = quiz.course?._id || quiz.course;
     const coursePrice = quiz.course?.price ?? 1000;
 
@@ -218,7 +229,12 @@ export const getStudyQuizByIdPublic = async (req, res) => {
       }
     }
 
-    res.json(quiz);
+    const quizObj = quiz.toObject();
+    if (req.user?.role !== "admin") {
+      quizObj.questions = (quizObj.questions || []).map(q => sanitizeQuestionForStudent(q));
+    }
+
+    res.json(quizObj);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -227,10 +243,15 @@ export const getStudyQuizByIdPublic = async (req, res) => {
 // @desc    Create a quiz
 export const createQuiz = async (req, res) => {
   try {
+    const rawQs = req.body.questions || [];
+    const processedQs = rawQs.map(q => formatAndShuffleQuestion(q));
+    const balancedQs = balanceBatchPositions(processedQs);
+
     const payload = {
       ...req.body,
-      questions: shuffleQuizQuestionOptions(req.body.questions || [])
+      questions: balancedQs
     };
+
     const quiz = new Quiz(payload);
     const createdQuiz = await quiz.save();
     res.status(201).json(createdQuiz);
@@ -245,9 +266,9 @@ export const addQuestion = async (req, res) => {
     const quiz = await Quiz.findById(req.params.id);
 
     if (quiz) {
-      const { text, options, explanation } = req.body;
-      const question = shuffleQuestionOptions({ text, options, explanation });
-      quiz.questions.push(question);
+      const { text, options, explanation, subject, difficulty } = req.body;
+      const formattedQ = formatAndShuffleQuestion({ text, options, explanation, subject, difficulty });
+      quiz.questions.push(formattedQ);
       const updatedQuiz = await quiz.save();
       res.status(201).json(updatedQuiz);
     } else {
@@ -266,7 +287,10 @@ export const addBatchQuestions = async (req, res) => {
       const { questions } = req.body;
       if (!Array.isArray(questions)) return res.status(400).json({ message: "Questions must be an array" });
       
-      quiz.questions.push(...shuffleQuizQuestionOptions(questions));
+      const formattedQs = questions.map(q => formatAndShuffleQuestion(q));
+      const balancedQs = balanceBatchPositions(formattedQs);
+
+      quiz.questions.push(...balancedQs);
       const updatedQuiz = await quiz.save();
       res.status(201).json(updatedQuiz);
     } else {
@@ -286,7 +310,7 @@ export const updateQuiz = async (req, res) => {
       const payload = {
         ...req.body,
         ...(Array.isArray(req.body.questions)
-          ? { questions: shuffleQuizQuestionOptions(req.body.questions) }
+          ? { questions: balanceBatchPositions(req.body.questions.map(q => formatAndShuffleQuestion(q))) }
           : {})
       };
       Object.assign(quiz, payload);
@@ -335,7 +359,7 @@ export const deleteQuiz = async (req, res) => {
   }
 };
 
-// @desc    Generate questions using Gemini AI (supports Text, Image, PDF)
+// @desc    Generate questions using Gemini AI with Quality Control Pipeline & Auto-Regeneration
 export const generateQuestions = async (req, res) => {
   try {
     const quiz = await Quiz.findById(req.params.id);
@@ -416,7 +440,9 @@ export const generateQuestions = async (req, res) => {
                   required: ["text", "isCorrect"]
                 }
               },
-              explanation: { type: "string" }
+              explanation: { type: "string" },
+              difficulty: { type: "string" },
+              subject: { type: "string" }
             },
             required: ["text", "options", "explanation"]
           }
@@ -424,12 +450,16 @@ export const generateQuestions = async (req, res) => {
       }
     });
 
-    const instructions = `You are an expert CBT curriculum designer. Generate exactly ${count} MCQs based on the source material. 
-Focus on:
-1. Analytical and scenario-based questions.
-2. For calculation questions, use different numbers than the source text.
-3. Distractors must be plausible.
-4. Explanations must show the step-by-step reasoning or formula.`;
+    const instructions = `You are an expert CBT curriculum designer. Generate exactly ${count} high-quality MCQs based on the source material. 
+
+CRITICAL MCQ QUALITY & OPTION BALANCE RULES:
+1. Each question MUST contain EXACTLY 4 options. Exactly 1 option MUST have "isCorrect": true, and 3 MUST have "isCorrect": false.
+2. STRICT OPTION LENGTH PARITY: All 4 options MUST be equal in word count, character length, detail, and grammatical structure.
+3. DO NOT make the correct answer longer, more descriptive, or more technical than the distractors.
+4. DO NOT include explanatory connector words like 'because', 'therefore', or 'meaning that' inside option text. Put explanations in the 'explanation' field ONLY.
+5. Distractors MUST be realistic, sophisticated, and plausible domain concepts related to the topic. Avoid obvious nonsense or generic placeholders.
+6. Avoid 'all of the above' or 'none of the above'.
+7. Include 'difficulty' ("easy", "medium", or "hard") and 'subject' fields.`;
 
     const promptText = materialDescription ? `${instructions}\n\nSource Material:\n${materialDescription}` : instructions;
     finalPromptParts.unshift(promptText);
@@ -445,14 +475,103 @@ Focus on:
       throw new Error("The AI provided an incompatible data format. Please refine the source material.");
     }
 
-    const shuffledQuestions = shuffleQuizQuestionOptions(questions || []);
+    // Process questions through Quality Control Pipeline & Auto-Regeneration
+    const validatedQuestions = [];
+    const existingBank = quiz.questions || [];
 
-    quiz.questions.push(...shuffledQuestions);
+    for (let rawQ of (questions || [])) {
+      let currentQ = { ...rawQ };
+      let regenAttempts = 0;
+      let qScore = calculateQualityScore(currentQ, [...existingBank, ...validatedQuestions]);
+
+      while (qScore.score < MCQ_QUALITY_CONFIG.QUALITY_PASS_SCORE && regenAttempts < MCQ_QUALITY_CONFIG.MAX_REGEN_ATTEMPTS) {
+        regenAttempts++;
+        console.log(`  ⚠️ Question failed QC (Score: ${qScore.score}). Attempting AI regeneration ${regenAttempts}/${MCQ_QUALITY_CONFIG.MAX_REGEN_ATTEMPTS}...`);
+        
+        try {
+          const feedbackPrompt = `Re-generate the following MCQ so it passes quality validation.
+Issues with previous version: ${qScore.rejectionReasons.join("; ")}
+
+Previous Question: ${JSON.stringify(currentQ)}
+
+Ensure all 4 options match in word count and grammar. Make distractors equally detailed. Return a single JSON object.`;
+
+          const regenResult = await model.generateContent([{ text: feedbackPrompt }]);
+          const regenText = (await regenResult.response).text().trim();
+          const regeneratedData = JSON.parse(regenText);
+          const candidateQ = Array.isArray(regeneratedData) ? regeneratedData[0] : regeneratedData;
+          if (candidateQ && candidateQ.text && Array.isArray(candidateQ.options)) {
+            currentQ = candidateQ;
+            qScore = calculateQualityScore(currentQ, [...existingBank, ...validatedQuestions]);
+          }
+        } catch (rErr) {
+          console.error("Regeneration attempt failed:", rErr.message);
+          break;
+        }
+      }
+
+      const isPass = qScore.score >= MCQ_QUALITY_CONFIG.QUALITY_PASS_SCORE;
+      const finalQ = {
+        ...currentQ,
+        qualityScore: qScore.score,
+        validationStatus: isPass ? "passed" : "flagged_admin",
+        rejectionReasons: qScore.rejectionReasons,
+        regenerationCount: regenAttempts,
+        needsAdminReview: !isPass,
+        aiGenerated: true,
+        difficulty: currentQ.difficulty || "medium",
+        subject: currentQ.subject || quiz.title || "General"
+      };
+
+      validatedQuestions.push(formatAndShuffleQuestion(finalQ));
+    }
+
+    // Balance correct answer positions across batch (25% A, 25% B, 25% C, 25% D)
+    const finalBalancedBatch = balanceBatchPositions(validatedQuestions);
+
+    quiz.questions.push(...finalBalancedBatch);
     const updatedQuiz = await quiz.save();
 
     res.status(201).json({ message: "Questions generated successfully", updatedQuiz });
   } catch (error) {
     console.error("Gemini Generation Error:", error.message);
     res.status(500).json({ message: "Failed to generate AI questions.", error: error.message });
+  }
+};
+
+// @desc    Get quality control report for a quiz (Admin only)
+// @route   GET /api/quizzes/:id/admin-qc-report
+export const getAdminQualityReport = async (req, res) => {
+  try {
+    const quiz = await Quiz.findById(req.params.id).populate(coursePopulate);
+    if (!quiz) return res.status(404).json({ message: "Quiz not found" });
+
+    const questions = quiz.questions || [];
+    const totalQuestions = questions.length;
+    const flaggedQuestions = questions.filter(q => q.needsAdminReview || q.validationStatus === "flagged_admin");
+    const avgQualityScore = totalQuestions > 0
+      ? Math.round(questions.reduce((acc, q) => acc + (q.qualityScore ?? 100), 0) / totalQuestions)
+      : 100;
+
+    res.json({
+      quizId: quiz._id,
+      title: quiz.title,
+      totalQuestions,
+      avgQualityScore,
+      flaggedCount: flaggedQuestions.length,
+      passedCount: totalQuestions - flaggedQuestions.length,
+      flaggedQuestions: flaggedQuestions.map(q => ({
+        _id: q._id,
+        text: q.text,
+        qualityScore: q.qualityScore,
+        validationStatus: q.validationStatus,
+        rejectionReasons: q.rejectionReasons,
+        regenerationCount: q.regenerationCount,
+        needsAdminReview: q.needsAdminReview,
+        options: q.options
+      }))
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 };

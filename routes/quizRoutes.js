@@ -12,6 +12,7 @@ import {
   generateQuestions,
   renameQuiz,
   addBatchQuestions,
+  getAdminQualityReport,
 } from "../controllers/quizController.js";
 import { protect, optionalProtect, admin } from "../utils/authMiddleware.js";
 import { upload } from "../config/cloudinary.js";
@@ -25,6 +26,7 @@ router.route("/:id/study/public").get(optionalProtect, getStudyQuizByIdPublic);
 router.route("/:id/questions").post(protect, admin, addQuestion);
 router.route("/:id/batch-questions").post(protect, admin, addBatchQuestions);
 router.route("/:id/generate").post(protect, admin, upload.array("files", 10), generateQuestions);
+router.route("/:id/admin-qc-report").get(protect, admin, getAdminQualityReport);
 router
   .route("/:id")
   .get(protect, getQuizById)
